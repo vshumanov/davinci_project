@@ -26,7 +26,8 @@ Plain text. ASCII only.
 - No smart quotes, no em/en dashes, no unicode bullets or arrows. Straight quotes and hyphens only.
 - Title on its own line, ALL CAPS. Blank line after.
 - Section headers in ALL CAPS. Nothing else marks a header.
-- One blank line between paragraphs. That is the only separator.
+- One blank line between paragraphs. That is the only separator. Never two or more blank lines in a row, not even before a header.
+- Hard-wrap all prose at about 64 columns. Insert a real newline at the wrap; do not leave paragraphs as one long line for the device to soft-wrap. One paragraph becomes several short lines plus one blank line after it. Do not break hyphenated words or long tokens (URLs) across lines.
 - No markdown: no #, *, _, |, [], backticks. No leading hyphen bullets.
 - Lists numbered as "1) ... 2) ...". No bullet characters.
 - Emphasis = CAPS only, used sparingly.

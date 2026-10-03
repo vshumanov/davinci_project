@@ -1,67 +1,164 @@
 ONLINE PRIVACY
 
-A short field guide to what happens to you online, why it happens, and what you can actually do about it. Read a section, put the phone away, come back later. Each section stands on its own.
-
+A short field guide to what happens to you online, why it
+happens, and what you can actually do about it. Read a section,
+put the phone away, come back later. Each section stands on its
+own.
 
 WHAT ONLINE PRIVACY IS
 
-Online privacy is control over who learns what about you through the things you do on a screen. Not secrecy. Control. The difference matters, so start there.
+Online privacy is control over who learns what about you through
+the things you do on a screen. Not secrecy. Control. The
+difference matters, so start there.
 
-Secrecy is hiding a single thing from everyone. Privacy is deciding, case by case, who gets to know a thing and who does not. You tell your doctor about a symptom and not your boss. You give your home address to a friend and not to a stranger on the street. None of that is secret. It is managed. Privacy online is the same instinct, applied to a world where the walls are invisible and the eavesdroppers are machines.
+Secrecy is hiding a single thing from everyone. Privacy is
+deciding, case by case, who gets to know a thing and who does
+not. You tell your doctor about a symptom and not your boss. You
+give your home address to a friend and not to a stranger on the
+street. None of that is secret. It is managed. Privacy online is
+the same instinct, applied to a world where the walls are
+invisible and the eavesdroppers are machines.
 
-The reason it feels slippery is that the internet was not built for it. The internet was built to move data between computers reliably. To do that, every message has to carry a return address and pass through machines owned by other people. Your request to load a web page travels through your home router, your internet provider, a chain of relays, and the servers of whoever runs the site. Each hop is a place where someone could, in principle, write down what passed through. Privacy online is the work of narrowing that list of someones and limiting what each of them can read.
+The reason it feels slippery is that the internet was not built
+for it. The internet was built to move data between computers
+reliably. To do that, every message has to carry a return
+address and pass through machines owned by other people. Your
+request to load a web page travels through your home router,
+your internet provider, a chain of relays, and the servers of
+whoever runs the site. Each hop is a place where someone could,
+in principle, write down what passed through. Privacy online is
+the work of narrowing that list of someones and limiting what
+each of them can read.
 
-There are three broad kinds of information people want to keep private, and they leak in different ways.
+There are three broad kinds of information people want to keep
+private, and they leak in different ways.
 
-The first is CONTENT. The actual words of your message, the photo, the document, the search you typed. This is what most people picture when they think of privacy.
+The first is CONTENT. The actual words of your message, the
+photo, the document, the search you typed. This is what most
+people picture when they think of privacy.
 
-The second is METADATA. Not what you said, but that you said it, to whom, when, from where, and how often. Metadata sounds harmless and is often more revealing than content. The fact that you called a cancer clinic, then a lawyer, then your sister, at eleven at night, tells a story without a single word of the calls being heard.
+The second is METADATA. Not what you said, but that you said it,
+to whom, when, from where, and how often. Metadata sounds
+harmless and is often more revealing than content. The fact that
+you called a cancer clinic, then a lawyer, then your sister, at
+eleven at night, tells a story without a single word of the
+calls being heard.
 
-The third is BEHAVIOR over time. Not any single action but the pattern. Which sites you visit, what you linger on, what you buy, where your phone sleeps at night. Stitched together, behavior becomes a profile, and a profile becomes a prediction about what you will do, want, or fear next.
+The third is BEHAVIOR over time. Not any single action but the
+pattern. Which sites you visit, what you linger on, what you
+buy, where your phone sleeps at night. Stitched together,
+behavior becomes a profile, and a profile becomes a prediction
+about what you will do, want, or fear next.
 
-Most of the modern privacy problem is the second and third kind. Content is relatively easy to lock up. Metadata and behavior are produced constantly, as a byproduct of simply using a device, and they are the raw material of a very large industry.
+Most of the modern privacy problem is the second and third kind.
+Content is relatively easy to lock up. Metadata and behavior are
+produced constantly, as a byproduct of simply using a device,
+and they are the raw material of a very large industry.
 
-So when this book says online privacy, it means this: how much of your content, your metadata, and your behavior ends up in hands you did not choose, and what that enables those hands to do.
-
+So when this book says online privacy, it means this: how much
+of your content, your metadata, and your behavior ends up in
+hands you did not choose, and what that enables those hands to
+do.
 
 WHY IT MATTERS
 
-The common objection is honest and worth answering directly: I have nothing to hide, so why should I care?
+The common objection is honest and worth answering directly: I
+have nothing to hide, so why should I care?
 
-The first answer is that privacy is not about hiding wrongdoing. You close the bathroom door, put a password on your phone, and seal envelopes, not because you are doing anything wrong, but because some things are simply yours. A life with no private space is not a virtuous life, it is an exposed one. The burden of proof runs the wrong way when someone demands to know why you want a curtain.
+The first answer is that privacy is not about hiding wrongdoing.
+You close the bathroom door, put a password on your phone, and
+seal envelopes, not because you are doing anything wrong, but
+because some things are simply yours. A life with no private
+space is not a virtuous life, it is an exposed one. The burden
+of proof runs the wrong way when someone demands to know why you
+want a curtain.
 
-The second answer is more practical. The information collected about you is not sitting in a vault being admired. It is being used to make decisions about you, often without your knowledge, and the stakes are rising.
+The second answer is more practical. The information collected
+about you is not sitting in a vault being admired. It is being
+used to make decisions about you, often without your knowledge,
+and the stakes are rising.
 
 Consider what a detailed profile enables.
 
-PRICING. The same product or flight can cost different people different amounts based on what a company infers about your willingness to pay, the device you use, or where you live.
+PRICING. The same product or flight can cost different people
+different amounts based on what a company infers about your
+willingness to pay, the device you use, or where you live.
 
-INSURANCE AND CREDIT. Patterns in your behavior, your purchases, even your social connections, can feed scoring systems that affect what you are offered and at what rate.
+INSURANCE AND CREDIT. Patterns in your behavior, your purchases,
+even your social connections, can feed scoring systems that
+affect what you are offered and at what rate.
 
-EMPLOYMENT. Background and reputation checks now routinely sweep up far more than a criminal record. An old post, a membership, an inferred belief can all surface.
+EMPLOYMENT. Background and reputation checks now routinely sweep
+up far more than a criminal record. An old post, a membership,
+an inferred belief can all surface.
 
-MANIPULATION. A profile of your fears and desires is a map for persuasion. Advertising is the mild end. The sharp end is political and emotional targeting designed to move you without your noticing you were moved.
+MANIPULATION. A profile of your fears and desires is a map for
+persuasion. Advertising is the mild end. The sharp end is
+political and emotional targeting designed to move you without
+your noticing you were moved.
 
-SECURITY. The more that is known about you in scattered databases, the easier it is to impersonate you, guess your passwords, answer your security questions, or craft a scam that uses real details to earn your trust.
+SECURITY. The more that is known about you in scattered
+databases, the easier it is to impersonate you, guess your
+passwords, answer your security questions, or craft a scam that
+uses real details to earn your trust.
 
-There is a time dimension that makes all of this worse. Data does not expire on its own. Something harmless today can become dangerous when laws change, when you cross a border, when you take a public role, or when a database you never heard of is breached and dumped online. You cannot know in advance which of today's small exposures will matter in ten years. Privacy is partly a hedge against a future you cannot predict.
+There is a time dimension that makes all of this worse. Data
+does not expire on its own. Something harmless today can become
+dangerous when laws change, when you cross a border, when you
+take a public role, or when a database you never heard of is
+breached and dumped online. You cannot know in advance which of
+today's small exposures will matter in ten years. Privacy is
+partly a hedge against a future you cannot predict.
 
-And there is a collective dimension. Even if you genuinely do not care about your own data, your choices leak information about other people. Upload your contacts and you hand over the phone numbers of friends who never consented. Post a group photo and you place others in a face database. A messaging app is only as private as the least careful person in the chat. Privacy is not only a personal preference, it is a shared environment, like clean air. Your habits shape what is normal and possible for everyone around you.
+And there is a collective dimension. Even if you genuinely do
+not care about your own data, your choices leak information
+about other people. Upload your contacts and you hand over the
+phone numbers of friends who never consented. Post a group photo
+and you place others in a face database. A messaging app is only
+as private as the least careful person in the chat. Privacy is
+not only a personal preference, it is a shared environment, like
+clean air. Your habits shape what is normal and possible for
+everyone around you.
 
-The point is not fear. The point is that the quiet accumulation of data about ordinary people is the business model of much of the internet, and that model has real effects on real decisions about your money, your opportunities, and your safety. Caring about privacy is not paranoia. It is noticing who is in the room.
-
+The point is not fear. The point is that the quiet accumulation
+of data about ordinary people is the business model of much of
+the internet, and that model has real effects on real decisions
+about your money, your opportunities, and your safety. Caring
+about privacy is not paranoia. It is noticing who is in the
+room.
 
 HOW YOU GET TRACKED
 
-This is the heart of it. If you understand the mechanism, the rest follows. Tracking online is not magic and it is not a single thing. It is a stack of techniques, each solving the same problem for the tracker: tell this person apart from everyone else, and recognize them again later.
+This is the heart of it. If you understand the mechanism, the
+rest follows. Tracking online is not magic and it is not a
+single thing. It is a stack of techniques, each solving the same
+problem for the tracker: tell this person apart from everyone
+else, and recognize them again later.
 
 Start with the simplest tool, the COOKIE.
 
-A cookie is a small piece of text a website asks your browser to store and hand back on your next visit. Originally this was useful and benign. A cookie is how a site remembers you are logged in, or what is in your shopping cart. That is a first-party cookie, set by the site you are actually looking at.
+A cookie is a small piece of text a website asks your browser to
+store and hand back on your next visit. Originally this was
+useful and benign. A cookie is how a site remembers you are
+logged in, or what is in your shopping cart. That is a
+first-party cookie, set by the site you are actually looking at.
 
-The trouble began with THIRD-PARTY cookies. A web page is assembled from many sources. The article you read might pull its images from the news site but its ads from an ad network, its video from another company, its share buttons from a social network. Each of those outside pieces can set its own cookie. Now imagine the same ad network has pieces embedded on thousands of different sites. Every time you land on any of them, the ad network recognizes its cookie and notes where you are. Across a day of browsing, it assembles a list of much of what you looked at, even though you never visited the ad network directly. That is cross-site tracking, and it was the engine of online advertising for two decades.
+The trouble began with THIRD-PARTY cookies. A web page is
+assembled from many sources. The article you read might pull its
+images from the news site but its ads from an ad network, its
+video from another company, its share buttons from a social
+network. Each of those outside pieces can set its own cookie.
+Now imagine the same ad network has pieces embedded on thousands
+of different sites. Every time you land on any of them, the ad
+network recognizes its cookie and notes where you are. Across a
+day of browsing, it assembles a list of much of what you looked
+at, even though you never visited the ad network directly. That
+is cross-site tracking, and it was the engine of online
+advertising for two decades.
 
-Here is roughly what a tracking tag looks like on a page. It is just a request to a third party that happens to carry an identifier.
+Here is roughly what a tracking tag looks like on a page. It is
+just a request to a third party that happens to carry an
+identifier.
 
 =====
     <img
@@ -70,84 +167,332 @@ Here is roughly what a tracking tag looks like on a page. It is just a request t
       width="1" height="1" />
 =====
 
-That one-pixel image is invisible. Its only job is to make your browser phone home to the ad network with an identifier and the name of the page you are on. A tiny beacon, repeated across the web, builds the profile.
+That one-pixel image is invisible. Its only job is to make your
+browser phone home to the ad network with an identifier and the
+name of the page you are on. A tiny beacon, repeated across the
+web, builds the profile.
 
-Browsers and regulators spent years fighting third-party cookies, and they are now largely blocked or dying in major browsers. But tracking did not stop. It adapted. The money was too large for a single technique to be the whole game. So understand the cookie as the first layer, not the last.
+Browsers and regulators spent years fighting third-party
+cookies, and they are now largely blocked or dying in major
+browsers. But tracking did not stop. It adapted. The money was
+too large for a single technique to be the whole game. So
+understand the cookie as the first layer, not the last.
 
-The next layer is FINGERPRINTING, and it is the one most people have never heard of and should.
+The next layer is FINGERPRINTING, and it is the one most people
+have never heard of and should.
 
-Your browser, in order to display pages correctly, tells every site a surprising amount about your device. The operating system and version. The screen size and color depth. The exact list of fonts installed. The language. The time zone. The graphics hardware, revealed by asking the browser to draw a hidden image and measuring tiny differences in how your specific chip renders it. The audio hardware, probed the same way. The number of processor cores. Dozens of such details.
+Your browser, in order to display pages correctly, tells every
+site a surprising amount about your device. The operating system
+and version. The screen size and color depth. The exact list of
+fonts installed. The language. The time zone. The graphics
+hardware, revealed by asking the browser to draw a hidden image
+and measuring tiny differences in how your specific chip renders
+it. The audio hardware, probed the same way. The number of
+processor cores. Dozens of such details.
 
-No single detail identifies you. Plenty of people use the same screen size. But combine thirty or forty of these attributes and the combination becomes nearly unique. It is like a physical description: hair color alone means nothing, but height plus hair plus eye color plus a scar plus a limp plus an accent narrows a crowd to one person fast. Research has found that browser fingerprinting can single out well over ninety percent of users, and it is in active use on a large share of popular websites.
+No single detail identifies you. Plenty of people use the same
+screen size. But combine thirty or forty of these attributes and
+the combination becomes nearly unique. It is like a physical
+description: hair color alone means nothing, but height plus
+hair plus eye color plus a scar plus a limp plus an accent
+narrows a crowd to one person fast. Research has found that
+browser fingerprinting can single out well over ninety percent
+of users, and it is in active use on a large share of popular
+websites.
 
-The crucial and unsettling property of fingerprinting is that there is nothing to delete. A cookie is a file you can clear. A fingerprint is not stored on your machine at all. It is computed fresh, every visit, from the characteristics of your device and software. Clear your cookies, use a private window, switch on a VPN, and your fingerprint is unchanged, because none of those touch the hardware and software traits that produce it. In early 2025 a major ad platform dropped its rule against fingerprinting, which tells you where the industry expects the future to go.
+The crucial and unsettling property of fingerprinting is that
+there is nothing to delete. A cookie is a file you can clear. A
+fingerprint is not stored on your machine at all. It is computed
+fresh, every visit, from the characteristics of your device and
+software. Clear your cookies, use a private window, switch on a
+VPN, and your fingerprint is unchanged, because none of those
+touch the hardware and software traits that produce it. In early
+2025 a major ad platform dropped its rule against
+fingerprinting, which tells you where the industry expects the
+future to go.
 
 Beyond cookies and fingerprints, there are more layers still.
 
-ACCOUNT LINKING is the strongest of all and the one people volunteer. When you are logged in to a large platform, every action is tied to a real, durable identity by definition. No clever inference is needed. If you are signed in to the same account on your phone and your laptop, the two devices are trivially linked. Much of the richest profiling is simply reading what logged-in users did, then matching it to the shadow profiles built from cookies and fingerprints on the rest of the web.
+ACCOUNT LINKING is the strongest of all and the one people
+volunteer. When you are logged in to a large platform, every
+action is tied to a real, durable identity by definition. No
+clever inference is needed. If you are signed in to the same
+account on your phone and your laptop, the two devices are
+trivially linked. Much of the richest profiling is simply
+reading what logged-in users did, then matching it to the shadow
+profiles built from cookies and fingerprints on the rest of the
+web.
 
-Your IP ADDRESS is a rough location and identity signal. It reveals your approximate region and often your internet provider, and at home it changes rarely enough to act as a weak identifier for everyone in the household.
+Your IP ADDRESS is a rough location and identity signal. It
+reveals your approximate region and often your internet
+provider, and at home it changes rarely enough to act as a weak
+identifier for everyone in the household.
 
-Your PHONE is the richest source of all, because it carries sensors and travels with you. Apps can request location, and location over time is startlingly identifying. Two places, where you sleep and where you spend your days, are usually enough to name a person. Each app may also carry an advertising identifier the operating system provides, and the phone constantly looks for familiar wi-fi networks, each of which hints at where it has been.
+Your PHONE is the richest source of all, because it carries
+sensors and travels with you. Apps can request location, and
+location over time is startlingly identifying. Two places, where
+you sleep and where you spend your days, are usually enough to
+name a person. Each app may also carry an advertising identifier
+the operating system provides, and the phone constantly looks
+for familiar wi-fi networks, each of which hints at where it has
+been.
 
-Then there is the DATA BROKER layer, which ties the rest together. Brokers are companies most people have never heard of whose entire business is buying, merging, and selling personal data. A broker might combine your purchase history from loyalty cards, your property records, your approximate location from app data, and your online behavior into a single dossier, then sell access to it. Because they aggregate from many sources, they can connect the dots that any one tracker could not. Regulators in several places have begun forcing brokers to register and to honor deletion requests, but the industry is vast and largely out of sight.
+Then there is the DATA BROKER layer, which ties the rest
+together. Brokers are companies most people have never heard of
+whose entire business is buying, merging, and selling personal
+data. A broker might combine your purchase history from loyalty
+cards, your property records, your approximate location from app
+data, and your online behavior into a single dossier, then sell
+access to it. Because they aggregate from many sources, they can
+connect the dots that any one tracker could not. Regulators in
+several places have begun forcing brokers to register and to
+honor deletion requests, but the industry is vast and largely
+out of sight.
 
-Put the layers together and the mechanism is clear. A tracker wants to recognize you across time and across sites. Cookies do it with a stored tag. Fingerprinting does it with your device's own traits when the tag is gone. Account login does it with your explicit identity. Phones add place and persistence. Brokers merge everything into profiles and sell them. Each layer is a fallback for the others. That redundancy is why online privacy is hard, and why no single tool solves it.
+Put the layers together and the mechanism is clear. A tracker
+wants to recognize you across time and across sites. Cookies do
+it with a stored tag. Fingerprinting does it with your device's
+own traits when the tag is gone. Account login does it with your
+explicit identity. Phones add place and persistence. Brokers
+merge everything into profiles and sell them. Each layer is a
+fallback for the others. That redundancy is why online privacy
+is hard, and why no single tool solves it.
 
-One more concept ties this section to the next. The real currency is CORRELATION. A tracker does not need to know your name to harm or exploit you. It needs to know that the person who did this is the same person who did that. A persistent identifier, any identifier, is what turns scattered actions into a profile. Everything that protects your privacy is, at bottom, an attempt to break correlation: to make it hard to prove that today's you and yesterday's you are the same person.
-
+One more concept ties this section to the next. The real
+currency is CORRELATION. A tracker does not need to know your
+name to harm or exploit you. It needs to know that the person
+who did this is the same person who did that. A persistent
+identifier, any identifier, is what turns scattered actions into
+a profile. Everything that protects your privacy is, at bottom,
+an attempt to break correlation: to make it hard to prove that
+today's you and yesterday's you are the same person.
 
 WHAT PEOPLE GET WRONG
 
-A handful of comfortable beliefs do more damage than ignorance, because they feel like knowledge. Clearing them up is most of the practical benefit of thinking about privacy at all.
+A handful of comfortable beliefs do more damage than ignorance,
+because they feel like knowledge. Clearing them up is most of
+the practical benefit of thinking about privacy at all.
 
-The first mistake is BELIEVING A VPN MAKES YOU PRIVATE. This is the big one, because the marketing is everywhere and it oversells hard.
+The first mistake is BELIEVING A VPN MAKES YOU PRIVATE. This is
+the big one, because the marketing is everywhere and it
+oversells hard.
 
-A VPN, a virtual private network, encrypts the traffic between your device and the VPN company's server, and makes websites see the VPN's address instead of yours. That is genuinely useful for two narrow things. It stops the network you are on, a coffee shop, a hotel, your internet provider, from seeing which sites you visit. And it hides your real IP address and rough location from the sites themselves.
+A VPN, a virtual private network, encrypts the traffic between
+your device and the VPN company's server, and makes websites see
+the VPN's address instead of yours. That is genuinely useful for
+two narrow things. It stops the network you are on, a coffee
+shop, a hotel, your internet provider, from seeing which sites
+you visit. And it hides your real IP address and rough location
+from the sites themselves.
 
-That is all it does. It does not stop cookies. It does not touch fingerprinting, which is the most powerful tracking method and is completely blind to your IP address. It does nothing while you are logged in to accounts, which identify you by name regardless of your address. And it moves your trust rather than removing it: your internet provider can no longer see your traffic, but the VPN company now can. You have swapped one party that can watch you for another, and you had better trust the new one more than the old one. A free VPN in particular has to make money somehow, and the product it is selling may be you. A VPN is a tool for a specific job. It is not a cloak of invisibility, and treating it as one is how people end up more exposed, not less, because they relax everything else.
+That is all it does. It does not stop cookies. It does not touch
+fingerprinting, which is the most powerful tracking method and
+is completely blind to your IP address. It does nothing while
+you are logged in to accounts, which identify you by name
+regardless of your address. And it moves your trust rather than
+removing it: your internet provider can no longer see your
+traffic, but the VPN company now can. You have swapped one party
+that can watch you for another, and you had better trust the new
+one more than the old one. A free VPN in particular has to make
+money somehow, and the product it is selling may be you. A VPN
+is a tool for a specific job. It is not a cloak of invisibility,
+and treating it as one is how people end up more exposed, not
+less, because they relax everything else.
 
-The second mistake is THINKING PRIVATE OR INCOGNITO MODE HIDES YOU. It does not, and the browser itself usually says so if you read the opening screen. Private mode means your own browser does not save that session's history, cookies, or form entries on your own computer. It is for keeping a secret from other people who use your machine, a gift surprise, a shared family laptop. The websites you visit, your internet provider, and your employer or school network see exactly as much as they always would. Private mode is local amnesia, not online invisibility.
+The second mistake is THINKING PRIVATE OR INCOGNITO MODE HIDES
+YOU. It does not, and the browser itself usually says so if you
+read the opening screen. Private mode means your own browser
+does not save that session's history, cookies, or form entries
+on your own computer. It is for keeping a secret from other
+people who use your machine, a gift surprise, a shared family
+laptop. The websites you visit, your internet provider, and your
+employer or school network see exactly as much as they always
+would. Private mode is local amnesia, not online invisibility.
 
-The third mistake is I HAVE NOTHING TO HIDE, which the earlier section answered but which deserves one more angle here. The belief assumes the only reason for privacy is concealment of guilt. But you are not the one who decides what the data means. Others interpret it, out of context, years later, under rules that did not exist when you produced it. The question is never only what you have to hide today. It is what someone could later make of what you revealed, and you do not control that someone. Nothing to hide assumes a static, friendly world. The world is neither.
+The third mistake is I HAVE NOTHING TO HIDE, which the earlier
+section answered but which deserves one more angle here. The
+belief assumes the only reason for privacy is concealment of
+guilt. But you are not the one who decides what the data means.
+Others interpret it, out of context, years later, under rules
+that did not exist when you produced it. The question is never
+only what you have to hide today. It is what someone could later
+make of what you revealed, and you do not control that someone.
+Nothing to hide assumes a static, friendly world. The world is
+neither.
 
-The fourth mistake is ASSUMING DELETE MEANS GONE. When you delete a post, a photo, or an account, you are usually asking a company to hide it from your view. Backups, logs, archives, and copies already shared or scraped may persist for a long time, sometimes indefinitely. Anything that was ever public may have been saved by someone else the instant it appeared. The safe assumption is that what you put online is permanent, and that deletion is a request, not an erasure.
+The fourth mistake is ASSUMING DELETE MEANS GONE. When you
+delete a post, a photo, or an account, you are usually asking a
+company to hide it from your view. Backups, logs, archives, and
+copies already shared or scraped may persist for a long time,
+sometimes indefinitely. Anything that was ever public may have
+been saved by someone else the instant it appeared. The safe
+assumption is that what you put online is permanent, and that
+deletion is a request, not an erasure.
 
-The fifth mistake is TREATING PRIVACY AS ALL OR NOTHING. People hear that perfect anonymity is nearly impossible, conclude that any effort is pointless, and give up. This is backwards. Privacy is not a switch, it is a dial, and the goal for almost everyone is not invisibility but raising the cost of tracking you enough that the easy, bulk, automated collection stops working. Bulk surveillance is cheap precisely because most people make it cheap. Blocking trackers, declining permissions, and using a better browser will not stop a determined government agency aimed at you personally, but that is not the threat most people face. The real threat is the automated hoovering that treats you as one undefended target among millions. Against that, small measures work very well, because the whole model depends on friction being near zero.
+The fifth mistake is TREATING PRIVACY AS ALL OR NOTHING. People
+hear that perfect anonymity is nearly impossible, conclude that
+any effort is pointless, and give up. This is backwards. Privacy
+is not a switch, it is a dial, and the goal for almost everyone
+is not invisibility but raising the cost of tracking you enough
+that the easy, bulk, automated collection stops working. Bulk
+surveillance is cheap precisely because most people make it
+cheap. Blocking trackers, declining permissions, and using a
+better browser will not stop a determined government agency
+aimed at you personally, but that is not the threat most people
+face. The real threat is the automated hoovering that treats you
+as one undefended target among millions. Against that, small
+measures work very well, because the whole model depends on
+friction being near zero.
 
-The sixth mistake is CONFUSING ENCRYPTION WITH END-TO-END ENCRYPTION. Many services say your messages are encrypted. Often this means encrypted in transit and on the company's disks, but the company still holds the keys and can read the content, hand it over, or scan it. END-TO-END encryption means only the sender and receiver hold the keys, and the company carrying the message cannot read it even if compelled. The difference is enormous and the words used to describe them are nearly identical on purpose. When content privacy matters, the phrase to look for is end-to-end.
+The sixth mistake is CONFUSING ENCRYPTION WITH END-TO-END
+ENCRYPTION. Many services say your messages are encrypted. Often
+this means encrypted in transit and on the company's disks, but
+the company still holds the keys and can read the content, hand
+it over, or scan it. END-TO-END encryption means only the sender
+and receiver hold the keys, and the company carrying the message
+cannot read it even if compelled. The difference is enormous and
+the words used to describe them are nearly identical on purpose.
+When content privacy matters, the phrase to look for is
+end-to-end.
 
-The last mistake is FORGETTING THAT THE PERSON IS THE WEAK POINT. The strongest encryption in the world is undone by reusing one password across sites, by handing an app every permission it asks for, by posting the one detail that answers your security question, or by clicking the link in a convincing message. Most real breaches of ordinary people are not broken cryptography. They are a borrowed habit, a reused password, a moment of trust given to a stranger wearing a familiar face. Privacy is less about exotic tools than about a few steady habits.
-
+The last mistake is FORGETTING THAT THE PERSON IS THE WEAK
+POINT. The strongest encryption in the world is undone by
+reusing one password across sites, by handing an app every
+permission it asks for, by posting the one detail that answers
+your security question, or by clicking the link in a convincing
+message. Most real breaches of ordinary people are not broken
+cryptography. They are a borrowed habit, a reused password, a
+moment of trust given to a stranger wearing a familiar face.
+Privacy is less about exotic tools than about a few steady
+habits.
 
 WHERE IT CONNECTS
 
-Online privacy does not sit alone. It touches a handful of neighboring ideas, and understanding the connections is what lets you talk about the subject with judgment rather than slogans. This section is the map of what is next to what.
+Online privacy does not sit alone. It touches a handful of
+neighboring ideas, and understanding the connections is what
+lets you talk about the subject with judgment rather than
+slogans. This section is the map of what is next to what.
 
-It connects first to SECURITY, and the two are often confused. Security is keeping attackers out of your accounts and devices. Privacy is controlling what the legitimate holders of your data do with it. They overlap but are not the same. A service can be perfectly secure, with flawless encryption and no breaches, and still be a privacy disaster because its entire purpose is to collect and sell what you do. Conversely, a privacy-respecting tool that is badly secured will leak everything the moment it is breached. You need both. In practice, the security basics are also the highest-value privacy moves: a unique strong password for every account, kept in a password manager so you do not have to remember them, and a second factor, a code or a key, on anything that matters. These do more to protect ordinary people than any privacy gadget, because a reused password is the single most common way a life comes apart online.
+It connects first to SECURITY, and the two are often confused.
+Security is keeping attackers out of your accounts and devices.
+Privacy is controlling what the legitimate holders of your data
+do with it. They overlap but are not the same. A service can be
+perfectly secure, with flawless encryption and no breaches, and
+still be a privacy disaster because its entire purpose is to
+collect and sell what you do. Conversely, a privacy-respecting
+tool that is badly secured will leak everything the moment it is
+breached. You need both. In practice, the security basics are
+also the highest-value privacy moves: a unique strong password
+for every account, kept in a password manager so you do not have
+to remember them, and a second factor, a code or a key, on
+anything that matters. These do more to protect ordinary people
+than any privacy gadget, because a reused password is the single
+most common way a life comes apart online.
 
-It connects to the LAW, which is the other half of the story alongside technology. Technology decides what is possible. Law decides what is allowed and what the penalty is. The European data protection regime, known as the GDPR, set the template: it treats personal data as something you retain rights over even after you hand it to a company, including rights to see it, correct it, and demand its deletion, and it requires real consent rather than a buried checkbox. In the United States there is no single national law, but a growing patchwork of state laws has spread quickly, with roughly twenty states having passed comprehensive privacy laws and more taking effect through 2025 and 2026. These generally give residents the right to see what is held, delete it, and opt out of the sale of their data, and several now force data brokers to register and to honor a single deletion request. Enforcement is uneven and the rules differ by place, but the direction is consistent: the default of collect everything, ask nothing is slowly being made illegal. The practical lesson is that you often have more rights than you use. Many services must honor a request to download or delete your data if you ask.
+It connects to the LAW, which is the other half of the story
+alongside technology. Technology decides what is possible. Law
+decides what is allowed and what the penalty is. The European
+data protection regime, known as the GDPR, set the template: it
+treats personal data as something you retain rights over even
+after you hand it to a company, including rights to see it,
+correct it, and demand its deletion, and it requires real
+consent rather than a buried checkbox. In the United States
+there is no single national law, but a growing patchwork of
+state laws has spread quickly, with roughly twenty states having
+passed comprehensive privacy laws and more taking effect through
+2025 and 2026. These generally give residents the right to see
+what is held, delete it, and opt out of the sale of their data,
+and several now force data brokers to register and to honor a
+single deletion request. Enforcement is uneven and the rules
+differ by place, but the direction is consistent: the default of
+collect everything, ask nothing is slowly being made illegal.
+The practical lesson is that you often have more rights than you
+use. Many services must honor a request to download or delete
+your data if you ask.
 
-It connects to the ECONOMICS of the internet, which explains why things are the way they are. Most of what you use online appears to be free. It is not free, you pay with data and attention, and the business that results is often called surveillance advertising: collect behavior, build profiles, predict and influence what people do, sell the ability to target them. Once you see that the service is the bait and your attention is the catch, the design of these products makes sense. The endless feed, the notifications, the friction when you try to leave or to turn tracking off, the pre-checked boxes, are not accidents or bad engineering. They are the product working as intended. This is why a genuine alternative is often one you pay for with money, because a company you pay has less reason to sell you. Following the money is the fastest way to predict how a service will treat your data.
+It connects to the ECONOMICS of the internet, which explains why
+things are the way they are. Most of what you use online appears
+to be free. It is not free, you pay with data and attention, and
+the business that results is often called surveillance
+advertising: collect behavior, build profiles, predict and
+influence what people do, sell the ability to target them. Once
+you see that the service is the bait and your attention is the
+catch, the design of these products makes sense. The endless
+feed, the notifications, the friction when you try to leave or
+to turn tracking off, the pre-checked boxes, are not accidents
+or bad engineering. They are the product working as intended.
+This is why a genuine alternative is often one you pay for with
+money, because a company you pay has less reason to sell you.
+Following the money is the fastest way to predict how a service
+will treat your data.
 
-It connects to CONSENT AND DARK PATTERNS, the small daily battleground. The cookie banners that greet you on every site are the visible edge of consent law. In principle they let you choose. In practice they are usually engineered to wear you down: accept all is a single bright button, while refusing requires hunting through several screens of toggles. This manipulation by design is called a dark pattern, and once you can name it you see it everywhere, in the hidden unsubscribe link, the free trial that demands a card, the setting that resets itself after an update. The skill is not to win every one of these, it is to recognize that a choice is being steered and to slow down when it is.
+It connects to CONSENT AND DARK PATTERNS, the small daily
+battleground. The cookie banners that greet you on every site
+are the visible edge of consent law. In principle they let you
+choose. In practice they are usually engineered to wear you
+down: accept all is a single bright button, while refusing
+requires hunting through several screens of toggles. This
+manipulation by design is called a dark pattern, and once you
+can name it you see it everywhere, in the hidden unsubscribe
+link, the free trial that demands a card, the setting that
+resets itself after an update. The skill is not to win every one
+of these, it is to recognize that a choice is being steered and
+to slow down when it is.
 
-It connects to the FUTURE SHAPE of tracking, which is already arriving. As cookies fade and fingerprinting rises, two further shifts are worth knowing. One is the move of intelligence onto the device itself, where a company can analyze your behavior locally and send back only conclusions, which sounds more private but can be harder to inspect or refuse. The other is the rise of large data systems, including modern artificial intelligence, trained on enormous scrapes of public and semi-public information, much of it posted by people who never imagined it would be used that way. The old questions, who holds my data and what can they infer, do not go away. They get sharper, because inference gets cheaper and more powerful every year. A detail you leak today can be combined and interpreted by tools that did not exist when you leaked it.
+It connects to the FUTURE SHAPE of tracking, which is already
+arriving. As cookies fade and fingerprinting rises, two further
+shifts are worth knowing. One is the move of intelligence onto
+the device itself, where a company can analyze your behavior
+locally and send back only conclusions, which sounds more
+private but can be harder to inspect or refuse. The other is the
+rise of large data systems, including modern artificial
+intelligence, trained on enormous scrapes of public and
+semi-public information, much of it posted by people who never
+imagined it would be used that way. The old questions, who holds
+my data and what can they infer, do not go away. They get
+sharper, because inference gets cheaper and more powerful every
+year. A detail you leak today can be combined and interpreted by
+tools that did not exist when you leaked it.
 
-Which brings the whole subject back to a single, usable idea. Online privacy is the ongoing effort to break correlation and to limit inference: to make it harder for strangers to prove that the scattered traces you leave all belong to one person, and harder for them to conclude things about you from those traces. You will not win it completely and you do not need to. The realistic aim is to stop being the cheapest target in the room.
+Which brings the whole subject back to a single, usable idea.
+Online privacy is the ongoing effort to break correlation and to
+limit inference: to make it harder for strangers to prove that
+the scattered traces you leave all belong to one person, and
+harder for them to conclude things about you from those traces.
+You will not win it completely and you do not need to. The
+realistic aim is to stop being the cheapest target in the room.
 
-If you want a short list of moves that pay off far beyond their effort, it is this.
+If you want a short list of moves that pay off far beyond their
+effort, it is this.
 
-1) Use a unique password for every account and a password manager to hold them, and turn on a second factor everywhere important. This is security, but it is the floor privacy stands on.
+1) Use a unique password for every account and a password
+manager to hold them, and turn on a second factor everywhere
+important. This is security, but it is the floor privacy stands
+on.
 
-2) Use a browser that blocks trackers and resists fingerprinting by default, and let it do that work for you rather than tuning dozens of settings.
+2) Use a browser that blocks trackers and resists fingerprinting
+by default, and let it do that work for you rather than tuning
+dozens of settings.
 
-3) Treat permissions as questions to be answered no by default. An app that wants your location, contacts, microphone, or camera should have to earn each one, and most do not need any of them.
+3) Treat permissions as questions to be answered no by default.
+An app that wants your location, contacts, microphone, or camera
+should have to earn each one, and most do not need any of them.
 
-4) Assume anything you post is permanent and public, and decide what to post on that assumption rather than on the promise of a delete button.
+4) Assume anything you post is permanent and public, and decide
+what to post on that assumption rather than on the promise of a
+delete button.
 
-5) Prefer end-to-end encrypted tools for private conversations, and be aware that a chat is only as private as every person in it.
+5) Prefer end-to-end encrypted tools for private conversations,
+and be aware that a chat is only as private as every person in
+it.
 
-6) Use the rights you now have. Many services will show you or delete your data if you ask, and opting out of data sale is increasingly a legal entitlement, not a favor.
+6) Use the rights you now have. Many services will show you or
+delete your data if you ask, and opting out of data sale is
+increasingly a legal entitlement, not a favor.
 
-None of this requires becoming a specialist. It requires understanding the mechanism, which you now do, and carrying a few habits that make the automated collection stumble. That is the whole of it. Privacy is not secrecy and it is not invisibility. It is keeping your hand on the dial, and knowing which way to turn it.
+None of this requires becoming a specialist. It requires
+understanding the mechanism, which you now do, and carrying a
+few habits that make the automated collection stumble. That is
+the whole of it. Privacy is not secrecy and it is not
+invisibility. It is keeping your hand on the dial, and knowing
+which way to turn it.
