@@ -1,0 +1,493 @@
+PRICING PSYCHOLOGY AND VALUE CAPTURE
+
+WHAT PRICE ACTUALLY DOES
+
+A price is not a receipt for costs incurred. It is a signal and a
+filter operating simultaneously: it tells the market what you
+believe the thing is worth, and it filters out everyone unwilling to
+pay that belief. Almost every pricing mistake traces back to
+forgetting one half of that dual function, usually the first half,
+treating price as pure accounting rather than as a claim about
+value that the market will either accept or reject.
+
+The economic logic underneath all of this is simple even though the
+practice gets complicated. A customer buys something when the value
+they expect to receive from it exceeds the price asked. The gap
+between what they would have been willing to pay at maximum, their
+reservation price, and what they actually paid, is called consumer
+surplus, and it is money the customer keeps that the seller could,
+in principle, have captured instead. Every pricing decision is
+implicitly a decision about how much of that surplus to try to
+capture versus how much to leave on the table to make the sale feel
+comfortable, move volume, or preserve goodwill.
+
+This booklet is about one specific, common failure mode, pricing
+from cost rather than from value, and the mechanics of the
+alternative, plus the psychological levers that determine how much
+of the value delivered a seller actually manages to capture rather
+than simply enable.
+
+
+WHY COST-PLUS IS A CATEGORY ERROR
+
+Cost-plus pricing, take your cost to produce or deliver something,
+add a margin percentage, call that the price, is the default
+instinct almost everyone starts with, and it is popular because it
+feels safe, defensible, and fair. It is also structurally
+disconnected from the actual thing that determines what a customer
+will pay, which is not what the seller spent, it is what the buyer
+gains.
+
+The category error is treating cost and value as though they were
+the same axis with cost simply being value's floor. They are not
+correlated in any reliable way. A piece of custom software that
+takes forty hours to build might save a client six figures a year in
+labor, in which case cost-plus at, say, one hundred euros an hour
+massively underprices a solution worth vastly more to the buyer. A
+different piece of software might take four hundred hours to build
+and deliver only marginal convenience, in which case cost-plus
+pricing badly overprices it relative to what any rational buyer
+would pay. Cost tells you what the seller is owed to break even. It
+tells you almost nothing about what the market will bear, and in
+any transaction where value delivered is high relative to
+production cost, cost-plus systematically leaves money on the table
+that the customer would have happily paid, because the customer's
+willingness to pay was never part of the calculation in the first
+place.
+
+There is a second, quieter problem with cost-plus that shows up
+over time rather than in a single transaction: it punishes
+efficiency. Under a strict cost-plus model, becoming faster, better,
+or more efficient at delivering the same outcome literally reduces
+the price you are allowed to charge for it, because the margin is
+calculated off a shrinking cost base. This creates a perverse
+incentive structure where getting better at your job makes you
+poorer, which is backwards, and it is one reason many
+service-based businesses that price this way plateau in profitability
+even as their actual skill and efficiency improve year over year.
+The market does not reward you for how long something took. It
+rewards you for what it was worth to have.
+
+None of this means cost is irrelevant. Cost sets the floor below
+which a deal destroys value for the seller, and it remains essential
+information for deciding whether a given engagement is worth taking
+at all. The error is using cost as the anchor for the price rather
+than as the floor beneath it.
+
+
+VALUE-BASED PRICING: THE CORE MECHANISM
+
+Value-based pricing starts from a different question entirely: not
+"what did this cost me," but "what is this worth to the specific
+buyer in front of me, and how much of that worth can I reasonably
+capture." The mechanism runs in three steps.
+
+1) Quantify the value created, in the buyer's own terms and
+currency wherever possible. This is the step almost everyone skips
+or does badly, because it requires actual investigation into the
+buyer's situation rather than assumptions about a generic market. A
+useful frame is to compare the buyer's outcome with your solution
+against their next-best alternative, which might be doing nothing,
+doing it manually, hiring in-house, or buying from a competitor. The
+value created is the difference between those two outcomes, not the
+absolute value of the outcome itself. A tool that saves a business
+twenty hours a month of manual work has a value roughly equal to
+what twenty hours of that labor costs the business (wages, overhead,
+opportunity cost of what that time could otherwise produce), not
+some abstract sense of how impressive the tool is.
+
+2) Identify who actually captures that value and how durable it is.
+Value created once (a one-time efficiency gain) prices differently
+from value created repeatedly (a recurring monthly savings), and
+value that compounds (fixing a bottleneck that was capping growth)
+prices differently again from value that is flat. The more durable
+and compounding the value, the more a seller can reasonably ask,
+because the buyer is not just purchasing an outcome, they are
+purchasing a stream of future outcomes.
+
+3) Set price as a fraction of that quantified value, not as a
+fraction of production cost. Common practice across
+consulting, software, and specialized services is to aim for
+something in the range of ten to thirty percent of the quantified
+value created in the first year alone, occasionally higher for
+scarce expertise or urgent problems, occasionally lower for
+commoditized categories with many substitutable providers. The
+exact fraction is negotiable and depends on competitive alternatives
+and BATNA dynamics on both sides, covered in more detail in the
+companion booklet on negotiation mechanics, but the reference point
+for that percentage is value delivered, never hours worked or
+materials consumed.
+
+The practical difficulty with value-based pricing is not conceptual,
+it is informational: quantifying value accurately requires
+understanding the buyer's business well enough to make a credible
+case for the number, which is more work upfront than simply totaling
+a cost sheet. This upfront diagnostic work is not overhead to be
+minimized, it is the actual product in many high-value engagements,
+because a seller who can walk into a room and say "this problem is
+costing you roughly this much a month, and here is the math" has
+already done more selling than any pitch deck could accomplish, and
+has justified a price that a generic cost estimate never could.
+
+
+THE PSYCHOLOGY LAYER: ANCHORS, DECOYS, AND REFERENCE PRICES
+
+Value-based pricing sets the ceiling on what is rational to charge.
+What actually gets captured in practice is shaped heavily by
+psychological framing effects layered on top of that rational
+ceiling, because buyers do not evaluate prices in a vacuum, they
+evaluate them relative to reference points.
+
+Anchoring, the same mechanism covered in the negotiation booklet,
+applies directly to pricing. The first number a buyer sees for a
+category of purchase becomes the reference point against which
+every subsequent price is judged, even irrelevant ones. This is why
+premium or "decoy" options placed at the top of a price list, even
+options that are rarely purchased themselves, reliably increase the
+average price paid across the whole list: the expensive option
+resets the anchor upward and makes the middle option look
+comparatively reasonable, an effect documented repeatedly in pricing
+experiments and used deliberately in menu design, software tier
+pricing, and consulting proposal structures (typically three tiers,
+where the middle tier is the one actually being sold and the top
+tier exists mainly to anchor).
+
+The decoy effect is a related, more specific tool. When a buyer is
+choosing between two options that are hard to compare directly
+(say, a cheaper smaller package and a pricier larger one), adding a
+third option that is clearly inferior to one of the existing two but
+priced close to it makes that existing option look like an obviously
+superior deal by comparison, pulling choice share toward it even
+though nothing about its absolute value changed. The decoy is rarely
+meant to sell. It is meant to make a specific other option look
+better than it would look alone.
+
+Reference pricing more broadly explains why identical value can be
+priced very differently depending on framing and category. A price
+framed as "less than the cost of your daily coffee" recruits a
+cheap, familiar reference point, and a price framed against "what
+you're currently losing to this problem every month" recruits an
+expensive, painful reference point, for the exact same number. Which
+frame a seller chooses shapes how large or small that price feels,
+independent of its objective value-to-price ratio.
+
+Charm pricing (ending a price in nine, .99 instead of a round
+number) reliably increases perceived affordability slightly beyond
+what the actual small discount would predict, because buyers process
+the leftmost digit more heavily than the full number, a well-
+replicated finding in retail pricing research. It has weaker or even
+negative effects in premium and luxury contexts, where round numbers
+signal confidence and quality rather than discount-seeking, which is
+why a luxury watch is priced at an even number and a supermarket
+item is priced at a nine.
+
+
+CAPTURING VALUE WITHOUT KILLING THE DEAL
+
+Quantifying value and using framing effects well does not guarantee
+a deal closes, because pushing capture too aggressively relative to
+the buyer's own alternatives simply moves the buyer's decision back
+to their BATNA, walking away, doing it themselves, or choosing a
+competitor. Several practical checks keep value-based pricing from
+overreaching.
+
+1) Always price against the buyer's real next-best alternative, not
+against an abstract sense of the value in isolation. A solution
+worth a hundred thousand euros in absolute terms is only worth the
+difference between it and whatever the buyer would otherwise do, and
+if a decent alternative exists at a much lower price, that
+alternative sets a practical ceiling on what can be captured
+regardless of the absolute value calculation.
+
+2) Leave visible surplus on the table deliberately. A price that
+captures close to all of the quantified value gives the buyer no
+felt sense of a good deal, and buyers who feel they captured no
+surplus are measurably less satisfied and less likely to return or
+refer, even when the objective price-to-value ratio was fair. Most
+successful value-based pricing in practice targets a fraction of
+total value specifically so the buyer's remaining surplus is large
+enough to feel like a genuinely good outcome to them.
+
+3) Tie price explicitly to outcome or scope wherever credible,
+rather than to time or materials, because pricing on outcome
+reframes the entire conversation away from cost comparisons with
+substitutes and toward the value comparison this section has been
+describing. This is also why the strongest value-based pricing
+conversations happen early, before scope is fixed to a specific
+cost-estimable task list, because once a buyer starts thinking in
+terms of hours and materials, the conversation has quietly reverted
+to cost-plus framing even if the seller never says the word cost.
+
+4) Expect and prepare for price sensitivity to increase sharply once
+a category becomes commoditized in the buyer's mind, meaning once
+several providers are perceived as delivering functionally
+interchangeable outcomes. Value-based pricing captures the most when
+a seller's specific expertise, speed, or approach is genuinely
+differentiated and hard to substitute; it captures the least, and
+tends to collapse toward cost-plus-like competition, in categories
+where buyers reasonably believe any competent provider produces the
+same result.
+
+
+PRICING MODELS IN PRACTICE
+
+The principles above apply regardless of structure, but the choice
+of pricing model, how the price is packaged and billed, has a large
+independent effect on how much value gets captured and how
+predictably. A few structures recur across most industries.
+
+1) Tiered pricing. Offering the same underlying capability at two or
+three price points differentiated by scope, volume, or feature access
+lets a seller capture different amounts of surplus from different
+buyer segments rather than picking one price that either overcharges
+price-sensitive buyers out of the market or undercharges high-value
+buyers who would have paid more. The classic three-tier structure
+(basic, standard, premium) also does double duty as the anchoring
+device described earlier, with the premium tier frequently existing
+mainly to make the standard tier look reasonably priced by
+comparison, a fact reflected in how rarely the premium tier is
+actually the top seller in well-designed tier structures.
+
+2) Usage-based and subscription pricing. Charging per unit of use,
+or a recurring fee for ongoing access, ties price directly to
+ongoing value received rather than to a single point-in-time
+transaction, and it converts revenue from a lumpy, one-time event
+into a predictable stream, which is valuable to the seller
+independent of the total amount charged, because predictable revenue
+is easier to plan against and typically commands a premium of its
+own from investors or lenders evaluating the business. The trade-off
+is that usage-based pricing requires genuinely reliable, trusted
+measurement of usage, and subscription pricing requires the value
+delivered to actually recur, charging a subscription for a one-time
+benefit erodes trust quickly once the buyer notices the mismatch.
+
+3) Price discrimination by segment. Charging different buyers
+different prices for the same underlying product, based on
+willingness to pay signals like company size, geography, urgency, or
+buyer sophistication, captures more of the total available surplus
+across a market than any single uniform price could, since a single
+price is always either too high for some buyers or too low relative
+to others' willingness to pay. This is standard, uncontroversial
+practice in many categories (student and senior discounts, regional
+software pricing, enterprise versus small-business tiers) and
+becomes ethically and legally sensitive mainly when the segmentation
+basis is itself considered manipulative or the differentiation is
+not disclosed at all, which varies by jurisdiction and category and
+is worth checking before designing a segmentation scheme rather than
+after a complaint.
+
+4) Bundling. Combining several separate offerings into a single
+package price, rather than pricing each component individually, works
+because different buyers value the individual components differently,
+and a well-constructed bundle can capture more total surplus across a
+mixed buyer population than pricing each piece separately, since a
+buyer who cares little about one component but a great deal about
+another will often still pay for the whole bundle if the combined
+price feels reasonable relative to the piece they actually want. The
+risk is that a poorly constructed bundle forces price-sensitive
+buyers who want only one component to walk away entirely rather than
+buy a smaller, cheaper subset, so bundling generally works best
+alongside, not instead of, an unbundled option for buyers who want
+only part of the offering.
+
+
+WHEN TO WALK AWAY FROM A DEAL, NOT JUST DISCOUNT IT
+
+A pricing conversation that stalls is not automatically a signal to
+discount. It is worth explicitly distinguishing three different
+reasons a buyer might resist a value-based price, because only one
+of them should actually move the number.
+
+1) The buyer genuinely has a comparably good, cheaper alternative,
+in which case the earlier point about pricing against the real
+next-best alternative applies, and some downward adjustment or added
+justification may be warranted.
+
+2) The buyer has not yet been shown the value calculation clearly
+enough to see why the price is justified, in which case the correct
+response is better articulation of the value, not a lower price,
+since discounting here trains the buyer, and the seller, that
+resistance is met with a lower number rather than a clearer case.
+
+3) The buyer simply has a lower reference point from an unrelated
+category (comparing a specialized service to a generic commodity
+price, for instance) that does not actually reflect a real
+alternative available to them, in which case the correct response is
+reframing the comparison, not adjusting the price to match a
+reference that was never a valid comparison in the first place.
+
+Discounting reflexively in response to any resistance, without first
+diagnosing which of these three situations is actually happening,
+is one of the most common ways sellers erode a value-based pricing
+structure back down toward cost-plus territory over time, one
+"reasonable" exception at a time, until the price list no longer
+reflects value at all but simply reflects whoever pushed back hardest.
+
+
+COMMUNICATING VALUE: MAKING THE CASE STICK
+
+A correctly calculated value-based price still fails to close if the
+buyer never internalizes the value calculation behind it, which
+makes the communication of that calculation as important as the
+calculation itself. A few practical patterns consistently improve
+whether a value case actually lands.
+
+1) Lead with the buyer's numbers, not yours. A value case built from
+the buyer's own reported costs, hours, or losses ("you mentioned this
+process currently takes your team about fifteen hours a week")
+carries far more persuasive weight than an identical calculation
+built from generic industry averages, because the buyer cannot easily
+dismiss their own previously stated numbers as inapplicable to their
+situation, which is the most common objection to abstract value
+claims.
+
+2) Quantify before naming a price, never after. A value calculation
+presented after a price has already been stated reads as
+justification invented to defend a number the buyer has already
+formed an opinion about. The same calculation presented before any
+price is mentioned reads as neutral analysis, and the price that
+follows it lands as a logical conclusion of the analysis rather than
+an assertion needing defense.
+
+3) Use ranges and comparisons rather than a single bare value figure
+when the underlying calculation carries real uncertainty, which it
+usually does. Stating "this is worth somewhere between X and Y to
+your business" and pricing inside that range reads as more credible,
+not less, than a suspiciously precise single figure, because buyers
+correctly recognize that business value estimates are rarely
+knowable to the exact number, and false precision undermines trust in
+the whole case.
+
+4) Separate the value case from the ask for as long as reasonably
+possible in the conversation. Buyers who feel a sales pitch coming
+tend to discount everything said afterward, including accurate value
+information, simply because they have reclassified the entire
+conversation as persuasion rather than analysis. Establishing the
+value picture as a shared, almost collaborative diagnostic exercise,
+before it becomes clear that a specific price is about to follow,
+tends to produce a more receptive audience for the number when it
+finally arrives.
+
+5) Anticipate and pre-address the buyer's most likely internal
+comparison, whether that is a cheaper competitor, an in-house
+alternative, or simply doing nothing, explicitly in the value case
+itself, rather than waiting for the objection to surface and
+responding defensively afterward. A value case that already accounts
+for "compared to your current approach, which costs you roughly this
+much a month" has effectively already answered the objection before
+it is raised, which reads as more confident and more thorough than a
+reactive answer given only once challenged.
+
+
+WHAT PEOPLE GET WRONG
+
+The most common error, especially among technically skilled people
+selling their own expertise, is pricing based on personal comfort
+with the number rather than the buyer's value calculation. A price
+that feels uncomfortably high to the seller is frequently still a
+bargain to the buyer, and the discomfort says more about the
+seller's own reference points (often anchored on their salary
+history or their own cost of living) than about what the market
+would actually bear.
+
+The second error is confusing value-based pricing with simply
+charging more. Raising a price without doing the underlying work of
+quantifying and articulating the value is just a bigger, unjustified
+number, and buyers with reasonable alternatives will correctly treat
+it as one. The pricing method described here is not permission to
+charge more, it is a discipline for finding the number that is
+actually justified by the specific situation, which is sometimes
+higher than cost-plus would suggest and occasionally lower.
+
+The third error is pricing the product instead of the outcome. Two
+buyers can receive the identical deliverable and derive wildly
+different value from it, one because it unblocks a critical
+bottleneck, another because it is a nice-to-have improvement, and a
+single fixed price applied uniformly to both ignores information
+that should, in principle, change what each of them is charged.
+
+The fourth error is neglecting the psychological framing layer
+entirely and assuming a rational value calculation alone determines
+what gets captured. Buyers are not calculators. The same underlying
+value, presented with a bad anchor, a missing reference point, or an
+unfavorable comparison structure, captures measurably less than the
+identical value presented well, which is why pricing is properly
+understood as value quantification plus psychological presentation,
+not either one alone.
+
+
+A NOTE ON RAISING PRICES WITHOUT LOSING TRUST
+
+Moving an existing customer base from an old, usually underpriced,
+model to a new value-based one is a distinct problem from setting an
+initial price, because existing customers have an anchor of their
+own, the price they have already been paying, and any increase reads
+against that anchor rather than against the abstract value
+calculation a new customer would evaluate fresh. A few patterns
+reduce the friction of this transition.
+
+1) Grandfather existing customers at their current price for a
+defined period, or permanently, while applying the new pricing only
+to new customers going forward. This avoids a direct confrontation
+with existing relationships while still correcting the pricing model
+for future growth, though it does mean tolerating a gap between what
+long-standing customers pay and what the relationship is actually
+worth, sometimes for years.
+
+2) When a direct increase to existing customers is necessary, pair it
+with a visible addition of value, a new feature, an expanded scope, a
+service level improvement, delivered concurrently with the price
+change, so the change is read as a repricing of an improved offering
+rather than a raw increase on an unchanged one, even when the
+underlying justification is really that the original price was simply
+too low.
+
+3) Communicate increases with real advance notice and a clear,
+substantive reason, tied to value delivered or cost structure, rather
+than announcing them abruptly or apologetically. A price increase
+explained confidently and substantively is read very differently from
+the identical increase announced nervously or buried in fine print,
+even though the number itself is the same, an effect that follows
+directly from the framing principles covered earlier in this
+booklet.
+
+4) Expect some attrition and price it into the plan. A meaningful
+minority of existing customers at an underpriced level will leave
+rather than accept a corrected price, and this is not necessarily a
+failure of the repricing, a portfolio of customers all paying a
+corrected, sustainable price is frequently more profitable overall
+than a larger portfolio partly composed of customers who were never
+priced to reflect the value they were actually receiving.
+
+
+WHERE THIS CONNECTS
+
+Pricing sits directly on top of the negotiation mechanics covered
+in the companion booklet: a price is essentially a pre-negotiated
+anchor set before the conversation even begins, and BATNA logic
+determines how much of the calculated value a seller can actually
+hold onto once a buyer starts pushing back.
+
+It connects to the cognitive bias material as well, anchoring,
+framing, and reference-dependence are not pricing-specific tricks,
+they are general features of human judgment under uncertainty that
+happen to have an outsized, well-studied effect on willingness to
+pay, and understanding them as instances of a broader bias
+literature makes them easier to apply deliberately and recognize
+when a buyer is using the same tools in reverse during a
+negotiation.
+
+It connects to basic microeconomics, consumer surplus, willingness
+to pay, and price discrimination are the formal versions of the
+intuitions this booklet describes informally, and anyone who wants
+the mathematical backbone underneath value-based pricing eventually
+runs into the standard economic treatment of these exact concepts.
+
+Finally it connects to business strategy more broadly, because a
+company's entire competitive position can often be read through its
+pricing model: a business trapped in cost-plus pricing is usually a
+business that has not yet found or articulated a real point of
+differentiation, while a business pricing confidently on value is
+usually one that has, and the transition from one to the other is as
+much a strategic and psychological shift as it is a change in
+spreadsheet formula.

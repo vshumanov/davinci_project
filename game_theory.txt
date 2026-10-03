@@ -1,0 +1,265 @@
+GAME THEORY FOR EVERYDAY USE
+
+WHAT IT IS
+
+Game theory studies decisions where your best move depends on
+someone else's move, and their best move depends on yours. That
+loop is the whole subject. Ordinary decision theory handles a
+single agent against nature: how much to bet, how much stock to
+hold, when to leave for the airport. Game theory kicks in the
+moment another mind is in the loop, choosing back.
+
+Formally a game has three parts: players, strategies (the full
+menu of moves each player could make), and payoffs (what each
+player gets for each combination of moves everyone makes). That
+last part is easy to skip past. A "game" here is not fun and not
+optional. Salary negotiations, splitting a bill, two companies
+pricing a product, two nuclear states deciding whether to strike
+first, two drivers reaching a four-way stop at the same instant -
+all games, all analyzed with the same tools.
+
+The founding text is von Neumann and Morgenstern's 1944 work on
+economic behavior, but the tool people actually use daily traces to
+John Nash's 1950 idea of equilibrium: a state where no player can
+improve their own outcome by changing only their own strategy,
+given what everyone else is doing. Nobody has to be happy at
+equilibrium. They just have no unilateral move that helps.
+
+That single idea - stability under one-sided defection, not mutual
+satisfaction - is the load-bearing concept of the field. Once you
+have it, most of what follows is working out its consequences in
+different settings: one shot or repeated, same information or
+hidden information, cooperation allowed or forbidden, many players
+or two.
+
+
+WHY IT MATTERS
+
+You already reason about other people's reasoning constantly. Game
+theory makes that reasoning explicit and checkable instead of
+running on vibes. Three practical payoffs from doing that.
+
+First, it kills a specific bad habit: optimizing against a fixed
+world when the world is actually another optimizer. Plan a
+negotiation, a pricing move, or an argument as if the other side
+will hold still while you act, and you will get surprised, because
+they are solving their own version of the same problem at the same
+time. Game theory forces you to model their incentives before you
+pick your move.
+
+Second, it explains a category of outcomes that look irrational or
+malicious from the inside but are actually structural. Price wars,
+arms races, traffic jams, overfishing, office politics where
+everyone hoards information, spam in a shared inbox - in every one
+of these, individually sensible choices add up to a collectively
+bad result, and no single villain caused it. Once you see the game
+underneath, you stop hunting for a bad actor and start looking for
+the payoff structure that needs to change.
+
+Third, it gives you levers. If a situation is a bad game, you
+generally have four ways to make it better: change the payoffs
+(fines, subsidies, reputation costs), change the information (who
+knows what, and when), change the players (who is even in the
+game), or change whether it repeats (a one-shot interaction behaves
+very differently from a relationship). Every negotiation tactic,
+every contract clause, every "let's put it in writing" is one of
+those four levers, whether the person pulling it has ever heard the
+term game theory or not.
+
+
+THE CORE MECHANISM
+
+Start with the classic: the Prisoner's Dilemma. Two suspects, held
+separately, each choose to stay silent or confess. Both silent:
+both get a light sentence. Both confess: both get a heavy sentence.
+One confesses while the other stays silent: the confessor walks
+free and the silent one gets the harshest sentence of all. Look at
+it from either seat: whatever the other person does, you personally
+do better by confessing. Confessing is a DOMINANT STRATEGY - a move
+that beats its alternative no matter what the other player picks.
+Both players reasoning this way independently land on mutual
+confession, an outcome worse for both of them than mutual silence.
+That is the whole engine of the dilemma: individually rational,
+collectively self-defeating, and stable once you get there, because
+neither side can improve by switching alone. That stability is
+exactly Nash's definition of equilibrium.
+
+This shape - a good cooperative outcome sitting right next to a bad
+equilibrium nobody can escape alone - recurs constantly. Overfishing
+a shared lake, two coworkers each waiting for the other to volunteer
+for the ugly task, two companies undercutting each other into an
+unprofitable price war: same skeleton, different costume.
+
+A second load-bearing shape is the COORDINATION GAME, and it looks
+nothing like the dilemma even though it also involves people
+choosing at once. Classic version: you and a friend get separated
+in a city with no way to communicate, and you both want to meet up.
+There is no conflict of interest at all here - you both want the
+same thing - but it is still a genuine game, because you need to
+correctly guess what the other person will guess you will do. These
+get solved by FOCAL POINTS: obvious, salient, culturally loaded
+options that stand out from the crowd of equally "rational" choices
+(the famous experiment had strangers separately asked where they
+would meet in New York with no way to communicate; the overwhelming
+answer was the information booth at Grand Central, not because it
+is objectively optimal, but because everybody could guess everybody
+else would guess it). Traffic lanes, handshake customs, which side
+of the road you drive on, standardized plug shapes, office norms
+about when the workday "really" starts - these persist not because
+they are the best possible solution, but because everyone expects
+everyone else to keep using them. That is a coordination
+equilibrium: stable for the same structural reason the bad dilemma
+outcome is stable, just pleasant instead of grim.
+
+A third shape worth having on hand: ZERO-SUM versus NON-ZERO-SUM. In
+a zero-sum game, one side's gain is exactly the other side's loss -
+a fixed pie, splitting a specific sum of money, most classic sports.
+Chess is zero-sum. Business almost never is. Most real negotiations
+- salary, a supplier contract, a partnership - have room to grow or
+shrink the total value on the table depending on how the parties
+play, which means treating them as zero-sum (pure extraction, "I
+win what you lose") is frequently a strategic error that leaves
+value unclaimed by both sides. The single most common bad instinct
+in everyday strategic thinking is importing zero-sum reflexes -
+sports, war, courtroom - into non-zero-sum situations where
+cooperation legitimately grows the total.
+
+
+REPEATED GAMES, COMMITMENT, AND TRUST
+
+Everything above changes shape the moment a game repeats with the
+same players. This is arguably the single most useful fact in the
+field for ordinary life, because almost none of your actual
+relationships are one-shot Prisoner's Dilemmas. Your coworkers, your
+neighbors, your regular clients, your family - you play them again
+next week.
+
+In a REPEATED GAME, cooperation can become the dominant strategy
+even in a dilemma-shaped situation, because defecting today costs
+you the other player's future cooperation. This is sometimes called
+"the shadow of the future": the longer and more certain the
+relationship, the more it pays to behave well now to protect
+tomorrow's payoff. The classic finding, from computer tournaments
+run by Robert Axelrod in the early 1980s, is that a stunningly
+simple strategy called TIT FOR TAT - cooperate first, then just
+mirror whatever the other player did last round - consistently
+outperformed far more devious programs. It is nice (never defects
+first), retaliatory (punishes defection immediately), forgiving
+(returns to cooperation the instant the other side does), and
+transparent (easy for the other player to read and therefore easy
+to trust). That is most of what "build trust" cashes out to
+mechanically: be predictable, punish clearly, forgive fast, and
+make sure the other party can read your policy.
+
+This is also where COMMITMENT DEVICES and CREDIBLE THREATS live,
+and they hold one of the more counterintuitive results in the
+field: deliberately reducing your own future options can make you
+better off, because it makes your threats and promises believable.
+A company that visibly burns its bridge to a fallback option is
+signaling, correctly, that it will fight harder in a negotiation,
+because it no longer has a soft exit. A parent who never bluffs
+about a consequence gets obeyed faster than one who threatens and
+then backs down, because the threat has to be credible to work - an
+unenforced threat is worse than no threat, since it teaches the
+other player your stated policy and your actual policy are two
+different things. Contracts, deposits, public announcements, and
+reputations all function as commitment devices: they take a promise
+that would otherwise be cheap to break and attach a real cost to
+breaking it, which is the only thing that makes the promise worth
+anything to the other side.
+
+Reputation itself is best understood as a compressed record of how
+you have played past repeated games, which other players use to
+predict your move in a game you have never played with them before.
+That is why reputation is disproportionately valuable in exactly
+the settings game theory would predict: small towns, small
+industries, small professional circles - anywhere the same players
+keep re-meeting, one bad round echoes into every future one.
+
+
+WHAT PEOPLE GET WRONG
+
+Two errors do almost all the damage when people apply this outside
+a textbook.
+
+The first is assuming everyone at the table shares your payoffs, or
+worse, assuming everyone is even trying to maximize the same kind
+of prize you are. Game theory does not require rational as in "cold
+and self-interested" - it requires only that each player has some
+consistent set of preferences and picks moves that serve them. A
+player optimizing for status, spite, loyalty to a third party, or
+looking good to an audience you cannot see is still playing the
+game rationally by their own lights; you have simply mis-modeled
+their payoff matrix. Most "irrational" behavior that baffles people
+in negotiations, office politics, or family disputes is actually
+perfectly rational behavior against a payoff structure the observer
+failed to include. Before concluding someone is being irrational,
+check whether you have the right game.
+
+The second is treating every interaction as one-shot when it is
+actually repeated, or the reverse - treating a genuinely final
+interaction as if reputation still applies. This cuts both ways.
+People bring cutthroat, extract-maximum-value, zero-sum instincts
+into relationships that will clearly repeat for years, and burn
+value that cooperation would have grown. And people occasionally
+extend naive, always-cooperate trust into a genuinely last
+interaction - the final transaction with a contractor who is
+retiring next week, the last negotiation before a permanent
+departure - where the shadow of the future has actually gone dark
+and the other side's incentives have quietly changed. Getting the
+TIME HORIZON of the game wrong is a bigger source of bad outcomes
+than getting the payoffs wrong.
+
+A smaller but common third mistake: confusing a Nash equilibrium
+with a good outcome. Equilibrium only means stable, not efficient,
+fair, or desirable - the whole point of the Prisoner's Dilemma is
+that the equilibrium is worse for everyone than an available
+alternative. "That's just how the game shakes out" is a
+description, never a justification.
+
+
+WHERE IT CONNECTS
+
+Game theory is less a self-contained field than shared
+infrastructure that shows up wherever strategic interaction does.
+
+In EVOLUTIONARY BIOLOGY, the same equilibrium math explains animal
+behavior without any animal doing conscious calculation at all -
+strategies that spread or die out simply because of the payoffs
+they produce across generations. John Maynard Smith's evolutionarily
+stable strategy is a Nash equilibrium wearing a biology coat, and it
+explains everything from why most sexually reproducing species
+settle near a 50/50 sex ratio to why animal contests over territory
+usually stop short of lethal escalation, since a species-wide
+"always fight to the death" strategy is unstable against a mutant
+"posture, then back down" strategy that avoids the cost.
+
+In ECONOMICS and MECHANISM DESIGN, game theory flips direction:
+instead of analyzing a game that already exists, you design the
+rules of a new one so that self-interested players are steered
+toward an outcome you want, without needing anyone to be honest or
+altruistic. Auction formats, voting systems, matching algorithms
+that pair residents to hospitals or students to schools, are all
+mechanism design - "what rules make good behavior the dominant
+strategy" rather than "please be good."
+
+In NEGOTIATION theory, concepts like BATNA (best alternative to a
+negotiated agreement) are applied game theory: your credibility in
+any negotiation is a direct function of how good your outside
+option is, because that option sets the floor below which any
+threat to walk away is empty.
+
+In COMPUTER SCIENCE and SECURITY, adversarial thinking - modeling a
+system's weakest point by asking what a rational attacker would do
+against it - is game theory applied to code instead of people, and
+it is the reasoning behind red-teaming, penetration testing, and
+most of cryptographic protocol design.
+
+And in everyday POLITICS and INSTITUTION-BUILDING, the entire
+argument for checks and balances, independent courts, and
+separation of powers is a game-theoretic one: do not rely on any
+single actor being virtuous, build a game where the equilibrium is
+good even if every player is purely self-interested. That is, in
+miniature, the ambition of the whole field: not to make people
+better, but to build games where being ordinary and self-interested
+already produces something worth having.

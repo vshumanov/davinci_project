@@ -1,0 +1,243 @@
+TREES
+
+TREES AS ACYCLIC ROOTED GRAPHS
+
+Take a graph. Add two rules: pick one node and call it the root,
+and forbid cycles. What is left is a tree. Every node except the
+root has exactly one parent; the root has none. There is exactly
+one path between any two nodes, never zero, never more than one.
+That single fact is the entire point of the structure. A general
+graph might need you to search for a path and might find several.
+A tree guarantees the path exists and is unique, which is what
+lets tree algorithms run in time proportional to depth instead of
+time proportional to the whole structure.
+
+This is worth sitting with, because "tree" gets taught as its own
+species when it is really a graph with the ambiguity engineered
+out. You give up flexibility (no cross-links, no cycles, no
+multiple parents) and you buy predictability (one path, known
+depth, clean recursion). Every specific tree variant below is that
+same trade applied to a specific lookup problem.
+
+BINARY SEARCH TREES
+
+A binary search tree (BST) is a tree where every node has at most
+two children, and an ordering rule holds at every node: everything
+in the left subtree is smaller, everything in the right subtree is
+larger.
+
+=====
+    struct node {
+        int key;
+        struct node *left, *right;
+    };
+
+    struct node *search(struct node *n, int key) {
+        if (n == NULL || n->key == key)
+            return n;
+        if (key < n->key)
+            return search(n->left, key);
+        return search(n->right, key);
+    }
+=====
+
+What problem does this solve. A plain sorted array gives you
+O(log n) search too, via binary search, but inserting into the
+middle of an array means shifting every element after it: O(n)
+per insert. A BST gives O(log n) search AND O(log n) insert,
+because insertion just walks down to the right empty spot and
+attaches a node there, no shifting anything.
+
+Insertion walks the same path a search would, then attaches a new
+node at the first empty spot it finds.
+
+=====
+    struct node *insert(struct node *n, int key) {
+        if (n == NULL) {
+            struct node *nw = malloc(sizeof(*nw));
+            nw->key = key;
+            nw->left = nw->right = NULL;
+            return nw;
+        }
+        if (key < n->key)
+            n->left = insert(n->left, key);
+        else
+            n->right = insert(n->right, key);
+        return n;
+    }
+=====
+
+The O(log n) claim has a condition attached that trips up almost
+everyone learning this: it holds only if the tree is roughly
+balanced, meaning its depth is close to log2(n). Insert 1, 2, 3,
+4, 5 in that order into a BST with no balancing and you get a
+straight line, each node with only a right child. Depth n, not log
+n. Search degrades to O(n), exactly the linked list you were
+trying to avoid, wearing a tree's clothing. A BST's performance
+promise is conditional on shape, and nothing in the plain
+insert/search code above enforces that shape. That is precisely
+the gap balancing exists to close.
+
+BALANCING: AVL AND RED-BLACK
+
+A balanced BST is one that actively resists becoming a line. AVL
+trees and red-black trees are the two classic answers, and they
+solve the same problem with a different cost/benefit split.
+
+AVL trees track a height at every node and, after each insert or
+delete, check whether the two subtrees of any node differ in
+height by more than 1. If they do, a rotation (a local
+restructuring that swaps a node with one of its children while
+preserving the ordering rule) fixes it. AVL keeps the tree very
+close to perfectly balanced, so lookups are about as fast as a
+balanced tree can offer. The cost: rotations can cascade back up
+toward the root on nearly every insert, so writes are more
+expensive.
+
+Red-black trees relax the balance requirement. Instead of tracking
+exact height, each node gets a color, red or black, and a small
+set of coloring rules guarantees the longest path from root to a
+leaf is never more than twice the shortest path. That is a looser
+bound than AVL's, so lookups are marginally slower than a
+perfectly AVL-balanced tree, but rebalancing after an insert or
+delete touches far fewer nodes on average. That is why red-black
+trees are the default choice inside language standard libraries
+(C++'s map and set, Java's TreeMap): most real workloads do more
+writes than a benchmark chasing minimal read latency would assume,
+and red-black's cheaper writes win in practice.
+
+The lesson underneath both: unbalanced trees degrade silently.
+Nothing crashes, nothing throws an error, the code that inserts
+into a plain BST is completely correct C. The failure is
+probabilistic and workload-dependent: sorted or near-sorted input
+produces a line, random input produces something close to
+balanced by luck, and the difference between O(log n) and O(n) at
+scale is the difference between a system that is fine and one that
+falls over the day someone feeds it presorted data. Balancing
+trades a small constant overhead on every write for a guarantee
+that removes that failure mode entirely.
+
+HEAPS
+
+A heap answers a narrower question than a BST: not "find this
+specific value," but "give me the smallest (or largest) value,
+repeatedly, as fast as possible." Where a BST maintains full
+ordering, a heap maintains only a weaker, cheaper invariant: every
+parent is smaller (min-heap) or larger (max-heap) than both its
+children. Nothing says how a node's two children compare to each
+other. That is the whole trick. You give up the ability to search
+for an arbitrary value quickly, and in exchange get O(1) access to
+the minimum (or maximum) and O(log n) to remove it and restore the
+invariant.
+
+=====
+    // min-heap stored in an array, 0-indexed
+    // parent of i is (i-1)/2
+    // children of i are 2i+1, 2i+2
+
+    void sift_up(int *heap, int i) {
+        while (i > 0) {
+            int parent = (i - 1) / 2;
+            if (heap[parent] <= heap[i]) break;
+            int tmp = heap[parent];
+            heap[parent] = heap[i];
+            heap[i] = tmp;
+            i = parent;
+        }
+    }
+=====
+
+Notice the heap does not need pointer-based nodes at all. Because
+of the fixed parent/child index math, a heap is usually just a
+flat array, which is why heaps are compact and cache-friendly
+compared to pointer-chasing trees.
+
+The problem this solves: priority queues. Dijkstra's shortest path
+algorithm, event simulation ("what happens next"), task schedulers
+("what runs next"), and heapsort all reduce to "repeatedly pull the
+smallest/highest-priority item." A BST could do this too, but at a
+higher constant cost per operation and more memory overhead for a
+guarantee (full ordering) the problem never asked for. The heap is
+the minimum structure that answers the actual question.
+
+TRIES
+
+A trie (prefix tree) solves a different lookup problem again: not
+"is this key present," but "what keys share this prefix," which
+comes up constantly in autocomplete, spell-check, and IP routing
+tables. A trie represents each key not as one node holding the
+whole key, but as a path through the tree, one node per character
+(or per bit, or per address octet), where nodes are shared between
+keys with a common prefix.
+
+=====
+    #define ALPHA 26
+    struct trie_node {
+        struct trie_node *children[ALPHA];
+        int is_end_of_word;
+    };
+
+    void insert(struct trie_node *root, const char *word) {
+        struct trie_node *cur = root;
+        for (int i = 0; word[i]; i++) {
+            int c = word[i] - 'a';
+            if (cur->children[c] == NULL) {
+                cur->children[c] =
+                    calloc(1, sizeof(struct trie_node));
+            }
+            cur = cur->children[c];
+        }
+        cur->is_end_of_word = 1;
+    }
+=====
+
+Inserting "cat" and "car" shares the c and the a node; only the
+third letter forks. Lookup and insert both run in O(key length),
+not O(log n) and not dependent on how many other keys are stored,
+because you are just walking a path, not comparing against other
+keys at all. That is the structural reason a trie beats a hash
+table or a BST for prefix queries: those structures answer "is
+this exact key here," a trie answers "what is here that starts
+this way" natively, because shared prefixes are the same physical
+path in the structure.
+
+The cost is memory: a trie can use far more space than the keys
+themselves would need stored flatly, since every branching point
+is a full node (an array of child pointers in the simple version
+above). Compressed variants (radix trees, Patricia tries) exist
+specifically to collapse long chains of single-child nodes back
+down, trading a little lookup complexity for a lot of memory back.
+
+COMMON MISTAKES
+
+1) Assuming "binary search tree" implies O(log n) unconditionally.
+It implies it only when the tree is balanced. An unbalanced BST is
+a linked list with extra ceremony.
+
+2) Reaching for a full BST or hash table when the actual
+requirement is "give me the minimum, repeatedly." That is a heap's
+job, at lower constant cost, and heaps are usually the correct
+default for anything that smells like a priority queue.
+
+3) Reaching for a hash table to do prefix matching ("all words
+starting with pre") and then bolting on a linear scan over every
+key to find matches. That is exactly the job a trie does natively
+and a hash table cannot do at all, because hashing destroys the
+notion of "similar" keys being near each other.
+
+WHERE THIS CONNECTS
+
+A tree is a constrained graph; graph traversal algorithms (BFS,
+DFS) are exactly what you use to walk a tree, they just have less
+work to do because there is no cycle to detect and no visited-set
+to maintain in the simple case.
+
+Balanced BSTs (red-black trees specifically) are what most
+language standard library ordered maps are built on underneath.
+Hash maps, covered in the hash table ebook, solve a related but
+different problem: a hash map is faster for plain key lookup but
+gives up ordering entirely, a BST keeps ordering and pays a
+logarithmic cost for it. Choosing between them is choosing whether
+"give me all keys in sorted order" or "give me everything sorted
+by insertion, cheaply" is something you will ever need to do; if
+not, the hash table almost always wins on raw lookup speed.

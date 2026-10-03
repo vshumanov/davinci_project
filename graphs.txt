@@ -1,0 +1,221 @@
+GRAPHS
+
+WHAT A GRAPH IS
+
+A graph is two sets: nodes (also called vertices) and edges
+connecting pairs of them. That is the whole definition. Everything
+else you already know as a data structure is a special case of
+this. An array is a graph where node i connects only to i+1. A
+linked list is the same graph, drawn with pointers instead of
+indices. A tree is a graph with an extra rule bolted on: no
+cycles, one path to any node. Graphs are not an advanced topic
+sitting above lists and trees. They are the general case those
+structures were carved out of, by adding restrictions that make
+specific problems faster to solve.
+
+The reason graphs get treated as scary is that most introductions
+lead with terminology (degree, path, connectivity, component)
+before showing what problem any of it solves. Strip that back: a
+graph models "these things, and which of them touch each other."
+Road intersections and the roads between them. People and who they
+follow. Functions and which ones call which. Tasks and which ones
+block which. If your data has a relationship in it that is not a
+strict hierarchy, you already have a graph, whether or not you
+drew a diagram.
+
+DIRECTED, UNDIRECTED, WEIGHTED
+
+Three words describing what an edge is allowed to carry.
+
+Undirected: an edge between A and B means exactly that, both ways.
+If A is friends with B, B is friends with A. No arrowhead,
+symmetry is built into the model.
+
+Directed: an edge from A to B does not imply one from B to A. A
+follows B on a platform where B has never heard of A. Function A
+calls function B; B does not call A back. Directed graphs are the
+right model whenever the relationship is one-way by nature, which
+is most of the interesting cases: dependencies, precedence,
+influence, causality.
+
+Weighted: an edge carries a number in addition to its existence.
+Distance, cost, latency, capacity, probability. Weighted graphs
+are what you reach for the moment "connected or not" stops being
+the question and "connected how expensively" becomes the
+question.
+
+These three axes combine independently. A road network is usually
+directed (one-way streets exist) and weighted (distance or drive
+time). A friendship graph is undirected and unweighted. A
+dependency graph is directed and often unweighted: A needs B, or
+it does not. Pick the combination that matches what you are
+actually modeling, not the one that is easiest to draw.
+
+WHY GRAPHS MATTER
+
+Almost every system worth reasoning about carefully is a graph
+wearing a different name. A build system is a dependency graph:
+compile order is a topological sort, which is a walk over a
+directed graph that has no cycles. A router's forwarding table is
+a weighted directed graph, and "shortest path" is a graph
+algorithm running in silicon on every packet. A social network's
+"people you may know" is a traversal two or three hops out from a
+node. Neural networks are, structurally, weighted directed graphs
+with an activation function sitting on each node.
+
+The payoff of recognizing something as a graph is that a large
+library of already-solved problems becomes available: shortest
+path, minimum spanning tree, cycle detection, connectivity,
+topological ordering, max flow. None of that machinery is usable
+if you do not first notice the shape underneath your data. That is
+the actual value graphs deliver: not a new kind of complexity, a
+name for a shape you were already looking at.
+
+ADJACENCY MATRIX
+
+The most direct way to represent a graph: a V by V grid, where V
+is the node count. Cell [i][j] holds 1 (or the edge weight) if an
+edge runs from i to j, and 0 or a sentinel if it does not.
+
+=====
+    #define V 5
+    int adj[V][V] = {0};
+
+    // add an undirected edge between a and b
+    void add_edge(int a, int b) {
+        adj[a][b] = 1;
+        adj[b][a] = 1;
+    }
+
+    // is there an edge from a to b? O(1)
+    int has_edge(int a, int b) {
+        return adj[a][b];
+    }
+=====
+
+The matrix's whole appeal: "does an edge exist between these two
+specific nodes" is one array access, always, regardless of how
+many edges the graph actually has. That single-lookup speed is the
+entire reason this representation exists.
+
+The cost is fixed and unconditional: V times V cells, allocated
+whether or not those edges exist. A graph with 10,000 nodes needs
+a 100,000,000-cell matrix no matter how sparse the actual
+connections are. You pay rent on every possible edge, used or not.
+
+ADJACENCY LIST
+
+The alternative: for each node, keep a list of just its actual
+neighbors. Nothing is allocated for edges that do not exist.
+
+=====
+    struct node {
+        int vertex;
+        struct node *next;
+    };
+
+    struct node *adj[V] = {NULL};
+
+    // add a directed edge a -> b
+    void add_edge(int a, int b) {
+        struct node *n = malloc(sizeof(*n));
+        n->vertex = b;
+        n->next = adj[a];
+        adj[a] = n;
+    }
+
+    // is there an edge from a to b? O(degree of a)
+    int has_edge(int a, int b) {
+        struct node *cur = adj[a];
+        while (cur) {
+            if (cur->vertex == b) return 1;
+            cur = cur->next;
+        }
+        return 0;
+    }
+=====
+
+Memory is proportional to what actually exists: V nodes plus E
+edges, O(V+E), not O(V squared). The cost is that checking one
+specific edge now means walking a list instead of touching one
+cell.
+
+THE MEMORY VS SPEED TRADEOFF
+
+The choice comes down to one question: how dense is the graph,
+meaning how close is the edge count to the theoretical maximum of
+V squared.
+
+Dense graphs (edge count close to V squared) favor the matrix. The
+memory overhead stops being overhead, because you were going to
+need most of that space anyway, and in exchange you get O(1) edge
+queries with zero pointer chasing and good cache behavior, since a
+matrix row sits contiguous in memory.
+
+Sparse graphs (edge count much smaller than V squared) favor the
+list. This is the common case by a wide margin: road networks,
+social networks, dependency graphs, the web's link structure.
+Nobody is connected to everybody. A matrix on a sparse graph is
+mostly zeros: wasted memory, wasted cache lines, wasted time
+scanning cells that will never hold an edge.
+
+The real cost usually is not the single-edge lookup anyway. It is
+the operation almost every graph algorithm actually does in its
+inner loop: "give me all of this node's neighbors."
+
+With a matrix, that is a full scan of the node's row, O(V), even
+if the node has two neighbors out of ten thousand possible ones.
+With a list, that is O(degree): you touch exactly the neighbors
+that exist and nothing else. This is where the tradeoff actually
+bites in practice, far more than in the isolated single-edge check
+both textbooks lead with.
+
+Rule of thumb: if E is meaningfully smaller than V squared, use a
+list. Reach for a matrix when the graph is genuinely dense, when V
+is small enough that V squared is trivial anyway (a few hundred
+nodes), or when an algorithm's inner loop needs repeated O(1)
+"are these two specific nodes connected" checks (Floyd-Warshall is
+the classic case). Absent one of those specific reasons, default
+to the list. Most real graphs are sparse, and a matrix on a sparse
+graph is the kind of decision that works fine in the demo and
+falls over the moment someone points it at real data.
+
+COMMON MISTAKES
+
+1) Treating "graph" as an academic topic separate from the linked
+structures already in daily use. It is the same idea with the
+training wheels off.
+
+2) Defaulting to a matrix because it is simpler to write, then
+discovering that a sparse graph with a million nodes needs a
+trillion-cell matrix, which is not a slowdown, it is an instant
+out-of-memory crash. The list version of the same graph costs
+memory proportional to the edges that actually exist.
+
+3) In a matrix, conflating "no edge" with "edge of weight zero."
+If zero is a legitimate weight in your problem, 0 in the cell is
+ambiguous and you need a separate sentinel: negative infinity, a
+boolean "exists" flag alongside the weight, whatever fits.
+
+WHERE THIS CONNECTS
+
+Trees are graphs with two extra constraints: connected, and no
+cycles. Everything a tree can do, a graph could do less
+efficiently; a tree is a graph that gave something up in exchange
+for speed, which is the same trade the matrix and the list make
+against each other.
+
+An adjacency list is, in most languages, a hash map of arrays. The
+map gives you O(1) access to "which node am I looking at," the
+array underneath is the neighbor list. The hash table ebook covers
+why that map lookup is fast in the first place.
+
+Graph traversal (breadth-first and depth-first search) is the
+mechanism sitting underneath pathfinding, dependency resolution,
+and cycle detection. Shortest-path algorithms like Dijkstra and A*
+are graph traversal with the visit order controlled by a priority
+queue, which is a heap, which is covered in the trees ebook. The
+representation you pick here (matrix or list) determines how fast
+that traversal's inner loop runs, which is the whole reason this
+choice is worth thinking about instead of defaulting to whichever
+one you learned first.

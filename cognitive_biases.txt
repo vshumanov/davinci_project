@@ -1,0 +1,467 @@
+COGNITIVE BIASES THAT COST MONEY
+
+WHAT A BIAS ACTUALLY IS
+
+A cognitive bias is not stupidity and it is not a character flaw. It
+is a systematic error produced by a mental shortcut that works well
+enough most of the time to have been worth keeping, evolutionarily
+or practically, but that produces predictable, repeatable mistakes
+in specific, identifiable situations. The word "systematic" is the
+important part. Random errors cancel out over enough decisions.
+Biases do not, because they push in the same direction every time
+the triggering condition shows up, which means their cost compounds
+rather than averaging out.
+
+This matters for a practical reason: because biases are systematic
+rather than random, they can be defended against with systems rather
+than with willpower. Telling yourself to "just be more rational" is
+approximately as effective as telling yourself to not see an optical
+illusion, the illusion persists even after you know the mechanism
+behind it, because the mechanism operates below the level where
+intention can simply override it. What works instead is building an
+external check, a rule, a process step, a second person, that
+catches the error at the moment it would otherwise be made,
+regardless of how confident or clear-headed you feel in that moment.
+This booklet covers three of the most expensive biases in ordinary
+financial and business decision-making, and closes with concrete
+checks for each.
+
+
+SUNK COST: PAYING TWICE FOR THE SAME MISTAKE
+
+The sunk cost fallacy is the tendency to keep investing time, money,
+or effort into something because of what has already been invested,
+rather than based on the expected value of continuing from this
+point forward. The core error is treating past costs as relevant to
+a future decision, when by definition a cost already paid cannot be
+recovered by any choice made now, and therefore cannot be a rational
+input into that choice at all. Rational decision-making only ever
+looks forward: given where things stand right now, is continuing the
+best use of the next unit of money or time, compared to every other
+thing that money or time could do instead. What got spent to arrive
+at this point is, mechanically, irrelevant to that comparison.
+
+The reason this bias is so expensive rather than merely occasional
+is that it scales with the size of the original investment, which
+means it gets worse exactly when the stakes are highest. A person
+who has spent ten euros on a bad decision walks away from it easily.
+A person who has spent ten years, or ten million, on the same
+category of bad decision feels an almost gravitational pull to keep
+going, because abandoning it would force an explicit
+acknowledgment that the previous investment produced no return,
+and that acknowledgment feels like the loss itself, even though the
+loss already happened the moment the resources were spent, not the
+moment someone admits it.
+
+Two psychological mechanisms drive this beyond simple loss aversion.
+The first is a self-consistency pressure: abandoning a heavily
+invested project can feel like admitting the original decision, and
+by extension the decision-maker, was wrong, and people are willing to
+spend real additional resources to avoid that admission, particularly
+in public or high-visibility situations where the original commitment
+was announced or defended to others. The second is a completion bias,
+a preference for finishing what was started that operates somewhat
+independently of the consistency pressure, visible even in private
+decisions nobody else will ever know about.
+
+Business examples recur constantly: continuing to fund a failing
+product line because of the money already spent developing it,
+rather than because of its actual prospects from today forward;
+holding a losing investment position specifically to avoid
+"locking in" a loss that, mathematically, already happened the
+moment the asset's value dropped, regardless of whether it is sold;
+continuing a failing hire, vendor relationship, or project past the
+point any fresh evaluation would recommend, because of the onboarding
+cost, relationship history, or prior sign-off already spent getting
+there.
+
+
+CONFIRMATION BIAS: THE FILTER THAT AGREES WITH YOU
+
+Confirmation bias is the tendency to search for, interpret, and
+recall information in ways that confirm a belief you already hold,
+while unconsciously discounting, avoiding, or reinterpreting
+information that would challenge it. It is arguably the most
+pervasive bias on this list because it operates continuously and
+invisibly, shaping not just the conclusions someone reaches but which
+evidence they even encounter in the first place, since the search
+process itself is contaminated before any evaluation happens.
+
+The mechanism runs through three separate stages, each of which can
+independently distort a decision. First, biased search: people
+disproportionately seek out sources, people, and data likely to
+agree with a belief they already hold, and disproportionately avoid
+or deprioritize sources likely to disagree, often without any
+conscious decision to do so, simply because agreeable sources feel
+more relevant and trustworthy in the moment of choosing where to
+look. Second, biased interpretation: given the exact same ambiguous
+piece of evidence, people holding different prior beliefs will read
+it as supporting their own position, a well-replicated effect where
+identical data is processed through whatever framework someone
+already holds. Third, biased memory: information consistent with an
+existing belief is recalled more easily and vividly later than
+inconsistent information encountered at the same time, which means
+even someone who genuinely reviewed disconfirming evidence in the
+moment may simply remember it less well afterward, skewing their
+sense of the overall picture in hindsight.
+
+The financial cost shows up most sharply in three places. In
+investing, an investor who forms a thesis about an asset then
+follows only news and analysts who reinforce that thesis will miss
+the deterioration signals that would justify exiting, and will
+typically hold a losing position far longer than the evidence, fairly
+weighed, would support. In hiring and vendor selection, a decision-
+maker who forms an early impression, often within the first minutes
+of an interview or pitch, will spend the remainder of the process
+unconsciously interpreting further information to fit that early
+read rather than testing it, a well-documented effect in interview
+research. In strategic planning, a business that commits early to a
+market thesis will tend to notice and weight customer feedback and
+competitor moves that support the thesis, while explaining away
+signals of market rejection as noise, exceptions, or a messaging
+problem rather than as a sign the underlying thesis was wrong,
+delaying a pivot well past the point it should have happened.
+
+The bias is worse, not better, among people who consider themselves
+highly analytical, because analytical skill is very effective at
+constructing sophisticated, internally consistent justifications
+for a conclusion that was actually reached first on intuitive
+grounds. Intelligence increases the quality of the rationalization
+without necessarily increasing the quality of the underlying
+judgment, a pattern sometimes called motivated reasoning, and it is
+one reason confirmation bias is not reliably solved simply by being
+smarter or more careful, since the extra cognitive horsepower is
+just as available for building a better case for the wrong answer as
+for finding the right one.
+
+This has a specific, testable implication worth remembering: the
+strength and fluency of an argument someone can construct for their
+own position is only weak evidence, on its own, that the position is
+correct, since a skilled reasoner produces fluent, well-structured
+arguments for whichever conclusion they started with roughly as
+easily as for the correct one. The more reliable signal is not how
+well someone can argue for their own view, but how seriously and
+specifically they can state the strongest version of the opposing
+view, since constructing a strong opposing case requires actually
+having engaged with the disconfirming evidence rather than having
+filtered it out before it arrived.
+
+
+PLANNING FALLACY: WHY EVERYTHING TAKES LONGER AND COSTS MORE
+
+The planning fallacy is the well-documented tendency for estimates of
+how long a task will take, or how much a project will cost, to be
+systematically too optimistic, even when the estimator has direct
+personal experience of similar tasks running long or over budget in
+the past. The defining, almost paradoxical feature of this bias is
+that it persists in the face of a track record: a person who has
+personally experienced every previous project of this type running
+forty percent over its original estimate will, with real confidence,
+predict that this next one will come in on time, because the
+estimate is built primarily from an idealized mental simulation of
+the specific steps required, rather than from the statistical
+history of how such estimates have actually performed before.
+
+This distinction, between the inside view and the outside view,
+is the core mechanism worth understanding. The inside view is the
+natural way almost everyone estimates: picture the task, break it
+into the steps you can currently foresee, estimate time for each
+step, sum them up. This process is structurally blind to two
+categories of cost. It cannot account for problems not yet
+foreseen, by definition, since an unforeseen problem does not appear
+in a list of currently foreseeable steps, and every nontrivial
+project generates some. And it tends to picture the smooth,
+best-case execution of each foreseen step rather than the more
+typical execution complicated by interruptions, dependencies, and
+correction cycles. The outside view instead asks a different
+question entirely: forget the specific steps of this project, how
+long did comparable projects, done by comparable people or
+organizations, actually take in the past. This reference-class
+approach routinely produces higher, and more accurate, estimates
+than the inside view, precisely because it captures the base rate of
+real-world overruns that any individual's optimistic simulation
+tends to omit.
+
+The financial consequences compound in a specific, predictable way.
+Underestimated timelines cascade into underestimated costs, because
+most costs are time-denominated, staff time, borrowed capital
+carrying interest, opportunity cost of delayed revenue, so a
+schedule that runs forty percent over does not usually cost forty
+percent more, it often costs proportionally more again because
+overruns tend to hit at the worst points in a project (near
+deadlines, under contractual penalty clauses, competing for the same
+resources as other delayed commitments), and because a project's
+own stakeholders have often already committed downstream resources
+and revenue expectations against the original, optimistic date,
+turning a scheduling error into a cash flow and reputational one.
+Large infrastructure and technology projects are the most visible
+public examples of this pattern, with cost overruns and schedule
+slippage that are remarkably consistent across countries, industries,
+and decades, which is itself strong evidence that the fallacy is a
+structural feature of how estimation is done, not a matter of any
+particular team being unusually bad at planning.
+
+
+THE CHECKS THAT INTERRUPT THEM
+
+Since none of these three biases respond reliably to simply knowing
+about them, the practical value of this booklet is in the specific
+checks below, each designed to interrupt the bias mechanically,
+at the exact decision point where it would otherwise operate
+unchecked.
+
+For sunk cost, the check is a single reframing question applied at
+every review point: "if I were deciding today, with no prior
+investment in this, knowing only what I know now, would I choose to
+start this from scratch." If the honest answer is no, the current
+plan is being kept alive by the sunk cost alone, not by its future
+prospects, and continuing needs a different, forward-looking
+justification to be defensible. A useful companion practice is
+setting explicit, pre-committed exit criteria before starting any
+significant investment, specific, numeric conditions under which the
+project will be stopped, decided before any money is spent and
+before the emotional pull of prior investment exists to distort the
+judgment later.
+
+For confirmation bias, the most reliable check is deliberately
+assigning someone, or a specific step in the process, to argue the
+opposing case before a decision is finalized, a practice sometimes
+called a devil's advocate role or a formal pre-mortem exercise
+(imagining the decision has already failed and working backward to
+explain why). The mechanism that makes this work is structural
+rather than motivational: it does not rely on the original
+decision-maker suddenly becoming unbiased, it relies on introducing
+a second party whose explicit job is to search the disconfirming
+evidence the first party's biased search process would otherwise
+skip. A second, simpler check is to actively seek out at least one
+source or person known to disagree with the current thesis before
+finalizing any significant financial decision, treating the absence
+of disagreement, rather than its presence, as the signal that more
+scrutiny is needed.
+
+For the planning fallacy, the check is switching from the inside
+view to the outside view as a matter of process, not inspiration.
+Concretely, before finalizing any estimate, find three to five
+comparable past projects (your own or others'), note their planned
+versus actual time and cost, and apply that observed overrun ratio
+as a multiplier to the current inside-view estimate rather than
+trusting the inside-view number directly. If no comparable data
+exists, published overrun statistics for the general category of
+work (software projects, construction, event planning) are almost
+always available and almost always higher than intuition expects,
+and using even a rough multiplier from that category beats using the
+unadjusted step-by-step estimate in nearly every documented case.
+
+
+TWO MORE BIASES WORTH KNOWING
+
+The three biases covered so far are the most consistently expensive
+in financial and business decisions, but two close relatives show up
+often enough alongside them to be worth a short treatment, because
+they frequently compound with sunk cost and the planning fallacy
+rather than operating independently.
+
+Loss aversion is the tendency to weigh a loss of a given size roughly
+twice as heavily, in subjective terms, as a gain of the identical
+size, a robust and heavily replicated finding in decision research.
+This asymmetry is not simply a preference, it changes what decisions
+look rational at all: it means people will often take on
+disproportionate additional risk purely to avoid realizing a loss
+that has already effectively happened, which is exactly the emotional
+fuel behind the sunk cost fallacy described earlier, and it means
+identical information framed as a potential loss ("you might lose
+access to this feature") motivates behavior more strongly than the
+same information framed as a potential gain ("you could keep this
+feature"), a fact used constantly and deliberately in subscription
+retention design and negotiation framing alike.
+
+The status quo bias is the tendency to prefer the current state of
+affairs simply because it is current, independent of whether a
+change would actually produce a better outcome on the merits. It
+shows up financially as a persistent tendency to keep money in a
+default investment allocation, keep using an existing vendor or tool
+past the point a fair comparison would favor switching, or keep an
+organizational process unchanged well past its usefulness, purely
+because change requires an active decision while inaction requires
+none. The status quo option benefits from an asymmetry similar to
+loss aversion, switching away from it is evaluated as a potential
+loss of the familiar thing, while staying is not evaluated as a
+foregone gain at all, even when the two are mathematically the same
+comparison viewed from opposite directions. The practical check here
+is similar in shape to the sunk cost check: periodically ask, of any
+standing arrangement, "if I were choosing fresh today with no
+history, would I pick this option," rather than only asking the
+question when something visibly breaks down, since the bias's whole
+mechanism is that a merely mediocre status quo rarely breaks down
+visibly enough to trigger a review on its own.
+
+
+A WORKED EXAMPLE: ALL THREE BIASES IN ONE DECISION
+
+The three primary biases in this booklet rarely show up in isolation
+in a real decision, they tend to stack, each one reinforcing the
+others, which is worth walking through concretely because the
+combined effect is larger and harder to notice than any one bias
+alone.
+
+Picture a small business owner who commits to building custom
+internal software rather than buying an existing tool, estimating six
+weeks and a fixed budget to complete it. The planning fallacy shows up
+first, at the estimation stage: the six-week figure is built from an
+inside-view walk through the currently foreseeable steps, and it
+does not include the specific unforeseen problems that will
+inevitably arise, an unclear requirement that turns out to be
+harder than expected, a key contractor's unavailability for a week,
+integration issues with an existing system that were not visible
+until integration was actually attempted. Six weeks becomes ten,
+following almost exactly the pattern the planning fallacy predicts.
+
+By week eight, evidence has been accumulating that the project may
+not be worth finishing relative to simply buying an available
+off-the-shelf alternative that would now be faster to deploy than the
+remaining custom work. This is precisely the moment confirmation bias
+engages: having already committed publicly to the custom build, the
+owner's attention naturally gravitates toward information supporting
+the decision to continue (the parts of the custom system that will
+be better tailored to specific internal workflows) and away from
+information that would support switching (the fact that the
+off-the-shelf alternative now covers the actual requirements
+adequately and could be running within days). The search for
+information has quietly become one-directional without any explicit
+decision to make it so.
+
+By week twelve, having now spent double the original budget and time,
+sunk cost fully engages. Even if a clear-eyed comparison at this exact
+moment would favor abandoning the custom build and switching to the
+alternative, the twelve weeks and associated cost already spent exert
+a pull to continue that has nothing to do with the forward-looking
+comparison, and everything to do with the discomfort of writing off
+that investment as a loss. The three biases have compounded: an
+optimistic estimate created a project that ran long, the overrun
+created disconfirming evidence that got filtered out by motivated
+search, and the resulting continued investment created a sunk cost
+that makes the eventual, now much more expensive, correction even
+harder to make.
+
+The interrupting checks from the previous section apply at every
+stage of this chain, and applying any one of them breaks the loop
+before it compounds further. An outside-view estimate at the start,
+built from how long comparable internal software projects have
+actually taken elsewhere, would likely have produced a more realistic
+ten-to-twelve week estimate from the outset, changing the entire
+downstream comparison. A devil's advocate check at week eight,
+someone explicitly tasked with making the case for switching to the
+alternative, would have surfaced the disconfirming evidence being
+filtered out. And the sunk cost reframe at week twelve, "if I were
+deciding today with no prior investment, would I choose to keep
+building this," would have forced the decision back onto genuinely
+forward-looking ground regardless of how much had already been
+spent. The value of seeing all three biases together in one story is
+recognizing that they are not independent, isolated risks to check
+for separately at different times, they are a single reinforcing
+loop, and the earliest interruption in that loop is always the
+cheapest one.
+
+
+WHAT PEOPLE GET WRONG
+
+The most common error is believing that awareness alone is a
+sufficient defense, that having read about a bias, or being able to
+name it accurately in the moment, will prevent it from operating.
+The research consistently shows the opposite: awareness changes
+almost nothing about the strength of the bias itself, and the only
+interventions that reliably reduce its effect are structural ones,
+external checks, pre-committed rules, or other people, applied at the
+decision point, not internal awareness applied after the fact.
+
+The second error is applying these checks only to large, visible
+decisions and skipping them for small ones, when in fact these
+biases operate identically regardless of scale, and small decisions
+made under the same unchecked bias, repeated often enough, tend to
+cost more in aggregate than the rare large one, simply because of how
+much more frequently they occur.
+
+The third error, specific to confirmation bias, is assuming a
+devil's advocate exercise is theater to be performed quickly and
+dismissed, rather than a genuine search for the strongest possible
+counter-case. A perfunctory devil's advocate round produces weak
+objections that are easily dismissed, which paradoxically increases
+confidence in the original decision rather than correctly testing
+it, so the exercise only works when the counter-case is built with
+real effort.
+
+The fourth error, specific to the planning fallacy, is treating a
+single bad past estimate as an anomaly explained by unusual
+circumstances rather than as one data point in a consistent pattern.
+Nearly every individual overrun has a specific, plausible-sounding
+local explanation at the time, a supplier delay, an unexpected bug,
+a key person's illness, and each of these explanations is probably
+even true. The mistake is concluding from this that the next
+project, having different specific circumstances, will therefore not
+overrun, when the actual lesson of the pattern is that some
+unforeseen local explanation shows up in nearly every project, even
+though which specific one will not be knowable in advance.
+
+
+A NOTE ON GROUP DECISIONS
+
+All three biases get worse, not better, inside groups, which runs
+against the common intuition that a group of people checking each
+other's reasoning should catch more errors than any one person alone.
+The reason is a related phenomenon called groupthink: once a group
+has converged on a working direction, sunk cost applies not just to
+individual money and time but to the group's collective identity and
+prior public commitments, confirmation bias compounds because members
+selectively voice agreement more readily than disagreement in a group
+setting (disagreement carries social cost that agreement does not),
+and the planning fallacy is amplified because optimistic individual
+estimates tend to get averaged or simply adopted wholesale rather
+than challenged, since challenging an estimate in a group meeting
+requires someone to take an explicit, visible contrarian stance that
+individual reflection never requires. This is precisely why the
+devil's advocate and pre-mortem techniques described earlier are
+designed as formal, assigned roles rather than left as an informal
+hope that "someone will speak up," because in practice, without an
+assigned role and explicit permission, almost nobody does, and the
+group's aggregate judgment ends up more confidently wrong than any
+single member's private judgment would have been alone.
+
+
+WHERE THIS CONNECTS
+
+These three biases sit inside behavioral economics, the field that
+emerged from documenting exactly how, and how consistently, human
+decision-making departs from the rational-actor model assumed by
+classical economics, and all three are among its most replicated,
+best-documented findings.
+
+They connect directly to negotiation mechanics, a party's
+reservation value calculation can be distorted by sunk cost from
+time already invested in a negotiation, and anchoring itself, covered
+in that booklet, is a close cousin of the same judgment machinery
+that produces confirmation bias and the planning fallacy, all three
+being cases where a mental shortcut that is normally efficient
+produces a specific, exploitable, and predictable error.
+
+They connect to pricing and value capture as well, a seller's own
+planning fallacy about how quickly a product will be built or a
+service delivered directly determines whether a value-based price
+calculated against expected costs turns out to be profitable, and a
+buyer's confirmation bias about a chosen vendor can be exploited,
+knowingly or not, by a seller who reinforces an existing favorable
+impression rather than providing the disconfirming information the
+buyer would need to walk away.
+
+Finally they connect to systems thinking generally, because all
+three are best understood not as isolated errors of a single
+decision but as feedback loops: sunk cost compounds because each
+additional investment increases the pull to invest further, confirmation
+bias compounds because each confirming search result increases
+confidence, making the next search even more selectively confirming,
+and the planning fallacy compounds because each unforeseen delay
+creates new dependent commitments whose own delay becomes the next
+project's unforeseen problem. Understanding them as loops rather
+than one-off mistakes is what makes the checks in this booklet
+actually work, because a loop can be broken at a specific point by a
+specific structural intervention, while a vague character flaw
+cannot be fixed by trying harder.

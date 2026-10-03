@@ -1,0 +1,200 @@
+ERLANG AND THE LET IT CRASH PHILOSOPHY
+
+WHAT IT IS
+
+Erlang is a programming language built at Ericsson in the
+1980s for telephone switches - systems that are not allowed to
+go down, ever, because someone might be dialing an ambulance.
+Out of that constraint fell a design philosophy now called "let
+it crash": instead of defensively catching every possible
+error at the point it happens, you let a piece of code die
+outright when something goes wrong, and let a SEPARATE piece of
+code, watching from outside, notice the death and restart it
+into a known-good state.
+
+This sounds reckless until you notice the trick: crashing is
+not the failure mode, crashing is the RECOVERY mechanism. The
+system is designed so death is cheap, isolated, and always
+followed by resurrection. The failure mode you are actually
+avoiding is a process staggering on in a corrupted, half-broken
+state, silently producing wrong answers because someone wrote a
+catch-all exception handler that papered over a problem nobody
+understood.
+
+WHY IT MATTERS
+
+Most languages treat error handling as: enumerate every way this
+specific line can fail, wrap it in a try/catch, decide locally
+what to do about it. That works until the failure is something
+you did not anticipate - a null you did not check for, a
+timeout you did not expect, a hardware fault. At that point the
+defensive code has one of two outcomes: it does not catch the
+error and the whole process falls over anyway, or it catches
+something too broad and swallows a bug into silent corruption.
+
+Erlang inverts the responsibility. The code that does the work
+is written for the HAPPY PATH ONLY - no defensive checks
+littering every function, because "handle every possible error
+locally" does not scale to a system nobody fully understands the
+failure modes of, which is every sufficiently large system.
+Instead, failure handling is centralized into SUPERVISORS,
+whose only job is watching workers and deciding what to do when
+one dies: restart it, restart its siblings too, or escalate
+further up. This is not "give up on error handling" - it is
+moving error handling out of business logic and into
+architecture, where it can be reasoned about uniformly instead
+of ad hoc at every call site.
+
+This is why Erlang systems have a famous reputation for uptime -
+the canonical example is the Ericsson AXD301 switch, reported at
+nine nines of availability, about 31 milliseconds of downtime a
+year, not because the code never had bugs, but because
+individual bugs were contained to individual lightweight
+processes and cleaned up automatically before they could spread.
+
+THE CORE MECHANISM
+
+Three pieces make this work, and they only work together.
+
+1) LIGHTWEIGHT, ISOLATED PROCESSES. Erlang's "process" is not
+an OS process - it is a green thread managed by the Erlang
+runtime (the BEAM VM), with its own private memory heap, no
+shared mutable state with any other process, and a mailbox for
+receiving messages. Spawning one costs a few hundred bytes and
+microseconds. A real Erlang system routinely runs hundreds of
+thousands of these concurrently. Because nothing is shared, one
+process crashing cannot corrupt another process's memory - the
+blast radius of a crash is exactly one process, by construction,
+not by discipline.
+
+=====
+    Pid = spawn(fun() -> worker_loop() end),
+    Pid ! {do_work, SomeData},
+    receive
+        {result, R} -> R
+    end.
+=====
+
+2) LINKS AND MONITORS. Processes can link to each other. A
+link is a bidirectional promise: if either linked process dies
+abnormally, the other gets an EXIT signal. By default that
+signal propagates the crash - your process dies too, unless it
+is set to trap_exit, in which case the EXIT signal arrives as an
+ordinary message instead of killing it. This is the raw
+primitive that failure detection is built from - not polling,
+not health checks, a push notification the moment something
+dies.
+
+3) SUPERVISORS AND SUPERVISION TREES. A supervisor is a process
+whose entire job is starting child processes, trapping their
+exits, and deciding what to do when one dies, according to a
+declared strategy:
+
+=====
+    %% one_for_one: only the crashed
+    %% child gets restarted
+    %%
+    %% one_for_all: if one child dies,
+    %% kill and restart all of them
+    %% (use when children depend on
+    %% each other's state)
+    %%
+    %% rest_for_one: restart the
+    %% crashed child and everything
+    %% started after it
+    init([]) ->
+        SupFlags = #{strategy => one_for_one,
+                     intensity => 5,
+                     period => 10},
+        ChildSpecs = [worker_spec(w1),
+                      worker_spec(w2)],
+        {ok, {SupFlags, ChildSpecs}}.
+=====
+
+Supervisors are themselves ordinary processes, so they can be
+supervised by other supervisors - you build a TREE, workers as
+leaves, supervisors as internal nodes, all the way up to one
+root. A crash climbs the tree only as far as it needs to: a
+worker's bug restarts the worker; if a whole subsystem's
+invariants are broken, it restarts the whole subsystem; the top
+of the tree is the last line of defense. The "intensity/period"
+setting is the circuit breaker - if a child crashes too many
+times too fast, the supervisor gives up and crashes itself,
+escalating the problem upward instead of restart-looping
+forever on a bug that restarting cannot fix.
+
+WHAT PEOPLE GET WRONG
+
+1) "Let it crash means don't handle errors." Backwards. It
+means stop handling errors you cannot meaningfully recover from
+AT THE POINT they occur, and instead handle the one error you
+CAN always meaningfully act on - "this thing died" - at a level
+with enough context and enough distance to actually fix it,
+namely: restart it clean. You still validate input, still
+return proper error values for expected, recoverable
+conditions. Let it crash is about UNEXPECTED failures, not all
+failures.
+
+2) "Restarting the process fixes the bug." It does not, and is
+not trying to. It fixes the SYMPTOM - a process now stuck in a
+bad state - by discarding that state and starting fresh from
+known-good initial conditions, which is usually enough because
+most production failures are transient (a flaky network call, a
+timeout, a race condition) rather than deterministic. If the bug
+is deterministic, the process will crash again immediately on
+the same input, the supervisor's intensity limit will trip, and
+the failure escalates loudly instead of looping silently - which
+is a feature, it turns a latent bug into a visible, boundaried
+one instead of hiding it.
+
+3) "This is just try/catch with extra steps." The unit of
+failure is the whole thing here, not a line. A try/catch
+recovers control flow within one function while the surrounding
+state may already be inconsistent. A supervised process crash
+discards the ENTIRE process, memory and all, so there is no
+possibility of limping on with half-updated state - either it is
+running with fully-initialized state or it does not exist yet.
+That is a stronger guarantee than any catch block gives you,
+because the catch block is still running inside the potentially
+corrupted process.
+
+4) "This only works because Erlang is exotic." The isolation
+and the crash-boundary IS the exotic part, and it is exactly why
+copying "let it crash" into a language with shared mutable state
+and OS threads does not reproduce the benefit - if a crashing
+thread can still leave shared memory half-mutated, restarting it
+does not undo the damage. The philosophy requires the isolation
+guarantee underneath it; you cannot bolt it onto an
+architecture that shares state by default.
+
+WHERE IT CONNECTS
+
+The Actor Model, formalized by Carl Hewitt in the 1970s, is the
+theoretical ancestor - independent units of computation that
+only interact by sending messages, never by touching each
+other's state directly. Erlang processes are actors; Akka on
+the JVM and Elixir (which compiles to the same BEAM VM) both
+borrow the same model explicitly.
+
+Elixir is worth knowing about specifically: it is a newer
+language built on top of the same BEAM VM and OTP (Open
+Telecom Platform, the supervisor/worker framework this section
+described), with more modern syntax and tooling, aimed at
+bringing the same crash-isolation guarantees to web backends -
+the Phoenix framework's LiveView feature leans hard on
+per-connection process isolation for exactly this reason.
+
+Circuit breakers, as a pattern in other ecosystems (Hystrix,
+resilience4j), are a partial convergent reinvention of the
+supervisor's intensity limit - stop retrying a failing
+dependency after N failures, fail fast instead of cascading. It
+solves a narrower problem (calls to one flaky dependency) with
+similar instincts (bound the damage, escalate instead of
+hiding).
+
+Kubernetes pod restarts are the same idea one layer up the
+stack, at the granularity of a whole container instead of a
+lightweight process - a crashed pod gets replaced with a fresh
+one from a known-good image, on the same bet that most failures
+are transient and a clean restart is cheaper than debugging live.
+The stack differs, the bet is identical.

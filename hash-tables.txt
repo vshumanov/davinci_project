@@ -1,0 +1,272 @@
+HASH TABLES
+
+HASHING A KEY TO AN ADDRESS
+
+Every lookup structure so far in this series answers "where is
+this value" by comparing: walk a list, compare against a sorted
+midpoint, follow left/right down a tree. Comparison-based lookup
+has a hard floor: you cannot beat O(log n) if the only tool you
+have is "is this bigger or smaller than that." A hash table breaks
+that floor by refusing to compare at all. Instead it computes,
+directly, from the key itself, which slot in an array the value
+should live in. No searching, no walking, no comparing against
+other keys. You ask the key a question and it tells you its own
+address.
+
+A hash function is what does the computing: it takes a key (a
+string, a number, a struct, anything) and produces an integer,
+deterministically, the same key always producing the same integer.
+Reduce that integer modulo the array's size and you have a slot
+index.
+
+=====
+    // toy hash for a string, do not use in production
+    unsigned hash(const char *key, unsigned table_size) {
+        unsigned h = 0;
+        while (*key) {
+            h = h * 31 + (unsigned char)(*key);
+            key++;
+        }
+        return h % table_size;
+    }
+
+    // put
+    void put(entry *table[], unsigned size,
+             const char *key, int value) {
+        unsigned idx = hash(key, size);
+        table[idx] = make_entry(key, value);
+    }
+
+    // get, O(1) average: compute, do not search
+    int get(entry *table[], unsigned size,
+             const char *key) {
+        unsigned idx = hash(key, size);
+        return table[idx]->value;
+    }
+=====
+
+That is the entire idea. Everything else in this topic, chaining,
+open addressing, load factor, resizing, exists to patch one
+unavoidable problem this simple version has: two different keys
+can hash to the same slot.
+
+COLLISIONS ARE NOT A BUG, THEY ARE GUARANTEED
+
+If your table has 1000 slots and you insert 1001 keys, by simple
+counting at least two of them land in the same slot no matter how
+good the hash function is. This is the pigeonhole principle, not a
+weakness of any particular implementation, and it starts mattering
+long before the table is full: with a decent hash function,
+collisions start showing up once you've inserted roughly the
+square root of the table size (this is the same birthday-paradox
+math behind "how many people in a room before two share a
+birthday"). A hash table's design is entirely about what happens
+the moment two keys want the same address, because it is not an
+edge case, it is a certainty on any table that sees real use.
+
+CHAINING
+
+The direct fix: each slot does not hold one entry, it holds a
+small list of entries, all the keys that happened to hash there.
+
+=====
+    struct entry {
+        char *key;
+        int value;
+        struct entry *next;
+    };
+    struct entry *table[SIZE] = {NULL};
+
+    void put(const char *key, int value) {
+        unsigned idx = hash(key, SIZE);
+        struct entry *e = malloc(sizeof(*e));
+        e->key = strdup(key);
+        e->value = value;
+        e->next = table[idx];
+        table[idx] = e;
+    }
+
+    int get(const char *key) {
+        unsigned idx = hash(key, SIZE);
+        struct entry *cur = table[idx];
+        while (cur) {
+            if (strcmp(cur->key, key) == 0)
+                return cur->value;
+            cur = cur->next;
+        }
+        return -1; // not found
+    }
+=====
+
+Lookup is now: compute the hash (O(1)), then walk whatever
+collided into that slot. If collisions stay rare and short, that
+walk is effectively O(1). If they pile up, that walk degrades
+toward O(n), and the "O(1) average" claim quietly becomes "O(n)
+worst case." Chaining's advantage: dead simple, and the table
+never technically runs out of room, since chains can grow
+indefinitely. Its cost: each entry needs a pointer, meaning extra
+memory per entry and pointer-chasing that is unfriendly to CPU
+cache, the same tradeoff a linked list always pays against a plain
+array.
+
+OPEN ADDRESSING
+
+The alternative fix: no lists at all. Every slot holds at most one
+entry, and when a collision happens, the colliding key gets
+redirected to a different slot in the same array, following some
+fixed rule (a "probe sequence"). The simplest version, linear
+probing, just tries the next slot, then the next, until it finds
+one that is empty.
+
+=====
+    #define SIZE 101
+    entry *table[SIZE] = {NULL};
+
+    void put(const char *key, int value) {
+        unsigned idx = hash(key, SIZE);
+        while (table[idx] != NULL) {
+            idx = (idx + 1) % SIZE; // probe forward
+        }
+        table[idx] = make_entry(key, value);
+    }
+
+    int get(const char *key) {
+        unsigned idx = hash(key, SIZE);
+        while (table[idx] != NULL) {
+            if (strcmp(table[idx]->key, key) == 0)
+                return table[idx]->value;
+            idx = (idx + 1) % SIZE;
+        }
+        return -1; // not found
+    }
+=====
+
+No pointers, no separate allocations per entry, everything lives
+in one contiguous array, which is far friendlier to CPU cache than
+chaining's pointer-chasing. The cost is a new failure mode called
+clustering: once a run of adjacent slots fills up, any new key
+that hashes anywhere into that run has to probe past the entire
+run to find space, and every probe extends the run further,
+feeding on itself. Fancier probe sequences (quadratic probing,
+double hashing) exist specifically to break up this clustering by
+jumping around instead of walking forward one slot at a time.
+Deletion is also trickier under open addressing: you cannot just
+null out a slot, because a later lookup probing past it would
+wrongly conclude the key was never inserted and stop early. Open
+addressing implementations mark deleted slots with a special
+"tombstone" value that lookups skip past but inserts are free to
+reuse.
+
+LOAD FACTOR
+
+Load factor is entries divided by slots: how full the table
+actually is. This one number governs both structures' behavior
+completely.
+
+For chaining, load factor is the average chain length. Load factor
+1.0 means, on average, one entry per slot, chains stay short,
+lookups stay close to O(1). Push it to 10.0 and every lookup is,
+on average, walking a chain of 10, which is not catastrophic but
+is a real, measurable tax on every single operation, forever,
+until the table resizes.
+
+For open addressing, load factor is far more dangerous, because it
+cannot exceed 1.0 by construction (you cannot put more entries
+than there are slots when each slot holds at most one), and
+performance does not degrade linearly as it approaches 1.0, it
+degrades sharply. At load factor 0.5, expected probes per lookup
+under linear probing are small, close to 2. At load factor 0.9,
+expected probes jump past 10 and keep climbing toward infinity as
+load factor approaches 1.0. This is why every real open-addressing
+implementation resizes well before the table is actually full,
+typically once load factor crosses somewhere around 0.7, trading
+some wasted space for staying on the flat, cheap part of that
+curve instead of the part where it goes vertical.
+
+Resizing itself means allocating a bigger array (commonly double
+the size) and rehashing every existing entry into it, since the
+modulo in "hash(key) % size" changes when size changes; every
+key's slot has to be recomputed from scratch. That is an O(n)
+operation, but because it happens rarely (every time the table
+roughly doubles) and gets amortized across all the O(1) inserts in
+between, the average cost per insert stays O(1) even counting the
+occasional expensive resize. This is the same amortized-cost
+argument behind a dynamic array's "append is O(1) amortized," and
+it is worth recognizing as one general idea rather than two
+separate facts to memorize.
+
+WHERE THE PERFORMANCE ACTUALLY GOES WHEN IT DEGRADES
+
+"Hash tables are O(1)" is true only as an average over a
+well-behaved table: good hash function, reasonable load factor,
+keys that spread out. When someone says a hash table "degraded,"
+the cost went to one of exactly three places, and it is worth
+being able to name which one, because the fix is different for
+each.
+
+1) A bad hash function. If the hash function clusters many real
+keys into the same few slots (a classic bug: hashing only the
+first few characters of long, similar strings, or a hash that
+happens to correlate with the modulus so most keys land on
+multiples of the same number), collisions spike regardless of load
+factor. This is a property of the hash function against the
+actual key distribution you feed it, not of the table structure
+itself, and it is why hash function quality matters as much as
+which collision strategy you pick.
+
+2) Load factor allowed to climb too high without resizing. Covered
+above: chaining degrades gradually, open addressing degrades
+sharply and nonlinearly as load factor approaches 1.0.
+
+3) An adversary who knows your hash function. If an attacker can
+predict which keys will collide (this is a real, historical
+category of denial-of-service attack against naive hash table
+implementations in web frameworks and languages), they can submit
+a batch of keys engineered to all land in the same slot, turning
+every lookup into an O(n) chain walk on purpose. This is why
+production hash table implementations seed their hash function
+with a random value chosen at startup: it makes the mapping from
+key to slot unpredictable from outside the process, so an attacker
+cannot precompute a colliding key set in advance.
+
+The unifying idea: "O(1) average" is doing real work in that
+phrase, and the average is only as good as the assumption that
+keys spread across slots roughly evenly. Every hash table
+degradation traces back to that assumption breaking, either by
+accident (bad hash function, table left too full) or on purpose
+(an attacker exploiting a predictable one).
+
+COMMON MISTAKES
+
+1) Treating "hash table lookup is O(1)" as an unconditional fact
+rather than an average that depends on hash quality and load
+factor being kept in check. Worst case, for any hash table, is
+O(n): every key colliding into one slot.
+
+2) Forgetting that a hash table gives you fast lookup by exact key
+and nothing else. It cannot answer "give me all keys between X and
+Y" or "give me the smallest key" without a full scan, because
+hashing deliberately destroys any relationship between similar
+keys, they end up scattered to unrelated slots. A balanced BST
+answers exactly those questions natively, at the cost of slower
+raw lookup.
+
+3) Mutating a key after using it as a hash table key (mutating a
+list you used as a dictionary key in a language that allows it, or
+mutating a struct's fields after insertion). The slot was computed
+from the key's value at insertion time; change the key afterward
+and its hash changes, but the entry is still sitting in the old
+slot. Lookups for the new key value will not find it.
+
+WHERE THIS CONNECTS
+
+An adjacency list, from the graphs ebook, is in most languages a
+hash map of arrays: the hash table gives O(1) "which node's
+neighbor list am I looking at," this ebook is why that lookup is
+fast. A BST, from the trees ebook, and a hash table solve
+overlapping but different problems: a hash table wins on raw
+lookup speed and gives up ordering entirely; a BST keeps full
+ordering (sorted iteration, range queries, min/max) at the cost of
+O(log n) instead of O(1). The choice between them is really a
+question about whether you will ever need to ask a hash table a
+question it structurally cannot answer.

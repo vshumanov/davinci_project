@@ -1,0 +1,66 @@
+ZAWINSKI'S LAW AND SOFTWARE ENTROPY
+
+
+WHAT IT IS
+
+In 1995, at Netscape, a programmer named Jamie Zawinski (known online as jwz) stated a law that has outlived every product it was coined about. It goes like this:
+
+"Every program attempts to expand until it can read mail. Those programs which cannot so expand are replaced by ones which can."
+
+Zawinski was not being poetic. He was describing something he watched happen to his own codebase. Netscape Navigator, a lean piece of software for displaying hypertext documents, grew into Netscape Communicator, a suite bolting on mail, news, an HTML editor, and address books. Zawinski himself worked on Netscape Mail. He called this "our contribution to the proof" of his own law. He was the mechanism and the observer at once.
+
+The line about reading mail is a joke with a precise shape. Email was, in the mid 1990s, the single piece of functionality every serious piece of software eventually wanted, because email was how you proved you were a platform and not just a tool. The specific feature does not matter. Swap in chat, voice calls, calendars, file sync, AI assistants, whatever the current decade's obligatory feature is. The law is not about mail. Mail was the tell.
+
+The formal name for it is the Law of Software Envelopment, and it belongs to a small, informal genre of "laws" that working programmers pass around because they compress a real, repeatedly observed pattern into something you can say in one breath. Parkinson's Law does this for bureaucracy. Zawinski's Law does it for software scope.
+
+The core claim has two parts, and both matter. First, programs expand. Second, if they do not, something else replaces them. It is not a law about bad software getting worse. It is a law about competitive survival. Lean software does not stay lean because nobody asked it to grow. It either grows, or it gets replaced by something that did.
+
+
+WHY IT MATTERS
+
+This matters because "feature creep" gets treated as a discipline failure, a story about weak product managers and undisciplined engineers who cannot say no. Zawinski's Law reframes it as a systemic force, not a personal one. Pressure to expand is not a symptom of bad judgment somewhere in the org chart. It is closer to a law of physics for software markets, an inherent gradient that every useful, actively used program sits on, whether or not anyone in the building wants it to.
+
+Look at the corpses and survivors. Eudora was a clean, single purpose email client, and it lost to Outlook, which bundled mail, contacts, and calendar into one thing that could be centrally deployed by corporate IT with a single Exchange server on the back end. The clean tool did not lose because it was worse at email. It lost because "just email" stopped being a viable product category once the competition offered email plus everything else at the same price.
+
+Slack set out, openly, to kill email. It now does voice calls, video meetings, file storage, a bot platform, and workflow automation, and it still floods your inbox with notification emails. GitHub started as a place to host git repos. It now does issue tracking, project boards, wikis, CI pipelines, package registries, and a social feed. None of this was mission creep by accident. Each addition kept users from having a reason to open a second tool, and every unaddressed feature gap was a door left open for a competitor.
+
+This is why the law matters to anyone building or maintaining software, not just historians of the browser wars. If you run a small, focused tool, internal or public, the market does not let you stay small out of principle. Staying lean is an active, ongoing fight against a real pressure gradient, not a default state you fall into by leaving things alone. Zawinski's Law is the reason "we'll keep it simple" is a decision you have to keep making, not one you make once.
+
+
+THE CORE MECHANISM
+
+The engine behind the law is retention through surface area. Once a piece of software is something people "live in" for hours a day, a browser, an editor, a chat client, every adjacent task a user might otherwise do somewhere else is a reason for them to tab away, and every reason to tab away is a reason a competitor might catch them. The incentive, for whoever owns that piece of software, is to swallow the adjacent task before the user goes looking for a tool that already has it.
+
+Zawinski himself, revisiting the law in 2020, said the point was never really about copycats imitating each other's checkbox lists. It was about platformization, an app people spend their day inside of is under constant pressure to become "everything," because every minute a user spends elsewhere is a minute of attention, data, and lock in that belongs to somebody else. A text editor becomes an IDE, then effectively becomes an operating system running inside a window (see: VS Code, or before it, Emacs, which could already read your mail, browse the web, and manage your calendar decades before "everything app" was a marketing term). A hypertext viewer becomes a platform for running full applications inside a tab.
+
+This connects to a separate, more formal body of work, Lehman's Laws of software evolution, published by Manny Lehman starting in 1974, long before Zawinski's quip. Lehman studied real, actively maintained systems and derived a set of empirical regularities. Two are the load bearing ones here. The Law of Continuing Change says a program that is actually used must keep being adapted, or it becomes progressively less satisfactory to its users. The world moves, and software that stands still is quietly falling behind the world, not holding steady. The Law of Increasing Complexity says that as a system evolves under that pressure, its complexity increases unless someone spends real, deliberate effort to fight that increase back down.
+
+Put those two laws next to Zawinski's and you get the actual mechanism, not just the joke. Software cannot opt out of changing, because the world it serves keeps changing. Every change adds surface area. Surface area, left unmanaged, becomes complexity. Complexity is entropy in the thermodynamic sense, the natural direction of an unmanaged system, the state that everything tends toward unless work, specifically negentropic work, refactoring, deletion, saying no, is continuously spent to resist it. A codebase does not need a saboteur to rot. It only needs nobody paying the maintenance cost of staying simple. Order is not free. Order is a standing bill.
+
+This is why "software entropy" is not just a cute metaphor borrowed from physics. It describes the same asymmetry. It is cheap to add a feature and expensive to remove one, in the same way it is cheap to break an egg and effectively impossible to unbreak it. Every codebase you have ever worked in that felt like wading through mud got that way through thousands of individually reasonable additions, each one a small entropy tax nobody paid down afterward.
+
+
+WHAT PEOPLE GET WRONG
+
+The most common mistake is reading the law literally, as if it is specifically about email, and then either ignoring it because their software has nothing to do with mail, or "disproving" it by pointing out some app that never grew a mail client. This misses that mail was the 1995 instance of a general variable. The general form is: every actively used program is under pressure to absorb the functionality of whatever is currently the "everyone already has this open" category. In 1995 that was email. Today it is closer to chat, or increasingly, an embedded AI assistant. Restate the law with "chat" in place of "mail" and it reads as freshly true in 2026 as it did three decades ago. The law is a template, not a prophecy about a specific feature.
+
+The second mistake is treating this as purely a story about greedy companies or lazy engineers chasing checkbox parity with competitors. That framing makes it sound optional, a moral failure you could simply refuse to commit. It understates how structural the pressure is. A team that ships a genuinely disciplined, minimal tool is not just resisting a bad habit. It is swimming against a current that rewards, with user retention and revenue, exactly the behavior the discipline is trying to prevent. Some tools do hold the line for a long time. The Unix philosophy of small tools that do one thing and compose via pipes is the explicit, decades long counter tradition to Zawinski's Law, and it survives specifically because a whole subculture treats minimalism as a design value worth defending, not because the underlying pressure ever goes away. Even there, the exceptions prove the rule: curl, one of the cleanest examples of "do one thing well" software still shipping today, can be made to send mail over SMTP if you really want it to. The pressure reaches everywhere. It is resisted in places, not absent from them.
+
+The third mistake is assuming bloat is purely additive and purely bad, full stop, with no upside. Some expansion is genuine consolidation of real user need, fewer tools to context switch between is a real productivity win, not just vendor lock in dressed up as convenience. The law does not say expansion is always wrong. It says expansion is close to inevitable, which is a different and more useful claim. The actual design question is never "should this software have zero feature growth," which is not a stable equilibrium anyway. It is "which growth earns its complexity cost, and which growth is empire building that should be cut."
+
+
+WHERE THIS CONNECTS
+
+Zawinski's Law sits inside a small cluster of related ideas worth having in the same mental drawer.
+
+1) Lehman's Laws, covered above, give the formal, empirically studied version of the same phenomenon, extended across eight statements about how real software systems evolve, including one, the Law of Declining Quality, stating that unless a system is rigorously maintained, its perceived quality will decline even as its feature count rises. Growth and quality trade against each other by default.
+
+2) "Worse is Better," an essay and design philosophy associated with Richard Gabriel, argues almost the opposite instinct: that simple, even crude implementations which ship early tend to out compete more "correct," fully featured designs, because the simple thing gets into users' hands and starts accumulating the adoption that then funds its own expansion. Read together with Zawinski's Law, the two describe a full lifecycle: win by being simple and shipping fast, then spend the win expanding into a platform, which is exactly the gravity the next generation of "worse is better" challengers will exploit against you.
+
+3) The broken windows theory of code, the observation that one piece of sloppy, unaddressed code in a repository makes the next piece of sloppy code more likely, because visible neglect lowers the local standard, is the small scale, daily version of the same entropy problem Lehman describes at the scale of years. Nobody schedules a meeting to decide to let a codebase decay. It happens one unreviewed shortcut at a time, the same way Zawinski's platforms grow one "just this one small feature" at a time.
+
+4) Technical debt is the accounting metaphor for the same underlying fact: every shortcut or unmanaged addition is a loan against future engineering time, and it compounds if the principal is never paid down. Zawinski's Law describes the pressure that keeps taking out new loans. Technical debt describes the balance sheet those loans leave behind.
+
+5) The second law of thermodynamics is the honest source of the entropy framing here. A closed system tends toward its most probable, most disordered state unless energy is deliberately spent to hold a more ordered state against that tendency. Software is not a closed system, it has people, money, and deadlines pushing on it from outside, which is precisely why it evolves instead of sitting static, but the direction of drift, absent applied effort, is the same. Complexity is the disordered state. Simplicity is the low entropy state that someone has to keep paying to maintain. Nobody has ever accidentally simplified a codebase by leaving it alone over a long weekend.
+
+Put the whole cluster together and Zawinski's Law stops being a joke about email and becomes a specific, memorable instance of a much older observation: nothing useful holds its shape without somebody spending real effort to hold it there, in software or anywhere else.

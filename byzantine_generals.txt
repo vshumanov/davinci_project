@@ -1,0 +1,202 @@
+THE BYZANTINE GENERALS PROBLEM
+
+WHAT IT IS
+
+In 1982 Leslie Lamport, Robert Shostak, and Marshall Pease published a
+paper posing a deceptively simple puzzle. Several divisions of the
+Byzantine army surround an enemy city. Each division is commanded by a
+general. The generals can only communicate by messenger. Some fraction
+of the generals are traitors. All the loyal generals must agree on the
+same plan of action, attack or retreat, because a half-hearted,
+uncoordinated attack is worse than either unified option. The traitors
+will say whatever it takes to prevent that agreement: telling one
+general attack, another retreat, forging messages, staying silent when
+silence helps them. The question: is there an algorithm that guarantees
+all loyal generals settle on the same decision, regardless of what the
+traitors do.
+
+This is not a story about ancient warfare, it is a proof about
+computers. Replace generals with machines in a network, messengers with
+network messages, and traitors with components that fail in arbitrary,
+adversarial, or buggy ways, not just crashing cleanly but sending
+contradictory data to different peers, and you have described the
+central problem of distributed computing. How do independent machines
+agree on anything when some of them cannot be trusted to tell the
+truth, or even to fail politely.
+
+The paper matters because it named and formalized a failure mode worse
+than a machine simply going offline. A crashed machine is easy to
+reason about, it stops. A Byzantine machine keeps running and keeps
+lying, possibly differently to each listener. Lamport picked the
+general metaphor because it made an abstract fault tolerance question
+vivid, and it worked well enough that Byzantine fault became the
+standard term for this entire class of failure, decades before anyone
+was mining a block.
+
+WHY IT MATTERS
+
+Every system where multiple machines must act as one depends on solving
+some version of this problem. Flight control computers on an aircraft,
+redundant computers on a spacecraft, database replicas agreeing on the
+order of transactions, clusters electing a leader, power grid control
+systems, multi party financial settlement. Wherever the cost of
+disagreement is catastrophic and components cannot be blindly trusted,
+this problem sits underneath the design, whether or not anyone calls it
+by name.
+
+Before Lamport's paper, engineers built redundancy the naive way. Run
+three copies of a system, take the majority vote, done. That works
+fine if the only failure is a copy crashing or going silent. It falls
+apart the moment a faulty component can produce different, self serving
+output to different observers, which is exactly what a corrupted
+sensor, a compromised node, or a bug triggered by a specific input can
+do. The paper's core result is a hard limit on when majority voting, or
+any agreement protocol, can work at all. That limit is a number, not a
+vibe, and it is the single most load bearing fact in the whole field.
+
+The number: to tolerate f Byzantine generals you need at least 3f+1
+generals total, and the messaging needs at least 2f+1 rounds of
+exchange under the oral message model. One traitor among three loyal
+generals is unsolvable, three total is not enough, you need four. Two
+traitors need at least seven total. This is not an engineering
+shortfall waiting on a cleverer algorithm. Lamport, Shostak and Pease
+proved it as an impossibility result. Below that ratio no algorithm
+exists, full stop. That is the part people building systems have to
+internalize before they design anything: the fault tolerance ceiling is
+fixed by arithmetic, not by how good your code is.
+
+THE CORE MECHANISM
+
+The original paper gives two related solutions, and the shape of both
+recurs everywhere downstream.
+
+Oral Message algorithm, OM(m). Assume messages can be authenticated as
+coming from whoever sent them in that hop, you know who spoke to you,
+but content cannot be verified as true, and a traitor can say different
+things to different people. The algorithm works recursively. The
+commanding general sends his order to every lieutenant. Each lieutenant
+then acts as a commander for a smaller version of the same problem,
+relaying what he received to every other lieutenant, who does the same
+one level down, for m levels, where m is the number of potential
+traitors you want to tolerate. Each lieutenant ends up holding a whole
+tree of reported values, what everyone claims everyone else claims the
+order was, and takes the majority value across that tree as the final
+decision. The recursion lets a lieutenant cross check "he told me X"
+against "did anyone else hear him say X" through enough independent
+paths that a lying minority gets outvoted by the structure of
+who-said-what, not by any one message being individually verified.
+
+Signed Message algorithm, SM(m). Assume unforgeable digital signatures
+instead. Now a traitor cannot put words in a loyal general's mouth, any
+message claiming to be from someone can be checked. This drops the
+requirement from 3f+1 generals to just f+2, any number of traitors can
+be tolerated among any group size as long as there are at least two
+loyal generals, because forgery, not disagreement, was doing most of
+the damage in the unsigned case. This is the direct ancestor of every
+consensus system that relies on cryptographic signatures rather than
+raw voting to establish who really said what.
+
+The general shape underneath both variants: gather claims from
+multiple independent paths, apply a deterministic rule, majority, or
+enough matching signed claims, to collapse conflicting reports into one
+decision, and structure the rounds so a bounded number of liars cannot
+force two honest nodes into different conclusions. Every practical
+consensus protocol since is a variation on that shape, tuned for
+different assumptions about the network, synchronous or not, the
+failure model, crash only versus Byzantine, and the cost you are
+willing to pay in messages and rounds.
+
+Practical Byzantine Fault Tolerance, PBFT, published by Miguel Castro
+and Barbara Liskov in 1999, is the version that made this usable in
+real software rather than as a theoretical result. It runs in three
+phases, pre-prepare, prepare, commit, where a designated leader
+proposes an order for operations and the other replicas exchange
+signed votes to confirm enough of them saw the same proposal before
+anyone commits to it. It tolerates up to f faulty replicas out of 3f+1
+total, matching Lamport's original bound, but does it efficiently
+enough for real systems, it was built for a fault tolerant network file
+system, rather than requiring the exponential message blowup of naive
+recursive approaches. PBFT is the bridge between the 1982 theory and
+every later system, blockchain included, that claims Byzantine fault
+tolerance.
+
+WHAT PEOPLE GET WRONG
+
+First: Byzantine fault tolerant does not mean handles servers crashing.
+Crash fault tolerant systems, think most database replication, or
+protocols like Raft and Paxos, assume a failed node stops and stays
+stopped, it does not send out corrupted or contradictory data while
+pretending to be fine. That assumption is reasonable for hardware
+failures and buggy but not malicious software, and it lets you get away
+with a much cheaper quorum, roughly 2f+1 nodes tolerate f crash
+failures, not 3f+1. People often use fault tolerant as a blanket term
+and blur these two categories, but they solve different problems at
+different costs. If your threat model is disks dying and processes
+segfaulting, you do not need Byzantine tolerance and paying for it is
+wasted overhead. If your threat model includes compromised nodes,
+malicious insiders, or hardware producing corrupted but plausible
+output, crash tolerance is not enough and will not save you.
+
+Second: people assume this problem was invented for or by blockchain.
+It was not, it is forty-two years older than Bitcoin. Satoshi
+Nakamoto's 2008 innovation was not discovering the Byzantine Generals
+Problem, it was finding a new way to make the "who gets to propose
+next" step expensive to fake, using proof of work, so that an open,
+permissionless network with unknown and unlimited participants could
+still reach agreement without the fixed, known participant list that
+PBFT and its predecessors assumed. Blockchain consensus is a specific
+answer to Byzantine agreement under a specific and unusual constraint,
+anyone can join, no membership list, no trusted setup, not the origin
+of the problem or the only way to solve it. Most of the internet's
+actual infrastructure, databases, cloud control planes, aviation
+systems, solves Byzantine or crash fault agreement with pre-blockchain
+protocols, because they have a known, fixed set of participants and do
+not need the open and permissionless version of the puzzle at all.
+
+Third: the 3f+1 bound is often forgotten when people design redundant
+systems. Three copies of anything, with majority vote, sounds robust.
+It tolerates exactly zero Byzantine faults, one bad actor among three
+deadlocks or corrupts the vote, because the other two loyal generals
+cannot outvote a liar two to one when the liar tells each of them
+something different and there is no way to independently check who is
+lying. This is the single most common real world design mistake
+traceable straight back to not reading past the metaphor.
+
+WHERE IT CONNECTS
+
+Paxos, Lamport 1989, and Raft, 2014, solve the crash fault version of
+distributed consensus, getting a set of trusted, non malicious replicas
+to agree on an ordered log of operations. They are what most
+production databases and coordination services actually run, because
+most operational failures are crashes and network partitions, not
+malice. Understanding these as the cheaper, non Byzantine cousin of the
+generals problem clarifies why they need fewer replicas and less
+overhead.
+
+PBFT and its descendants, Tendermint, HotStuff, and the consensus
+engines under most permissioned blockchain and enterprise distributed
+ledger products, are the direct engineering lineage from the 1982
+paper, built for environments where a participant might actively lie,
+not just crash.
+
+Proof of work and proof of stake blockchains solve a variant of the
+same problem under an additional, harder constraint, no fixed or known
+participant list, and anyone can show up pretending to be a hundred
+participants, the sybil attack. Proof of work's real function is making
+that pretense expensive, a different problem layered on top of
+Byzantine agreement, not a replacement for it.
+
+Aerospace and safety critical control systems, aircraft fly by wire
+computers, spacecraft avionics, were doing Byzantine fault aware
+redundant design around the same era as Lamport's paper, often
+independently, because a sensor or flight computer that fails by lying
+is a known real hazard at thirty thousand feet, and "just average three
+readings" fails exactly the way the generals problem predicts if one
+sensor is corrupted rather than dead.
+
+The broader idea worth carrying out of this: trust is not free, and the
+cost of trust scales in a specific, provable way with how badly a
+component is allowed to misbehave. Deciding whether you are facing
+crashes or lies is the first design decision in any distributed system,
+and it fixes your redundancy budget before a single line of code gets
+written.

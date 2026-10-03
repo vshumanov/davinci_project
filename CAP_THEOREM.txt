@@ -1,0 +1,79 @@
+CAP THEOREM
+
+INTRODUCTION
+
+Any system that stores data on more than one machine and lets those machines talk over a network is going to hit CAP. It is not a design choice you can opt out of, it is a constraint discovered the way a speed limit is discovered - by building something and finding out where it breaks. This ebook covers what CAP actually says, why it matters even if you never write distributed systems code yourself, the mechanism underneath it, the two most common misreadings of it, and the neighboring ideas worth knowing once you have this one straight.
+
+WHAT IT IS
+
+CAP theorem describes a hard tradeoff in distributed data systems - any system where the same data lives on more than one node and those nodes communicate over a network. The theorem says you can have at most two of the following three properties at the same time, and in practice only get to pick one, for reasons covered in the next section.
+
+CONSISTENCY. Every node that answers a read returns the most recent write, or an error. There is no such thing as asking two different replicas the same question and getting two different answers. This is a stronger guarantee than it sounds - it means the system behaves, from the outside, as if there were only one copy of the data, even though there are many.
+
+AVAILABILITY. Every request to a working node gets a response. Not necessarily the "right" response, not necessarily agreement with other nodes - just a response, and reasonably fast. A system that is available never just hangs or refuses to answer because it is unsure.
+
+PARTITION TOLERANCE. The system keeps operating even when the network between nodes drops messages or splits the cluster into groups that cannot talk to each other. A partition is not a hypothetical failure mode - it is switches dying, cables getting cut, cloud regions losing peering, a router misconfigured at 3am. It happens.
+
+The theorem was proposed by Eric Brewer in 2000 as a conjecture based on his experience building large-scale web infrastructure, and formally proven in 2002 by Seth Gilbert and Nancy Lynch. The proof is not complicated once you see it, and it is worth understanding on its own terms rather than just memorizing the triangle, because the popular one-sentence version of CAP misleads almost everyone who hears it. More on that below.
+
+WHY IT MATTERS
+
+You do not need to be building the next distributed database to care about this. CAP matters because it explains behavior you have already seen and probably shrugged off as a bug.
+
+Your bank app shows a transaction as "pending" for a few seconds before it clears. Two people editing the same Google Doc paragraph sometimes see a brief flicker where their changes seem to fight each other before settling. A DNS change you made takes an hour to "propagate." An e-commerce site lets you add the last unit of a product to your cart, and then tells you at checkout that it is out of stock. None of these are sloppy engineering. They are visible symptoms of a system that had to make a CAP tradeoff and chose to lean toward availability - answer fast, reconcile the truth later - rather than making you wait for perfect agreement across every replica before it would let you do anything.
+
+Once you know CAP, you stop reading these moments as failures and start reading them as decisions. That is the actual value of the theorem for anyone who is not personally implementing a consensus protocol: it gives you a vocabulary for why a system behaves the way it does under stress, and it tells you what question to ask when evaluating any tool that claims to be "distributed" - not "is it consistent," not "is it available," but "which one does it give up, and when."
+
+It also matters commercially. Every database vendor, every cloud service, every "eventually consistent" caching layer is making a CAP bet, whether they advertise it or not. Knowing the theorem lets you read between the lines of a vendor's marketing page and understand what kind of failure you are signing up for before it happens to your production system instead of in a whitepaper.
+
+THE CORE MECHANISM
+
+Here is the actual proof, compressed to its essence, because the mechanism is more useful than the label.
+
+Take the simplest possible distributed system: two nodes, A and B, each holding a copy of the same piece of data, connected by a network link. Now cut the link - a partition. Both nodes are still up. Both nodes can still individually accept requests from clients. But they cannot talk to each other anymore.
+
+A client sends a write to node A: update the value. A client sends a read to node B, asking for that same value. Node B has two options, and only two.
+
+Option one: node B answers with the value it has on hand, which does not yet reflect the write that just landed on A, because the update never arrived - the link is cut. B has just sacrificed consistency to remain available. It answered, but it lied a little, or at least told a truth that is now stale.
+
+Option two: node B recognizes it cannot confirm whether it is up to date, so it refuses to answer, or blocks and waits for the partition to heal so it can check with A first. B has just sacrificed availability to preserve consistency. It told the truth, but it did not answer.
+
+There is no third option. B cannot both answer immediately and guarantee the answer reflects every write that has happened elsewhere in the system, because the information needed to make that guarantee cannot cross a link that is down. This is the whole theorem. Partition tolerance is not really a design feature you add - it is what happens by default the moment the network fails, and the network will fail, because it is physical infrastructure and physical infrastructure has an error rate above zero. Given that a partition is coming whether you plan for it or not, the only real design decision is what your system does during one: does it stay consistent and become partially unavailable, or does it stay available and become partially inconsistent.
+
+This is why real systems get sorted into two buckets during any partition event:
+
+CP SYSTEMS choose consistency over availability. When a partition happens, nodes that cannot confirm agreement with the rest of the cluster stop answering rather than risk giving a wrong answer. Traditional consensus protocols like Paxos and Raft work this way - a write only commits once a majority (a quorum) of nodes acknowledge it, and if you cannot reach a majority, you cannot write, full stop. Examples: ZooKeeper, etcd, most traditional relational databases run in a strongly consistent replication mode.
+
+AP SYSTEMS choose availability over consistency. Every reachable node keeps answering requests during a partition, and the system reconciles the divergent copies once the partition heals, using rules like "last write wins" or more sophisticated conflict resolution. Examples: Cassandra, DynamoDB in its default mode, most DNS infrastructure, most CDN caching layers.
+
+Note what is missing: "CA" is not a real category for a distributed system, for the reason explained two paragraphs up. A system that is both consistent and available can only exist if it never experiences a partition - which means it is not really distributed in any way that matters, or it is quietly assuming a network reliability it does not actually have. This is the single most important correction to the popular version of the theorem, and leads directly into the next section.
+
+WHAT PEOPLE GET WRONG
+
+MISTAKE ONE: "CAP means pick any two of three, like a menu."
+
+This is the version that gets drawn as a triangle with a system's name at each corner, and it is wrong in a way that actively misleads people making real infrastructure decisions. You do not get to choose "CA" as a genuine, standing option, because partition tolerance is not a feature you can decline - it is a fact about physical networks that will impose itself on you whether your architecture accounted for it or not. A single-node database is trivially CA, because there is nothing to partition. The moment you replicate data across more than one machine over a network you do not control end to end, partitions become a when, not an if, and your only live choice is C or A during the moment one occurs. Treat CAP as a two-way fork - C or A, under partition - not a three-way menu, and the theorem stops being a party trick and starts being useful for actually evaluating systems.
+
+MISTAKE TWO: confusing CAP-consistency with database-consistency.
+
+The C in ACID (the classical guarantee for single-database transactions) means something different from the C in CAP. ACID consistency is about a transaction never leaving the database in a state that violates its own defined rules - foreign keys intact, constraints satisfied, invariants held. CAP consistency is about whether concurrent reads across different replicas agree with each other, formally called linearizability - it is entirely about the ordering and visibility of operations across nodes, not about whether the data obeys business rules. A system can be perfectly ACID-consistent on each individual node and still be CAP-inconsistent across nodes, because those are two different axes measuring two different things. People who have only encountered "consistency" in the context of a single relational database tend to import that meaning into CAP conversations and end up talking past engineers who mean the distributed-systems definition. When you hear "consistency" in a CAP discussion, mentally substitute "every replica agrees on what the current value is" and the rest of the conversation will make more sense.
+
+A close cousin of mistake two is treating the C/A tradeoff as binary in practice rather than in theory. Real production systems often mix modes per operation rather than committing wholesale to one label - a system might serve most reads in an available, possibly-stale mode for speed, while routing a specific class of write, like a financial balance update, through a strongly consistent path that will refuse to answer rather than risk a wrong number. "This system is AP" is a useful shorthand, but it is a summary of a design posture, not a description of every code path inside it.
+
+WHERE IT CONNECTS
+
+CAP is the entry point into a cluster of ideas that all deal with the same underlying problem: keeping multiple copies of the truth in sync when the network between them is not perfectly reliable and not perfectly fast.
+
+EVENTUAL CONSISTENCY is the practical answer AP systems give to the consistency they gave up. Instead of guaranteeing every node agrees right now, they guarantee every node will agree eventually, once writes have had time to propagate and any conflicts have been resolved. "Eventually" is doing a lot of work in that sentence, and the gap between "eventually" and "now" is exactly where the stale-read symptoms mentioned earlier come from.
+
+BASE VS ACID is the culture-level framing of the same split. ACID (atomicity, consistency, isolation, durability) is the traditional promise of a single database: strong guarantees, narrow scale. BASE (basically available, soft state, eventual consistency) is the looser promise many large-scale distributed systems make instead, trading guarantee strength for the ability to survive partitions and scale horizontally. Picking a database is very often, whether or not the vendor says so, picking a point on the ACID-to-BASE spectrum.
+
+CONSENSUS PROTOCOLS - Paxos, Raft, and their relatives - are the machinery CP systems use to get multiple nodes to agree on a single value or ordering of operations even when some nodes are slow, unreachable, or lying. Raft in particular is worth knowing by name because it was explicitly designed to be more understandable than Paxos, and it underpins a huge share of modern infrastructure - etcd, Consul, CockroachDB, and plenty of internal systems at companies running their own coordination layer.
+
+QUORUM SYSTEMS are the tuning knob a lot of AP-leaning databases expose directly to the operator. Instead of a hardcoded CP or AP stance, a system like Cassandra or DynamoDB lets you configure how many nodes (N) hold a copy of the data, how many must acknowledge a write (W), and how many must respond to a read (R). If W plus R is greater than N, you get strong consistency guarantees on that operation; if not, you get availability and speed at the cost of possibly reading stale data. This is CAP made into a dial rather than a fixed architectural decision, and it is one of the more useful things to actually understand if you will be operating one of these systems rather than just reading about them.
+
+CRDTS (conflict-free replicated data types) are a newer-ish answer to the same problem from a different angle: instead of choosing between consistency and availability, design your data structures so that any two divergent copies can always be merged back together automatically, without conflicts, no matter what order the updates arrive in. They show up in collaborative editing tools and some distributed databases, and they are the closest thing distributed systems have found to a loophole in CAP - not a way around the theorem, but a way to make the reconciliation step after an availability-favoring choice cheap and automatic rather than messy.
+
+PACELC EXTENDS CAP into calmer weather. CAP only describes what happens during a partition. PACELC (if Partitioned, choose Availability or Consistency, Else choose Latency or Consistency) points out that even when the network is perfectly healthy, there is still a tradeoff between consistency and speed, because confirming agreement across multiple nodes takes time no matter how good the network is. This is the more complete and more quietly important theorem for anyone actually running a system day to day, since most of a system's life is spent not partitioned, and the consistency-versus-latency tradeoff is live the entire time.
+
+Put together, these ideas describe the same terrain CAP first mapped: there is no free lunch when the truth lives in more than one place, only a menu of where you are willing to pay the cost - in staleness, in latency, in refused requests, or in the engineering effort to make reconciliation invisible.

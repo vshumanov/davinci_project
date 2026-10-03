@@ -1,0 +1,207 @@
+THE TWO GENERALS PROBLEM
+
+WHAT IT IS
+
+Two armies, commanded by two generals, sit on separate hills
+overlooking a city they want to attack. They will win only if
+they attack AT THE SAME TIME - either army alone loses. The
+only way to coordinate is to send a messenger through the
+valley between them, and the valley is enemy territory: any
+messenger might be captured and the message lost, with no way
+for the sender to know whether it got through.
+
+General A sends a messenger: "attack at dawn." Suppose it
+arrives. General B wants to send an acknowledgment back, so A
+knows B got the message and will actually show up. But that
+acknowledgment can ALSO be lost in the valley - and if it is
+lost, A does not know whether B received the plan, so A cannot
+safely attack, because attacking alone means A's army gets
+wiped out.
+
+So B could wait for an acknowledgment of the acknowledgment.
+But that message can be lost too. And the acknowledgment of
+THAT can be lost. There is no finite chain of messages after
+which both generals can be CERTAIN the other one is certain
+they both agree - because whichever message is the last one
+sent, its sender has no proof it arrived, and can never have
+proof, because proof would require one more message.
+
+The result, proven formally by Akkoyunlu, Ekanadham, and
+Huang in 1975, is stark: over an unreliable channel where
+messages can be silently lost, there is no protocol, of any
+length, finite or otherwise, that lets two parties reach
+guaranteed common knowledge of an agreement. Not "hard" -
+impossible, full stop, for exactly the same flavor of reason
+the halting problem is impossible: it is a property of the
+model, not a limitation of cleverness.
+
+WHY IT MATTERS
+
+This is not a story problem. It is the honest description of
+what a real network connection is: packets get dropped,
+delayed, duplicated, or reordered, and the sender of any given
+packet has no built-in way to know for certain it arrived. Every
+distributed system that needs two machines to agree on
+something - did the payment go through, did both replicas
+commit the write, is the other node still alive - is running
+into the Two Generals Problem, whether or not anyone building it
+knows the name.
+
+This is why "exactly-once delivery" is, strictly, a marketing
+phrase rather than an achievable guarantee over an unreliable
+network - you can get AT-MOST-once (send it, do not retry, risk
+it never arriving) or AT-LEAST-once (retry until acknowledged,
+risk the receiver processing it twice), and you can build
+exactly-once-processing on top of at-least-once-delivery by
+making the operation idempotent (safe to apply twice), but you
+cannot make the delivery itself exactly-once as a network
+primitive. The generals problem is the proof that no cleverer
+protocol closes that gap - it explains why every real system
+either tolerates duplicates, tolerates loss, or does extra
+bookkeeping (idempotency keys, deduplication) to fake
+exactly-once at a layer above the unreliable one.
+
+It is also the reason TCP's "connection" is a useful fiction,
+not a guarantee of anything beyond what each side has locally
+observed. TCP's three-way handshake (SYN, SYN-ACK, ACK) is
+this exact problem being solved as well as it CAN be solved -
+not perfectly, because perfectly is proven impossible, but well
+enough for practice, which is a different and more honest bar.
+
+THE MECHANISM
+
+The impossibility proof is short, and it is worth walking
+through because the shape of the argument recurs everywhere in
+distributed systems.
+
+Assume, for contradiction, a protocol P exists: some finite
+sequence of messages after which both generals are guaranteed
+to attack together, correctly, every time, over a channel that
+can lose any message.
+
+Look at the LAST message required by P. Call its sender X and
+its receiver Y.
+
+Case 1: that last message is lost. Then Y never received it.
+By hypothesis P still requires this message for correctness, so
+without it Y cannot safely proceed - if Y attacked anyway, then
+message would have been unnecessary, contradicting that P
+required it. So Y does not attack. Meanwhile X, having sent it,
+does not know it was lost, so X might attack, expecting Y
+received it. X attacks alone. Disaster - the protocol failed on
+a real, permitted outcome of the channel (loss).
+
+Case 2: that last message arrives. Now ask: did X need to know
+it arrived, in order to safely attack? If yes, X needed
+ANOTHER message after it - a confirmation - meaning the "last"
+message was not actually last, contradiction. If no, X was
+going to attack regardless of whether that final message got
+through, which means the message was not load-bearing for
+X's decision, and Y is now the one relying on it - so slide the
+same argument onto Y one level down instead, and the identical
+question about whoever depends on the truly-final message
+repeats. There is no place to stand where a message is both
+necessary and its non-arrival is survivable.
+
+Either way, any proposed FINITE protocol has a weakest link that
+is either not actually necessary (so drop it and the protocol
+gets shorter) or genuinely necessary and its loss is fatal (so
+the protocol fails sometimes). Since a channel that can lose
+ANY message can, by assumption, lose exactly that one, no finite
+protocol is safe against it. Adding more acknowledgments does
+not fix this, it just relocates which message is now the
+last, unprotected one - it is turtles all the way down, and the
+tower is provably infinite while budgets and networks are not.
+
+=====
+    A: "attack at dawn"        -----> lost?
+    B: "confirmed, attacking"  <----- lost?
+    A: "got your confirm"      -----> lost?
+    B: "got your ack of my
+        confirm"               <----- lost?
+    ... no finite chain ends
+        this with certainty
+        for BOTH sides
+=====
+
+WHAT PEOPLE GET WRONG
+
+1) "So distributed systems cannot agree on anything." They
+agree constantly - what is impossible is agreeing with
+ABSOLUTE CERTAINTY over a channel that can silently and
+arbitrarily lose messages, with no other assumption to lean on.
+Relax the model even slightly - bound the message delay, allow
+timeouts, allow retries, accept a probabilistic rather than
+provable guarantee - and useful, practical protocols exist. TCP,
+two-phase commit, Paxos, Raft: none of these achieve the
+impossible thing, all of them achieve something workable by
+changing the deal (retries plus timeouts plus idempotency,
+majority quorums instead of unanimous certainty, or accepting a
+vanishingly small failure probability instead of zero).
+
+2) Confusing it with the Byzantine Generals Problem. Different
+problem wearing a similar uniform. Two Generals is about
+message LOSS on an otherwise honest channel between two honest
+parties - the messages that arrive are truthful, some just do
+not arrive. Byzantine Generals (Lamport, Shaw, Pease, 1982) is
+about scaling to N parties where some participants might be
+ACTIVELY LYING or malicious, not merely dropping packets -
+which is the harder problem underlying blockchain consensus,
+and has a real, achievable answer under assumptions like "fewer
+than one third of participants are traitors," unlike Two
+Generals which has no achievable answer under its own
+assumptions at all.
+
+3) "Adding a timeout solves it." A timeout does not give you
+certainty, it gives you a DECISION PROCEDURE despite the
+uncertainty - "if I have not heard back in N seconds, assume
+failure and act accordingly." That is exactly the move that
+makes real systems work, but it is not a solution to the
+original problem, it is a deliberate change of what you are
+solving for: from provable agreement to a bounded, accepted
+error rate. The Two Generals Problem is not "unsolved," it is
+proven UNSOLVABLE under its stated rules - what practice does
+is quietly change the rules.
+
+4) Thinking this is a historical curiosity from academic
+distributed-systems papers. It is the reason your bank's
+mobile app shows "payment pending" instead of an instant yes or
+no, the reason message queues talk about delivery guarantees in
+careful qualified language instead of promising perfection, and
+the reason every retry-with-idempotency-key pattern you have
+ever implemented exists at all - it is downstream of this exact
+impossibility.
+
+WHERE IT CONNECTS
+
+The FLP Impossibility Result (Fischer, Lynch, Paterson, 1985)
+is the more general, more famous cousin: it proves that in an
+ASYNCHRONOUS network - one with no upper bound on message
+delay - no consensus protocol can guarantee agreement among
+multiple nodes if even one node might fail, in bounded time.
+Two Generals is the two-party, message-loss-flavored special
+case; FLP is the N-party, arbitrary-delay-flavored general
+case. Both are "impossible in the worst case," both are worked
+around in practice by accepting weaker guarantees (timeouts,
+randomization, or giving up on termination in the rare
+adversarial case).
+
+The CAP Theorem (Brewer, formalized by Gilbert and Lynch) is a
+close relative in spirit: pick at most two of Consistency,
+Availability, Partition tolerance, because a network partition
+(a Two-Generals-style communication breakdown) forces a choice
+between answering with possibly-stale data or not answering at
+all. CAP is Two Generals' logic applied to the specific
+trade-off of what a system should do WHILE the channel is
+unreliable, rather than proving certainty is unreachable in
+the abstract.
+
+TCP's three-way handshake and exponential backoff retries are
+the pragmatic, real-world answer to living with an unsolvable
+problem: not certainty, but a probability of success that gets
+acceptably close to 1 with enough retries, paired with
+idempotent operations so a duplicate delivery is harmless
+instead of catastrophic. Idempotency keys in payment APIs are
+the direct, everyday descendant of this - the entire pattern
+exists because delivery cannot be made exactly-once, so the
+operation is made safe to receive more than once instead.

@@ -1,0 +1,249 @@
+EPISTEMOLOGY
+
+WHAT IT IS
+
+Epistemology is the branch of philosophy that asks: what is
+knowledge, and how do you know you have it? It is the theory
+of knowing. Not "what is true" - that is metaphysics - but
+"how could you ever be justified in claiming to know what is
+true." The word comes from the Greek "episteme," knowledge,
+and "logos," account or study. It is, at bottom, the
+discipline of taking your own beliefs and putting them on
+trial: on what grounds do you hold this, and are those
+grounds any good?
+
+Everyone runs an epistemology whether they have examined it
+or not. Every time you decide a source is trustworthy,
+dismiss a claim as nonsense, update on new evidence, or dig
+in against it, you are applying a theory of how belief should
+track reality. Most people run this theory unconsciously,
+inherited and unexamined, full of leaks. Epistemology is what
+you get when you drag that machinery into the light and ask
+whether it actually works. In an age where the bottleneck is
+no longer access to information but the ability to tell signal
+from noise, garbage from gold, this is not an abstract
+academic exercise. It is the core survival skill of a mind.
+
+The traditional starting definition, going back to Plato, is
+that knowledge is JUSTIFIED TRUE BELIEF. To know something,
+three things must hold: you must believe it, it must be true,
+and you must have justification - good reasons - for
+believing it. Believe something true by luck, with no good
+reason, and it does not count as knowledge; a stopped clock
+is right twice a day but knows nothing. This three-part
+definition ran the field for over two thousand years, and
+then a philosopher named Edmund Gettier broke it in a
+three-page paper in 1963, which we will come to, because the
+breaking is instructive.
+
+WHY IT MATTERS
+
+Epistemology matters because it sits underneath everything
+else you believe. Your politics, your science, your religion
+or lack of one, your read on a business decision, your trust
+in a person - all of it rests on a foundation of how you
+decide what to believe. If that foundation is bad, everything
+built on it is compromised, no matter how confident you feel.
+Confidence is not a guide to truth; it is a feeling, and one
+of the cruel facts epistemology teaches is that the feeling
+of certainty and the fact of being right are only loosely
+correlated. People are most certain, often, precisely where
+they are most wrong, because certainty is a mood and
+correctness is a relationship to the world.
+
+It matters because the failures are catastrophic and
+routine. Conspiracy theories, scams, cults, propaganda, and
+expensive mistakes are all, at root, epistemology failures -
+belief-forming machinery that stopped tracking reality and
+nobody noticed. The scammer and the propagandist are applied
+epistemologists working for the other team; they understand
+exactly how belief gets manufactured and they manufacture it
+in you. Your only defense is understanding the same
+machinery well enough to spot when it is being played.
+
+And it matters because the modern information environment is
+an epistemically hostile place by design. Recommendation
+systems optimize for engagement, not truth. Bad-faith actors
+flood the zone. Generative tools now produce plausible text,
+image, and video at scale, meaning the old heuristic - "it
+looks real, so it probably is" - is dead. The ability to
+reason carefully about the reliability of sources and the
+strength of evidence has gone from a philosopher's pastime to
+a load-bearing life skill. Epistemology is the toolkit for
+not being fooled, including by yourself, who is the easiest
+mark you will ever meet.
+
+THE CORE PROBLEMS AND MECHANISMS
+
+Epistemology is organized around a few deep problems. Knowing
+them is knowing the shape of the field.
+
+THE REGRESS PROBLEM. Every belief, if challenged, needs
+justification - a reason. But that reason is itself a belief,
+which needs its own justification, which needs its own, and
+so on. Where does it stop? This regress is the central engine
+of the field, and there are three classic ways to answer it:
+
+1) FOUNDATIONALISM - the regress stops at basic beliefs that
+are self-justifying and need no further support. Direct sense
+experience ("I am seeing red now") or simple logical truths
+("nothing is both A and not-A") are the usual candidates for
+the bedrock. Everything else is built on top of these
+foundations, like a building on footings.
+
+2) COHERENTISM - there is no bedrock; instead beliefs justify
+each other by hanging together in a mutually supporting web.
+A belief is justified if it coheres with the rest of your
+belief system. No single belief stands alone or stands first;
+the structure is a raft, not a building, and it floats
+because the parts hold each other.
+
+3) INFINITISM and various contextualist dodges - rarer
+positions holding either that the chain never needs to end,
+or that in any given context you can stop at what that context
+treats as not-in-question.
+
+You do not have to pick a winner. You need to feel the
+problem: your beliefs cannot all be justified by other
+beliefs forever, so either something is self-supporting,
+something is circular (but virtuously), or the demand for
+justification is somehow misframed. Every serious theory of
+knowledge is a move in this game.
+
+THE PROBLEM OF INDUCTION, from David Hume, is the sharpest
+knife in the drawer. You believe the sun will rise tomorrow.
+Why? Because it always has. But that reasoning - the future
+will resemble the past because it always has - assumes the
+very thing it is trying to prove. There is no non-circular
+way to justify induction, the inference from observed cases
+to unobserved ones, yet ALL of empirical science and daily
+life runs on it. Hume's point is not that induction is wrong;
+it is that we cannot rationally justify it, and we do it
+anyway because we are built to. This is genuinely unsolved,
+and it should make you humble about the deepest floor of
+empirical knowledge. Everything you "know" from experience
+rests on a bridge nobody has been able to anchor.
+
+THE GETTIER PROBLEM broke the old definition. Gettier gave
+cases where someone has a justified true belief that is
+clearly NOT knowledge, because the justification connects to
+the truth only by luck. You look at a stopped clock reading
+3:00, you have good reason to trust clocks, and it happens to
+actually be 3:00 - justified, true, believed, but you do not
+KNOW it is 3:00; you got lucky the broken clock matched
+reality. These cases showed that justified true belief is not
+sufficient, and the field has spent sixty years adding a
+fourth condition to plug the luck - reliability, causal
+connection, no false steps in the reasoning. The lesson to
+carry: knowledge requires that your belief be connected to
+the truth in the right WAY, not just that it happens to line
+up. A right answer for a broken reason is not knowledge.
+
+Underneath these sit two rival pictures of where knowledge
+comes from at all. RATIONALISM (Descartes, Leibniz) holds
+that some knowledge comes from reason alone, prior to
+experience - mathematics, logic, certain necessary truths you
+can see are true just by thinking. EMPIRICISM (Locke, Hume)
+holds that all substantive knowledge comes from sense
+experience; the mind starts as a blank slate and the world
+writes on it. Kant's move was to say both are partly right:
+the mind supplies the structure (space, time, causation) and
+experience supplies the content, and knowledge is the product
+of the two, so we can never know reality "in itself," only
+reality as filtered through our cognitive apparatus. That
+filter idea - that you never touch the world raw, only the
+world as your equipment renders it - is one of the most
+important in all of philosophy, and it reappears everywhere
+from neuroscience to the design of instruments.
+
+WHAT PEOPLE GET WRONG ABOUT IT
+
+Three traps swallow people who think about knowledge without
+the tools.
+
+First, collapsing into lazy relativism: "there is no truth,
+it is all just opinion, everyone has their perspective."
+This feels sophisticated and is actually a way to stop
+thinking. That knowledge is hard, fallible, and filtered does
+NOT mean all claims are equal. The claim that the earth is
+round and the claim that it is flat are not two equally valid
+perspectives; one is supported by overwhelming evidence and
+the other is not, and epistemology is precisely the
+discipline of telling the difference. Fallibilism - the view
+that any belief might be wrong and should be held open to
+revision - is the mature position, and it is the OPPOSITE of
+relativism. Fallibilism says: I might be wrong, so let me
+check carefully. Relativism says: everyone is equally right,
+so checking is pointless. One sharpens you; the other
+anesthetizes you.
+
+Second, treating certainty as the standard for knowledge.
+People reason: "you cannot be one hundred percent sure,
+therefore you do not really know, therefore it is all up for
+grabs." This demands an impossible standard and then uses the
+failure to meet it as license to believe anything. Almost all
+real knowledge is probabilistic, not certain. You do not need
+certainty; you need justification proportioned to the
+evidence. Waiting for certainty is waiting forever, and in the
+meantime the person willing to act on strong-but-not-certain
+evidence eats your lunch. Confusing "not certain" with "not
+known" is the flat-earther's favorite move and the
+conspiracy theorist's whole business model.
+
+Third, motivated reasoning wearing the mask of open-minded
+inquiry. The mind is not a neutral truth-seeking engine; it
+is a lawyer that defends the conclusions you already want.
+CONFIRMATION BIAS - seeking, favoring, and remembering
+evidence that supports what you already believe - is not an
+occasional bug but the default operating mode of human
+cognition. The dangerous version is when it disguises itself
+as skepticism: you demand crushing proof for claims you
+dislike and wave through claims you like on a whisper. Good
+epistemology is not "question everything" applied unevenly to
+the other side. It is applying the SAME standard of evidence
+to the beliefs you love as to the ones you hate - and
+noticing that the ones you love are exactly where your
+standards secretly go soft.
+
+WHERE IT CONNECTS
+
+SCIENCE is applied epistemology - a social machine built to
+partially defeat human belief-forming weaknesses.
+Peer review, controlled experiments, replication, and the
+demand for falsifiability (Karl Popper's criterion: a claim
+is scientific only if it could in principle be proven wrong)
+are institutional patches for confirmation bias and wishful
+thinking. The scientific method is epistemology that stopped
+trusting the individual knower and built error-correction
+into the group. It is the best belief-forming machine humans
+have made, and it works precisely because it assumes every
+individual scientist is biased and routes around them.
+
+BAYESIAN REASONING is epistemology turned into arithmetic.
+It treats belief as a probability that you update in a
+specific proportion as evidence arrives - start with a prior,
+multiply in the likelihood of the evidence, get a posterior.
+It gives a precise answer to "how much should this evidence
+move me," and it makes explicit the thing amateurs forget:
+strong evidence for a claim that was very unlikely to begin
+with may still leave the claim unlikely. This is the
+mathematical backbone of a great deal of modern statistics,
+machine learning, and any discipline serious about updating
+beliefs.
+
+COGNITIVE SCIENCE fills in the machinery - the actual biases,
+heuristics, and shortcuts the human mind uses (Kahneman and
+Tversky's work). Epistemology says how you SHOULD reason;
+cognitive science says how you ACTUALLY do, and the gap
+between them is a map of every place you are likely to fool
+yourself.
+
+The through-line: knowing is harder than it feels, your
+belief-forming machinery is biased by default, and certainty
+is a feeling rather than an achievement. The practical payoff
+of epistemology is not a set of true beliefs - it is a set of
+good HABITS for forming beliefs: proportion confidence to
+evidence, apply the same standard to friend and enemy, stay
+open to being wrong, and trust the reason more than the
+feeling of being right. Do that consistently and you will be
+wrong far less often than the people who are sure.

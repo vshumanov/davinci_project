@@ -1,0 +1,174 @@
+THE HALTING PROBLEM
+
+WHAT IT IS
+
+The halting problem asks a simple question: given a program and
+an input, can you write another program that always correctly
+says whether the first one will finish running or loop forever.
+Turing proved in 1936 the answer is no. Not "no with today's
+technology" - no as in mathematically impossible, forever, for
+any computer that could ever be built.
+
+This is not a claim about specific programs. You can tell
+whether plenty of individual programs halt. "while(true){}"
+never halts. "print('hi')" obviously does. The claim is
+narrower and sharper: there is no single general-purpose
+algorithm that takes ANY program plus ANY input and correctly
+decides halt-or-not for ALL of them. The impossibility lives at
+the level of "a machine that solves this for every case," not
+"this particular case is hard."
+
+WHY IT MATTERS
+
+It matters because it is the ceiling. Before Turing, the open
+question hanging over mathematics (Hilbert's
+Entscheidungsproblem) was whether every well-posed math
+statement was mechanically decidable - feed the statement into
+a crank, turn it, get true or false out. Turing, and Church
+independently with lambda calculus, showed some questions have
+no crank. Ever. The halting problem is the cleanest example of
+a no-crank question, and it turned out to be contagious: a huge
+number of real software problems can be shown to secretly BE
+the halting problem wearing a costume, which means they inherit
+the impossibility.
+
+Concretely, this is why:
+
+1) No antivirus can perfectly detect all malware by analyzing
+what code WOULD do, as opposed to matching known signatures.
+Fully general "will this code do something bad" is undecidable.
+
+2) No compiler can perfectly detect all infinite loops or dead
+code in every case, only in some cases, via conservative
+approximation.
+
+3) Static analysis tools - the ones warning about null pointer
+dereferences, unreachable code, resource leaks - are all
+playing defense against an opponent that cannot be fully beaten.
+They approximate. They carry false negatives, false positives,
+or both, by mathematical necessity, not sloppy engineering.
+
+If "just have the compiler catch that bug" ever hit a wall for
+you, this is the wall.
+
+THE MECHANISM: HOW TURING PROVED IT
+
+The proof is a diagonalization argument, the same family of
+trick Cantor used to show some infinities are bigger than
+others. Structure: assume the impossible thing exists, then use
+it to build a monster that contradicts itself.
+
+Step by step:
+
+1) Suppose, for contradiction, a program H exists that solves
+halting perfectly. H takes two inputs - a program P and an
+input I - and always correctly outputs HALTS or LOOPS, and H
+itself always halts.
+
+2) Build a new program, call it D, for diagonal, or more
+honestly, the troublemaker. D takes one input: a program P. D
+runs H(P, P) - it asks H what P would do if P were given
+ITSELF as input.
+
+3) D is built to do the opposite of whatever H predicts:
+
+=====
+    function D(P):
+        result = H(P, P)
+        if result == HALTS:
+            loop forever      # spite move one
+        if result == LOOPS:
+            halt immediately  # spite move two
+=====
+
+4) Now ask the fatal question: what does D(D) do. Feed D itself
+as its own input.
+
+5) Case A: H says D(D) halts. Then by D's own construction, D
+loops forever when told it halts. Contradiction - H was wrong.
+
+6) Case B: H says D(D) loops. Then by D's construction, D halts
+immediately when told it loops. Contradiction - H was wrong.
+
+7) Either way H is wrong about D(D). But H was ASSUMED to
+always be correct. So the assumption in step one, that a
+perfect H exists, is false. No such H can exist, for any
+programming language expressive enough to build D, which is
+any real language.
+
+That is the whole proof. No calculus, no infinite sets to wave
+hands at - just a program that phones a fortune-teller, asks
+its own fortune, and does the opposite on purpose. The
+fortune-teller cannot exist because the troublemaker can always
+be built to falsify it.
+
+WHAT PEOPLE GET WRONG
+
+1) "It just means we have not found the algorithm yet." No.
+This is a proof, not an engineering gap. Same epistemic status
+as "no largest prime number." Faster computers, better AI,
+quantum computers - none of it touches this, because the proof
+does not depend on speed or cleverness, it depends on
+self-reference being buildable at all.
+
+2) "So we can never know if ANY program halts." Also no, and
+this is the most common and most damaging misreading. You can
+prove particular programs halt constantly - that is most of
+what a terminating loop with a decreasing counter IS, a
+hand-built halting proof for that one case. What is impossible
+is a single GENERAL method that works on every program without
+exception. Undecidable in general does not mean unknowable in
+particular.
+
+3) Confusing it with NP-completeness, or "just hard." NP-hard
+problems are decidable - you WILL get an answer, it might just
+take longer than the heat death of the universe for large
+inputs. Halting is not slow, it is a different category: no
+amount of time helps, because there is no procedure at all, not
+even a slow one, that works universally.
+
+4) Thinking it is purely academic. It shows up constantly in
+disguise: will this regex ever catastrophically backtrack, will
+this type inference terminate, will this smart contract ever
+get stuck, will this build script finish - all
+halting-adjacent, and tool vendors quietly build products
+around never promising a perfect answer, only a conservative
+one.
+
+WHERE IT CONNECTS
+
+Rice's Theorem is the halting problem's bigger, meaner sibling:
+it says almost ANY non-trivial property about what a program's
+behavior WILL do is undecidable in general. Does this program
+ever print X. Does this program compute the same function as
+this other program. Is this program equivalent to a no-op. All
+undecidable, all for the same diagonalization reason.
+
+Godel's Incompleteness Theorems are the math-side cousin,
+proved a few years earlier by a similar self-reference trick -
+"this statement cannot be proved" instead of "this program does
+the opposite of what you predict." Turing's proof and Godel's
+proof are close enough that you can translate one into the
+other with effort - both exploit the fact that a sufficiently
+expressive system can build a sentence, or a program, that
+talks about itself.
+
+The Church-Turing Thesis is the informal claim that "computable
+by an algorithm" and "computable by a Turing machine" are the
+same thing - not a theorem, since "algorithm" is not formally
+defined independent of the models invented so far, but every
+model anyone has proposed turns out equivalent in power to a
+Turing machine. This is why the halting problem's impossibility
+is not a quirk of one specific machine design - it holds for
+any computational model with the same expressive power, which
+appears to be all of them.
+
+Static analysis and type systems are the applied answer to
+"well, undecidable in general, now what." The engineering move
+is to trade completeness for decidability: build a checker that
+ALWAYS terminates and NEVER lies, but sometimes rejects
+perfectly fine programs it cannot prove safe, or one that
+catches everything real but sometimes flags fine code as
+suspicious. A tool that is fast, always terminates, catches
+everything bad, and never flags anything good does not exist -
+the halting problem is why a fourth option is not on the menu.
