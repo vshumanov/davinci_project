@@ -1,0 +1,459 @@
+VIRTUAL PRIVATE NETWORKS
+
+A short field guide to what a VPN actually does, how the tunnel
+works under the hood, and what it can and cannot protect. Read a
+section, put the phone away, come back later. Each section
+stands on its own.
+
+WHAT A VPN IS
+
+A VPN, a virtual private network, is an encrypted tunnel between
+your device and a server somewhere else, through which your
+internet traffic is routed. That sentence contains the whole
+idea, so unpack it slowly.
+
+Normally, when your device talks to the internet, it hands each
+packet of data to your local network, which passes it to your
+internet provider, which forwards it toward its destination.
+Everyone along that path can see where the packet is going, and
+unless the content is separately encrypted, what is in it. Your
+provider knows every site you connect to. The coffee shop wi-fi
+knows. Each relay in between handles your packets in the clear
+addressing.
+
+A VPN inserts a new first step. Before any packet leaves your
+device, software wraps it in a layer of encryption and sends it
+to one specific machine: the VPN server. Only after it reaches
+that server is the original packet unwrapped and sent on to its
+real destination. Replies come back the same way, encrypted from
+the server to you. To everyone on the path between you and the
+VPN server, your traffic is now an unreadable stream going to a
+single address. To everyone on the far side, the traffic appears
+to originate from the VPN server, not from you.
+
+So a VPN does two concrete things, and it is worth fixing them
+firmly in mind because almost every misunderstanding comes from
+forgetting their limits.
+
+First, it ENCRYPTS the link between your device and the VPN
+server. The local network, the other people on the wi-fi, and
+your internet provider can no longer see which sites you visit
+or what you send. They see only that you are connected to a VPN,
+and how much data is flowing.
+
+Second, it CHANGES your apparent address. Websites and services
+see the VPN server's IP address and its location, not yours. If
+the server is in another country, you appear to be in that
+country.
+
+That is the entire function. Encrypt the first hop, and borrow
+someone else's address. Everything a VPN is good for, and
+everything it fails at, follows from those two facts.
+
+The word private in the name is older than the consumer product
+and points at the original use. Companies built VPNs so that an
+employee working from home could reach internal systems,
+databases, file shares, printers, as if their laptop were
+physically plugged into the office network. The tunnel made a
+remote machine behave like a local one. The consumer privacy VPN
+is the same technology aimed at a different goal: not reaching a
+private network, but hiding your traffic from the network you
+are on.
+
+WHY IT MATTERS
+
+A VPN earns its place in a few specific situations, and
+oversells itself in many others. Being clear about the real uses
+is the best defense against the marketing.
+
+The strongest case is the UNTRUSTED NETWORK. When you connect to
+wi-fi you do not control, an airport, a hotel, a cafe, a
+conference, you are trusting whoever runs it, and anyone else
+connected to it, not to snoop. Most traffic today is already
+protected by HTTPS, the lock in the browser, so the content of
+your banking session is encrypted regardless. But the network
+can still see which sites you visit, and a hostile network can
+attempt tricks to downgrade or redirect your connection. A VPN
+closes that gap by encrypting everything to a server you chose,
+turning a sketchy network into a dumb pipe that carries your
+sealed traffic and learns nothing.
+
+The second real case is HIDING YOUR TRAFFIC FROM YOUR INTERNET
+PROVIDER. Your provider sees every destination you connect to
+and, in many countries, is permitted to log it, sell it, or hand
+it over. A VPN moves that visibility: the provider now sees only
+an encrypted stream to the VPN. This matters more in places
+where providers are legally required to retain browsing records,
+or where they inject ads and tracking into traffic.
+
+The third case is CHANGING YOUR APPARENT LOCATION. This is
+bandwidth for two different needs. One is access: reaching
+content or services restricted to a region, or getting a usable
+internet connection from inside a country that blocks large
+parts of the web. The other is a modest privacy gain: a website
+sees a shared VPN address used by thousands of people, which is
+a weaker identifier than your own address, though as a later
+section explains, far from anonymity.
+
+The fourth case is the ORIGINAL one, reaching a private network
+remotely. This is the corporate and self-hosting use. A remote
+worker reaches office systems. A person on the road reaches the
+services running on their home server. Here the VPN is not about
+hiding, it is about secure access to something that is not meant
+to be public at all.
+
+Underneath all four is a single theme worth stating plainly: a
+VPN relocates trust, it does not remove it. Without a VPN, you
+implicitly trust your local network and your internet provider
+to see your traffic responsibly. With a VPN, you stop trusting
+them and start trusting the VPN company instead, because it now
+sits in the exact position they used to, able to see your
+unencrypted-to-them traffic as it leaves the tunnel. Whether
+that is an improvement depends entirely on whether the VPN
+company deserves more trust than the party it replaced. That is
+not a technical question. It is a question about a company's
+incentives, honesty, and legal exposure, and it is the hinge on
+which the whole value of a consumer VPN turns.
+
+HOW IT WORKS
+
+This is the mechanism. Understand it and the rest of the subject
+stops being marketing and starts being engineering. Three ideas
+stack together: tunneling, encapsulation, and the cryptographic
+handshake. Then a few protocols implement them.
+
+Start with ENCAPSULATION, which is the physical trick behind
+tunneling. A normal packet is like a postcard. It has a
+destination address written on the outside, say a web server,
+and a message. Anyone handling it reads both. A VPN takes that
+whole postcard, message and address together, encrypts it into
+unreadable noise, and places it inside a new envelope. On the
+outside of the new envelope is a single address: the VPN server.
+The handlers along the way, your router and your provider, see
+only the outer envelope. They route it to the VPN server and
+learn nothing about the postcard sealed inside.
+
+Here is the shape of it. The inner packet is the real one; the
+outer wrapper is what the network actually sees.
+
+=====
+    [ outer header: to VPN server ]
+      [ encrypted blob ]
+        [ inner header: to real site ]
+        [ inner data: your request  ]
+=====
+
+When the sealed envelope reaches the VPN server, the server
+decrypts the blob, recovers the original postcard, and drops it
+into the normal mail, addressed to the real site, but now with
+the server's own return address. The reply arrives at the
+server, which seals it back up and sends it down the tunnel to
+you. Your device decrypts it and hands the recovered reply to
+the app that asked for it. The application never knows any of
+this happened; it thinks it is talking to the internet directly.
+That transparency is why a VPN protects everything on the device
+at once, every app, not just the browser.
+
+Now the hard part: how the two ends agree on a secret to encrypt
+with, over a network where anyone might be listening. This is
+the KEY EXCHANGE, or handshake, and it rests on a piece of
+mathematics worth knowing in outline, because it appears
+everywhere in security.
+
+The problem seems impossible. You and the server have never met
+and share no secret, yet you must agree on an encryption key
+while a eavesdropper watches every message you exchange. The
+solution, Diffie-Hellman key exchange, uses math that is easy to
+do forward and effectively impossible to reverse. Each side
+generates a private number and derives a public value from it.
+They swap public values in the open. Then each side combines its
+own private number with the other's public value, and through
+the structure of the math, both arrive at the same shared
+secret, a number the eavesdropper cannot compute from the two
+public values alone. From that shared secret they derive the
+keys used to encrypt the session. A rough analogy: two people
+mix paint colors. Each keeps a secret shade, both start from a
+common public color, each mixes in their secret and sends the
+result across, then each adds their secret again to the color
+they received. Both end with the identical final mix, while an
+observer who saw only the two sent colors cannot separate out
+the secret shades. The real version uses large numbers and
+modular arithmetic rather than paint, but the shape is the same.
+
+Alongside the key exchange sits AUTHENTICATION. The handshake
+must also prove the server is the real VPN server and not an
+impostor who stepped into the middle. This is done with keys the
+two sides already hold, or with certificates, so that each can
+verify it is talking to the party it intended. Key exchange
+without authentication would be defeated by a middleman who runs
+a separate handshake with each side; authentication is what
+shuts that door.
+
+Once a shared key exists and both sides are authenticated, the
+actual DATA ENCRYPTION is the cheap, fast part. A symmetric
+cipher, the same key to lock and unlock, scrambles every packet.
+Modern ciphers also attach an authentication tag to each packet
+so the far side can detect if even a single bit was altered in
+transit. Tampered packets are dropped rather than trusted.
+
+These pieces are assembled differently by different PROTOCOLS,
+and the choice matters for speed, reliability, and trust.
+
+WireGuard is the modern one and now the default on most serious
+services. Its defining virtue is smallness: a few thousand lines
+of code, against hundreds of thousands in older systems, which
+means far less surface for bugs to hide in and far less to
+audit. It uses one fixed, modern set of cryptographic building
+blocks, with nothing to configure, on the principle that fewer
+options means fewer ways to set it up wrong. The primitives, for
+the curious, are ChaCha20 for encryption, Poly1305 for the
+authentication tag, and Curve25519 for the key exchange. It
+connects and reconnects fast, which is why it feels quicker and
+survives switching between wi-fi and mobile data well.
+
+OpenVPN is the older workhorse, built on the widely used OpenSSL
+library. It is slower and heavier than WireGuard but
+battle-tested and extremely flexible. It can run over two
+different transport modes: a fast one, and a reliable one that
+disguises itself as ordinary secure web traffic, which helps it
+slip through restrictive firewalls that block everything else.
+That disguise is one reason it survives in hostile network
+conditions where newer protocols are blocked.
+
+IKEv2, usually paired with the IPsec suite, is especially common
+on phones. Its signature feature is graceful handling of a
+changing connection: when your phone moves from wi-fi to
+cellular, IKEv2 can keep the tunnel alive across the switch
+instead of dropping it. That makes it a natural fit for mobile
+devices that change networks constantly.
+
+Two supporting mechanisms complete the picture, and both are
+failure-safety features rather than parts of the tunnel itself.
+
+The KILL SWITCH addresses a dangerous gap. If the VPN connection
+drops, momentarily, on a reconnect, after a crash, your device
+will by default fall back to its normal, unprotected connection,
+leaking your real address and traffic without any warning. A
+kill switch blocks all internet access the instant the tunnel
+fails, so nothing leaves the device outside the VPN. For anyone
+relying on a VPN for more than convenience, this is not
+optional.
+
+DNS LEAK protection addresses a subtler gap. Before your device
+can connect to a site by name, it asks a DNS server to translate
+that name into an address. If those lookups are sent outside the
+tunnel to your provider's DNS server, as they are by default on
+many systems, then your provider still sees the name of every
+site you visit even while the rest of your traffic is hidden. A
+proper VPN routes DNS lookups through the tunnel to its own
+resolver, closing the leak. Many real-world VPN failures over
+the years have been exactly this: the traffic was tunneled but
+the name lookups quietly were not.
+
+One more mechanism is worth knowing because it is a common
+setting: SPLIT TUNNELING. By default a VPN captures all of a
+device's traffic and sends it down the tunnel. Split tunneling
+relaxes that, letting you choose which apps or destinations go
+through the VPN and which use the normal connection directly.
+The appeal is practical: route your browser through the VPN
+while letting a video call or a local printer bypass it for
+speed and reach. The cost is a wider attack surface and more
+ways to leak, since anything outside the tunnel is exposed as
+usual, and a misconfigured split has been the source of real
+leaks where traffic meant to be protected quietly took the open
+road. It is a convenience feature, not a security one, and worth
+turning off when the point of the VPN is protection rather than
+selective routing.
+
+A word on TRANSPORT and overhead rounds out the picture. A
+tunnel is not free: wrapping every packet in encryption and an
+extra header adds a little size and a little delay, and your
+traffic now takes a detour through the VPN server before
+reaching its destination, so a distant server means a slower
+connection. This is why server choice affects speed, and why the
+lean design of a modern protocol matters. Most tunnels run over
+the fast, connectionless style of network transport, which does
+not wait for acknowledgements and so keeps latency low; the
+trade is that it is easier for a hostile network to spot and
+block. To survive in places that actively hunt and block VPN
+traffic, some services add obfuscation, dressing the tunnel up
+to look like ordinary secure web browsing so that a censor
+cannot easily tell a VPN connection from a visit to a normal
+website. Obfuscation costs some speed and is off by default on
+most services, because most users do not face a network trying
+to stop them.
+
+WHAT PEOPLE GET WRONG
+
+A VPN is one of the most oversold products in technology, and
+the misunderstandings are not harmless, because they lead people
+to feel protected while behaving carelessly.
+
+The first and biggest mistake is BELIEVING A VPN MAKES YOU
+ANONYMOUS. It does not. It hides your address from the sites you
+visit and your traffic from your local network, and that is all.
+It does nothing about the dozens of other ways you are
+identified. The moment you log in to any account, you have
+announced exactly who you are, VPN or not. Websites still read
+cookies stored in your browser. And they still perform browser
+fingerprinting, reading the particular combination of your
+screen size, fonts, graphics hardware, and dozens of other
+traits to recognize your device, a method that works no matter
+what address you arrive from, because it never looks at your
+address at all. A VPN changes the return address on the
+envelope. It does not change your handwriting. Treating it as a
+cloak of invisibility is how people relax every other precaution
+and end up more exposed, not less.
+
+The second mistake is FORGETTING THAT THE VPN COMPANY CAN SEE
+EVERYTHING YOUR PROVIDER USED TO. The tunnel protects your
+traffic from the network you are on, but it has to end
+somewhere, and at that end the VPN server unwraps your traffic
+to send it onward. The company running that server sits in
+precisely the position your internet provider occupied, able to
+observe your destinations and, for anything not independently
+encrypted, your content. You have not removed the watcher. You
+have chosen a new one. This is why the identity and honesty of
+the provider is the entire game, and why a free VPN deserves
+deep suspicion: running servers costs real money, and a company
+giving the service away is very likely funding it by collecting
+and selling the very data you installed it to protect.
+
+That leads to the third mistake: TRUSTING NO-LOGS CLAIMS ON
+FAITH. Nearly every VPN advertises that it keeps no logs of your
+activity. The claim is easy to make and, left as a promise,
+worth little. What gives it weight is evidence. Some providers
+submit to independent audits in which outside firms inspect
+their actual servers and configurations, not just their printed
+policy, and the useful audits are recent ones, since a review
+from years ago says nothing about the setup today. Stronger
+still is architecture that makes logging difficult by design,
+such as servers that run entirely from volatile memory with no
+permanent disk, so that any data vanishes the moment a machine
+is rebooted. The strongest evidence of all is the real world:
+there have been cases where authorities seized a VPN provider's
+servers or served legal demands and came away with nothing,
+because there was genuinely nothing stored to take. A no-logs
+claim backed by a seizure that produced no data is in a
+different league from one backed only by a marketing page.
+
+The fourth mistake is ASSUMING A VPN ENCRYPTS YOUR TRAFFIC ALL
+THE WAY TO THE WEBSITE. It does not. The VPN encrypts the leg
+from your device to the VPN server. From the server onward to
+the actual website, your traffic travels under whatever
+protection it already had. If the site uses HTTPS, that leg is
+still encrypted, by the site, not by the VPN. If it does not,
+that leg is in the clear, exactly as it would have been without
+the VPN, only now starting from the server instead of from you.
+The VPN secures a segment of the journey, not the whole of it.
+Confusing the two leads people to think a VPN substitutes for
+the lock in the browser. It does not; they protect different
+legs, and you want both.
+
+The fifth mistake is THINKING A VPN HIDES YOU FROM GOVERNMENTS
+OR SERIOUS ADVERSARIES. Against the bulk, automated collection
+that treats you as one undefended target among millions, a VPN
+genuinely helps. Against an adversary specifically focused on
+you, with legal power over the VPN company or the ability to
+watch both ends of your connection, it offers much less. Someone
+who can observe the traffic entering the VPN and the traffic
+leaving it can often match them by timing and size alone, a
+technique called traffic correlation, without ever breaking the
+encryption. A VPN is a tool against routine surveillance and
+casual snooping. It is not a shield against a motivated state,
+and selling it as one is dangerous to the people who most need
+to understand the difference.
+
+The sixth mistake is CONFUSING THE VPN WITH THE PROXY IT
+RESEMBLES. A simple proxy also changes your apparent address,
+but typically for one app and often without real encryption. A
+VPN encrypts and reroutes everything on the device at the
+operating-system level. They look similar in the one visible
+effect, a changed location, which is why cheap proxies are
+sometimes marketed in VPN language. The encryption and the
+device-wide scope are what make a VPN a security tool rather
+than merely a location trick.
+
+WHERE IT CONNECTS
+
+A VPN sits in a neighborhood of related tools and ideas, and
+knowing the neighbors is what lets you reason about when a VPN
+is the right instrument and when something else is.
+
+It connects first to HTTPS, the encryption already built into
+the web, and the relationship is commonly misunderstood. HTTPS
+encrypts the content of your connection from your browser all
+the way to the website, including across the VPN server, which
+is why even your VPN provider cannot read the inside of an HTTPS
+session. A VPN encrypts everything leaving your device to the
+VPN server, including which sites you are visiting, which HTTPS
+alone reveals. They cover different things: HTTPS hides the
+contents of each conversation end to end; the VPN hides the list
+of who you are talking to from your local network and provider.
+They are complementary, not alternatives, and the sensible setup
+uses both.
+
+It connects to TOR, which pursues the anonymity a VPN only
+gestures at. Where a VPN routes your traffic through one
+company's server, Tor routes it through three volunteer-run
+relays in sequence, each peeling back one layer of encryption,
+arranged so that no single relay knows both who you are and
+where you are going. The entry relay sees your address but not
+your destination; the exit relay sees your destination but not
+your address. This buys far stronger anonymity than a VPN, at a
+real cost in speed and convenience, and it removes the need to
+trust any single operator. The trade is deliberate: a VPN is
+fast and trusts one party; Tor is slow and trusts no single
+party. For evading a serious adversary, Tor is the stronger
+tool; for everyday privacy and unblocking, a VPN is the more
+practical one.
+
+It connects to the CORPORATE and self-hosting world, the
+original purpose that the consumer product grew out of. In a
+company, a VPN lets remote staff reach internal systems
+securely, and for years it was the standard way to do so. That
+model is now being questioned and partly replaced by an approach
+called zero trust, which drops the assumption that anyone inside
+the tunnel is automatically trusted and instead checks every
+request to every system individually. For an individual, the
+same technology running on a home server lets you reach your own
+files and services from anywhere without exposing them to the
+public internet, which is one of the cleanest and safest uses a
+VPN has.
+
+It connects to JURISDICTION and law, which quietly shapes how
+much a VPN is worth. A VPN company is bound by the laws of the
+country it operates in, including what data it can be compelled
+to collect or surrender. The same no-logs promise means
+something different depending on whether the company sits in a
+country that can legally force secret data retention and gag the
+company from admitting it. This is why the location of a
+provider, and the legal regime it answers to, is a genuine part
+of the privacy calculation and not mere marketing geography.
+
+Finally, it connects to the broader subject of ONLINE PRIVACY,
+of which it is one layer among many. A VPN addresses exactly one
+part of the problem, who can see your traffic in transit and
+what address you appear to come from. It does nothing about the
+accounts you log in to, the cookies and fingerprints that
+identify your browser, the apps that broadcast your location,
+the data brokers that merge your records, or the permissions you
+grant without reading. Privacy is built in layers, and a VPN is
+a single, useful, narrow layer. The error is to install one and
+consider the matter closed.
+
+Which brings the subject back to a usable summary. A VPN is an
+encrypted tunnel to a server you chose, that hides your traffic
+from the network you are on and swaps your address for the
+server's. It is excellent on untrusted wi-fi, useful against a
+nosy internet provider, handy for shifting your apparent
+location, and the right tool for reaching a private network from
+afar. It relocates your trust onto the VPN company, so the
+choice of company is the whole decision: prefer paid providers
+with recent independent audits and, ideally, a track record
+proven by a seizure that turned up nothing. And hold the limits
+firmly in mind. A VPN is not anonymity, not a substitute for the
+lock in the browser, and not a shield against an adversary aimed
+at you personally. Used for what it is, it is a sharp and
+valuable tool. Mistaken for what it is not, it is a false sense
+of safety, which is worse than none.

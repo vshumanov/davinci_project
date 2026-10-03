@@ -1,0 +1,472 @@
+BAYESIAN REASONING
+
+A short field guide to thinking in probabilities: what it means
+to hold a belief by degree, how to update that belief when
+evidence arrives, and why the untrained mind gets this so
+reliably wrong. Read a section, put the phone away, come back
+later. Each section stands on its own.
+
+WHAT BAYESIAN REASONING IS
+
+Bayesian reasoning is a disciplined way of changing your mind.
+It treats a belief not as a switch that is either on or off,
+true or false, but as a dial with a number on it: how confident
+you are, from zero to one, that something is the case. Reasoning
+well, in this view, is the act of turning that dial by the right
+amount when new evidence comes in. Not all the way to certain
+because of one striking clue. Not stubbornly fixed because you
+had decided already. By the right amount.
+
+The name comes from Thomas Bayes, an eighteenth-century English
+minister whose work on the problem was published after his
+death. But the idea is older than the formula and simpler than
+it sounds. It is the mathematics of common sense about evidence,
+written down so carefully that it exposes exactly where ordinary
+common sense goes astray.
+
+Three words carry the whole machine, and they are worth planting
+firmly before anything else.
+
+The PRIOR is what you believed before the new evidence arrived.
+How likely did you think the thing was, going in? This is not a
+guess you are ashamed of, it is a required input. There is no
+such thing as evaluating evidence from nowhere; you always start
+somewhere, and the prior names that starting point honestly.
+
+The LIKELIHOOD is the question you ask of the evidence: if my
+hypothesis were true, how probable is this evidence? And, just
+as important, if it were false, how probable is this evidence
+anyway? Evidence is only informative to the degree that it is
+more expected under one hypothesis than under the other.
+
+The POSTERIOR is what you should believe after combining the
+two: your updated confidence, the new number on the dial.
+Today's posterior becomes tomorrow's prior, because the next
+piece of evidence updates the belief you now hold, not the one
+you started with. That is the engine running in a loop, belief
+feeding into belief as the world keeps talking.
+
+So Bayesian reasoning is this: hold beliefs as probabilities,
+and when evidence arrives, combine what you already believed
+with how well the evidence fits each possibility, to land on a
+new, better-calibrated belief. The rest of this book is what
+that means in practice, why it is powerful, and the handful of
+traps that catch almost everyone who has not seen them named.
+
+WHY IT MATTERS
+
+The reason to care is that the human mind, left to its
+instincts, is a poor evidence processor in a specific and
+fixable way. It overreacts to vivid new information and
+underweights quiet background facts. Bayesian reasoning is the
+correction, and the stakes of getting it wrong are not academic.
+
+Consider a doctor reading a positive result on a test for a rare
+disease, a juror weighing a forensic match, an investor reacting
+to one good quarter, an analyst seeing a single intercepted
+message, a person deciding whether a worrying symptom means the
+worst. In every case the same question sits underneath: given
+this evidence, how likely is the thing I am worried about? And
+in every case the untrained answer is systematically too
+confident, because it fastens onto the evidence and forgets how
+rare or common the thing was to begin with.
+
+The most important practical payoff is CALIBRATION. A
+well-calibrated person is one whose confidence matches reality:
+when they say they are ninety percent sure, they are right about
+nine times in ten. Most people are badly calibrated, wildly
+overconfident on hard questions and sometimes underconfident on
+easy ones. Bayesian habits are the single best tool for fixing
+this, because they force you to attach a number, expose it to
+evidence, and notice when it was wrong.
+
+The second payoff is that it makes disagreement productive. Two
+people who argue about whether a claim is simply true or false
+can only shout. Two people who each state a prior and a reading
+of the evidence can locate exactly where they differ: do they
+disagree about how likely the thing was to begin with, or about
+how strongly this evidence bears on it? Often the real
+disagreement is about the prior, and naming that dissolves
+arguments that looked substantive.
+
+The third payoff is resistance to manipulation. A great deal of
+persuasion works by presenting evidence that is striking but
+weak, evidence almost as likely whether or not the claim is
+true, and counting on you to update hard anyway. Someone who
+instinctively asks how probable this evidence would be even if
+the claim were false has a standing defense against being
+stampeded by a number, an anecdote, or a scary headline.
+
+There is a simple practice that builds all of this, and it costs
+nothing but honesty: write your predictions down with a number
+attached. I think this deal closes, seventy percent. This
+symptom is nothing, ninety percent. Then, when the answers come,
+look back and see whether the things you called seventy percent
+happened about seventy percent of the time. Nothing exposes
+overconfidence faster, and nothing trains the dial better, than
+a running record that you cannot argue with after the fact. Most
+people never do this, which is exactly why most people never
+find out how poorly their confidence tracks the world.
+
+The deepest reason, though, is that Bayesian reasoning is a
+stance toward being wrong. It says certainty is almost never
+warranted, that every belief is provisional and held at some
+strength less than total, and that changing your mind in
+proportion to evidence is not weakness but the whole of
+competence. In a world that rewards loud certainty, the person
+who can say I have moved from seventy to forty percent, and here
+is why, is doing something rare and valuable.
+
+THE CORE MECHANISM
+
+Here is the engine, taken apart slowly. The goal is not to
+memorize a formula but to feel why it has the shape it does, so
+you can run it in your head on a bus.
+
+Start with the trap the formula exists to defeat, because the
+mechanism only makes sense as its cure. Imagine a disease that
+affects one person in a hundred. There is a test that is very
+good: if you have the disease, it comes back positive
+ninety-nine times in a hundred. And it has a modest false alarm
+rate: if you are healthy, it still comes back positive five
+times in a hundred. You take the test. It is positive. What is
+the chance you actually have the disease?
+
+The instinctive answer, given by most people and many
+professionals, is around ninety-five or ninety-nine percent. The
+test is accurate, the result is positive, so you are almost
+certainly sick. The true answer is about seventeen percent. The
+gap between those numbers is the single most important lesson in
+this book, so let us see exactly where seventeen comes from.
+
+The clean way to see it is to stop using percentages and count
+actual people. This is the natural-frequency trick, and it turns
+a problem almost no one can do in their head into one almost
+anyone can.
+
+=====
+    imagine 10,000 people get tested.
+
+    100 have the disease   (1 in 100)
+    9,900 are healthy
+
+    of the 100 sick:
+      99 test positive      (the test is good)
+
+    of the 9,900 healthy:
+      495 test positive     (5% false alarms)
+
+    total positives: 99 + 495 = 594
+    truly sick among them: 99
+
+    99 / 594 = about 0.17
+=====
+
+Look at what happened. The test is genuinely good. But the
+disease is rare, so the small pool of truly sick people, almost
+all of whom test positive, is swamped by the enormous pool of
+healthy people, a small slice of whom also test positive. There
+are five times as many false alarms as true positives, not
+because the test is bad, but because there are ninety-nine times
+as many healthy people for it to misfire on. A positive result
+moved you from one percent to seventeen percent. That is a real
+and large update, your odds went up seventeenfold, but it is
+nowhere near certainty.
+
+Now name the parts in Bayesian language, because you just
+computed them.
+
+The PRIOR was one percent, the background rate of the disease.
+The LIKELIHOOD had two halves: ninety-nine percent chance of a
+positive if sick, five percent chance of a positive if healthy.
+The POSTERIOR was seventeen percent, where you ended up. The
+formula known as Bayes' theorem is just this bookkeeping written
+compactly: it takes the prior, multiplies by how well the
+evidence fits the hypothesis, and divides by how well the
+evidence fits across all possibilities, which is the step that
+drags the healthy false positives into the accounting and keeps
+you honest.
+
+There is an even cleaner way to run the update in your head, and
+it is worth knowing because it strips the idea to its core. It
+uses ODDS instead of probabilities.
+
+Start with the prior odds. The disease is one in a hundred, so
+the odds are 1 to 99, sick to healthy. Now ask the one question
+that matters about the evidence: how much more likely is this
+result if the hypothesis is true than if it is false? Here, a
+positive is ninety-nine percent likely if sick and five percent
+likely if healthy. Divide: ninety-nine over five is about
+twenty. That number, roughly twenty, is the STRENGTH of the
+evidence. It is called the likelihood ratio, and it says this
+positive test is about twenty times more expected from a sick
+person than a healthy one.
+
+The update is now a single multiplication.
+
+=====
+    posterior odds =
+        prior odds  x  evidence strength
+
+    1 : 99   x   20
+      = 20 : 99
+      ~ 1 : 5
+
+    1 in 6 is about 17 percent.
+=====
+
+That is the whole mechanism in one line: your new odds are your
+old odds times the strength of the evidence. Strong evidence is
+evidence with a large ratio, something far more likely under one
+hypothesis than the other. Weak evidence has a ratio near one,
+roughly as likely either way, and multiplying by about one
+barely moves your odds, which is exactly correct: evidence that
+you would expect to see regardless of the truth tells you almost
+nothing.
+
+Two consequences fall out of this form and they are the
+practical heart of the subject.
+
+First, the same piece of evidence can be a big deal or a shrug
+depending entirely on where you started. Multiplying weak prior
+odds by strong evidence still leaves you uncertain, as the
+disease case showed. A rare thing stays unlikely even after a
+fairly strong clue, because strong is relative to how far you
+had to travel.
+
+Second, evidence accumulates by repeated multiplication. Take
+the test again, independently, and it comes back positive again:
+multiply your new odds by twenty once more, and now you are
+genuinely likely to be sick. This is why a single study, a
+single witness, a single data point rarely should settle
+anything, and why independent confirmations are so much more
+powerful than one loud result. Belief is built by many
+multiplications, not one.
+
+It helps to run the engine once more on something with no white
+coats in it, to see that the shape is general. Suppose a smoke
+alarm in your kitchen sounds. Does the house actually have a
+fire? Your prior is low: real fires are rare, say one night in a
+thousand. Now the two likelihoods. If there is a fire, the alarm
+almost certainly sounds, call it near one. But the alarm also
+sounds for burnt toast, steam, and a low battery, so on a
+no-fire night it still goes off, say, one night in fifty. The
+evidence strength is therefore the chance of an alarm given fire
+over the chance given no fire, roughly one divided by
+one-fiftieth, about fifty. Multiply: prior odds of one to a
+thousand, times fifty, gives fifty to a thousand, about one in
+twenty. A blaring alarm, and still only a five percent chance of
+real fire. That is why you check rather than panic, and also why
+you never ignore it, because five percent of a house fire is
+worth standing up for. Same engine, same lesson: a
+strong-sounding signal against a rare event lands you somewhere
+in the uncertain middle.
+
+A practical question hides inside all this: where does the prior
+come from? The honest answer is a REFERENCE CLASS, the broader
+group the case belongs to. To set a prior that a particular
+startup will survive five years, you start from how often
+startups in general survive five years, then adjust for what is
+special about this one. To judge whether a symptom is serious,
+you start from how common the serious cause is among everyone
+with that symptom. Picking the right reference class is itself a
+skill, and arguments about priors are often really arguments
+about which class a case belongs to. The discipline is to reach
+for the outside rate first, the boring base frequency, and only
+then layer on the specifics, rather than starting from the vivid
+details and never looking up the background at all.
+
+WHAT PEOPLE GET WRONG
+
+Almost everyone makes the same handful of errors, and they are
+not errors of arithmetic. They are errors of attention: the mind
+looks at the wrong quantity. Naming them is most of the cure.
+
+The first and master error is BASE RATE NEGLECT: ignoring the
+prior. This is the disease example in general form. People seize
+on the evidence, the positive test, the matching description,
+the alarming sign, and reason as if the background rate did not
+exist. They answer the wrong question. Asked how likely the
+disease is given a positive test, they actually answer how
+likely a positive test is given the disease, a different number
+entirely. The fix is a reflex: whenever a striking piece of
+evidence arrives, before reacting, ask how common the thing was
+to begin with. A positive test for something vanishingly rare is
+still probably a false alarm. The rarer the thing, the more the
+base rate dominates, and the more a dramatic clue should be
+discounted.
+
+The second error is a specific, high-stakes form of the first,
+famous enough to have a name: the PROSECUTOR'S FALLACY. A piece
+of forensic evidence, say a DNA profile, matches the defendant,
+and the match would occur by chance in only one person in a
+million. The prosecutor says: therefore there is only a one in a
+million chance the defendant is innocent. This is wrong, and the
+error is confusing two different conditional probabilities. The
+one in a million is the chance of a match given innocence. It is
+not the chance of innocence given a match. To get the second you
+need the prior, the number of other people who could also match.
+In a city of ten million, about ten people match by chance; the
+defendant is one of perhaps ten, so the match alone puts the
+odds nearer one in ten than one in a million. The same rarity
+statistic that sounds like certainty is, once you supply the
+base rate, far weaker. Juries, lawyers, and expert witnesses
+fall into this constantly, and lives turn on it.
+
+The third error is CONFUSING THE DIRECTION of the conditional,
+which underlies both of the above and deserves to be stated on
+its own. The probability of the evidence given the hypothesis is
+not the probability of the hypothesis given the evidence. Most
+people treat them as interchangeable. They are not, and the
+bridge between them is precisely the prior. Clouds given rain is
+near certain; rain given clouds is not. Keeping the arrow
+straight, which way the if points, is half of thinking clearly
+about evidence.
+
+The fourth error is MISTAKING A STRONG-SOUNDING STORY FOR STRONG
+EVIDENCE. The mind rates evidence by how vivid, detailed, or
+emotionally gripping it is, when it should rate it only by the
+likelihood ratio: how much more expected is this under one
+hypothesis than the other? A detailed, plausible anecdote that
+fits your theory may be almost equally expected whether the
+theory is true or false, in which case it is weak evidence no
+matter how compelling it feels. Ask not does this fit my
+hypothesis, but would I be seeing this anyway if my hypothesis
+were wrong? If the answer is yes, the story proves little.
+
+The fifth error is TREATING THE PRIOR AS CHEATING. Newcomers
+often object that starting with a prior is just bias dressed up,
+that it lets you believe whatever you want. The opposite is
+true. Everyone has a prior whether they admit it or not; the
+Bayesian simply states it out loud where it can be challenged
+and corrected by evidence. A prior is not a conclusion, it is a
+starting point that the data will move. And a good prior is not
+invented; it comes from base rates, from how the world actually
+is. The discipline is not in having no prior, which is
+impossible, but in holding it loosely and letting evidence pull
+it.
+
+The sixth error is the quiet one: USING ZERO OR ONE AS A PRIOR.
+If you are absolutely certain of something, prior probability
+zero or one, then no evidence can ever change your mind, because
+multiplying by zero stays zero and the math locks. This is the
+structure of dogmatism, written in probability. The Bayesian
+lesson is to reserve those extremes, to never be fully certain
+of anything contingent, precisely so that you remain able to
+learn. Leave a little probability on being wrong; it is the door
+through which all future correction must come.
+
+The seventh error is subtler and catches careful people:
+DOUBLE-COUNTING EVIDENCE that is not independent. The update
+rule multiplies by each new piece of evidence, but that is only
+valid when the pieces are genuinely independent. Three
+newspapers reporting the same claim feel like three
+confirmations, so the instinct is to multiply three strong
+ratios and shoot to near certainty. But if all three got it from
+one wire story, they are not three pieces of evidence, they are
+one piece echoed three times, and it should move you about as
+much as reading it once. The same trap springs on correlated
+symptoms, repeated rumors, and a crowd that all learned a thing
+from the same source. Before multiplying, ask whether this new
+evidence could have arisen separately from what you already
+counted, or whether it shares a common cause with it. Correlated
+evidence must be discounted, often heavily, or you will march to
+false confidence by counting a single fact many times.
+
+WHERE IT CONNECTS
+
+Bayesian reasoning is not an isolated technique. It is a thread
+running through several subjects, and seeing the connections is
+what turns it from a party trick with disease tests into a
+general stance.
+
+It connects most directly to the study of COGNITIVE BIASES, as
+their underlying logic. Base rate neglect is a bias; so is
+confirmation bias, which in Bayesian terms is the failure to ask
+how likely the evidence would be if you were wrong, counting
+only the hits that fit. So is the tendency to anchor too hard on
+first impressions and update too little afterward, called
+conservatism, and its mirror, overreacting to the latest vivid
+news. The Bayesian frame does something the bias literature
+alone does not: it gives a single standard of correct updating
+against which each bias is a specific, named deviation. The
+biases are the ways people fall off the path; Bayes is the path.
+
+It connects to EPISTEMOLOGY, the theory of knowledge, by
+offering a particular answer to what it means to know. In the
+Bayesian view, knowledge is not a binary possession but a matter
+of degree, of well-calibrated confidence proportioned to
+evidence. Certainty is a limit almost never reached. This
+reframes old puzzles: you do not need to prove a claim beyond
+all doubt to act on it, you need only a posterior high enough to
+justify the decision at hand, and the threshold depends on the
+stakes.
+
+It connects to ANALYTIC and intelligence tradecraft, where it is
+close to the professional ideal. An analyst's job is exactly to
+maintain a calibrated estimate and update it as fragments of
+evidence arrive, while resisting the pull of a single dramatic
+report. The structured techniques of that trade, considering
+alternative hypotheses, asking what evidence would distinguish
+them, weighing how diagnostic each piece is, are Bayesian
+reasoning made into procedure. The key analytic question, which
+piece of evidence best tells my hypotheses apart, is just the
+search for a high likelihood ratio.
+
+It connects to SCIENCE and statistics, where it marks a genuine
+and ongoing divide. Much of standard statistics asks only how
+surprising the data would be if there were no effect, a quantity
+that, by the direction error above, is not the same as how
+likely the effect is given the data. The Bayesian approach
+instead updates a prior over hypotheses into a posterior,
+answering the question people actually care about. The practical
+warning that falls out of this is sharp: a surprising result
+about a claim that was very unlikely to begin with is probably a
+fluke, which is much of why dramatic findings so often fail to
+replicate. Extraordinary claims require extraordinary evidence
+is not a slogan, it is Bayes' theorem: a tiny prior needs an
+enormous likelihood ratio to reach belief.
+
+It connects to DECISION-MAKING, which is where a posterior earns
+its keep. A belief by itself changes nothing; action requires
+pairing the probability with what is at stake. The disease test
+left you at seventeen percent, far from certain, yet seventeen
+percent chance of a treatable, dangerous illness plainly
+warrants a follow-up test, because the cost of missing it dwarfs
+the cost of checking. The rule is to weigh each option by its
+probability times its payoff or harm, and choose the best
+balance, which means the right action depends on two separate
+things: how likely the outcome is, and how much it matters. This
+cleanly separates two questions people constantly blur, what is
+true and what to do. A small probability can demand action when
+the stakes are extreme, and a high probability can be safely
+ignored when nothing much rides on it. Calibration tells you the
+odds; the stakes tell you what to do about them. This is the
+hinge where Bayesian belief meets negotiation, risk, and every
+real choice made under uncertainty.
+
+It connects, finally, to MACHINE learning and everyday
+automation, where the mechanism runs billions of times a day
+without anyone noticing. A spam filter is a working Bayesian: it
+holds a prior that a message is spam, and each word updates that
+belief by its likelihood ratio, free money multiplying the odds
+up, a friend's name multiplying them down, until a posterior
+crosses a threshold and the message is filed. The same shape
+underlies medical diagnostic tools, recommendation systems, and
+much of the reasoning inside modern artificial intelligence. The
+engine you ran by hand on the disease test is, at bottom, the
+same engine humming inside the machines that increasingly sort
+the world.
+
+Which returns the subject to a single usable idea. A belief is a
+number between zero and one. Evidence does not prove or
+disprove; it multiplies your odds by how much more expected it
+is under one hypothesis than another. Where you end up depends
+as much on where you started, the base rate, as on the evidence
+itself, and the commonest mistakes all come from staring at the
+evidence and forgetting the base rate behind it. Hold your
+beliefs as dials, not switches. Keep the arrow of the
+conditional straight. Never set the dial fully to zero or one,
+so you can always keep learning. Do that, and you are reasoning
+the way the evidence actually warrants, which is rarer, and more
+powerful, than it has any right to be.
