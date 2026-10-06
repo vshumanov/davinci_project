@@ -1,0 +1,539 @@
+INFORMATION THEORY
+
+Information theory is the mathematics of what a
+message actually carries. Not what it means, not
+whether it is true, but how much of it there is,
+how tightly it can be packed, and how much of it
+survives a noisy wire. It gives a hard number to a
+thing that sounds unmeasurable, the amount of
+information in a signal, and from that one number
+it derives firm limits on compression and
+communication that no clever engineer can ever
+beat.
+
+It is one of the rare ideas with a clean birthday.
+In 1948 a mathematician at Bell Labs named Claude
+Shannon published a paper called "A Mathematical
+Theory of Communication," and a whole field sprang
+into existence nearly complete. Almost every
+digital thing you touch, the fact that a photo
+compresses, that a call survives a weak signal,
+that a scratched disc still plays, that a password
+can be strong, rests on what Shannon wrote down.
+
+This booklet walks the shape of it. By the end you
+should know what information means as a quantity,
+why that definition was revolutionary, the engine
+that drives compression and error correction, the
+traps people fall into, and how the idea reaches
+into physics, cryptography, biology, and machine
+learning. Read it in pieces. Each section stands
+on its own.
+
+WHAT IT IS
+
+Shannon's first move was to throw away meaning.
+This sounds reckless and was exactly the point. To
+an engineer building a telephone network, it does
+not matter whether the wire carries a love letter
+or a stock quote or pure nonsense. The job is to
+reproduce at one end a message chosen at the other.
+So Shannon defined information in a way that
+ignores content entirely and looks only at one
+thing: how surprising the message is.
+
+Here is the core intuition. Information is the
+resolution of uncertainty. If I tell you something
+you already knew for certain, I have given you no
+information at all. If I tell you the outcome of a
+coin flip you could not have predicted, I have
+given you some. The more surprising the news, the
+more information it carries. A message that was one
+of a thousand equally likely possibilities tells
+you more than a message that was one of two.
+
+Shannon made this exact. The amount of information
+in an outcome is tied to how unlikely it was. A
+rare event, when it happens, carries a lot of
+information; a near-certain event carries almost
+none. The unit is the BIT, short for binary digit,
+and one bit is the information in a single
+yes-or-no answer to a question where both answers
+were equally likely. One fair coin flip is one bit.
+Two flips, two bits. The outcome of rolling a fair
+eight-sided die is three bits, because it takes
+three yes-or-no questions to pin down one of eight
+equal choices.
+
+The central quantity of the whole field is called
+ENTROPY, written H. The entropy of a source is the
+average information per message it produces, the
+average surprise, measured in bits. A source that
+always sends the same symbol has entropy zero:
+nothing is ever in doubt, nothing is learned. A
+source that picks uniformly among many symbols has
+high entropy: every message is a fresh surprise.
+Entropy is a measure of uncertainty, and because
+information is the removal of uncertainty, the two
+are the same number seen from opposite sides.
+
+The game of twenty questions is the cleanest way to
+feel this. Each yes-or-no question, asked well, splits
+the remaining possibilities in half, and each answer is
+worth one bit. If there are a million equally likely
+answers, you can corner the right one in about twenty
+questions, because twenty halvings cut a million down to
+one. That is why the information in a choice among a
+million is about twenty bits: it is exactly the number
+of good yes-or-no questions needed to find it. Entropy
+is the average length of the shortest game of twenty
+questions for a given source, and compression is just
+the trick of writing down the answers to that game
+instead of the message itself.
+
+WHY IT MATTERS
+
+Before Shannon, communication was a craft of rules
+of thumb. Engineers knew that louder signals and
+cleaner wires helped, and that noise was the enemy,
+but no one could say how much information a channel
+could carry, or how small a file could be squeezed,
+or whether noise set a wall you simply could not
+pass. These felt like engineering problems with no
+final answers, only better and better hacks.
+
+Shannon did not arrive from nowhere. Earlier Bell Labs
+engineers, Harry Nyquist and Ralph Hartley, had taken
+the first steps in the 1920s, groping toward a measure
+of how fast a line could carry signals and sensing that
+information ought to be countable. And Shannon himself
+had already changed the world once: his 1937 master's
+thesis showed that the true-or-false logic of Boolean
+algebra could be built directly out of electrical
+switches, the insight that underlies every digital
+circuit ever since. He came to communication having
+already fused logic and electricity, primed to see
+messages as something that could be measured and
+engineered rather than merely carried.
+
+Shannon turned them into problems with exact
+answers. He proved two results that bracket the
+entire enterprise of digital communication. The
+first, the source coding theorem, says there is a
+hard floor to compression: a source cannot be
+squeezed below its entropy without losing
+information, and it can be squeezed arbitrarily
+close to that floor. The second, the noisy channel
+coding theorem, says every channel has a fixed
+CAPACITY, a maximum rate of reliable information,
+and that below that rate you can drive your error
+down to nearly zero, while above it you cannot
+communicate reliably at all.
+
+That second result was the shocking one. The
+intuition of the day was that noise forced a
+tradeoff: to get fewer errors you had to slow down
+or shout louder, and perfect reliability was
+impossible over an imperfect wire. Shannon proved
+the opposite. As long as you stay under the
+capacity, you can make errors as rare as you like,
+not by shouting but by clever coding. This is the
+reason a space probe billions of miles away, with a
+signal fainter than a whisper, can still send back
+flawless pictures. It is operating under the
+capacity of its channel, and theory guarantees that
+nearly perfect reception is possible.
+
+The payoff is everywhere in the modern world.
+Compression formats for images, audio, and video
+all chase the entropy floor. Error-correcting codes
+in storage and transmission all exploit the
+capacity theorem. Cryptography borrows entropy to
+measure how unguessable a key is. The theory does
+not just describe these technologies; it sets the
+boundaries they live inside, telling engineers both
+what is achievable and what is forever out of
+reach, so no one wastes a career chasing a
+compressor that beats entropy or a modem that beats
+capacity. Knowing the wall is where the engineering
+begins.
+
+Part of why the theory spread so far is that it does
+not care what the message is made of. A symbol can be
+a letter, a dot of Morse, a pixel, a musical sample, a
+base of DNA, a pulse of light in a fiber; the
+mathematics is identical, because it only ever looks at
+probabilities. This substrate independence meant the
+same equations that sized a telephone line could size a
+hard drive, a radio link, a compression format, and
+later a gene. Shannon built one abstract picture, a
+source sending symbols down a channel to a receiver,
+and almost everything that moves or stores information
+turned out to fit inside it.
+
+THE CORE MECHANISM
+
+The engine of information theory is the entropy
+formula, and it is worth seeing plainly. For a
+source that emits symbols, each symbol i appearing
+with probability p, the entropy is the sum, over
+all symbols, of the probability times the
+surprise of that symbol. Surprise is measured as
+the logarithm, base two, of one over the
+probability. In compact form:
+
+=====
+    H = - sum over i of p_i * log2(p_i)
+=====
+
+Read it piece by piece. The term log2(1/p) is the
+surprise of one symbol: a symbol with probability
+one half scores log2(2) = 1 bit, a symbol with
+probability one in eight scores log2(8) = 3 bits,
+a certain symbol with probability one scores
+log2(1) = 0 bits. Multiply each symbol's surprise
+by how often it occurs, add them up, and you get
+the average surprise per symbol. That average is
+the entropy, and it is the true information content
+of the source in bits per symbol.
+
+A fair coin: two outcomes, each probability one
+half, each surprise one bit, entropy one bit per
+flip. A bent coin that lands heads ninety percent
+of the time has lower entropy, about half a bit,
+because most flips tell you little you did not
+expect. Push it to a coin that always lands heads
+and entropy falls to zero. Uncertainty and
+information rise and fall together.
+
+A worked example makes it concrete. Suppose a weather
+station in a dull climate reports one of four states
+each day: sunny half the time, cloudy a quarter of the
+time, rainy an eighth, and stormy an eighth. A lazy
+engineer assigns each state a two-bit code, since four
+states fit in two bits, and spends two bits a day. But
+the entropy of this source is lower. Sunny, at
+probability one half, carries one bit; cloudy, at a
+quarter, two bits; rainy and stormy, at an eighth each,
+three bits. Weight each by how often it occurs and the
+average comes to one and three-quarter bits per day.
+That is the true information content, and it means a
+smarter code can report the weather in less space than
+the obvious two-bit scheme, every day, forever.
+
+Behind that saving lies one of Shannon's most elegant
+insights, the idea of TYPICAL sequences. Over a long
+run, the messages a source actually produces are not
+spread evenly across all possible messages; they cluster
+into a relatively small set of typical ones, sequences
+whose mix of symbols matches the source's probabilities.
+A long English text will have about the usual proportion
+of E's and almost no strings of ten Z's. There are far
+fewer typical sequences than possible ones, and since
+only the typical ones show up in practice, you only need
+enough codes to label those. Counting them gives exactly
+the entropy. Compression works because most of what
+could be said never is.
+
+Now the first great consequence: COMPRESSION. If a
+source has entropy of, say, two bits per symbol,
+then on average you need at least two bits to encode
+each symbol, and you can get as close to two as you
+please. The trick is to stop spending the same
+number of bits on every symbol. Common symbols
+should get short codes, rare symbols long ones. This
+is exactly how Morse code works, assigning a single
+dot to the common letter E and longer sequences to
+rare letters like Q, and it is the heart of HUFFMAN
+CODING, an algorithm that builds the optimal set of
+such variable-length codes from the symbol
+frequencies.
+
+The one rule such a code must obey is to be
+prefix-free: no code is the beginning of another
+code, so a receiver reading a stream of bits always
+knows where one symbol ends and the next begins,
+with no separators needed. A tiny example maps four
+symbols to codes of unequal length:
+
+=====
+    A  ->  0
+    B  ->  10
+    C  ->  110
+    D  ->  111
+=====
+
+The string 0 10 0 110 decodes unambiguously as
+A B A C, read left to right, because the moment you
+have read a complete code you commit to it; no valid
+code starts with 0 except A, so the first 0 must be
+A, and so on. If A is the most common symbol it now
+costs a single bit, and the whole message shrinks
+toward the entropy floor. Real compressors like the
+ones behind ZIP files combine this idea with a
+second one, spotting repeated patterns. That second
+idea, the family of methods named after Abraham Lempel
+and Jacob Ziv, works by building a dictionary on the
+fly: the first time it sees a chunk of data it writes
+it out, and every later time it sees the same chunk it
+writes a short reference back to the first. Text full of
+repeated words, a document, a web page, a log file,
+collapses as each repeat becomes a pointer. Combine
+dictionary references for repetition with Huffman codes
+for the leftovers and you have, in essence, the engine
+inside almost every ZIP file and web page sent to your
+browser. Yet the Shannon limit stands over all of them:
+no lossless method, however clever, can on average beat
+the entropy of the source.
+
+There is a second kind of compression that breaks this
+rule on purpose. The entropy floor is absolute only for
+LOSSLESS compression, where every bit of the original
+must come back exactly. But for photos, music, and
+video, nobody needs the exact original; they need
+something that looks or sounds the same to a human. So
+LOSSY compressors like the ones behind JPEG images and
+MP3 audio throw away information the senses will not
+miss, the subtle color shifts the eye ignores, the
+faint sounds the ear cannot hear under louder ones, and
+only then compress what remains. This is why a photo
+can shrink to a tiny fraction of its size while still
+looking fine. The theory that governs the tradeoff,
+how much quality you lose for how many bits you save, is
+called rate-distortion theory, and it is Shannon's as
+well. Lossless coding asks what is the least you can
+spend to keep everything; lossy coding asks what is the
+least you can spend to keep what matters.
+
+Now the second great consequence: fighting NOISE.
+A channel corrupts some of the bits you send, a
+flipped 0 here, a lost 1 there. The naive fix is
+repetition: send every bit three times and let the
+receiver take a majority vote. Send 1 as 111; if it
+arrives as 101, two out of three say 1, so decode 1.
+This works but is wasteful, tripling the traffic to
+survive a little noise.
+
+Shannon's capacity theorem promised something far
+better: structured redundancy that corrects errors
+at a tiny fraction of that cost. The workhorse idea
+is the PARITY bit, a single extra bit that records
+whether the number of 1s in a block is even or odd,
+computed by exclusive-or across the data bits:
+
+=====
+    p = a ^ b ^ c
+=====
+
+The receiver recomputes p from the bits it got and
+compares. If they disagree, an error occurred. A
+single parity bit only detects one error; it cannot
+say which bit flipped. But add a few parity bits,
+each covering a cleverly chosen overlapping subset
+of the data, and the pattern of which parity checks
+fail points straight at the guilty bit, which you
+then flip back. This is the HAMMING CODE, invented
+by Richard Hamming at Bell Labs around the same
+years: with just three parity bits guarding four
+data bits, it corrects any single-bit error in the
+block. Descendants of this idea, like Reed-Solomon
+codes, are what let a scratched CD or a worn hard
+drive hand back perfect data.
+
+What sets the capacity in the first place? For the
+common case of a signal fighting against background
+noise, Shannon gave a formula, often called the
+Shannon-Hartley theorem, that pins it down. Capacity
+rises with two things: the BANDWIDTH of the channel,
+how wide a range of frequencies it can use, and the
+signal-to-noise ratio, how loud the signal is compared
+to the noise. Crucially, capacity grows only slowly,
+logarithmically, with signal strength: to double your
+reliable rate by shouting alone you must raise the
+signal power far more than double. This is why wider
+bandwidth, more spectrum, is so prized, and why the
+engineering of radio and fiber is a constant fight for
+capacity measured in these exact terms. The abstract
+bits-per-second limit becomes a concrete budget an
+engineer can read off a datasheet.
+
+Notice the deep symmetry. Compression REMOVES
+redundancy to get near the entropy floor.
+Error correction ADDS redundancy, carefully
+shaped, to climb toward the channel capacity. The
+same theory governs both directions: strip out the
+predictable to save space, put back the structured
+and predictable to survive noise. Information lives
+in the gap between those two moves.
+
+WHAT PEOPLE GET WRONG
+
+The first and deepest confusion is between
+information and meaning. In Shannon's theory a page
+of random letters carries MORE information than a
+page of ordinary English, because it is more
+surprising, less predictable. This feels backward
+to anyone who thinks information means useful
+content. But Shannon's information is a measure of
+surprise and unpredictability, not of value or
+truth. A completely random signal has maximum
+entropy and is also completely useless, which tells
+you that information in this technical sense is not
+the same as knowledge. Keep the two apart or nothing
+in the field makes sense.
+
+The second error is thinking that more bits always
+means more information. The whole art of
+compression is proof otherwise. An uncompressed
+photo and its compressed version carry the same
+information in far fewer bits, because the original
+was padded with redundancy, with predictable
+patterns that cost space but added nothing. Bits are
+the container; information is what is actually inside.
+A big file can be nearly empty of information, and a
+small one can be packed to the brim.
+
+The third error treats entropy as a bad thing, a
+synonym for disorder and decay. In information
+theory high entropy simply means high uncertainty,
+which is exactly what you want from, for example, a
+cryptographic key: a key with low entropy is
+guessable and weak, a key with high entropy is
+strong. The same quantity that spells doom in one
+story spells security in another. Entropy is neutral;
+it measures uncertainty, and whether that is good or
+bad depends entirely on what you are trying to do.
+
+The fourth error is believing the capacity theorem
+hands you the codes. Shannon proved that good codes
+EXIST, that reliable communication below capacity is
+possible, but his proof was not a recipe. It showed
+the destination without drawing the road. Finding
+actual codes that approach capacity took another half
+century of work, and the codes that finally got close,
+in the 1990s and 2000s, powered the mobile phones and
+internet links of today. A proof that something is
+possible is not the same as knowing how, a gap worth
+remembering well beyond this field.
+
+A fifth error is the dream of endless compression: if a
+zip file is smaller, why not zip the zip, and zip that,
+squeezing any file down to a single bit? Entropy forbids
+it, and the reason is a clean counting argument. A good
+compressor has already wrung the redundancy out, so its
+output looks nearly random, with entropy packed close to
+the maximum, and random-looking data cannot be
+compressed further. More generally, no method can shrink
+every possible input, because there are simply not enough
+short outputs to go around: if some files get shorter,
+others must get longer, and a scheme that always wins is
+as impossible as a perpetual motion machine. Compression
+is not magic subtraction; it is the removal of a finite
+amount of redundancy that, once gone, is gone.
+
+WHERE IT CONNECTS
+
+The nearest and strangest connection is to PHYSICS.
+Shannon's entropy formula is, apart from a constant,
+identical to the formula for entropy in
+thermodynamics, the quantity that measures disorder
+in a gas and dictates that heat flows from hot to
+cold. This was not a coincidence Shannon forced; the
+mathematician John von Neumann reportedly urged him to
+use the word entropy precisely because the same
+mathematics already ruled physics. The link runs deep.
+Erasing one bit of information must, by a result known
+as Landauer's principle, release a tiny minimum of
+heat, binding the abstract accounting of information to
+the physical accounting of energy. Information, it
+turns out, is not free-floating; it is physical.
+
+This link resolved a puzzle that had haunted physics for
+nearly a century, the paradox of MAXWELL'S DEMON. In the
+1860s James Clerk Maxwell imagined a tiny being guarding
+a door between two boxes of gas, letting fast molecules
+through one way and slow ones the other, sorting hot from
+cold without spending energy and so, apparently, breaking
+the law that disorder must increase. For generations no
+one could say exactly why the demon fails. The answer,
+sharpened by information theory, is that the demon must
+MEASURE and REMEMBER which molecules are which, and that
+information is physical: eventually its memory fills and
+must be erased, and erasing it releases exactly the heat
+the sorting seemed to save. The books balance only when
+information is counted as a physical quantity on the
+ledger. Shannon's bits turned out to be the missing term
+in a famous law of nature.
+
+The connection to PROBABILITY and inference is just
+as tight, and it is where this booklet meets Bayesian
+reasoning. Surprise is defined through probability, so
+information theory and probability are two views of the
+same structure. A key quantity, MUTUAL INFORMATION,
+measures how much knowing one thing reduces your
+uncertainty about another, how many bits of surprise
+one variable removes from the other. That is a precise,
+general measure of dependence, and it underlies modern
+statistics and much of machine learning, where models
+are trained by minimizing a quantity, cross-entropy,
+that is pure information theory: the extra bits you
+waste when your predicted probabilities differ from
+reality.
+
+CRYPTOGRAPHY grew up alongside the theory, and Shannon
+himself wrote its foundational secret paper. Entropy
+measures how unguessable a key or a password is: a
+truly random 128-bit key has 128 bits of entropy and
+cannot be brute-forced; a password built from a common
+word has far less, however long it looks. Shannon even
+proved that one encryption scheme, the one-time pad, is
+perfectly unbreakable, precisely because the ciphertext
+carries zero information about the message to anyone
+without the key. Secrecy, in this light, is the art of
+making your message look like maximum entropy to an
+eavesdropper.
+
+The reach extends further still. In BIOLOGY, DNA is a
+code over four symbols, and information theory supplies
+the natural language for how genetic messages are
+stored, copied, and corrupted by mutation. In
+LINGUISTICS, it quantifies the redundancy of human
+languages: English runs roughly seventy-five percent
+redundant, which is why you can rd a sentnce wth
+missng lttrs, the predictability that compression
+exploits and that also makes language robust against
+noise. And in the theory of computation it meets its
+cousin, KOLMOGOROV COMPLEXITY, which measures the
+information in a single object as the length of the
+shortest program that could generate it, tying
+Shannon's statistical entropy to the limits of
+computation itself.
+
+It is worth pausing on how invisibly the theory runs
+the machinery of ordinary life. When a spacecraft at
+the edge of the solar system sends home a photograph,
+its signal is almost drowned in noise, yet
+error-correcting codes rebuild it bit-perfect; the
+Voyager probes have done this for decades from billions
+of miles away. The little QR code on a package can be
+scanned even when smudged or torn, because roughly a
+third of it is error-correcting redundancy by design.
+Every phone call, every video stream, every file read
+back from a solid-state drive passes through layers of
+compression to save space and coding to survive errors,
+each layer sized by Shannon's two limits. The theory is
+not a museum piece. It is the silent arithmetic under
+the whole digital day, deciding how small things can get
+and how reliably they can arrive.
+
+That is the shape of information theory. One daring
+decision, to measure messages by their surprise and
+ignore their meaning, turned communication from a
+craft into a science with laws as firm as physics.
+Information became a quantity you could count in bits,
+compression and error correction became two directions
+of a single accounting, and a wall appeared around
+every channel marking the exact border of the possible.
+Everything digital was built in the space that one
+1948 paper mapped out, and the map has not needed
+redrawing since.
