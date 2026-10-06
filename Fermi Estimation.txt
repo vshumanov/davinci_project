@@ -1,0 +1,393 @@
+FERMI ESTIMATION
+
+Fermi estimation is the skill of pulling a useful number
+out of almost nothing. Faced with a question that seems
+impossible to answer without research, how many piano
+tuners work in Chicago, how much does a cloud weigh, is
+this quote a rip-off, you break it into smaller pieces
+you can guess at, multiply them together, and arrive at
+an answer that is usually correct within a factor of ten.
+It feels like magic the first time it works, but it is a
+learnable, reliable technique, and it is one of the most
+practical thinking tools there is.
+
+The goal is not precision. The goal is to know the ROUGH
+SIZE of the answer, the order of magnitude, which is
+often all you need to make a decision or to catch a lie.
+Is the right answer closer to a thousand, a million, or a
+billion? Most of the time, getting that right is worth
+more than a precise figure you do not have, and Fermi
+estimation gets it right astonishingly often from a
+standing start, using nothing but things you already
+roughly know.
+
+This booklet covers what Fermi estimation is, why it is
+worth having, the mechanism that makes rough guesses add
+up to good answers, the mistakes people make, and how it
+connects to the wider habit of thinking quantitatively.
+Read it in pieces. Each section stands on its own.
+
+WHAT IT IS
+
+A Fermi estimate is an order-of-magnitude calculation: an
+answer accurate not to the exact digit but to the exact
+power of ten. If the true number is 8,000 and your
+estimate is 3,000 or 20,000, you have succeeded, because
+you have placed the answer in the right range and ruled
+out that it is 50 or 5,000,000. This sounds like a low
+bar until you try to hit it on a question you know nothing
+about, and discover that most people cannot even say
+whether the answer should have three digits or nine.
+
+The phrase ORDER OF MAGNITUDE means, simply, the power of
+ten, the number of digits. Thinking in orders of magnitude
+means caring whether something is in the tens, the
+thousands, the millions, or the billions, and treating the
+exact leading digits as a detail to be filled in later or
+not at all. This is the natural language of a world that
+spans enormous scales, from the billionths of a meter in an
+atom to the billions of light-years across the cosmos, and
+scientists write such numbers as powers of ten precisely so
+the magnitude is the first and clearest thing on the page. A
+Fermi estimate lives in this language. Its promise is not
+the exact figure but the right power of ten, and that is
+usually the decision-relevant part: knowing whether a cost
+is in the thousands or the millions matters far more than
+knowing its last three digits, which you can always look up
+if the order of magnitude turns out to be worth pursuing.
+
+The technique is named for the physicist Enrico Fermi,
+who was famous for making shockingly good estimates with
+little or no data. He would pose his students questions
+like "how many piano tuners are there in Chicago?", not
+because he cared about pianos, but because answering it
+forced them to reason about quantities instead of
+throwing up their hands. The method he taught is the
+heart of the skill: take a question you cannot answer
+directly and decompose it into a chain of smaller
+questions you CAN take a reasonable stab at.
+
+The essential move is DECOMPOSITION. You never guess the
+final answer directly, because your intuition about big
+unfamiliar numbers is terrible. Instead you break the
+question into factors, each of which is something you
+either roughly know or can bound. You guess each factor,
+multiply them together, and the structure of the
+calculation does the hard work your intuition could not.
+A question that is hopeless as a whole becomes a series of
+small, manageable guesses, and the arithmetic assembles
+them into an answer.
+
+WHY IT MATTERS
+
+The first reason it matters is that it lets you SANITY-
+CHECK the world. We are constantly handed numbers, in
+news, in sales pitches, in reports, in arguments, and most
+people have no way to tell a plausible one from an absurd
+one. A Fermi estimate is a cheap, fast lie detector. If
+someone claims a product will save a city a billion
+dollars a year, you can, in your head, in a minute,
+estimate whether that is even in the realm of possibility,
+and very often discover that it is off by a factor of a
+hundred. The ability to roughly check a number is a form
+of intellectual self-defense.
+
+The second reason is that it lets you make DECISIONS
+without waiting for data you do not have. In business,
+engineering, and science, you constantly face choices
+where the perfect figures are unavailable, too expensive,
+or too slow to get. Should we build this? Is this market
+big enough? Will this design even work? A Fermi estimate
+gives you a defensible rough answer now, so you can decide
+whether the idea is worth pursuing before investing in
+exact numbers. Fermi himself used it at the first atomic
+bomb test, estimating the explosion's power by dropping
+scraps of paper and watching how far the blast wave pushed
+them; his quick figure landed within a factor of a few of
+the true yield, available instantly when precise
+instruments would take days.
+
+The third reason is that the technique trains a deeper
+habit: thinking in quantities rather than vibes. People
+who cannot estimate tend to treat every large number as
+simply "a lot" and every claim as equally plausible.
+Someone who estimates routinely develops a feel for scale,
+an internal sense of how big things actually are, that
+sharpens judgment across every domain. You stop being
+pushed around by scary-sounding figures and start asking,
+almost automatically, "is that number even possible?" That
+reflex is worth more than any single estimate it produces.
+
+The business world runs on this constantly, often without
+naming it. Before anyone builds a product or funds a
+startup, the first question is how big the market could be,
+and the honest answer is always a Fermi estimate: how many
+possible customers, times how often they would buy, times
+what they would pay. No market research report can be
+trusted that fails this back-of-the-envelope sanity check,
+and many a doomed venture could have been spared by one
+person spending five minutes estimating whether the numbers
+could ever add up. The same goes for public policy, where a
+proposal to save or spend some grand sum can be checked, in
+your head, against the population and budget it concerns,
+often revealing that the promised figure is impossible by a
+wide margin. Wherever a large number is used to persuade,
+the ability to estimate is the ability to refuse to be
+fooled.
+
+THE CORE MECHANISM
+
+The surprising thing about Fermi estimation is WHY it
+works, why a chain of crude guesses yields an answer far
+more accurate than any single guess. The reason is that
+the errors tend to CANCEL. When you break a problem into
+several factors and estimate each, you will overestimate
+some and underestimate others. As long as your guesses are
+honest and roughly centered on the truth, these errors
+partly offset each other in the multiplication, so the
+final product is far closer to right than any individual
+factor. The more independent the pieces, the better the
+cancellation. Decomposition is not just a convenience; it
+is what harnesses this error-cancelling effect.
+
+The mechanics are a small set of moves. First, DECOMPOSE
+the question into a product of factors you can estimate.
+Second, anchor each factor to something you actually know:
+your own life, round population figures, familiar prices,
+basic physical sizes. Third, when a factor is genuinely
+uncertain, estimate a low bound and a high bound and take
+something in the middle, leaning toward the GEOMETRIC mean,
+the number that sits midway between them in multiplication
+rather than in addition. If something might be 10 or 1,000,
+guess around 100, not 500, because you are reasoning in
+powers of ten. Fourth, multiply it all out and read off the
+order of magnitude.
+
+Work the classic example: how many piano tuners are in
+Chicago? Decompose it.
+
+=====
+    people in Chicago        ~ 3,000,000
+    people per household     ~ 3
+    households               ~ 1,000,000
+    fraction with a piano    ~ 1 in 20
+    pianos                   ~ 50,000
+    tunings per piano / year ~ 1
+    tunings needed / year    ~ 50,000
+    tunings one tuner does   ~ 4 per day
+    working days per year    ~ 250
+    tunings per tuner / year ~ 1,000
+    tuners = 50,000 / 1,000  ~ 50
+=====
+
+Not one of those numbers is known exactly. Yet the answer,
+about fifty piano tuners, is close to the real figure for a
+city that size. Each guess is rough, some high and some
+low, but strung together they box in the truth. And notice
+what you have gained: even if you are off by double here or
+half there, you now know the answer is around fifty, not
+five and not five thousand. That is the whole game.
+
+The method is not just for counting things; it handles
+physical quantities just as well. Take a question that
+sounds absurd: how much does a cloud weigh? Decompose it. A
+modest fluffy cumulus is perhaps a kilometer on a side,
+call it a cube a kilometer in each direction. That is a
+billion cubic meters of cloud. Each cubic meter of cloud
+holds only a small amount of liquid water as droplets, very
+roughly half a gram. Multiply: a billion cubic meters times
+half a gram is five hundred million grams, or about five
+hundred tonnes. The answer is startling, a cloud weighs as
+much as a hundred elephants, and yet it floats, because
+that weight is spread through an enormous volume of air. No
+single number in that chain was looked up, yet the result
+is in the right ballpark, and it delivers a genuine insight
+you did not have before. That is the second gift of Fermi
+estimation: it does not just produce numbers, it produces
+understanding.
+
+A sharper version of the technique thinks in CONFIDENCE
+RANGES rather than single guesses. For each uncertain
+factor, instead of one number, pick a low end you are
+fairly sure the truth is above and a high end you are
+fairly sure it is below, so that you are, say, ninety
+percent confident the real value lies between them. Then
+use the geometric middle of that range as your estimate.
+This does two things: it forces you to be honest about how
+uncertain each piece is, and it lets you carry a sense of
+the overall uncertainty through to the end, so you know not
+just the answer but roughly how much to trust it. People
+who practice this on quiz questions, deliberately setting
+ninety-percent ranges and checking how often the truth
+actually falls inside, become measurably better CALIBRATED,
+better at knowing what they know, which is a valuable skill
+far beyond estimation itself.
+
+It pays to keep a small stock of ANCHOR NUMBERS in your
+head, because every estimate is built from them. A handful
+of facts goes a remarkably long way: the population of your
+country and of the world; that there are about thirty
+million seconds in a year; that a person lives on the order
+of a few billion seconds; rough prices of everyday things;
+the speed of a car, a plane, sound, and light; the rough
+size of a city, a country, a continent. With a dozen such
+numbers memorized, you can bootstrap an estimate about
+almost anything, because most quantities connect back to
+people, time, distance, or money. Collecting and
+remembering these reference points is the one bit of actual
+preparation the skill rewards; everything else is reasoning
+you do on the spot.
+
+A few principles make the estimates better. Reason in
+ROUND numbers and powers of ten; precision in the inputs is
+wasted when the inputs are guesses. Prefer factors you can
+tie to concrete experience, how many people you know who
+own a piano is better data than an abstract feeling. Keep
+the chain SHORT where you can, since each extra factor adds
+a little uncertainty, but not so short that you are back to
+guessing the answer whole. And always, at the end, ask
+whether the result passes a gut check against anything you
+do know; if your estimate says Chicago needs fifty thousand
+piano tuners, you have slipped a factor of a thousand
+somewhere and should hunt for it.
+
+One more habit separates good estimators from bad ones:
+tracking UNITS. Write down what each number measures,
+people, households, pianos, tunings per year, and make sure
+the units cancel correctly as you multiply and divide, so
+that you end with "tuners" and not some nonsense. Units are
+a free error-checker built into the arithmetic. If the units
+do not come out right, the logic is wrong, no matter how
+reasonable each number looked. This is the same discipline
+physicists call dimensional analysis, and it catches more
+mistakes than any amount of care with the numbers themselves.
+
+WHAT PEOPLE GET WRONG
+
+The first error is believing the goal is PRECISION, and so
+refusing to estimate at all without good data. People say "I
+can't possibly know how many piano tuners there are" and
+stop. But Fermi estimation does not ask you to know; it asks
+you to reason. The whole point is to get a useful answer
+WITHOUT the data, accurate to an order of magnitude. Treating
+"I don't know the exact number" as a reason not to estimate
+throws away the one tool that works precisely when exact
+numbers are missing.
+
+The second error is the opposite: guessing the answer WHOLE
+instead of decomposing. Asked how many piano tuners are in
+Chicago, the untrained person just blurts a number, "a
+thousand?", with no structure behind it, and is usually off
+by a wide margin because raw intuition about large numbers is
+unreliable. The power of the method comes entirely from
+breaking the question into parts. Skip the decomposition and
+you have not done a Fermi estimate; you have just guessed, and
+guessing is what the technique exists to replace.
+
+The third error is FALSE PRECISION, carrying lots of digits
+through a calculation built on guesses. If your inputs are
+rough to a factor of two, reporting an answer as "47,382" is
+not more accurate, only more misleading. It fools you and
+others into trusting a figure that your methods cannot
+support. Round aggressively, keep one or two significant
+figures, and state the answer as a range or an order of
+magnitude. Honesty about uncertainty is part of the skill,
+not a weakness of it.
+
+The fourth error is forgetting to sanity-check the result
+against reality. An estimate is a chain, and a single slipped
+factor of ten, an extra zero, a units mix-up, throws the whole
+thing off. The remedy is to compare the answer against any
+independent fact you have. If you estimate the number of
+cars in your country and get a figure larger than the
+population, something is wrong. The final gut check catches
+the big blunders that the method's error-cancellation cannot,
+because those blunders are not small offsetting errors but
+single large mistakes.
+
+A fifth error is misjudging when the method is trustworthy
+and when it is not. Fermi estimation works beautifully when
+a quantity is a product of many roughly independent factors,
+because that is exactly the situation in which errors cancel.
+It works far less well when the answer is dominated by a
+single rare, extreme, or highly variable factor, a lone
+outlier that no typical guess will capture, or when the
+factors are not independent but all skewed the same way, so
+their errors reinforce instead of cancel. Estimating the
+average wealth of people in a room usually works; estimating
+it in a room that happens to contain a billionaire does not,
+because one freak value swamps everything. Knowing that the
+technique rests on the cancellation of independent errors
+tells you precisely when to trust it and when to be wary.
+
+WHERE IT CONNECTS
+
+Fermi estimation is the everyday face of DIMENSIONAL
+ANALYSIS and the "back of the envelope" calculation that
+scientists and engineers rely on constantly. Before building
+anything or running any experiment, a good practitioner
+estimates the rough answer first, to know what to expect and
+to catch gross errors early. A detailed calculation or
+simulation that disagrees wildly with the back-of-envelope
+estimate is a signal that one of them is wrong, and the quick
+estimate is the cheap guard against pouring effort into a
+mistake.
+
+Physics has a fond joke that captures the spirit exactly:
+the "spherical cow." To estimate something about a cow, a
+physicist will cheerfully begin, "assume a spherical cow of
+uniform density," stripping away every real detail that does
+not matter to the rough answer. The joke is also serious
+advice: the art of estimation is knowing which features of a
+problem to keep and which to throw away, simplifying
+ruthlessly until what remains can be calculated, while
+holding on to the few things that actually drive the result.
+A good Fermi estimate is a well-chosen spherical cow, crude
+in every way that does not matter and faithful in the one or
+two ways that do.
+
+It connects to one of the most famous equations in science,
+the DRAKE EQUATION, which estimates the number of
+communicating civilizations in our galaxy by decomposing that
+unknowable number into a product of factors, the rate of star
+formation, the fraction with planets, the fraction habitable,
+and so on. The Drake equation is a Fermi estimate dressed in
+formal clothes: no one knows the factors precisely, but
+breaking the impossible question into estimable pieces turns
+idle speculation into a structured argument about what we
+would need to know.
+
+In the world of work, Fermi questions are a staple of job
+INTERVIEWS at technology and consulting firms, precisely
+because they reveal how a candidate thinks. "How many golf
+balls fit in a school bus?" is not about golf balls; it is a
+test of whether you can structure an unfamiliar problem,
+make reasonable assumptions, and reason to a defensible
+answer under pressure. The firms care about the skill for the
+same reason this booklet does: real work is full of questions
+with no lookup-able answer, where the ability to estimate
+well is the difference between acting sensibly and being
+paralyzed.
+
+Finally, Fermi estimation is kin to probabilistic and
+BAYESIAN thinking, the discipline of reasoning with rough
+numbers and updating them as evidence arrives. Both reject the
+false choice between perfect certainty and total ignorance,
+and both insist that a rough, honest number beats no number at
+all. A Fermi estimate is, in effect, a quick prior, a
+reasonable starting belief about a quantity that you can
+refine later if it matters. The habit of putting an
+approximate number on things, rather than retreating into "who
+can say," is the shared root of clear quantitative thinking in
+every field.
+
+That is Fermi estimation. Not a trick for impressing people
+with mental arithmetic, but a method for thinking about any
+quantity in the world: decompose the impossible question into
+guessable parts, anchor each part to what you know, let the
+errors cancel, and read off the order of magnitude. It turns
+"I have no idea" into "it's about this big," which is usually
+all you need to decide, to check, or to call a bluff. Practice
+it on idle questions, how many hairs on a head, how much your
+city spends on coffee, and you build a feel for the real size
+of things that serves you everywhere.

@@ -1,0 +1,381 @@
+TROUBLESHOOTING
+
+Troubleshooting is the general method for finding out why
+something is broken and fixing it. The same underlying
+process works whether the broken thing is a car that won't
+start, a program that crashes, a leaking pipe, a recipe
+that keeps failing, or a body with a mysterious symptom.
+Most people, faced with a fault, either freeze or flail,
+poking at random and hoping. The skilled troubleshooter
+does neither. They run a procedure, and the procedure,
+not luck or genius, is what finds the fault.
+
+The central truth of troubleshooting is that it is a
+discipline, not a talent. The person who always seems able
+to fix things is rarely smarter than you; they have simply
+internalized a method and trust it instead of panicking.
+That method can be written down, learned, and applied to
+any kind of system. Once you have it, "it's broken and I
+don't know why" stops being a dead end and becomes the
+starting point of a search that reliably ends at the
+cause.
+
+This booklet covers what troubleshooting is, why the
+method matters, the mechanism step by step, the mistakes
+that keep people stuck, and how the skill connects to
+science, medicine, and engineering. Read it in pieces.
+Each section stands on its own.
+
+WHAT IT IS
+
+Troubleshooting is systematic fault-finding: a structured
+search for the cause of a problem, followed by a fix aimed
+at that cause. The key word is SYSTEMATIC. The amateur's
+approach is to guess at a fix and try it, then guess
+another, changing things more or less at random until
+either the problem goes away or they give up. The
+troubleshooter's approach is to treat the fault as a
+question to be answered by evidence, narrowing down where
+the problem is before deciding what to do about it. Find
+first, fix second.
+
+The reason this works across such wildly different domains
+is that nearly all of them share a common structure: a
+SYSTEM made of connected parts, through which something
+flows, information, electricity, fluid, force, and a fault
+is a break or distortion somewhere in that chain. A car's
+engine, a software program, a plumbing system, and a
+circulatory system are all chains of components that
+normally hand something off from one stage to the next.
+Troubleshooting is the art of walking that chain to find
+the stage where the hand-off fails. Because the structure
+is shared, the method is shared.
+
+So troubleshooting is less about deep knowledge of any one
+system than about a way of thinking that applies to all of
+them. Expert knowledge of the specific system certainly
+helps, it tells you what the parts are and how they should
+behave, but the search procedure itself is general. This
+is why a good troubleshooter can often make progress on a
+system they barely understand, and why a person with deep
+knowledge but no method can still thrash helplessly. The
+method is the transferable part.
+
+WHY IT MATTERS
+
+The first payoff is obvious and practical: you can fix
+things, and fixing things saves money, time, and
+helplessness. The person who can diagnose a problem does
+not have to call an expensive specialist for every fault,
+wait days for help, or throw away and replace what could
+have been repaired in minutes. More than the money, there
+is the independence: the quiet confidence of someone who,
+when something breaks, rolls up their sleeves and starts a
+methodical search instead of feeling stranded.
+
+The second payoff is that the method prevents you from
+making things WORSE, which untethered flailing very often
+does. Randomly changing settings, swapping parts, and
+applying half-remembered fixes can introduce new faults on
+top of the original, until the system is more broken and
+more confusing than when you started, and you no longer
+even know which of your changes did what. Systematic
+troubleshooting, by changing one thing at a time and
+tracking what you did, keeps the situation under control
+and reversible. It is as much about not digging the hole
+deeper as about climbing out.
+
+The third payoff is that troubleshooting is a core
+professional skill disguised as a household one. Debugging
+software, diagnosing disease, repairing machinery,
+auditing a failing process, these are the same activity in
+different clothes, and the people who are good at them are
+valuable precisely because faults are everywhere and most
+people cannot find them. Learning the method well in one
+domain transfers to all the others, because, again, the
+search procedure is the same. It is one of the highest-
+leverage general skills a person can own.
+
+Underneath the method is a mindset, and it is half the
+battle. The effective troubleshooter approaches a fault with
+CURIOSITY rather than panic or frustration, treating it as a
+puzzle to be solved rather than an insult to be resented.
+This matters because the emotional state directly degrades
+the work: anger and anxiety narrow attention, invite the
+reckless shotgun approach, and make a person skip the patient
+observation that finds the cause. Calm is not just pleasant;
+it is functional. The belief that the fault has a definite,
+findable cause, and that a steady search will reach it,
+produces exactly the patience the search requires. People who
+are good at fixing things are not immune to the frustration;
+they have learned that giving in to it is the surest way to
+stay stuck, and that the fault does not care how you feel.
+
+THE CORE MECHANISM
+
+The engine of troubleshooting is the steady NARROWING of
+the search: starting with "the problem is somewhere in
+this whole system" and cutting that territory down, step
+by step, until the fault has nowhere left to hide. Each
+step is designed to eliminate as much of the remaining
+possibility as it can. The method runs in a sequence, and
+the discipline is in following it rather than jumping
+ahead to a fix.
+
+Before diving in, it helps to make a first, coarse cut by
+CATEGORY, asking which broad part of the world the fault
+could live in. Nearly every problem sits in one of a few
+regions: the thing itself, its inputs, its environment, or
+the way it is being used. A machine that misbehaves might
+have a broken part, or be fed bad fuel or power or data, or
+be sitting somewhere too hot or too damp, or simply be
+operated wrongly. Checking which category the fault belongs
+to, often with a single quick test, can eliminate most of
+the possibilities before you look at any specific component.
+Many a long hunt inside a device ends in embarrassment when
+the real trouble was a bad input or an operator mistake all
+along, so it pays to rule those out early and cheaply.
+
+First, REPRODUCE the problem, and make it fail reliably. A
+fault you can summon on demand is one you can study; a
+fault that comes and goes at random is nearly impossible to
+fix, because you can never tell whether your change helped
+or the problem merely wandered off on its own. So the first
+real work is often to find the exact conditions under which
+the failure happens every time. Much of troubleshooting is
+won or lost here: pin down a reliable reproduction and the
+rest is tractable; fail to, and you are guessing in the
+dark.
+
+Second, OBSERVE the symptoms carefully, and gather the
+actual evidence before theorizing. Read the exact error
+message, do not skim it; note precisely what happens and
+what does not; check the obvious things first, is it
+plugged in, is there fuel, is the input what you think it
+is. An astonishing fraction of faults are revealed by
+simply looking closely at what the system is telling you,
+which panicked people skip right past. Trust what you
+observe over what you assume should be true.
+
+Third, form a HYPOTHESIS and then ISOLATE. This is the core
+move, and the most powerful technique for it is DIVIDE AND
+CONQUER, also called the half-split method. Instead of
+checking components one by one from one end, you test
+something in the MIDDLE of the chain, which tells you which
+half the fault is in, then test the middle of that half,
+and so on. Each test halves the remaining search. The
+logic is the same binary search a person uses to find a
+word in a dictionary:
+
+=====
+    split the suspect region in half
+    test at the midpoint
+    if the fault is upstream
+        search the first half
+    else
+        search the second half
+    repeat until one component remains
+=====
+
+This halving is why a good troubleshooter can locate a
+fault in a huge system in surprisingly few steps. A chain of
+a thousand components is not a thousand tests; it is about
+ten, because each test throws away half of what remains.
+Whenever you can find a way to test the middle of the
+problem and learn which side the fault is on, you are
+troubleshooting efficiently.
+
+Fourth, and running through everything: change only ONE
+THING AT A TIME, and keep track of what you change. If you
+alter three things and the problem goes away, you have
+learned almost nothing, you do not know which change
+mattered, and you may have introduced two new problems that
+have not yet surfaced. Changing one variable at a time is
+what turns each action into an EXPERIMENT that teaches you
+something, rather than a gamble that muddies the water. When
+a change does not help, undo it before trying the next, so
+the system stays in a known state.
+
+Fifth, once you find what is broken, find the ROOT CAUSE,
+not just the surface symptom. A useful tool here is the FIVE
+WHYS, developed at Toyota: when you find a fault, ask why it
+happened, then ask why THAT happened, and so on, typically
+about five times, until you reach a cause deep enough that
+fixing it prevents the problem from returning. The machine
+stopped. Why? A fuse blew. Why? The bearing seized. Why? It
+was not lubricated. Why? The oil pump failed. Why? Its
+filter was never changed. Replace the fuse and you are back
+tomorrow; fix the maintenance schedule and the problem is
+gone for good. Treating symptoms feels like fixing; only
+addressing the root cause actually fixes.
+
+One more technique deserves mention because it is so cheap
+and so effective: EXPLAINING the problem aloud, in full, to
+another person or even to an inanimate object, the practice
+programmers jokingly call rubber-duck debugging. The act of
+laying out the problem step by step, in words, forces you to
+examine assumptions you had skated over, and the flaw often
+reveals itself mid-sentence. Articulating the problem clearly
+is halfway to solving it, because confusion about the symptoms
+is itself a large part of most stuck troubleshooting.
+
+Two more techniques belong in any troubleshooter's kit. The
+first is the question "WHAT CHANGED?" The overwhelming
+majority of faults appear not at random but just after
+something was altered, a part replaced, a setting changed, an
+update installed, a new ingredient used, the weather turned.
+A thing that worked yesterday and fails today is shouting
+that something changed in between, and finding that change
+usually finds the fault far faster than searching the whole
+system blindly. Always ask what is different now from when it
+last worked. The second is SUBSTITUTION with a known-good
+part. If you suspect a component, swap in one you know is
+good, or move the suspect component into a setup you know
+works; if the fault follows the part, you have found it, and
+if it does not, you have cleared it. Swapping against a
+known-good reference is one of the fastest ways to turn a
+suspicion into a certainty.
+
+A special menace deserves its own warning: the INTERMITTENT
+fault, the one that comes and goes. These are the hardest of
+all, because the whole method depends on being able to
+reproduce the problem and see whether a change helped. When a
+fault is intermittent, your first job is to make it less so,
+to hunt for the hidden condition, heat, vibration, time of
+day, a particular input, a specific load, that makes it more
+likely, until you can trigger it often enough to study. Until
+you can summon the fault with some reliability, every "fix"
+you try is unprovable, because the problem's absence might
+just be its random good mood. Much of the skill with
+intermittent faults is patience and record-keeping: logging
+exactly when it happens and what else was true at the time,
+until the pattern gives the cause away.
+
+WHAT PEOPLE GET WRONG
+
+The first and most damaging error is the SHOTGUN approach:
+changing many things at once in the hope that one of them
+works. It feels productive and is almost always
+counterproductive. Even when it stumbles onto a fix, you
+learn nothing about why, so you cannot repeat it or prevent
+the problem's return, and more often it layers new faults onto
+the old. Discipline, change one thing, test, observe, is
+slower per step but far faster overall, because it actually
+converges instead of thrashing.
+
+The second error is fixing the SYMPTOM instead of the cause.
+The light keeps blowing, so you keep replacing the bulb,
+never asking why the bulbs die, which is a wiring fault that
+will eventually start a fire. Symptom-fixing is seductive
+because it brings immediate, visible relief, and because the
+real cause is often buried and harder to reach. But a problem
+treated only at the symptom always comes back, and sometimes
+the untreated cause is doing damage the symptom merely hinted
+at. The five whys exist precisely to drag you past the symptom
+to the thing worth fixing.
+
+The third error is ASSUMING instead of TESTING, trusting your
+mental model of the system over what the system is actually
+doing. "It can't be the cable, the cable is new." "That part
+is fine, I just checked it last week." These assumptions close
+off branches of the search that may contain the fault, and
+troubleshooting dies the moment you stop questioning your own
+certainties. The rule is to verify, not assume: if you have
+not tested it in this failure, you do not know it is good, no
+matter how sure you feel. Faults love to hide behind the
+components everyone is certain about.
+
+The fourth error is failing to read what the system is telling
+you, skipping the error message, ignoring the warning light,
+not noticing the smell or the sound. Systems usually announce
+their faults, often quite specifically, and the panicked or
+impatient troubleshooter blows past the single most valuable
+clue on their way to guessing. Slow down and gather the actual
+evidence first. Half of troubleshooting is simply paying
+attention to information that was there all along, waiting to
+be read.
+
+The fifth error comes at the very end: declaring victory too
+soon. The problem seems to go away, so you stop, without
+confirming that YOUR change is what fixed it and that nothing
+else broke in the process. Two traps hide here. One is that
+the fault may have vanished on its own, especially if it was
+intermittent, fooling you into trusting a "fix" that did
+nothing; the honest test is to confirm the problem was
+present just before your change and gone just after, and
+ideally that putting the fault back reproduces it. The other
+is the REGRESSION: your fix solved the original problem but
+quietly introduced a new one elsewhere, so a complete job
+means checking that the rest of the system still works. A
+repair is not finished when the symptom disappears; it is
+finished when you have confirmed the cause, verified the fix,
+and made sure you broke nothing else.
+
+WHERE IT CONNECTS
+
+Troubleshooting is the SCIENTIFIC METHOD applied to a broken
+thing. You observe, form a hypothesis about the cause, design a
+test that would confirm or rule it out, run the test, and
+update your beliefs based on the result, looping until you
+converge on the truth. The isolate-and-test cycle at the heart
+of troubleshooting is exactly the experimental cycle of science,
+just aimed at a fault rather than a law of nature. A good
+troubleshooter is, for the duration, a scientist studying the
+particular broken system in front of them.
+
+In software it is called DEBUGGING, and it is where many of
+these techniques were sharpened into their clearest form:
+reproducing the bug reliably, reading the stack trace, bisecting
+the code or the history to find where things went wrong,
+changing one thing at a time, and explaining the problem to the
+rubber duck. Programmers face faults so constantly that they
+have turned troubleshooting into a highly developed craft, and
+much of the vocabulary used here, from binary search to root
+cause, is shared with their trade.
+
+In MEDICINE the same method is called differential diagnosis:
+the doctor observes the symptoms, forms a list of possible
+causes, and runs tests chosen to distinguish among them,
+narrowing the field until one cause remains. The physician
+walks the chain of the body's systems exactly as a mechanic
+walks a car's, isolating where the normal function breaks down.
+The parallels are so strong that doctors and engineers often
+recognize each other's reasoning instantly, despite working on
+utterly different systems.
+
+Finally, troubleshooting connects to the broad toolkit of
+reasoning: to OCCAM'S RAZOR, the principle that you should
+suspect the simplest explanation first, the loose plug before
+the exotic internal failure; to FIRST-PRINCIPLES thinking, which
+lets you reason about an unfamiliar system from how it must work
+rather than from memorized fixes; and to the root-cause analysis
+used across industry to stop problems from recurring. Underlying
+all of it is the single conviction that a fault is not a mystery
+but a question with a findable answer, and that a method, not a
+miracle, is what finds it.
+
+A mature troubleshooter also knows the method's limits and
+when to stop. Sometimes the fault lies in a part you cannot
+safely reach, a gas line, a high-voltage circuit, a load-
+bearing structure, and the right move is to hand it to someone
+qualified rather than to press on; knowing what you should not
+touch is part of the skill, not a failure of it. Sometimes the
+economics change the goal: past a certain point it is cheaper
+to replace a component than to keep diagnosing it, and the aim
+was always a working system, not the satisfaction of a complete
+diagnosis. And in genuinely complex systems, a fault may have
+not one cause but several interacting ones, so that no single
+culprit explains everything and the honest approach is to peel
+them off one at a time. Good troubleshooting includes good
+judgment about when to dig deeper, when to swap and move on,
+and when to call for help.
+
+That is troubleshooting. Reproduce the fault, observe it
+closely, split the problem in half to isolate where it lives,
+change one thing at a time, and dig past the symptom to the root
+cause, explaining it aloud when you get stuck. It is a
+procedure, not a gift, and it works on cars, code, pipes, and
+bodies alike, because they are all chains of parts and a fault
+is always somewhere in the chain. Learn to walk the chain
+methodically and you need never again feel helpless in front of
+something broken.

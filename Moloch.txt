@@ -1,0 +1,416 @@
+MOLOCH
+
+Moloch is a name for a particular kind of disaster: the
+one where everybody can see what is going wrong,
+everybody would prefer it to stop, and it does not stop,
+because no single person can stop it alone. It is the
+logic behind arms races, polluted rivers, exhausting
+workweeks, clickbait, and a hundred other situations
+where rational individuals, each doing the sensible
+thing for themselves, together produce an outcome that
+none of them wanted. There is no villain. There is only
+the trap.
+
+The word is borrowed. Moloch was an ancient god to whom
+people were said to sacrifice their own children, and
+the name became a byword for a system that devours the
+very things its worshippers love. It is used here as a
+deliberate metaphor, a way of giving a face to something
+that has no face: the blind, grinding pressure of bad
+incentives. Naming it Moloch does not mean believing in
+a demon. It means noticing that these failures behave as
+if something were driving them, when in truth the driver
+is just the structure of the situation.
+
+This booklet lays out what Moloch is, why the idea is so
+useful, the mechanism that powers these traps, the
+mistakes people make in thinking about them, and how the
+concept connects to game theory, economics, and
+evolution. Read it in pieces. Each section stands on its
+own.
+
+WHAT IT IS
+
+Moloch is the personification of COORDINATION FAILURE. A
+coordination failure is a situation where a group of
+people would all be better off if they could act
+together in a certain way, but each individual, acting
+alone, has no incentive to, and so the good outcome never
+happens. Everyone is behaving rationally given their own
+position, and the result is collectively terrible. The
+tragedy is not that people are stupid or wicked. It is
+that doing the right thing alone is punished, so no one
+does it.
+
+The image comes from the poet Allen Ginsberg, whose 1955
+poem "Howl" contains a howling passage naming Moloch as
+the thing that eats the young, grinds up human lives, and
+runs the machinery of a soulless society. In 2014 the
+writer Scott Alexander, in an essay called "Meditations
+on Moloch," took Ginsberg's figure and turned it into a
+sharp analytical tool. His framing question was simple
+and devastating: if everyone hates the current system,
+who or what keeps it going? The answer is Moloch, not as
+a being but as the sum of all the incentives that make
+each person keep feeding a machine they would rather see
+destroyed.
+
+The choice of Moloch as the name is not decoration; the old
+god's defining horror is exactly right. Moloch was the deity
+to whom worshippers were said to burn their own children,
+sacrificing the thing they loved most and valued most for
+the future, in exchange for some present advantage, victory,
+favor, survival. That is precisely what a coordination trap
+extracts: the competitors feed their deepest values,
+including the long-term good of the very thing they are
+competing over, into the fire for a short-term edge in the
+race. The metaphor captures the particular tragedy that the
+sacrifice is not of something worthless but of something
+precious, and that it is made not by monsters but by ordinary
+people who feel they have no choice. The horror is in the
+willingness, born of competition, to give up what matters
+most.
+
+The key move is treating the SYSTEM as if it were an
+agent with a will of its own, precisely in order to show
+that it is not. When a factory pollutes a river that all
+the factory owners also drink from, it is tempting to ask
+who wanted this. Nobody did. But if cleaning up costs
+money, any single owner who cleans up alone just goes
+bankrupt and is replaced by someone who pollutes, so the
+pollution continues as if some power demanded it. Calling
+that power Moloch throws into relief how a result nobody
+chose can be enforced on everybody by the shape of the
+game they are all trapped in.
+
+WHY IT MATTERS
+
+The idea matters because it explains a feature of the
+world that is otherwise baffling: the persistence of
+problems that everyone agrees are problems. We are used
+to thinking that if something is bad and widely disliked,
+someone will fix it, or at least that it exists because
+someone benefits from it. Moloch names the large class of
+cases where neither is true, where a bad thing continues
+not because anyone wants it but because the incentives
+punish whoever tries to stop first.
+
+Once you have the concept, you see it everywhere. Two
+countries pour their wealth into weapons neither wants to
+use, because the one that stops first is left
+vulnerable. Companies cut corners and underpay because
+the one that does not is undercut by the one that does.
+Scientists chase flashy, publishable results instead of
+careful truth, because careers are built on publication.
+Social media rewards outrage because outrage spreads,
+and any platform that refuses to amplify it loses to one
+that will. In each case, the people inside can see the
+damage and feel powerless, because they are: the pressure
+is structural, and individual virtue cannot overcome it.
+
+The reason this is worth understanding is that it changes
+what you do about such problems. If you believe bad
+systems are caused by bad people, you try to replace the
+people, and nothing changes, because the new people face
+the same incentives. If you understand Moloch, you see
+that the fix is almost never willpower or good
+intentions, but changing the STRUCTURE of the game so
+that doing the right thing is no longer punished. That is
+a completely different kind of project, and recognizing
+which kind of problem you face is the first step to not
+wasting your effort on the wrong one.
+
+The concept also cuts across the usual political quarrels in
+a clarifying way. One side tends to blame greedy
+corporations, the other to blame corrupt governments, and
+both are hunting for the villainous agent that Moloch says
+often is not there. A Molochian analysis suggests that many
+of the failures each side decries are not caused by bad
+actors at all but by bad equilibria that would capture
+whoever stood in those positions. This does not mean no one
+is ever to blame, but it redirects attention from the
+satisfying work of finding someone to punish toward the
+harder, more useful work of asking what incentive structure
+produced the behavior and how it could be changed. Blame is
+emotionally gratifying and usually leaves the machine intact;
+understanding the trap is the only thing that dismantles it.
+
+THE CORE MECHANISM
+
+The engine of Moloch is what Scott Alexander called a
+MULTIPOLAR TRAP, and it has a precise shape worth taking
+apart. The classic two-person version is the famous
+PRISONER'S DILEMMA: two prisoners, each better off
+betraying the other no matter what the other does, so
+both betray, though both would have been better off
+staying silent. Moloch is what you get when you run that
+same logic across many players and many rounds, until it
+becomes the permanent weather of a whole system.
+
+Here is the general pattern. Imagine many actors
+competing, each wanting to do well. There is some value
+they all care about, clean water, honest reporting,
+humane working hours, safety, truth. Sacrificing a little
+of that value gives an actor a competitive edge: the
+factory that pollutes is cheaper, the paper that
+exaggerates gets more attention, the firm that overworks
+its staff ships faster. As soon as one actor sacrifices
+the value for an edge, the others must follow or lose.
+Round after round, each actor trades away more of the
+shared value just to keep up, until it is all gone, and
+everyone is worse off than when they started, yet no one
+can stop.
+
+The cruel heart of it is that UNILATERAL restraint is
+suicidal. Any single player who refuses to sacrifice the
+value, who keeps the river clean or the workweek humane,
+simply loses to those who do not, and is driven out,
+replaced by someone who will race to the bottom with the
+rest. So the good actors are not just outcompeted; they
+are selected AGAINST and removed from the game. Over
+time the system fills up with whoever is most willing to
+sacrifice the shared value, and the behavior everyone
+hates becomes mandatory just to survive.
+
+The TRAGEDY OF THE COMMONS is the cleanest real example.
+Picture a shared pasture open to all herders. Each herder
+gains fully from adding one more animal to his own herd,
+but the cost of overgrazing is spread across everyone. So
+each rationally adds animals, the pasture is destroyed by
+overgrazing, and all the herders lose their livelihood. No
+herder wanted the pasture ruined. Each merely followed his
+own clear interest, and the sum of their sensible choices
+was collective catastrophe. The same shape governs
+overfished seas, crowded roads, and a warming atmosphere.
+
+It is worth running the shape through a few more arenas,
+because its reach is the whole point. In a competitive
+market, any firm that refuses to cut a dangerous corner
+its rivals are cutting loses on price and is driven out,
+so safety and quality erode to whatever the law forces.
+In science, any researcher who takes the slow, careful,
+unglamorous path is out-published by those who chase
+flashy, fragile results, so the careful are pushed out of
+the field. In politics, any candidate who refuses to run
+attack ads or take dark money is beaten by one who will.
+In the attention economy, any publication that declines
+to sensationalize is starved of clicks by one that does.
+Even in personal life, if everyone in an industry answers
+email at midnight, the one who logs off looks lazy and
+falls behind. In every case the pattern is identical:
+a value, safety, truth, honesty, rest, that each actor
+would prefer to keep, competed away because keeping it
+alone is a losing move.
+
+So why has the world not already been ground entirely to
+dust? Because several forces hold Moloch back, and seeing
+them is the key to fighting it. Sometimes a physical LIMIT
+stops the race: there are only so many hours in a day, so
+much a body can take, so much a resource can yield, and the
+ratchet jams against a hard wall. Sometimes there is SLACK,
+an abundance of resources that means actors are not yet
+desperate enough to sacrifice everything to compete. And
+most importantly, sometimes there is enforced COORDINATION,
+a rule, a law, a norm, a shared authority that binds all
+the actors at once so that none can gain by defecting.
+Every bit of the humane world, the weekends, the clean air,
+the safety standards, the honest institutions, exists
+because some coordinating force is actively holding a
+particular Moloch at bay. Remove the force, and the race to
+the bottom resumes.
+
+Notice what the mechanism does NOT require. It needs no
+malice, no stupidity, no conspiracy, and no coordination
+among the actors at all. In fact it is powered by the
+ABSENCE of coordination. Each actor may be intelligent,
+well-meaning, and fully aware of the disaster unfolding,
+and still be forced to contribute to it, because the
+alternative is to lose and be replaced by someone who
+contributes anyway. This is why Moloch feels like a
+malevolent force. A result that requires no one's
+intention and overrides everyone's preference genuinely
+behaves like something with a will, even though it is only
+the mathematics of the situation grinding forward.
+
+And there is a ratchet. Once some actors have sacrificed a
+value for an edge, the baseline shifts, and the new normal
+becomes the floor from which the next round of sacrifice
+begins. The pressure only pushes one way, toward trading
+more and more of what everyone cares about for the thin,
+temporary advantage of keeping pace. Left alone, a
+multipolar trap tends to consume every value that can be
+traded for competitive advantage, stopping only when there
+is nothing left to give.
+
+WHAT PEOPLE GET WRONG
+
+The first and most common error is looking for someone to
+blame. Faced with a Molochian disaster, people assume
+there must be a villain, a greedy cabal, a corrupt elite,
+someone who wants this and profits from it. Usually there
+is not. The polluters would prefer clean water too; the
+overworked and the overworking boss both hate the hours.
+Moloch's signature is exactly that the harm persists with
+no one willing it. Hunting for a culprit not only fails to
+fix the problem, it misdirects the anger that might have
+gone toward changing the structure.
+
+The second error is believing the trap can be escaped by
+individual virtue, by one person or firm or nation simply
+choosing to do better. This is not just ineffective; it
+can be counterproductive. The lone factory that cleans up
+goes bankrupt and is replaced by a dirtier one, so the
+river is no cleaner and a conscientious owner is gone.
+Unilateral goodness inside a multipolar trap is punished
+and selected out. This is a hard and unwelcome truth, but
+missing it leads people to moralize at victims of the trap
+as if they simply lacked the courage to be good.
+
+The third error is the opposite despair: concluding that
+since individual effort fails, nothing can be done.
+Moloch is not invincible. What defeats a coordination trap
+is COORDINATION, some mechanism that binds all the actors
+at once so that doing the right thing is no longer a losing
+move. A law that forces every factory to clean up removes
+the penalty for cleaning up. A treaty that limits every
+nation's weapons lets each disarm safely. The escape is
+real, but it operates at the level of the whole system, not
+the individual, which is why building and enforcing such
+mechanisms is one of the central tasks of civilization.
+
+The fourth error is thinking Moloch only concerns big,
+obvious commons like fisheries and the climate. The same
+logic runs through ordinary life: the party where everyone
+stays late because no one wants to be the first to leave,
+the group project where effort is shared but credit is
+diluted, the neighborhood where everyone keeps their lawn
+pristine because of what the neighbors will think. Once you
+know the shape, you find it at every scale, from two people
+to seven billion, wherever individual incentives and
+collective good pull apart.
+
+A fifth error, and a subtle one, is to take the whole idea
+as an excuse, a way of shrugging that "it's just Moloch, the
+system, nothing to be done." This gets the lesson exactly
+backward. Naming the trap is not a counsel of despair but the
+first move toward escape; you cannot build a coordination
+mechanism against a force you have not identified. The point
+of personifying the system as Moloch is to make visible a
+problem that was invisible precisely because it had no agent
+behind it, so that human agents can then organize against it.
+Used as a shrug, the concept is worse than useless; used as a
+diagnosis, it is the start of the cure.
+
+WHERE IT CONNECTS
+
+Moloch is the dramatized, generalized face of GAME THEORY,
+the mathematical study of strategic choice. Its backbone is
+the prisoner's dilemma and the idea of a NASH EQUILIBRIUM, a
+situation where no player can improve their own outcome by
+changing strategy alone, even when all players together could
+do better by changing at once. A multipolar trap is simply a
+bad Nash equilibrium that a whole society is stuck in. Moloch
+gives that dry technical object an emotional weight and a
+name, which is why the metaphor spread far beyond the people
+who would ever read a game-theory textbook.
+
+It connects directly to the economist's TRAGEDY OF THE
+COMMONS, named in a famous 1968 essay by Garrett Hardin, and
+to the long tradition of thinking about PUBLIC GOODS and
+EXTERNALITIES, the costs and benefits that spill onto people
+who did not choose them. Pollution is the textbook
+externality, and it is textbook Moloch: a cost pushed onto
+the shared world while the benefit is captured privately. The
+whole apparatus of taxes, regulations, and property rights
+that economists propose is, in this light, a toolkit for
+escaping Molochian traps by realigning private incentives
+with the common good.
+
+The darkest connection is to EVOLUTION itself, which is
+Moloch written into biology. Natural selection rewards
+whatever spreads, not whatever is good for the species or the
+world. A peacock's absurd tail, a costly advertisement that
+helps no one, persists because peahens prefer it and any
+plain-tailed male loses the mating race; the whole species is
+stuck dragging heavy tails no one benefits from. Evolution is
+full of such traps, races to the bottom that no creature
+chose and none can leave. Life is shot through with the same
+logic that ruins the commons.
+
+The resolution has a name too, drawn from political
+philosophy: the LEVIATHAN, the overarching power that can
+bind everyone at once. Thomas Hobbes argued that people
+escape the war of all against all only by handing authority
+to a sovereign strong enough to enforce the rules on everyone
+equally. In the language of this booklet, a Leviathan is a
+Moloch-killer: a coordination mechanism, usually a government
+or a binding agreement, that makes cooperation safe by
+removing the penalty for going first. Every functioning law,
+treaty, and institution is a small Leviathan raised against
+some particular Moloch.
+
+History offers real victories to prove the traps are
+beatable. In the 1980s the world faced a classic multipolar
+trap in the chemicals that were destroying the ozone layer:
+no single country gained by banning them alone, since it
+would bear the cost while others kept polluting the shared
+sky. The escape was coordination, the Montreal Protocol, a
+binding international agreement that committed everyone at
+once, removing the penalty for going first; the ozone layer
+is now slowly healing. Enforceable fishing quotas have
+pulled some fisheries back from collapse the same way, and
+labor laws ended the race to the bottom on child labor and
+the hundred-hour week. These are Molochs that were named,
+understood, and defeated by deliberately built coordination.
+They are the proof that the grinding logic is not destiny,
+only a default that enough collective will can override.
+
+The idea has found new and urgent life in the debate over
+ARTIFICIAL INTELLIGENCE. Many worry that competition between
+companies and nations to build ever more powerful systems is
+itself a multipolar trap: each developer, fearing to fall
+behind, races ahead and cuts corners on safety, so that even
+developers who would prefer caution are forced to sprint. The
+feared outcome is a world that races to build something
+dangerous not because anyone wants danger, but because no one
+can afford to slow down alone. It is Moloch in its newest and
+perhaps most consequential costume.
+
+Seen from far enough back, the whole history of CIVILIZATION
+can be read as a long war against Moloch. Every institution
+that works, the rule of law, the enforceable contract, the
+regulatory agency, the international treaty, the social norm
+that shames a defector, is a tool for solving some
+coordination problem that individuals could not solve alone.
+Progress, in this view, is not automatic; it is the hard-won
+accumulation of mechanisms that let people cooperate where
+raw incentives would have them race to the bottom. This is a
+sobering lesson, because it means the humane order is not the
+natural default that persists on its own, but a structure
+that must be actively maintained against a constant downward
+pressure. Let the coordinating institutions decay and the old
+traps reopen on their own.
+
+Technology sits on both sides of this war, which is what
+makes the present moment so fraught. On one hand, new
+technologies spawn new Molochs faster than ever, the
+attention economy and the AI race being only the latest, by
+creating new arenas of ruthless competition before any
+coordinating rules exist. On the other hand, technology also
+offers new tools for coordination, better ways to
+communicate, verify, agree, and enforce, that could in
+principle bind actors together and defuse traps that were
+once hopeless. Whether the age ahead is one of worse Molochs
+or better coordination is, in a real sense, the central open
+question the concept leaves us with.
+
+That is Moloch. Not a demon, but the exact and merciless logic
+by which the uncoordinated pursuit of individual advantage can
+devour the things everyone holds dear. It explains why bad
+systems outlive everyone's wish to end them, why blaming
+villains and summoning willpower so often fail, and why the
+real cure is the hard, unglamorous work of coordination. Learn
+to recognize the trap, and you stop being surprised that the
+world is full of problems no one wants, and you start asking
+the only question that helps: not who is to blame, but how the
+game can be changed.
