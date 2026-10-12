@@ -1,0 +1,550 @@
+OPERATIONAL SECURITY AND COMMUNICATIONS TRADECRAFT
+
+A CONCEPTUAL ORIENTATION. MECHANISMS, HISTORY, AND LEGAL EVERYDAY USE.
+
+HOW TO READ THIS
+
+Eight sections. Each is a smoke break. This one goes deeper on mechanism than the others, since it borders software. Code samples are kept short and safe for a small screen.
+
+1) WHAT IT IS
+2) A SHORT HISTORY
+3) THE OPSEC PROCESS
+4) COMMUNICATIONS SECURITY: THE MECHANISMS
+5) METADATA, TRAFFIC ANALYSIS, AND WHAT LEAKS ANYWAY
+6) WHAT PEOPLE GET WRONG
+7) LEGAL EVERYDAY USE FOR A SMALL BUSINESS OWNER AND ENGINEER
+8) WHERE IT CONNECTS
+
+SECTION 1: WHAT IT IS
+
+Operational security, opsec, is a method for protecting information that an adversary could piece together from small, individually harmless facts. Communications tradecraft is the practice of moving information between people without exposing it, or exposing as little as possible.
+
+The core insight of opsec is that secrets leak through patterns and context, not just through content. An adversary rarely needs your secret document. They can infer it from what you buy, when you travel, who you call, and which servers you talk to.
+
+Think of it as protecting against aggregation. One data point says little. A hundred data points reconstruct the whole picture. Opsec is the discipline of managing the whole picture.
+
+Two related terms:
+
+1) COMSEC, communications security: protecting the content and the fact of communications. Encryption, secure channels, protocols.
+
+2) INFOSEC or cybersecurity: protecting systems and data at large.
+
+Opsec sits above both. It asks: what would an adversary need to know to hurt me, and where might they get it? Then it manages those leaks.
+
+A guiding stance: assume the adversary is competent, patient, and watching the boring channels. Assume nothing is secret because it seems minor.
+
+SECTION 2: A SHORT HISTORY
+
+ANCIENT ROOTS OF CODES AND CIPHERS
+
+Hiding messages is old. The Spartans used a scytale, a rod around which a strip of leather was wrapped, to transpose letters. Caesar used a simple substitution shift. Steganography, hiding the existence of a message, appears in Herodotus, including a message tattooed on a shaved scalp and covered by regrowing hair.
+
+The Arab scholar Al-Kindi, in the 9th century, described frequency analysis, the method of breaking substitution ciphers by counting letter frequencies. From then on, cipher makers and breakers have been locked in a race.
+
+RENAISSANCE AND EARLY MODERN
+
+Polyalphabetic ciphers, such as the Vigenere cipher, resisted simple frequency attacks and were called unbreakable for centuries, until Kasiski and Babbage found methods in the 19th century. Governments established black chambers, offices that opened and read mail. The lesson that message content is not the only thing at risk had begun.
+
+WORLD WAR I AND THE TELEGRAM
+
+Radio made interception easy: anyone with a receiver could listen. The Zimmermann Telegram, a coded German proposal to Mexico, was intercepted and decrypted by British naval intelligence in 1917 and helped bring the United States into the war. It is the classic example of a communications failure with strategic consequences.
+
+WORLD WAR II: ENIGMA AND THE MACHINE AGE
+
+Germany used the Enigma machine, an electromechanical rotor cipher. Polish mathematicians broke early versions in the 1930s, and British codebreakers at Bletchley Park, including Alan Turing, industrialized the effort. Success depended not only on mathematics but on German operator errors: predictable message beginnings, repeated keys, and lazy habits. Weather reports that always started the same way gave cribs, known fragments that helped break the daily key.
+
+This is the enduring lesson. The math was strong. Human procedure was the weak point. Great cryptography fails on bad opsec.
+
+The Allies also protected the secret of the break. Acting on every decrypt would have told the Germans that Enigma was compromised. So intelligence was used selectively, and cover stories were invented to explain how the Allies knew things. That is opsec at the strategic level: protect the source by limiting exploitation.
+
+THE ORIGIN OF THE WORD OPSEC
+
+The formal term emerged in the Vietnam War. A US team called Purple Dragon investigated why North Vietnamese forces seemed to anticipate American operations. They found that no single leak explained it. Adversaries were assembling predictions from unclassified indicators: logistics, movements, routine communications, and predictable procedures. The team's process became the basis of the opsec method, and was later adopted in US government policy in the 1980s.
+
+THE COLD WAR AND SIGNALS INTELLIGENCE
+
+Both blocs built vast interception networks. Traffic analysis became a discipline. Even when messages could not be read, patterns of who talked to whom and how much revealed order of battle and alerts. The Soviets used one-time pads for critical traffic. A one-time pad, used correctly, is provably unbreakable, but it fails when keys are reused. Project Venona, in which US analysts read some Soviet traffic from the 1940s, exploited exactly that reuse.
+
+THE PUBLIC CRYPTOGRAPHY REVOLUTION
+
+Until the 1970s, strong cryptography was a state monopoly. In 1976, Diffie and Hellman published public-key exchange, and in 1977 Rivest, Shamir, and Adleman published RSA. In 1991, Phil Zimmermann released PGP, putting strong encryption in ordinary hands, and drew a US government investigation for export violations. The so-called Crypto Wars of the 1990s were fights over whether citizens could use strong encryption and whether governments could require backdoors. Those arguments continue today.
+
+THE INTERNET AGE
+
+The web made encryption routine. TLS secures most web traffic. Messaging apps adopted end-to-end encryption, the Signal protocol being a leading design. Tor, developed from a US Navy research project and released publicly, provided anonymity through onion routing.
+
+Public disclosures in 2013 about mass signals intelligence programs showed that the metadata and the endpoints were often the weakest links, not the encryption itself. Since then, security thinking has centered on the idea that the endpoint, the phone or laptop, is the softest target.
+
+Modern cases also show opsec failures in operations that seemed sophisticated. Criminals and hackers were identified through small slips: a reused handle, a real email in a registration, a payment trail, a photo's embedded location data, a moment of connecting without a VPN. The law enforcement stories repeat: the tech held, the human slipped.
+
+SECTION 3: THE OPSEC PROCESS
+
+The formal opsec method has five steps. It is portable, from a military operation to a small business.
+
+STEP 1: IDENTIFY CRITICAL INFORMATION
+
+What facts, if known by an adversary, would cause harm? Not everything, only what matters. Customer lists, upcoming product plans, pricing, credentials, travel schedules, security procedures, financial position, personal addresses.
+
+Ask: what am I protecting, and from what harm?
+
+STEP 2: ANALYZE THE THREAT
+
+Who wants this and how capable are they? A criminal gang scanning for open servers is different from a competitor reading your public posts, which is different from a stalker. Define the adversary. The defense should match the threat. Overbuilding against an imaginary superpower wastes effort. Underbuilding against a real burglar costs more.
+
+STEP 3: ANALYZE VULNERABILITIES
+
+Where could the critical information leak? Consider every channel: what you say, what you post, what you carry, what you throw away, what your devices broadcast, what your habits reveal. Look at yourself as an adversary would, using only public or observable sources. This is called red teaming yourself.
+
+The key concept here is the indicator: an observable that hints at something hidden. A pizza delivery surge near a government building before a big operation is a classic example. In business: a flurry of job postings for a certain skill signals a product direction.
+
+STEP 4: ASSESS RISK
+
+For each vulnerability, estimate likelihood and impact. Rank them. You cannot fix all. Prioritize high-impact, likely, and cheap-to-fix items first.
+
+STEP 5: APPLY COUNTERMEASURES
+
+Choose measures that reduce the leak at reasonable cost. Options include: remove the indicator, obscure it, add noise, change the procedure, or accept the risk consciously. Then verify that they work and revisit regularly.
+
+This is a loop, not a checklist. The adversary adapts and your operations change.
+
+THE FIVE-RULE FORM, FOR MEMORY
+
+1) Know what matters.
+
+2) Know who wants it.
+
+3) Find where it leaks.
+
+4) Rank the leaks.
+
+5) Fix the worst, cheaply, and check again.
+
+OPSEC PRINCIPLES THAT RECUR
+
+COMPARTMENTATION: separate identities, accounts, devices, and roles, so a compromise in one does not spread. A work email and a personal email that share nothing. Separate browsers or profiles for separate activities.
+
+LEAST DISCLOSURE: share the minimum necessary, with the minimum number of people, for the minimum time.
+
+CONSISTENCY: an odd break in habit is itself an indicator. If you always post travel and suddenly stop, that signals something. Sometimes the best measure is keeping routines steady.
+
+DELAY: information that is sensitive now may be harmless later. Post the holiday photos after you are home.
+
+DISCIPLINE OVER TOOLS: the most common failures are lapses, not tool weaknesses. A habit fails more often than an algorithm.
+
+DO NOT BURN THE SOURCE: use information in ways that do not reveal how you got it, if protecting the source matters.
+
+SECTION 4: COMMUNICATIONS SECURITY: THE MECHANISMS
+
+To choose tools well, understand what encryption does and does not do.
+
+THE THREE PROPERTIES
+
+Secure communication aims at three properties:
+
+1) CONFIDENTIALITY: only intended parties can read it.
+
+2) INTEGRITY: the message was not altered.
+
+3) AUTHENTICITY: it really came from who it claims.
+
+A fourth, often neglected: AVAILABILITY. The channel works when you need it.
+
+SYMMETRIC ENCRYPTION
+
+One shared secret key encrypts and decrypts. Fast. Modern standards like AES are strong. The problem is key distribution: how do two parties share the key safely at the start?
+
+ASYMMETRIC ENCRYPTION
+
+A key pair: a public key you can share openly and a private key you keep secret. Anyone can encrypt to your public key. Only your private key decrypts. This solves distribution. It is slower, so real systems use it to establish a shared symmetric key, then switch to symmetric encryption for the bulk of the data. This hybrid design underlies TLS, PGP, and modern messengers.
+
+DIGITAL SIGNATURES
+
+You sign with your private key. Anyone can verify with your public key. It proves origin and integrity. Also underlies software update checks and certificate systems.
+
+KEY EXCHANGE AND FORWARD SECRECY
+
+Diffie-Hellman key exchange lets two parties agree on a shared secret over an open channel. Forward secrecy uses fresh temporary keys per session, so that if a long-term key is stolen later, past sessions remain unreadable. Modern messengers ratchet keys with every message.
+
+To see the idea of hybrid encryption in a form that survives a tiny screen, here is pseudo-code. It is illustrative, not something to copy into production.
+
+=====
+    // sender side, pseudo-code
+    session_key = random_bytes(32)
+    ciphertext = aes_encrypt(session_key, msg)
+    wrapped = pubkey_encrypt(recipient_pub,
+                             session_key)
+    send(wrapped, ciphertext)
+
+    // recipient side
+    session_key = privkey_decrypt(my_priv,
+                                  wrapped)
+    msg = aes_decrypt(session_key, ciphertext)
+=====
+
+Rule: never invent your own cryptography. Use well-reviewed libraries and protocols. Home-made schemes fail in ways their authors cannot see.
+
+END-TO-END VERSUS TRANSPORT ENCRYPTION
+
+TRANSPORT ENCRYPTION, like TLS between your device and a server, protects data in transit. The server sees the content. END-TO-END ENCRYPTION means only the endpoints see the content. The service provider cannot read it. For sensitive material, the difference matters. For ordinary web pages, transport encryption is fine.
+
+THE TRUST PROBLEM: KEY VERIFICATION
+
+Encryption is only as good as knowing you are talking to the right key. If an attacker substitutes their key, you get a man-in-the-middle attack. Defenses: verify fingerprints or safety numbers out of band, for example by voice or in person. Many messengers show a safety number for this. Most people never check. For high-risk conversations, check.
+
+PASSWORDS, MFA, AND HARDWARE KEYS
+
+Human authentication is the weak link. Length beats complexity. A password manager beats memory. Multi-factor authentication adds a second proof. SMS codes are weaker because of SIM swapping. App-based codes are better. Hardware security keys following the FIDO2 standard resist phishing because they bind to the real site's domain. For key accounts, use them.
+
+DISK AND DEVICE ENCRYPTION
+
+Full-disk encryption protects data if a device is lost or stolen. Modern phones and laptops offer it. Turn it on, with a strong passcode. A stolen unencrypted laptop is a data breach.
+
+ANONYMITY TOOLS
+
+A VPN shifts trust from your internet provider to the VPN provider and hides your traffic from local networks. It does not make you anonymous. Tor routes traffic through multiple relays so no single relay knows both who you are and what you are visiting. It has legitimate uses for journalists, activists, and ordinary privacy seekers, and is legal in most countries. It is slower and does not protect against mistakes like logging in to a personal account.
+
+STEGANOGRAPHY AND COVER
+
+Hiding the fact of communication is a separate tactic. It has niche uses. For most people, the metadata problem, covered next, matters more.
+
+TRADITIONAL COMMUNICATIONS TRADECRAFT
+
+Spy services developed non-electronic methods. Dead drops, brush passes, signal sites, and one-way numbers stations aimed to avoid direct contact. Their principles are still the logic behind modern practice: minimize contact, limit shared information between parties, use pre-arranged signals, and assume the channel may be watched. Details are not needed for everyday life, and this orientation stays at the level of principle.
+
+SECTION 5: METADATA, TRAFFIC ANALYSIS, AND WHAT LEAKS ANYWAY
+
+Encryption protects content. It does not hide who talked to whom, when, how often, from where, and how much. That is metadata. A former US intelligence chief famously said that metadata can be enough to kill someone. The claim rests on the observation that patterns of contact reveal relationships, hierarchies, and activity.
+
+TRAFFIC ANALYSIS
+
+Even with unreadable messages, an observer can learn:
+
+1) Who communicates with whom.
+
+2) When communications spike, which suggests events.
+
+3) Message size and timing, which suggest activity types.
+
+4) Network structure, who is central.
+
+Wartime traffic analysts inferred operations from message volume alone. Modern versions apply to network flows, phone records, and app usage.
+
+EXAMPLES OF DIGITAL METADATA
+
+1) Email headers: sender, recipient, time, servers passed through, sometimes originating IP.
+
+2) Phone records: numbers, durations, cell towers.
+
+3) File metadata: author names, edit history, GPS coordinates in photos, device model, software versions. Documents and images often carry hidden fields.
+
+4) Web traffic: DNS lookups, server names in encrypted connections, IP addresses.
+
+5) Browser fingerprint: fonts, screen size, plugins, and settings can identify a browser even without cookies.
+
+6) Payment data: cards, timestamps, merchant categories.
+
+7) Social graph: your contacts and their contacts.
+
+You can reduce some of this. You cannot eliminate it. The best approach is deciding which metadata matters for your threat model and controlling those items.
+
+STRIPPING FILE METADATA
+
+Many tools remove metadata before sharing. A simple example with a common command-line utility:
+
+=====
+    exiftool -all= photo.jpg
+=====
+
+Documents should be exported as clean PDFs or copied into a fresh file when sharing externally, and checked with the properties dialog. Redaction must actually remove text. Covering with a black box in a PDF often leaves the text underneath.
+
+CORRELATION AND AGGREGATION
+
+The Purple Dragon insight applies. Separate facts combine. Your gym check-in, your commute time, and your public running route give a pattern of life. Your company's job postings, GitHub commits, and conference schedules give a roadmap. The adversary assembles.
+
+THE MOSAIC THEORY
+
+Intelligence people call this the mosaic. Unclassified tiles form a classified picture. Managing the mosaic means deciding which tiles to withhold or blur.
+
+THE ENDPOINT PROBLEM
+
+The strongest encryption protects nothing if the phone or laptop is compromised. Malware reads the screen before it is encrypted and the keyboard before it is typed. That is why device hygiene, updates, and careful app installation matter more than exotic tools. The 2013 disclosures and later commercial spyware cases both showed that attackers go after the endpoint.
+
+HUMAN FAILURES THAT UNDO EVERYTHING
+
+A short list drawn from cases:
+
+1) Reusing usernames, emails, or passwords across identities.
+
+2) Posting a photo with embedded location or a background landmark.
+
+3) Talking about the secret in an unsecured channel because it is convenient.
+
+4) Using the same device for sensitive and ordinary activity.
+
+5) Forgetting that cloud backups may hold decrypted copies of messages.
+
+6) Trusting a group chat with one weak member.
+
+7) Boasting.
+
+8) Leaving a pattern: always the same time, place, and phrasing.
+
+9) Mixing personal and operational accounts once, by accident.
+
+The hardest part of communications security is not the math. It is being consistently boring in your own habits.
+
+SECTION 6: WHAT PEOPLE GET WRONG
+
+MISTAKE 1: ENCRYPTION MEANS SECURITY
+
+Encryption is one control. Endpoint security, metadata, key verification, and human habits also matter. Most breaches route around the cryptography.
+
+MISTAKE 2: I HAVE NOTHING TO HIDE
+
+Privacy is not only about hiding wrongdoing. It is about controlling exposure. Your business plans, client data, home address, and travel schedule have real value. The claim is also a category error: you close your bathroom door without having anything illegal in there.
+
+MISTAKE 3: OPSEC IS FOR SPIES AND CRIMINALS
+
+Businesses, journalists, activists, executives, and ordinary people facing harassment all use it. The method is a risk process, not a costume.
+
+MISTAKE 4: MORE TOOLS MEANS MORE SECURITY
+
+Each tool adds complexity and failure points. A simple system used correctly beats an elaborate one used badly. Start with the boring stack: updates, password manager, MFA, encrypted disks, a reputable messenger.
+
+MISTAKE 5: A VPN MAKES YOU ANONYMOUS
+
+It moves trust. It does not fix browser fingerprints, logins, or bad habits. Marketing overpromises.
+
+MISTAKE 6: PROPRIETARY OR HOME-MADE CRYPTO IS SAFER BECAUSE IT IS SECRET
+
+The opposite. Security through obscurity fails. Published, peer-reviewed algorithms are safer. Kerckhoffs's principle, from 1883, says a system should be secure even if everything about it except the key is public.
+
+MISTAKE 7: DELETE MEANS GONE
+
+Deleted files may persist in backups, caches, and other people's devices. Recipients can screenshot disappearing messages. Treat anything you send as potentially permanent.
+
+MISTAKE 8: ONE SLIP IS TOO SMALL TO MATTER
+
+Cases fall on one slip. A single reused handle can link identities. Consistency is the difference.
+
+MISTAKE 9: OPSEC IS PARANOIA
+
+Paranoia is unbounded. Opsec is bounded by a threat model. Decide what you defend, from whom, and stop there. A calm process is the opposite of paranoia.
+
+MISTAKE 10: THE NORMAL PERSON'S THREAT IS THE NSA
+
+Realistic threats are opportunistic criminals, careless mistakes, nosy acquaintances, and competitors. The advice for those is basic and effective.
+
+MISTAKE 11: PRIVACY AND SECURITY ARE THE SAME
+
+Security stops unauthorized access. Privacy limits what authorized parties collect and infer. A service can be perfectly secure and still profile you.
+
+SECTION 7: LEGAL EVERYDAY USE FOR A SMALL BUSINESS OWNER AND ENGINEER
+
+None of this is exotic. Strong encryption and privacy practice are legal in most countries, and increasingly expected of businesses that handle personal data. Check local rules on export, on use in specific sectors, and on any duty to disclose keys, which exist in a few places.
+
+BUILD A BASIC THREAT MODEL, IN THIRTY MINUTES
+
+Write answers to five questions:
+
+1) What are my most valuable information assets?
+
+2) Who realistically wants them?
+
+3) What would they try?
+
+4) What is the harm if they succeed?
+
+5) What can I do cheaply that reduces the most risk?
+
+Keep it on one page. Revisit twice a year.
+
+THE BASELINE STACK
+
+The boring measures cover the great majority of real threats. Apply them across the business.
+
+1) AUTOMATIC UPDATES on operating systems, browsers, phones, routers, and key apps.
+
+2) PASSWORD MANAGER with unique, long passwords for every account. Shared vaults for team credentials.
+
+3) MULTI-FACTOR AUTHENTICATION everywhere, with hardware keys or authenticator apps on critical accounts: email, banking, domain registrar, cloud console, code hosting.
+
+4) FULL-DISK ENCRYPTION on all laptops and phones, with screen locks.
+
+5) BACKUPS following the 3-2-1 idea: three copies, on two kinds of media, one offsite. Test restores. Keep one copy offline or immutable, against ransomware.
+
+6) EMAIL DOMAIN PROTECTION: set up SPF, DKIM, and DMARC to reduce spoofing of your domain.
+
+7) LEAST PRIVILEGE for accounts and cloud roles. No shared admin logins.
+
+8) SEPARATE ACCOUNTS AND DEVICES for admin work and browsing where practical.
+
+9) SECURE DELETION and device wiping on decommissioning.
+
+Done well, this list stops most attacks small firms actually face.
+
+CHOOSING COMMUNICATION CHANNELS BY SENSITIVITY
+
+Set a simple tiering rule for staff:
+
+1) PUBLIC: anything can go anywhere.
+
+2) INTERNAL: work chat and email on company accounts.
+
+3) CONFIDENTIAL: client data, contracts, credentials. Use an end-to-end encrypted channel or an encrypted file share with access control. Never in plain email attachments. Never credentials in chat: use the password manager's sharing.
+
+4) RESTRICTED: the crown jewels. Named people, logged, in-person or verified channel.
+
+Write it as a one-page policy.
+
+SENDING SECRETS SAFELY
+
+For a client credential or sensitive file:
+
+1) Use a channel that is end-to-end encrypted, or an expiring link with a password sent through a different channel.
+
+2) Verify the recipient's identity by a second channel.
+
+3) Rotate the credential after use where possible.
+
+4) Do not paste secrets into tickets, wikis, or code repositories. Scan repositories for leaked keys with tools designed for it, and rotate any key that was ever committed.
+
+FOR THE ENGINEER: SECRETS IN CODE
+
+Keep secrets out of source control. Use environment variables or a secrets manager. Add a pre-commit scan. A small example of the idea in shell form, kept to short lines:
+
+=====
+    # never commit this file
+    echo ".env" >> .gitignore
+
+    # read secret at runtime, not in code
+    export API_KEY="$(pass show svc/api)"
+=====
+
+Rotate anything that leaks. Treat a leaked key as compromised forever, even after deleting the commit, since history and forks persist.
+
+DEVICE AND TRAVEL OPSEC
+
+1) Travel with the minimum data. A clean travel laptop or phone for high-risk trips, where the threat justifies it.
+
+2) Use a privacy screen in public.
+
+3) Avoid public USB charging ports. Use your own charger or a data-blocking adapter.
+
+4) Use cellular data or a trusted VPN on untrusted Wi-Fi, and rely on HTTPS.
+
+5) Keep devices with you. Power off before border crossings if you worry, and know that border search rules vary and may compel access in some countries. Learn local rules before you travel.
+
+6) Delay posting locations until after you have left.
+
+SOCIAL MEDIA AND OPEN-SOURCE HYGIENE
+
+Audit yourself as an adversary would. Search your name, your company, your staff. Check what a stranger can learn: addresses in company filings, photos of whiteboards or screens, badge images, location tags, job postings that reveal your stack. Ask staff to avoid posting photos of workspaces with visible screens or client materials. Set profiles to limit what strangers see.
+
+COMPARTMENTATION FOR REAL LIFE
+
+1) Separate work and personal accounts and browsers.
+
+2) Use different email addresses for different purposes. Aliases for sign-ups.
+
+3) Keep client work on company-managed devices where practical.
+
+4) Do not reuse passwords or handles across contexts you want separated.
+
+FILES AND DOCUMENTS
+
+Strip metadata from files before sending externally. Export to PDF from a clean source. Truly redact, not overlay. Check comments and tracked changes. Use consistent file naming that does not reveal client identities in shared contexts.
+
+MESSAGING TOOLS
+
+For confidential team messaging choose a reputable messenger with end-to-end encryption and a public track record, such as Signal for small teams and individuals. Enable disappearing messages where appropriate to reduce the record, but understand that the recipient can still copy. Check business and legal retention requirements first: some sectors require you to keep records, and disappearing messages can conflict with that. Verify safety numbers for high-value contacts.
+
+EMAIL
+
+Standard email is like a postcard. For sensitive content, prefer an encrypted alternative or send a link to an access-controlled store. PGP or S/MIME work but are clumsy for most teams. Be aware of phishing and never trust a sender based on the display name.
+
+INCIDENT PLAN
+
+Write a one-page plan: who to call, what to disconnect, how to preserve evidence, who informs clients and regulators. In the EU, personal data breaches often trigger a notification duty to the authority within 72 hours. Know your local rules. Practice once a year with a tabletop exercise: pick a scenario, walk through it, note gaps.
+
+TEAM HABITS
+
+1) Short, regular reminders beat long annual training.
+
+2) Reward reporting of mistakes.
+
+3) Verify unusual requests by a second channel.
+
+4) Keep the rules simple enough that people follow them under pressure.
+
+THE PERSONAL LAYER
+
+For yourself: lock down your accounts, freeze or protect your credit where that is available, keep home address off public registries where possible, and be careful with data broker exposure. If you are a founder, your business registration data may reveal your home address, so use a business address where the law allows.
+
+WHAT TO AVOID
+
+1) Do not use these techniques to hide illegal activity, obstruct investigations, or evade lawful orders.
+
+2) Do not intercept other people's communications or access accounts without authorization. Wiretapping and unauthorized access are crimes in most places.
+
+3) Do not deploy covert recording without checking consent laws. They vary widely.
+
+4) Do not promise clients absolute security. Promise reasonable, stated measures.
+
+5) Do not assume encryption removes your compliance duties around personal data.
+
+This text is orientation, not legal advice.
+
+SECTION 8: WHERE IT CONNECTS
+
+COUNTERINTELLIGENCE AND INSIDER RISK
+
+Opsec is the practical layer beneath CI. Compartmentation, least privilege, and monitoring are shared.
+
+SURVEILLANCE DETECTION
+
+Detection tells you whether the mosaic is being assembled. Opsec shrinks the mosaic.
+
+ELICITATION
+
+Much information leaks through talk. Opsec includes knowing what not to say, and having deflections ready.
+
+ANALYTIC TRADECRAFT
+
+Adversary analysts do to you what you do to them. Understanding their methods, indicators and aggregation, tells you what to protect. Red teaming your own opsec is analysis pointed inward.
+
+CRYPTOGRAPHY
+
+A vast field. The applied entry point is understanding the primitives above. Bruce Schneier's writing is the standard accessible route, including his blunt point that security is a process, not a product.
+
+PRIVACY ENGINEERING AND LAW
+
+Data minimization, privacy by design, and data protection regulation align with opsec's least disclosure. If you handle personal data, they are also legal obligations.
+
+THREAT MODELING IN SOFTWARE
+
+STRIDE and attack trees are engineering cousins of the opsec process. Engineers already do threat modeling in design reviews, and the habit carries over.
+
+RISK MANAGEMENT
+
+Opsec is risk management applied to information. Cost, likelihood, impact, and residual risk accepted on purpose.
+
+READING LIST FOR LATER
+
+1) The Code Book, by Simon Singh, a readable history of ciphers from Caesar to public-key.
+
+2) Applied Cryptography or Secrets and Lies, by Bruce Schneier, for concepts.
+
+3) The Electronic Frontier Foundation's Surveillance Self-Defense guide, free and practical.
+
+4) National cyber agency guidance for small business, freely available.
+
+5) Accounts of the Purple Dragon origin of opsec and of Bletchley Park's breaking of Enigma, for the historical lessons.
+
+THE SHORT VERSION
+
+Secrets leak through patterns, not just content. The method is five steps: know what matters, know who wants it, find the leaks, rank them, fix the worst and check again. Encryption protects content but not metadata, and does nothing for a compromised endpoint. The math almost never fails. The habits do.
+
+Run the boring stack: updates, password manager, MFA, encrypted disks, backups, least privilege. Match effort to a real threat model. Stay consistent and stay legal.
+
+END

@@ -1,0 +1,435 @@
+ANALYTIC TRADECRAFT
+
+A CONCEPTUAL ORIENTATION. MECHANISMS, HISTORY, AND LEGAL EVERYDAY USE.
+
+HOW TO READ THIS
+
+Eight sections. Each is a smoke break. The first three give the shape. Sections four and five are the machinery. Section seven is where it pays off for a shop owner who also writes code.
+
+1) WHAT IT IS
+2) A SHORT HISTORY
+3) THE CORE PROBLEM: MINDS ARE BIASED SENSORS
+4) THE TOOLKIT
+5) THE ANALYTIC PRODUCT: HOW JUDGMENTS ARE WRITTEN
+6) WHAT PEOPLE GET WRONG
+7) LEGAL EVERYDAY USE FOR A SMALL BUSINESS OWNER AND ENGINEER
+8) WHERE IT CONNECTS
+
+SECTION 1: WHAT IT IS
+
+Analytic tradecraft is the set of methods intelligence analysts use to turn messy, incomplete, sometimes deceptive information into judgments a decision maker can act on.
+
+Collection gets you facts, rumors, and noise. Analysis decides what they mean. Tradecraft is the discipline that keeps analysis from being vibes with a security clearance.
+
+The problem it solves is old. Decision makers face uncertainty and time pressure. Information is partial. Some of it was planted. The analyst's own brain adds distortion. Somebody has to say: here is what we think, here is how sure we are, here is why, and here is what would change our mind.
+
+Think of it as an engineering discipline for judgment under uncertainty. You cannot remove the uncertainty. You can make it visible, structured, and testable.
+
+Three things define good analytic tradecraft:
+
+1) It separates evidence from inference from assumption.
+
+2) It states confidence in calibrated terms.
+
+3) It looks for ways it might be wrong before someone else does.
+
+That is most of it. The rest is technique.
+
+Analysis answers questions in a few families:
+
+1) DESCRIPTIVE: what is happening?
+
+2) EXPLANATORY: why is it happening?
+
+3) PREDICTIVE: what will happen next, and how likely is each outcome?
+
+4) DECISION SUPPORT: what are the options and their consequences?
+
+The hardest and most abused family is prediction. Most tradecraft exists to keep predictions honest.
+
+SECTION 2: A SHORT HISTORY
+
+EARLY: INTELLIGENCE WITHOUT ANALYSTS
+
+For most of history, intelligence went straight from collector to ruler. A spymaster read the reports and briefed the king. Analysis lived in one head.
+
+WORLD WAR II: THE BIRTH OF THE ANALYST
+
+The scale of the war forced specialization. Britain's code-breaking center at Bletchley Park had to combine decrypts, traffic patterns, and human reports. The US created the Office of Strategic Services in 1942, which included a Research and Analysis Branch staffed with academics: historians, economists, geographers. The idea that a professor could be an intelligence asset was new.
+
+Pearl Harbor left a lasting scar. Fragments of warning existed across several offices. No one had the job of putting them together. Roberta Wohlstetter's study, Pearl Harbor: Warning and Decision, made the central point that the signals were there but buried in noise, and people interpreted them through expectations. That book is still worth reading for the phrase "signal and noise" alone.
+
+THE COLD WAR: ANALYSIS BECOMES AN INSTITUTION
+
+The CIA was founded in 1947. Sherman Kent, a Yale historian who had worked in OSS, wrote Strategic Intelligence for American World Policy in 1949. He argued that intelligence analysis should be a rigorous, scholarly discipline, with a distinct method and a duty to give decision makers honest judgments even if unwelcome.
+
+Kent also identified a problem that never went away: the vague words. Analysts wrote "possible," "likely," "serious possibility." A well-known incident concerns a 1951 estimate on whether the Soviet Union would attack Yugoslavia. The phrase "serious possibility" was used. Readers asked what it meant in probability. Kent found the estimators meant roughly 65 percent while other readers took it as much lower. Later work by Kent's colleagues mapped words to numbers and found huge spreads. This is the origin of the modern push for standardized probability language.
+
+FAILURES AND REFORMS
+
+Analytic history is a history of famous misses and the fixes each triggered.
+
+1) The Cuban Missile Crisis, 1962. Analysts had trouble believing the Soviets would place missiles in Cuba, because it did not fit their model of Soviet caution. Mirror imaging: assuming the other side thinks as you would.
+
+2) The Yom Kippur War, 1973. Israeli intelligence held a conception, sometimes called the concept, that Egypt would not attack without air superiority. Evidence to the contrary got explained away.
+
+3) The Iranian Revolution, 1979. Analysts missed the fragility of the Shah's position. Deep assumptions went unchallenged.
+
+4) Iraq and weapons of mass destruction, 2002 and 2003. The US National Intelligence Estimate overstated confidence. Postmortems found groupthink, over-reliance on a few flawed sources, and analysis that reinforced existing beliefs. The Robb-Silberman commission and the Senate Intelligence Committee both produced critical reports.
+
+5) The 9/11 attacks. The 9/11 Commission described a failure of imagination and of information sharing.
+
+The reforms that followed include Intelligence Community Directive 203, issued in 2007, which sets analytic standards. It requires that analysis describe the quality and reliability of sources, express uncertainties, distinguish underlying information from assumptions and judgments, incorporate alternative analysis, demonstrate relevance to customers, use clear logic, exhibit consistency, make accurate judgments, and use visual information where it helps. A short list, worth remembering.
+
+RICHARDS HEUER AND THE PSYCHOLOGY TURN
+
+Richards J. Heuer Jr., a CIA veteran, wrote Psychology of Intelligence Analysis in the 1970s and 1980s, published by the agency in 1999. It applied cognitive psychology, especially the work of Kahneman and Tversky, to analysis. Its main claim: the biggest source of analytic error is the analyst's own mind. Heuer also developed the Analysis of Competing Hypotheses, covered below.
+
+Since then, the field has borrowed from forecasting research. Philip Tetlock's work on expert political judgment found that experts often forecast barely better than chance, and that a certain type of thinker, the fox who draws on many ideas and updates often, beats the hedgehog with one big theory. Tetlock's later Good Judgment Project, funded by an intelligence research agency, showed that trained amateurs using probabilistic methods could outperform professional analysts with classified access. That result unsettled the field and shaped current practice.
+
+SECTION 3: THE CORE PROBLEM: MINDS ARE BIASED SENSORS
+
+Tradecraft is built around one uncomfortable fact: the analyst is the noisiest instrument in the chain.
+
+Heuer's central insight was that you cannot fix this by trying harder. Biases are perceptual and automatic, like optical illusions. Knowing about the Muller-Lyer illusion does not make the lines look equal. You need external procedures.
+
+THE KEY DISTORTIONS
+
+1) CONFIRMATION BIAS. You seek and notice evidence that supports what you already think. Disconfirming evidence gets scrutinized harder or dismissed.
+
+2) ANCHORING. The first number or frame you see sticks. Later estimates cluster near it.
+
+3) MIRROR IMAGING. You assume the other actor reasons like you. A rational actor, by your definition of rational.
+
+4) AVAILABILITY. Vivid or recent events feel more likely than they are.
+
+5) HINDSIGHT BIAS. After the outcome, it seems it was obvious. This makes postmortems unfair and blocks learning.
+
+6) GROUPTHINK. Teams converge to protect harmony. Dissent is filtered out.
+
+7) OVERCONFIDENCE. People report certainty far above their accuracy. In calibration tests, things people call 90 percent sure happen far less often.
+
+8) NARRATIVE BIAS. Coherent stories feel true. A neat story with one more detail feels more probable, though logically each extra detail lowers probability. This is the conjunction fallacy.
+
+9) SATISFICING. You stop at the first explanation that fits, rather than listing alternatives.
+
+10) CURRENT-EVENT BIAS OR PRESENTISM. You assume tomorrow looks like today. Discontinuities get underweighted.
+
+THE ENGINEERING VIEW
+
+If you wrote a system with these failure modes, you would add tests, redundancy, and independent review. That is tradecraft. Structured methods are the test suite for reasoning.
+
+DECEPTION AS A COMPLICATION
+
+Some information is planted. An adversary who understands your beliefs will feed you material that confirms them. The classic case is Operation Mincemeat in 1943, where the British planted false invasion plans on a corpse and Germany took the bait, because it matched what they expected.
+
+The defense: treat information that fits your expectations too neatly with extra suspicion, and always ask who benefits from you believing this.
+
+SECTION 4: THE TOOLKIT
+
+These are the named methods. You will not use all of them. Knowing them lets you choose.
+
+TOOL 1: KEY ASSUMPTIONS CHECK
+
+List the assumptions your judgment rests on. Not the evidence. The unstated beliefs that make the evidence mean what you think. Then, for each, ask: how confident am I, why, and what happens if it is wrong?
+
+Example. Judgment: "Competitor X will launch a rival product by Q3." Assumptions: they have the engineering capacity, they still see this market as strategic, the funding round closed. Check each. You often find one weak assumption carries the whole call.
+
+This is the cheapest, highest-return tool. Do it first.
+
+TOOL 2: ANALYSIS OF COMPETING HYPOTHESES (ACH)
+
+Heuer's flagship method. Steps in simple form:
+
+1) List all plausible hypotheses, including unlikely ones. Not just your favorite.
+
+2) List the significant evidence and arguments.
+
+3) Build a matrix. Hypotheses across the top, evidence down the side.
+
+4) For each piece of evidence and each hypothesis, mark whether the evidence is consistent, inconsistent, or neutral.
+
+5) Focus on inconsistencies. Evidence that fits every hypothesis is not diagnostic. Evidence that contradicts one is valuable.
+
+6) Reject hypotheses with the most inconsistent evidence. The survivor is the one with the fewest strikes, not the most support.
+
+7) Test how sensitive the conclusion is to a few critical pieces of evidence.
+
+8) Report the conclusion with probabilities, and list signposts that would change it.
+
+The trick is the shift from confirming to disconfirming. Supporting evidence is cheap, since most evidence fits many stories. Contradictions are informative.
+
+TOOL 3: RED TEAMING AND DEVILS ADVOCACY
+
+Assign someone to argue the opposite case. Or ask a team to write the story of failure: imagine the project failed a year from now, and write the causes. This second variant is called a premortem, developed by psychologist Gary Klein. It works because it gives permission to voice doubts.
+
+TOOL 4: ALTERNATIVE FUTURES AND SCENARIO ANALYSIS
+
+For high-uncertainty situations, do not predict one future. Build two or three internally consistent scenarios, distinguished by the drivers you care about most. Identify indicators that show which is unfolding. Scenario planning was used famously at Shell in the 1970s, and helped it prepare for the oil shocks.
+
+TOOL 5: INDICATORS AND SIGNPOSTS
+
+Define, in advance, observable events that would confirm or refute each hypothesis. Write them down. Check on a schedule. This defeats the tendency to rewrite what would have counted as evidence after the fact.
+
+TOOL 6: SOURCE EVALUATION
+
+Grade both the source and the information, as covered in intelligence practice. Ask:
+
+1) What is the source's access? Could they know this?
+
+2) What is their track record?
+
+3) What is their motive?
+
+4) Is this first-hand or relayed?
+
+5) Is it corroborated by an independent source? Independent means it does not trace back to the same origin. Ten news articles citing one press release are one source.
+
+TOOL 7: CHRONOLOGIES AND TIMELINES
+
+Lay events in order. Patterns and gaps appear. Contradictions in accounts show up. It is unglamorous and often decisive.
+
+TOOL 8: LINK AND NETWORK ANALYSIS
+
+Map relationships between people, organizations, transactions. Who connects to whom. Who is central, who is a bridge, who is isolated. Used in law enforcement, counterterrorism, and fraud detection. Simple diagrams reveal structure the eye misses in a list.
+
+TOOL 9: BASE RATES AND REFERENCE CLASS FORECASTING
+
+Before analyzing the specifics, ask how often things like this happen. What fraction of software projects finish on time? What fraction of startups in this sector survive five years? Start from the base rate, then adjust for specifics. Analysts who skip this overweight the unique story in front of them. Kahneman called the tendency to ignore base rates the inside view, and the base-rate approach the outside view.
+
+TOOL 10: PROBABILISTIC FORECASTING AND SCORING
+
+This is the modern edge. The Good Judgment research found that forecasters improved by:
+
+1) Breaking big questions into smaller parts.
+
+2) Starting from base rates.
+
+3) Updating in small increments as evidence arrives.
+
+4) Thinking in precise probabilities rather than words.
+
+5) Keeping score. The Brier score measures forecast accuracy: the lower, the better. Tracking your record is what turns opinions into skill.
+
+6) Aggregating multiple forecasters, which cancels random error.
+
+Bayes gives the update rule. In words: your new belief equals your old belief adjusted by how much more likely the evidence is if the hypothesis is true than if it is false. You do not need the formula to use the idea. Ask: how much more likely is this evidence if my theory is right than if it is wrong? If the answer is not much, the evidence should barely move you.
+
+Short worked example. You think there is a 30 percent chance a client will churn. They miss a payment. Missed payments happen in perhaps 60 percent of churning clients and 15 percent of staying clients. That is four times more likely if churn. Your estimate should rise, from 30 percent to roughly 63 percent. Not to 100. Not to 31.
+
+Sketch of that calculation, in a form that survives a small screen:
+
+=====
+    prior = 0.30
+    p_e_given_churn = 0.60
+    p_e_given_stay = 0.15
+
+    num = p_e_given_churn * prior
+    den = num + p_e_given_stay * (1 - prior)
+    posterior = num / den
+    # about 0.63
+=====
+
+TOOL 11: STRUCTURED WRITING, BLUF
+
+Bottom line up front. State the judgment first. Then the confidence. Then the key reasons. Then caveats. Busy readers stop early, so front-load.
+
+SECTION 5: THE ANALYTIC PRODUCT: HOW JUDGMENTS ARE WRITTEN
+
+Analysis that no one can use is trivia. The product has a shape.
+
+THE ANATOMY OF A JUDGMENT
+
+1) THE CALL. A clear, falsifiable statement. "We assess that X will happen by date Y."
+
+2) THE CONFIDENCE. How sure, in calibrated terms.
+
+3) THE BASIS. The main evidence and logic.
+
+4) THE ASSUMPTIONS. What must be true for this to hold.
+
+5) THE ALTERNATIVES. What else could explain it and why they rank lower.
+
+6) THE SIGNPOSTS. What would change the call.
+
+7) THE GAPS. What you do not know that matters.
+
+ESTIMATIVE LANGUAGE
+
+Intelligence agencies standardize words. A common scheme from US practice:
+
+1) Almost no chance: 1 to 5 percent.
+
+2) Very unlikely: 5 to 20 percent.
+
+3) Unlikely: 20 to 45 percent.
+
+4) Roughly even chance: 45 to 55 percent.
+
+5) Likely: 55 to 80 percent.
+
+6) Very likely: 80 to 95 percent.
+
+7) Almost certain: 95 to 99 percent.
+
+Ranges differ slightly between agencies. The point is shared meaning. A separate confidence rating, low, moderate, or high, speaks to how solid the evidence base is, which is different from how probable the event is. You can say something is very likely with low confidence, if it rests on thin sources.
+
+FACT, ASSUMPTION, JUDGMENT
+
+Label them. A fact is observed. An assumption is taken as given. A judgment is inferred. Readers should be able to see which is which. This alone raises quality.
+
+DISSENT
+
+Good shops record dissenting views rather than smoothing them into mush. A footnote where one analyst disagrees is valuable information for the reader.
+
+NEUTRALITY
+
+The analyst informs policy and does not make it. The temptation to shade analysis to fit what leaders want is called politicization, and every institution fights it.
+
+SECTION 6: WHAT PEOPLE GET WRONG
+
+MISTAKE 1: ANALYSIS IS PREDICTION
+
+Much of it is explanation, framing, and describing options. Where prediction is needed, the honest form is a probability, not a prophecy.
+
+MISTAKE 2: MORE DATA MEANS BETTER ANALYSIS
+
+Past a point, more information raises confidence without raising accuracy. Studies of experts, including horse racing handicappers in a classic experiment, show confidence climbing as data is added while accuracy stays flat. The bottleneck is quality of thinking, not quantity of input.
+
+MISTAKE 3: INTELLIGENCE IS SECRETS
+
+A large share of analytic work uses open sources. The value is in synthesis. Secrets help on narrow questions.
+
+MISTAKE 4: STRUCTURED METHODS ARE BUREAUCRATIC OVERHEAD
+
+They can be, when applied mechanically. Used lightly on high-stakes questions, they catch errors cheaply. Match effort to stakes. A key assumptions check takes ten minutes.
+
+MISTAKE 5: BEING WRONG MEANS BAD ANALYSIS
+
+If you said 70 percent and it did not happen, you were not necessarily wrong. Thirty percent events happen thirty percent of the time. Judge process and calibration over many forecasts, not single outcomes. The reverse also holds: being right by luck does not prove skill.
+
+MISTAKE 6: HEDGING IS SAFE
+
+Wording like "may" and "could" is unfalsifiable. It protects the analyst and fails the reader. Commit to a number.
+
+MISTAKE 7: EXPERTS KNOW BEST
+
+Domain expertise helps with facts and mechanisms. It does not reliably help with forecasting. Tetlock's data showed expert forecasters barely beat simple baselines. Fluent storytelling is not accuracy.
+
+MISTAKE 8: TRADECRAFT REMOVES BIAS
+
+It reduces and exposes bias. It does not remove it. The goal is to make errors visible early and cheaply.
+
+SECTION 7: LEGAL EVERYDAY USE FOR A SMALL BUSINESS OWNER AND ENGINEER
+
+Nothing here needs a clearance. All of it uses public information and your own head.
+
+USE 1: DECISIONS UNDER UNCERTAINTY
+
+Every quote, hire, tool choice, and pricing call is a small analytic problem. Adopt a five-line decision note:
+
+1) The decision.
+
+2) My call and my probability that it works.
+
+3) The three assumptions it rests on.
+
+4) The signpost that would make me reverse.
+
+5) The date I will check.
+
+Five lines. Ten minutes. It turns gut feel into a testable record.
+
+USE 2: KEEP A FORECAST LOG
+
+Write down predictions with probabilities. Client will sign by Friday, 60 percent. Migration finishes in two weeks, 40 percent. Project will exceed budget, 70 percent. Score them at the end of the quarter. Most people discover they are overconfident and that they know surprisingly little about their own estimates. The log is the calibration trainer. A plain spreadsheet works.
+
+USE 3: ESTIMATION AND PLANNING
+
+Engineers underestimate schedules. Use the outside view. Look at your last ten similar projects and use the actual distribution, not the plan. The planning fallacy is well documented. Reference class forecasting is the fix, and it is free.
+
+USE 4: DEBUGGING AS ACH
+
+A hard bug is a set of competing hypotheses. Write them down. List observations. Ask which observations are inconsistent with each hypothesis. Design the next test to discriminate between the top two, not to confirm your favorite. The engineer's version of the same discipline.
+
+USE 5: PREMORTEMS BEFORE LAUNCHES
+
+Before shipping a system or signing a big client, run a ten-minute premortem with the team. Assume it failed. Write the reasons. Fix the top three. This works especially well because junior team members get permission to voice concerns.
+
+USE 6: LEGITIMATE MARKET AND COMPETITOR ANALYSIS
+
+Public information is rich. Job postings, changelogs, pricing pages, conference talks, regulatory filings, patents, archived web pages, customer reviews, and public repositories all describe what a company does and where it is going. Build a timeline. Look for patterns. Grade sources. State your judgments with confidence levels. This is standard open-source intelligence practice, and is legal when limited to publicly available material and your own real identity. Do not access anything behind a login you are not entitled to. Do not misrepresent yourself to get material.
+
+USE 7: CLIENT AND VENDOR DUE DILIGENCE
+
+Before a big engagement, check basic facts using public registries, court records where public, reviews, and the firm's own history. Cross-check independent sources. Note what does not add up. A simple timeline of the counterparty catches inconsistencies. Keep to lawful sources and mind data protection rules, especially if the counterparty is an individual.
+
+USE 8: READING NEWS AND VENDOR CLAIMS
+
+Grade the source. Ask how they know. Ask who benefits. Look for the original. Separate the claim from the interpretation. Count independent sources, not articles. Apply this to hype cycles in technology especially: most vendor claims are unfalsifiable, and the base rate for new platforms delivering as advertised is low.
+
+USE 9: BRIEFING WRITING
+
+Use BLUF in emails and proposals. The recommendation and the confidence go first. Then the reasons. Then risks. Clients and busy partners will read the first three lines. Make them count.
+
+USE 10: TEAM PROCESS
+
+For important decisions, gather independent opinions before discussion. Have each person write their estimate privately, then reveal together. This avoids anchoring on the boss and gives you multiple sensors, a cheap version of forecast aggregation. Appoint one rotating dissenter.
+
+USE 11: POSTMORTEMS WITHOUT HINDSIGHT
+
+When something goes wrong, reconstruct what was known at the time, from the notes. If you kept a decision log, you can judge the decision on the information available rather than the outcome. Separate bad luck from bad process.
+
+BOUNDARIES
+
+This toolkit is analysis of information you may lawfully have. It does not license surveillance of private individuals, unauthorized access to systems, or deception to obtain protected data. Compiling detailed profiles on private persons can raise privacy law issues, especially under European data protection rules. Keep to businesses, public records, and your own operations.
+
+SECTION 8: WHERE IT CONNECTS
+
+ELICITATION AND HUMAN INTELLIGENCE
+
+Collection feeds analysis. Source grading, the said versus inferred distinction, and corroboration are shared.
+
+COUNTERINTELLIGENCE
+
+CI analysts use the same tools on hostile collection: link analysis, indicators, alternative hypotheses about who is behind an incident.
+
+BEHAVIORAL ECONOMICS
+
+Kahneman and Tversky's heuristics and biases program is the theoretical base. Thinking, Fast and Slow is the readable summary.
+
+FORECASTING AND SUPERFORECASTING
+
+Tetlock and Gardner's Superforecasting turns the Good Judgment findings into habits. Prediction markets and forecasting tournaments apply the same logic at scale.
+
+DECISION THEORY AND STATISTICS
+
+Bayesian reasoning, expected value, and calibration are the mathematical spine. Nate Silver's and Annie Duke's popular books give practical entry.
+
+OPEN SOURCE INTELLIGENCE
+
+OSINT is the fast-growing public practice: geolocation, imagery analysis, records research. Investigative groups use tradecraft openly, and their published methods are a good free education.
+
+SYSTEMS ENGINEERING AND RELIABILITY
+
+Failure mode analysis, postmortems, and chaos testing are cousins of red teaming and premortems. Engineers already have half the culture.
+
+READING LIST FOR LATER
+
+1) Psychology of Intelligence Analysis, by Richards Heuer. Free from the CIA reading room. Read chapters on perception and on ACH.
+
+2) Thinking, Fast and Slow, by Daniel Kahneman.
+
+3) Superforecasting, by Philip Tetlock and Dan Gardner.
+
+4) A Tradecraft Primer: Structured Analytic Techniques, a US government publication, short and free.
+
+5) Pearl Harbor: Warning and Decision, by Roberta Wohlstetter, for the signal and noise story.
+
+THE SHORT VERSION
+
+Your mind is the noisiest sensor in the system. Tradecraft is the set of external procedures that compensate. Check assumptions. Compete hypotheses. Hunt for disconfirmation. Use base rates. Put numbers on beliefs and keep score. Write the call first, with the confidence and the signposts.
+
+Run it lightly on small decisions and hard on large ones.
+
+END

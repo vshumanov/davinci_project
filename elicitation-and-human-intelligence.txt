@@ -1,0 +1,422 @@
+ELICITATION AND HUMAN INTELLIGENCE
+
+A CONCEPTUAL ORIENTATION. MECHANISMS, HISTORY, AND LEGAL EVERYDAY USE.
+
+HOW TO READ THIS
+
+Eight sections. Each is one smoke break, maybe two. Read in order the first time. After that, jump around.
+
+This is orientation, not a field manual. The goal: understand how information moves out of people, why it works, and how to use the legal half of it in a shop or a codebase.
+
+1) WHAT IT IS
+2) A SHORT HISTORY
+3) WHY PEOPLE TALK: THE MECHANISMS
+4) THE ELICITATION TOOLKIT
+5) HUMAN INTELLIGENCE AS A SYSTEM
+6) WHAT PEOPLE GET WRONG
+7) LEGAL EVERYDAY USE FOR A SMALL BUSINESS OWNER AND ENGINEER
+8) WHERE IT CONNECTS
+
+SECTION 1: WHAT IT IS
+
+Elicitation is getting information out of a person through ordinary conversation, without them feeling questioned. No interrogation room. No lie detector. No pressure. The target walks away thinking they had a pleasant chat.
+
+The formal definition used in US government training runs roughly like this: elicitation is a structured method of communication to gather information that appears to be normal and innocent conversation. The word doing the work is "appears." The conversation has a purpose. One side knows it.
+
+Human intelligence, HUMINT, is the bigger system. It is the collection of information from and through human sources. A source might be a diplomat, a clerk, a defector, a business traveler, a disgruntled engineer. Elicitation is one tool inside HUMINT. Recruitment, debriefing, interrogation, and handling of agents are the others.
+
+Think of HUMINT as a sensor network where every sensor has opinions, a mortgage, and a bad day. Satellites do not lie because they are afraid. People do. Satellites also cannot tell you what the minister meant, what the plant manager is worried about, or which engineer is about to quit. People can.
+
+That is the trade. Humans are noisy, biased, and manipulable sensors. They are also the only sensors that can report intent.
+
+Elicitation has two faces, and you need both.
+
+FACE ONE: offense. You collect. A recruiter, an investigator, a journalist, a competitive analyst, a salesperson doing discovery.
+
+FACE TWO: defense. You recognize when someone is doing it to you. Trade shows, conferences, LinkedIn messages, a friendly stranger asking about your stack. Most business espionage is not a heist. It is a nice person asking good questions.
+
+Same skill. Opposite direction.
+
+Where the law sits: eliciting information from someone who chooses to share it, in an open conversation, using your real identity and a truthful purpose, is legal and is most of ordinary business. It turns illegal or unethical when it involves lying about who you are to get protected information, inducing someone to breach a confidentiality obligation, or pressure that shades into coercion. Section 7 covers the boundary.
+
+SECTION 2: A SHORT HISTORY
+
+Humans have been collecting intelligence through other humans as long as there have been rivals. It is the oldest intelligence discipline. The technology changed. The sensor did not.
+
+ANCIENT AND CLASSICAL
+
+Sun Tzu, in The Art of War, gives a whole chapter to the use of spies. He sorts them into five kinds: local, inside, double, doomed, and surviving. His argument is economic. A campaign costs a fortune. A spy costs little. Refusing to pay for foreknowledge is, in his words, the height of inhumanity, because the war will cost more lives than the information would have.
+
+Kautilya, in the Arthashastra, wrote a similar system in India. It includes wandering agents, disguised ascetics, and informants planted in the households of officials. The state ran HUMINT as a bureaucracy.
+
+Rome, Persia, Byzantium, China: all had couriers and informants. Byzantine diplomacy treated every embassy as a collection platform. Ambassadors were expected to report gossip.
+
+EARLY MODERN
+
+Elizabethan England gave us Francis Walsingham, the spymaster to Elizabeth I. He built an intelligence service around informants, double agents, and intercepted letters. The Babington plot against the queen was uncovered and turned through his network. Walsingham is the archetype: patient, cynical, paid by the state, and effective because he understood that people talk to people they trust.
+
+Cardinal Richelieu in France ran networks of informants. Venice ran its ambassadors as reporters, and their dispatches, the relazioni, are still read by historians.
+
+THE 20TH CENTURY INDUSTRIALIZES IT
+
+The world wars turned HUMINT into a profession with schools, doctrine, and files. Britain's MI5 and MI6 formed in 1909 and 1910. Germany, France, Russia, and later the US built services.
+
+The Cold War is the peak. Two blocs, huge budgets, and a focus on recruiting insiders. The Soviet approach leaned on ideology, then later money and compromise. The Western approach leaned on money, ideology, and personal grievance. Both sides studied what made a person willing to betray an institution.
+
+Out of this came a classic model of motivation, often taught by the acronym MICE: Money, Ideology, Compromise, Ego. Later versions swap in Coercion and Excitement, or add Revenge and Divided loyalties. The point is not the exact letters. The point is that nobody spies for no reason. Find the reason and you understand the person.
+
+INTERROGATION AND ELICITATION SPLIT
+
+After World War II, the profession divided. Interrogation dealt with people in custody. Elicitation dealt with people who did not know they were sources. Military debriefers in WWII, especially the US Army's Fort Hunt program and British interrogation centers, gathered intelligence from captured German personnel. Postwar analysis of that work found that rapport and patience usually produced more than force. This lesson keeps getting rediscovered and forgotten.
+
+MODERN ERA
+
+After 2001, the US public argument about coercive interrogation pushed research into what actually works. A US government effort, the High-Value Detainee Interrogation Group, funded research on rapport-based interviewing. The finding was consistent with older experience: relationship-based approaches produce more reliable information than pressure.
+
+In parallel, counterintelligence agencies began publishing awareness material for businesses. The FBI and its counterparts warn that foreign services and competitors use elicitation at conferences, in online professional networks, and through fake recruiters. The battlefield moved to the trade show and the LinkedIn inbox.
+
+SECTION 3: WHY PEOPLE TALK: THE MECHANISMS
+
+Elicitation works because it exploits normal social wiring, not defects. Every mechanism below is a feature of healthy human interaction. That is why it is hard to defend against. You cannot patch politeness.
+
+MECHANISM 1: THE NORM OF RECIPROCITY
+
+If someone shares something, we feel a pull to share back. Give a small piece of information and the other person tends to match it. This is the engine of most elicitation. You offer a modest, harmless fact. They offer a fact of similar weight. Repeat, each step slightly deeper.
+
+Engineers know this as a handshake protocol. You send SYN, they send SYN-ACK. The exchange only moves forward when both sides commit a little more state.
+
+MECHANISM 2: THE DESIRE TO BE HELPFUL
+
+Most people want to be useful. Ask for help and they oblige. "I am new to this area, how does your team handle it?" invites a teaching response. Teaching mode is a dangerous mode for secrets, because experts love to demonstrate that they know things.
+
+MECHANISM 3: THE DESIRE TO BE APPRECIATED
+
+Flattery works, crude or refined. Refined flattery is attention. Someone who listens with real interest to a person nobody listens to gets a great deal. An underappreciated engineer at a conference, asked sincerely about his best work, may talk for an hour.
+
+MECHANISM 4: THE CORRECTION REFLEX
+
+People cannot stand a false statement about something they know. State something slightly wrong, on purpose, and the expert corrects it and adds detail. "So your system runs everything on a single database, right?" "No, we split it into three, because the reporting load..." You did not ask. They volunteered.
+
+This is deliberate understatement or false assumption, and it is among the most reliable tools in the kit.
+
+MECHANISM 5: THE NEED TO FILL SILENCE
+
+Silence is uncomfortable. A pause after an incomplete answer pulls more words out of people. Interviewers, journalists, and therapists all use it. Say less. Wait.
+
+MECHANISM 6: THE WISH TO BE CONSISTENT AND THE FOOT IN THE DOOR
+
+A small agreement primes a larger one. People want to act like the person who said yes before. This is the foot-in-the-door effect from social psychology. It also underpins why elicitation proceeds in steps rather than in one big ask.
+
+MECHANISM 7: THE COMPETITIVE URGE AND THE BRAG
+
+Professionals like to signal status. A mild, sincere-sounding challenge, "I doubt anyone can do that at scale," provokes a demonstration. Ego opens the door faster than money in casual settings.
+
+MECHANISM 8: THE ASSUMPTION OF GOOD FAITH
+
+We do not treat conversation partners as adversaries. Context matters too. At a conference, a bar near the conference, a shared taxi, people relax their guard and assume shared professional norms. The setting does half the work.
+
+SIDE NOTE ON WHAT THE RESEARCH SAYS
+
+Research on deception detection is humbling. Trained professionals and ordinary people identify lies at rates barely above chance in most studies. Behavioral tells like gaze aversion and fidgeting are weak signals. What does work better: content-based methods. Ask for detail, ask people to recount events in different orders, ask unexpected questions, and look for inconsistency and thin detail. Liars struggle with cognitive load. Truth-tellers under load usually cope.
+
+This matters for HUMINT because the goal is rarely to catch a lie in the moment. The goal is to gather material that can be checked later.
+
+SECTION 4: THE ELICITATION TOOLKIT
+
+These are the named techniques taught in open-source counterintelligence and interviewing literature. Learn them so you can use them honestly and spot them when used on you.
+
+1) OPEN QUESTIONS
+
+Questions that cannot be answered yes or no. "How does your team decide what to build next?" beats "Do you have a roadmap?" Open questions return more, and they return the respondent's own framing, which is data in itself.
+
+2) THE FUNNEL
+
+Start broad, narrow gradually. Broad: "Tell me about your work." Medium: "What part is hardest?" Narrow: "How did you solve the latency issue?" The order matters. Narrow first feels like an interrogation. Broad first feels like curiosity.
+
+3) ACTIVE LISTENING AND MIRRORING
+
+Repeat the last few words of what was said, as a question. "It was a nightmare migration?" The other person elaborates. Paraphrase what they said and check: "So the real problem was the vendor, not the code?" They confirm or correct. Either outcome is information.
+
+4) FALSE OR NAIVE STATEMENT
+
+Covered above. State something mildly wrong and let the expert fix it. Use ethically: do not use it to extract protected material, and be honest if directly asked what you are doing.
+
+5) QUID PRO QUO
+
+Trade a real, harmless piece for a real piece. Reciprocity in action. The discipline: decide before the conversation what you are willing to give. A lot of accidental leaks are people giving too much in the name of rapport.
+
+6) ASSUMED KNOWLEDGE
+
+Speak as if you already know. "When they had that outage in March..." The other person, not wanting to seem uninformed or wanting to add color, fills in. Often they assume you have the background and speak more freely. Use carefully: bluffing about specific facts can slide into deception.
+
+7) THE BRACKET
+
+Offer a range to get a number. "Would that cost 10 thousand, 50 thousand, more?" People correct toward the truth. It is a common technique in negotiation and pricing conversations.
+
+8) OFFERING AN OPPORTUNITY TO VENT
+
+Complaint is a strong channel. People love to describe what is broken. "Sounds like management does not listen." Grievance is one of the richest sources of true information, and is why disgruntled employees are both good sources and serious risks.
+
+9) SILENCE AND THE PAUSE
+
+Say nothing after an incomplete answer. Count three seconds.
+
+10) THE PLAUSIBLE PRETEXT
+
+A pretext is a reason for the conversation. Real pretexts are true: "I am researching this market." Deceptive pretexts, such as pretending to be a customer, a student, or a recruiter to obtain non-public information, are where law and ethics start to bite. In many jurisdictions, pretexting to obtain certain protected records, such as phone, bank, or personal data, is specifically illegal. See section 7.
+
+RAPPORT IS THE PLATFORM
+
+All ten techniques ride on rapport. Rapport is not friendliness as a trick. It is a working relationship: shared language, mutual respect, some vulnerability offered, no obvious threat. Researchers who study interviews of high-value sources repeatedly find that rapport-oriented interviewers get better information than confrontational ones. Rapport is also what makes a source keep talking next week.
+
+THE ELICITATION CYCLE (A SIMPLE MODEL)
+
+1) DEFINE the information need. What do I actually want to know? Write it in one sentence. Most bad conversations fail here.
+
+2) SELECT the target and setting. Who is likely to know? Where will they be at ease?
+
+3) PLAN the topic path. Which safe topics lead toward the real one? Which questions, in what order?
+
+4) ENGAGE. Build rapport. Do not rush.
+
+5) ELICIT. Move along the funnel. Use two or three techniques, not ten.
+
+6) CAPTURE. Write it down right after, while memory is fresh. Note direct statements separately from your inferences.
+
+7) DEBRIEF. Compare with other information. Assess reliability. Decide what to do next.
+
+Notice step 6. Professionals separate what was said from what was inferred. Amateurs merge them and end up with confident fiction.
+
+SECTION 5: HUMAN INTELLIGENCE AS A SYSTEM
+
+Elicitation is a technique. HUMINT is a pipeline. Understanding the pipeline explains why professionals treat information more skeptically than amateurs.
+
+THE HUMINT PIPELINE
+
+SPOTTING: identifying people who have access to information you need. Access is the currency. A junior administrator with access to the whole customer list is a better target than a senior executive with vague knowledge.
+
+ASSESSING: learning about the person. Motives, vulnerabilities, reliability, willingness. In professional HUMINT this is a long phase. Most candidates are dropped.
+
+DEVELOPING: building the relationship, through repeated contact, shared interests, and mutual benefit.
+
+RECRUITING: an explicit agreement. The person agrees to provide information on an ongoing basis. In state intelligence this is often called the pitch, and is a high-risk moment.
+
+HANDLING: managing the source. Contact protocols, payment, security, motivation, debriefing. Handlers spend enormous effort on keeping sources alive, both physically and psychologically. Sources burn out, get scared, get greedy, get sloppy.
+
+TERMINATING: ending the relationship well. Poorly ended relationships become leaks.
+
+This is the state version. Notice how much of it maps onto ordinary business. Spotting is prospecting. Assessing is qualification. Developing is relationship building. Recruiting is closing. Handling is account management. The mechanics of human trust are the same. What differs is the deception, the stakes, and the legality.
+
+TYPES OF SOURCES
+
+1) WALK-INS: volunteers who approach without being sought. Valuable, and treated with suspicion because they can be plants.
+
+2) RECRUITED AGENTS: people cultivated over time.
+
+3) LIAISON: information shared between friendly services or organizations.
+
+4) DEBRIEFED TRAVELERS AND EXPERTS: legitimate individuals who share observations voluntarily, such as academics, business people, and refugees.
+
+5) OPEN SOURCES ATTACHED TO PEOPLE: interviews, published talks, conference papers. Not HUMINT proper, but the same reading skills apply.
+
+GRADING SOURCES AND INFORMATION
+
+Intelligence services separate two questions: how reliable is the source, and how credible is the information? A trustworthy source can pass along a false rumor. A dubious source can report something true.
+
+One well-known scheme is the Admiralty or NATO system. Sources are graded A to F for reliability. Information is graded 1 to 6 for credibility. A source graded B and information graded 2 means usually reliable and probably true. F6 means cannot judge either.
+
+You do not need the formal codes. You need the habit: rate the messenger and the message separately. A confident friend who repeats a rumor is a reliable friend and unreliable information.
+
+THE CORE PROBLEMS OF HUMINT
+
+1) FABRICATION: sources invent things to keep getting paid or to please the handler. The famous case is the Iraqi source codenamed Curveball, whose fabricated accounts of mobile weapons labs fed pre-2003 assessments. The lesson repeated in every postmortem: uncorroborated single-source reporting from an unmeasured source is dangerous.
+
+2) DECEPTION: hostile services feed sources false material. The Double Cross system in WWII Britain, run by MI5, turned German agents and used them to feed false information to Germany. It worked spectacularly.
+
+3) BIAS AND ACCESS: sources report what they see from where they stand. A clerk sees paperwork, not strategy.
+
+4) HANDLER BIAS: handlers become invested in their sources and defend them. Institutions try to counter with independent review.
+
+5) THE BURN: every contact creates exposure. Protecting the source can matter more than the product.
+
+For a business person, the transferable lesson: when someone gives you information, ask how they know it and whether anyone else confirms it.
+
+SECTION 6: WHAT PEOPLE GET WRONG
+
+MISTAKE 1: ELICITATION IS TRICKERY
+
+Movies show smooth manipulators. Real elicitation is mostly patient, curious listening plus preparation. The manipulation frame is misleading. The best practitioners come across as genuinely interested people, because they are.
+
+MISTAKE 2: I WOULD NEVER FALL FOR IT
+
+Awareness does not confer immunity. The mechanisms are social reflexes. Smart people, experts especially, are highly susceptible, because expertise comes with the urge to show it. Defense is procedural, not intellectual: know what is off limits, have a stock deflection ready, and follow it.
+
+MISTAKE 3: YOU CAN READ PEOPLE
+
+Body language reading is weak. Microexpressions, gaze direction, crossed arms: the empirical support is thin. Do not build a system on it. Build on what people say, what can be checked, and consistency over time.
+
+MISTAKE 4: HARSH METHODS WORK BETTER
+
+The accumulated evidence, from WWII debriefers to modern research, points the other way. Pressure produces compliance and often false information. Rapport produces detail. Pain and fear are noisy channels.
+
+MISTAKE 5: ONE GOOD SOURCE IS ENOUGH
+
+Triangulate. Every big intelligence failure has a single-source story in it somewhere.
+
+MISTAKE 6: IT ONLY HAPPENS TO SPIES
+
+The most common victims are ordinary employees, and the most common collectors are competitors, recruiters, vendors, and scammers. Social engineering, the hacker version of elicitation, is behind a huge fraction of security breaches. The phone call from IT, the friendly new colleague, the survey. Same toolkit.
+
+MISTAKE 7: IF IT IS LEGAL, IT IS FINE
+
+Legal and wise are separate tests. Something can be fully lawful and still burn trust. Eliciting information from a competitor's employee at a bar may be legal. It may also ruin a relationship, invite a lawsuit over induced breach of contract, or put that employee in a bad spot. Ask what you would say if the person found out.
+
+SECTION 7: LEGAL EVERYDAY USE FOR A SMALL BUSINESS OWNER AND ENGINEER
+
+This is the section that pays rent. You do not need spycraft. You need the honest, high-yield subset.
+
+THE RULE OF THE ROAD
+
+Use your real identity. State a true purpose if asked. Do not lie to obtain information the person is not free to share. Do not induce someone to breach a duty of confidentiality. Do not use pressure. Inside those rails, everything below is legal and ethical.
+
+USE 1: CUSTOMER DISCOVERY
+
+The single best application. Owners of small firms spend money on the wrong features because they asked the wrong questions. Use open questions and the funnel.
+
+Bad: "Would you use a tool that does X?" People say yes to be nice.
+
+Good: "Walk me through the last time this went wrong. What did you do? What did it cost?" Past behavior beats stated intention. Ask for specific stories, not opinions about the future.
+
+Then the silence trick. After they answer, wait. The second answer is usually the true one.
+
+USE 2: DIAGNOSING A CLIENT'S REAL PROBLEM
+
+The stated request is rarely the real problem. A client asks for a dashboard. The real issue is that two people dislike each other and hide data. Elicitation, patient and open, finds the actual system. Use mirroring and paraphrase to test your understanding.
+
+USE 3: TECHNICAL INTERVIEWING AND HIRING
+
+Interviewing candidates is HUMINT on a small scale. Use behavioral questions about real events. Ask for detail. Ask them to walk through a decision. Probe the parts that get thin. Vague answers to detail questions are the reliable signal. Also ask what they would do differently, which surfaces reflection.
+
+USE 4: REQUIREMENTS GATHERING
+
+Engineers who elicit requirements well ship less garbage. Ask stakeholders to describe a day in the life. Ask what they do when the system fails. Ask what they hack around. Workarounds are unspoken requirements.
+
+USE 5: NEGOTIATION AND VENDOR CONVERSATIONS
+
+Use brackets, quid pro quo, and silence. Ask what would make them say yes. Listen for what they emphasize and what they skip. Keep your own limits fixed in advance so reciprocity does not pull you past them.
+
+USE 6: LEGITIMATE COMPETITIVE INTELLIGENCE
+
+Public information gets you far. Published job postings reveal technology stacks and growth plans. Conference talks reveal how a firm thinks. Customer reviews reveal weaknesses. Talking openly with industry peers at events, honestly, reveals more. Professional competitive intelligence bodies publish ethics codes built around the same rails: identify yourself, do not lie, do not solicit trade secrets. Follow them.
+
+USE 7: DEFENSE AT EVENTS AND ONLINE
+
+Build a short list of what is not shared with outsiders: customer names, unreleased plans, architecture specifics, credentials, pricing structure, staff schedules. Everyone on the team knows the list.
+
+Prepare deflections. Ordinary, polite, and repeatable:
+
+1) "That is not something I can get into."
+
+2) "I would rather not say, but tell me about your side."
+
+3) Change the subject to the person asking. People love talking about themselves.
+
+4) Answer a different, safer question.
+
+Practice them out loud. The failure mode is freezing and then over-answering out of politeness.
+
+Watch for these signals in a conversation with a stranger:
+
+1) They ask about details far beyond what a casual conversation needs.
+
+2) They steer repeatedly back to the same topic after you deflect.
+
+3) They offer help or a favor you did not ask for, which triggers reciprocity.
+
+4) They seem to know a lot about you or your firm.
+
+5) They push for follow-up on a private channel quickly.
+
+None of these proves bad intent. Together they warrant care.
+
+USE 8: SOCIAL ENGINEERING RESISTANCE IN THE SHOP
+
+Most attacks on small firms arrive as a phone call or email using elicitation and urgency. Make verification procedural. For any request involving money, credentials, or data, verify through a second channel you initiate. A caller claiming to be the bank gets hung up on and called back on the number on the card. Write this rule down. Train everyone. An exception process that starts with "the boss is in a hurry" is the attack.
+
+USE 9: SOURCE GRADING FOR YOUR OWN DECISIONS
+
+Adopt the two-question habit. Before acting on a claim from a vendor, a client, or a forum, ask: how reliable is this person on this topic, and how do they know? Then seek one independent confirmation. It costs minutes and prevents expensive mistakes.
+
+USE 10: NOTE-TAKING DISCIPLINE
+
+After any important conversation, write two lists. What they said. What you think it means. Keep them separate. Date the notes. Three months later you will be glad.
+
+WHERE THE LINE IS
+
+A short list of things that move from skill to problem:
+
+1) Pretending to be someone you are not to get non-public information: a customer, a regulator, a job applicant.
+
+2) Pretexting to obtain personal records such as phone, bank, or medical data. This is specifically unlawful in many places.
+
+3) Inducing an employee of another firm to disclose trade secrets or confidential material. This can create liability for both parties.
+
+4) Using a relationship to extract information the person is bound to protect.
+
+5) Persistent pressure, threats, or exploiting someone's distress.
+
+Also note that legal rules differ by country and by industry. This text is orientation, not legal advice. For anything near the line, ask a lawyer.
+
+A PERSONAL TEST
+
+Before an elicitation conversation, ask: if the other person saw my full plan and notes, would they feel used or merely interviewed? If used, change the plan.
+
+SECTION 8: WHERE IT CONNECTS
+
+ANALYTIC TRADECRAFT
+
+HUMINT produces raw material. Analysis turns it into judgments. Source grading, corroboration, and the separation of said versus inferred are shared machinery.
+
+COUNTERINTELLIGENCE AND INSIDER RISK
+
+Every elicitation technique has a defensive mirror. CI is the discipline of spotting and blocking collection against you. Insider risk is what happens when the source is already inside your walls.
+
+SOCIAL ENGINEERING AND SECURITY
+
+The security industry rebranded elicitation and pretexting as social engineering. Awareness programs are elicitation defense with a corporate template.
+
+PSYCHOLOGY AND PERSUASION
+
+The mechanisms in section 3 are lifted from social psychology: reciprocity, consistency, social proof, authority, liking, scarcity. Robert Cialdini's book Influence is the accessible entry point.
+
+INTERVIEWING SCIENCE
+
+Investigative interviewing research, such as the PEACE model developed in England, formalizes rapport-based methods for police work. Cognitive interview techniques from memory research improve recall in witnesses.
+
+JOURNALISM
+
+Good reporters are elicitation practitioners with a code of conduct. Their craft literature on interviewing is practical and free.
+
+SALES AND UX RESEARCH
+
+Discovery calls and user interviews use the same funnel and the same problems: people say what they think you want to hear. The fix is past-behavior questions.
+
+READING LIST FOR LATER
+
+1) Influence: The Psychology of Persuasion, by Robert Cialdini.
+
+2) Without Fail, or The Art of the Interview-type journalism handbooks, for practice.
+
+3) Public awareness material on elicitation from national counterintelligence agencies, freely downloadable.
+
+4) The Art of War, chapter on the use of spies, short and readable.
+
+5) Histories of the Double Cross system for a case study in deception at scale.
+
+THE SHORT VERSION
+
+People talk because talking is how humans work. Reciprocity, helpfulness, ego, and the correction reflex do the pulling. A good practitioner prepares, listens, keeps the two lists separate, and grades what comes back. A good defender knows what is off limits and has a polite sentence ready.
+
+Use the tools honestly. Use the defense always.
+
+END

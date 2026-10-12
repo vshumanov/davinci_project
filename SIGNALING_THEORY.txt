@@ -1,0 +1,249 @@
+SIGNALING THEORY
+
+WHAT IT IS
+
+Signaling theory explains how information gets reliably
+communicated between two parties when one of them has a
+reason to lie. It is the science of credible communication
+under conflicting interests. The central puzzle: talk is
+cheap. Anyone can SAY anything. If saying "I am strong," "I am
+honest," "I am a good investment" costs nothing, then the
+weak, the dishonest, and the bad investment will say it too,
+and the words carry no information at all. So how does any
+signal manage to be believed? The answer, and the whole
+theory, is: a signal is credible only when it is COSTLY in a
+way that a faker could not afford. Cost is what separates a
+signal from noise.
+
+The theory was born twice, independently, in two fields that
+did not know they were studying the same thing. In economics,
+Michael Spence built the model in 1973 (it won him a Nobel
+Prize) to explain the job market, using education as his
+example. In biology, Amotz Zahavi proposed the "handicap
+principle" in 1975 to explain why animals grow absurd,
+expensive ornaments like the peacock's tail. Same
+mathematics, same logic, two different jungles. When an idea
+gets discovered twice by people who never spoke, that is a
+strong sign you are looking at something deep - a structural
+feature of the universe rather than a quirk of one domain.
+
+Here is the mechanism in one clean image, the peacock's tail.
+The tail is enormous, metabolically expensive, and makes the
+bird easier for predators to catch. It is, on its face,
+insane - natural selection should have deleted it. Zahavi's
+insight: the tail is a signal to peahens that says "I am so
+genetically fit that I can afford to waste all this and still
+survive." A weak bird literally CANNOT grow and haul around
+that tail; the cost would kill it. So the tail cannot be
+faked. Its very wastefulness is what makes it honest. The
+handicap IS the message. That is the core of signaling
+theory: the cost is not a bug in the signal, it is the entire
+reason the signal works.
+
+WHY IT MATTERS
+
+Signaling theory matters because once you have it, you see it
+running underneath a startling amount of human and animal
+behavior that otherwise looks irrational, wasteful, or
+baffling. It is one of those rare lenses that reorganizes
+your view of the social world. Costly, seemingly pointless
+displays stop being pointless and start being messages you
+had not learned to read.
+
+Why do people buy luxury goods that perform no better than
+cheap ones? Signal: "I have money to burn." Why does a
+diamond engagement ring have to be expensive to mean
+something? Signal: "I am willing to sink resources into this
+commitment." Why do companies spend fortunes on
+sponsorships and glossy headquarters that do nothing for the
+product? Signal: "We are solvent and confident enough to
+waste this, so we will still be here to honor the warranty."
+Why do gang tattoos go on the face where they wreck normal
+employment? Signal: "I have burned my exits; I am committed
+to this life and you can trust I will not defect." Why does a
+startup founder work insane hours visibly? Signal to
+investors and recruits. The theory converts a pile of
+apparently wasteful behaviors into a coherent language of
+credibility purchased with cost.
+
+It matters practically because you are both a sender and a
+receiver of signals all day, and most people do both badly.
+As a receiver, you get fooled by cheap signals dressed up to
+look costly - the fake Rolex, the padded resume, the
+confident tone masking empty content. As a sender, you often
+fail to make your genuine quality legible because you send
+signals that are cheap and therefore ignored. Understanding
+the theory lets you ask the one question that cuts through
+noise: what would this signal COST a faker? If the answer is
+"nothing," ignore it, no matter how loud. If the answer is
+"more than a faker could pay," believe it, even if it looks
+absurd.
+
+THE CORE MECHANISM: SEPARATING EQUILIBRIUM
+
+The engine under the theory is the idea of a SEPARATING
+EQUILIBRIUM, and it is worth understanding precisely because
+it tells you exactly when a signal works and when it
+collapses.
+
+Set up the problem. There are two types of sender - call them
+high-quality and low-quality - and a receiver who cannot
+directly see which is which but desperately wants to know.
+The sender can send a signal at some cost. The critical
+condition, the whole hinge of the theory, is this:
+
+The signal must be CHEAPER for the high-quality type than for
+the low-quality type.
+
+If that condition holds, a beautiful thing happens. The
+high-quality type can afford a level of signal that the
+low-quality type cannot profitably imitate - imitating it
+would cost the low type more than the benefit of being
+mistaken for high. So the low type declines to fake it, the
+high type sends it, and the receiver can now READ quality
+directly off the signal. The types have SEPARATED. The signal
+carries real information. This is the separating equilibrium,
+and it is the condition for any honest signal anywhere.
+
+Spence's education model is the cleanest human case, and it
+contains a famously uncomfortable implication. Suppose
+education is easier for high-ability people than
+low-ability people (it costs them less effort, less pain,
+less time). Then a degree can serve as a separating signal to
+employers EVEN IF the education taught nothing useful. The
+employer cannot see your ability directly, but they can see
+that you paid the cost of the degree, and since that cost was
+lower for the able, the degree separates the able from the
+rest. The unsettling part: on this model, a chunk of the
+value of a credential is not the skills it imparts but the
+costly, hard-to-fake signal it sends. How much of any given
+degree is real human-capital training versus pure signaling
+is a live and somewhat sobering empirical fight, and the
+theory forces you to ask the question.
+
+The failure mode is equally instructive: the POOLING
+EQUILIBRIUM. If the signal becomes cheap enough that the
+low-quality type CAN afford it, everyone sends it, the types
+"pool" together, and the signal stops meaning anything. When
+everybody has the credential, the credential separates no
+one - hence credential inflation, where a degree that once
+signaled quality becomes the baseline everyone has, forcing
+the signal to escalate to a master's, then a portfolio, then
+something else costly enough to separate again. Any signal
+that gets cheap enough to fake dies as a signal. This is why
+signals are locked in a permanent arms race: the moment a
+signal works, fakers evolve to mimic it cheaply, which forces
+honest signalers to make it more costly to stay ahead. The
+peacock's tail, the luxury market, and the credential
+treadmill are all running the same escalation.
+
+INDICES, HANDICAPS, AND CHEAP TALK
+
+A few refinements sharpen the tool.
+
+Not all reliable signals are handicaps. An INDEX is a signal
+that is impossible to fake because it is physically tied to
+the quality it advertises. A deer's roar drops in pitch with
+body size for pure anatomical reasons - a small deer
+cannot produce a big deer's roar, no cost required, it is
+just physics. Height, in a sense, is an index. Indices are
+honest not because faking is expensive but because faking is
+IMPOSSIBLE. When you can find or build an index, it beats a
+handicap, because it needs no ongoing cost to stay honest.
+
+CHEAP TALK is the opposite pole: signals that cost nothing.
+Cheap talk can still carry information, but only when the
+sender and receiver interests are ALIGNED. If I have no
+reason to lie to you, my costless words are informative -
+"the coffee is hot," "turn left here." Cheap talk breaks down
+exactly when interests conflict, which is precisely when you
+most need to know the truth and precisely when the sender
+most wants to shade it. This gives you a fast diagnostic: the
+more someone's interests diverge from yours, the more you
+should discount their cheap talk and demand costly signals
+instead. A salesman's praise of his own product is cheap
+talk under maximally conflicting interests - worth close to
+zero. A competitor's grudging praise of that product is
+costly and worth a great deal.
+
+COMMITMENT is signaling's most powerful move: deliberately
+destroying your own options to prove your intentions. Burning
+the boats so your army knows there is no retreat. Taking a
+job with a non-compete to signal you will not defect to a
+rival. The logic is counterintuitive - you make yourself
+WORSE OFF on paper to send a signal that could not be sent
+any other way. A threat or a promise is only credible if
+carrying it out is in your interest, or if you have
+visibly removed your ability to back down. Cheap promises are
+noise; a burned bridge is a signal nobody can fake.
+
+WHAT PEOPLE GET WRONG ABOUT IT
+
+Three errors recur.
+
+First, thinking signaling is the same as lying or deception.
+It is not - it is the theory of how communication stays
+HONEST despite the incentive to lie. The costly signal is the
+mechanism that DEFEATS deception. Yes, the theory also
+explains fakery (cheap signals mimicking costly ones), but
+its core subject is why honest signals can exist at all in a
+world full of liars. Signaling is the immune system against
+deception, not the disease.
+
+Second, dismissing all signaling as "wasteful" and therefore
+stupid or bad. The waste is the FUNCTION. From the outside a
+peacock's tail, a luxury watch, a costly ad campaign all look
+like pure loss. But the cost is doing informational work -
+it is buying credibility that could not be bought any cheaper.
+Calling it wasteful misses that the alternative, a world with
+no way to send credible signals, is worse for everyone,
+because then no quality can be told from any other and the
+market for trust collapses entirely (the "market for lemons"
+problem). The waste is the price of honest information.
+
+Third, forgetting that YOU are constantly signaling, usually
+unconsciously, and often badly. People analyze other people's
+signals while imagining their own behavior is transparent and
+self-evident. It is not. Your clothes, your speech, your job
+title, your car, the length of your emails, whether you are
+early or late - all signals, all being read, whether you
+intend them or not. You do not get to opt out of sending
+signals; you only get to choose whether to send them
+deliberately or leak them accidentally. The person who
+understands this manages their signals; everyone else emits
+them like exhaust and wonders why they are misread.
+
+WHERE IT CONNECTS
+
+GAME THEORY is the parent discipline; signaling games are a
+specific and important class of games with asymmetric
+information, and the separating and pooling equilibria are
+straight game-theory concepts.
+
+INFORMATION ECONOMICS, and specifically the study of
+asymmetric information (Akerlof, Spence, Stiglitz - a shared
+Nobel), is signaling's home. The companion idea is
+SCREENING: signaling is the informed party proving its type;
+screening is the uninformed party setting up a test that
+makes the two types reveal themselves (an insurance company
+offering a menu of deductibles so risky and safe customers
+sort themselves). Signaling and screening are the two sides of
+solving the same information gap - one from the sender's end,
+one from the receiver's.
+
+EVOLUTIONARY BIOLOGY, through Zahavi's handicap principle,
+uses signaling to explain sexual selection, animal
+communication, warning coloration, and even why gazelles
+"stot" - leap straight up in front of predators, apparently
+advertising "I am fit enough to waste energy showing off, do
+not bother chasing me."
+
+The through-line to keep: whenever two parties communicate and
+one has a reason to shade the truth, ask what the signal
+costs a faker. Cost is the currency of credibility. Cheap
+talk is free and worthless under conflict; costly signals are
+expensive and honest precisely because they are expensive.
+The absurd, the wasteful, and the extravagant, read through
+this lens, are usually not irrational at all - they are
+messages priced high enough that no liar can afford to send
+them.
