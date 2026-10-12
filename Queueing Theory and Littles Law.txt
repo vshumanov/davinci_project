@@ -1,0 +1,323 @@
+QUEUEING THEORY AND LITTLE'S LAW
+
+WHAT IT IS
+
+Queueing theory is the mathematics of waiting lines. It
+studies what happens when things that arrive at random,
+customers, phone calls, data packets, patients, jobs, must
+wait for a limited number of servers to handle them one at a
+time. It answers the questions everyone asks while stuck in a
+line: how long will I wait, how long will the line get, how
+busy are the servers, and what happens if we add one more
+server or if the rush gets worse. Underneath the everyday
+frustration of waiting lies a surprisingly precise body of
+theory, and its conclusions are often sharply
+counterintuitive.
+
+The field was born around 1909 when Agner Krarup Erlang, a
+Danish engineer working for the Copenhagen telephone company,
+tried to work out how many circuits a phone exchange needed so
+that callers would rarely get a busy signal. Calls arrived
+unpredictably, and he needed to size the system for random
+demand without wild overbuilding. The tools he developed to
+answer that question became queueing theory, and they now
+describe call centers, hospital emergency rooms, supermarket
+checkouts, factory lines, computer networks, and the internet
+itself. Anywhere demand arrives at random and capacity is
+finite, the same equations apply.
+
+A queueing system is described by a few quantities: the rate
+at which items arrive, the rate at which a server can handle
+them, the number of servers, and the variability in both
+arrivals and service times. From these, the theory predicts
+the average number waiting, the average time spent waiting,
+and how heavily the servers are used. The remarkable thing is
+how much follows from so little, and how universal the
+conclusions are across utterly different domains.
+
+WHY IT MATTERS
+
+Queueing theory matters because waiting is everywhere and
+expensive, and because our intuitions about it are badly
+wrong. Managers staff call centers, hospitals plan beds,
+engineers size servers, and cities time traffic lights, all
+based, knowingly or not, on queueing behavior. Get it wrong
+and you either waste enormous resources on idle capacity or
+inflict long, costly, sometimes dangerous waits. The
+difference between a smoothly flowing system and a gridlocked
+one is often a small change in load that queueing theory could
+have predicted.
+
+It matters especially because of one brutal lesson: waiting
+time does not rise smoothly as a system gets busier. It stays
+low and then explodes. A system running at seventy percent of
+capacity might have short, tolerable waits; push it to ninety
+percent and waits can grow several times longer; push it to
+ninety-five or ninety-nine percent and they can become
+catastrophic. The relationship is not linear but a steep
+hockey stick. This single fact explains why a highway flows
+fine until it suddenly jams, why a hospital that seems to have
+spare capacity still has long waits, and why loading servers
+to the hilt for efficiency can destroy performance. Anyone who
+manages a system with random demand needs this lesson in their
+bones.
+
+It matters, finally, because it gives you a vocabulary for a
+pervasive trade-off: utilization versus responsiveness.
+Keeping servers busy looks efficient, but high utilization is
+exactly what creates long waits. A system designed to be
+responsive must deliberately keep slack, spare capacity that
+sits idle much of the time precisely so it is there when a
+surge arrives. Queueing theory makes this trade-off precise,
+and shows that the instinct to eliminate all idle capacity is
+often a false economy.
+
+LITTLE'S LAW
+
+The most useful single result in the whole field is Little's
+law, and it is beautiful because it is so simple and so
+general. It says that the average number of items in a system
+equals the average rate at which items arrive multiplied by
+the average time each item spends in the system. In symbols,
+with L the number in the system, lambda the arrival rate, and
+W the time in system:
+
+=====
+    L = lambda * W
+
+    L       items in the system (average)
+    lambda  arrivals per unit time (average)
+    W       time each item spends inside
+=====
+
+What makes the law extraordinary is that it holds almost no
+matter what. It does not care how arrivals are distributed,
+how service times vary, how many servers there are, or in what
+order items are served. As long as the system is stable, with
+things leaving as fast as they arrive on average, the
+relationship holds exactly. This generality makes it a
+workhorse. If you can measure any two of the three quantities,
+you get the third for free.
+
+The practical uses are everywhere. If a coffee shop serves two
+hundred customers an hour and each spends fifteen minutes
+inside, then on average there are fifty people in the shop,
+which tells you how many seats you need. If a factory has a
+thousand units of work in progress and finishes a hundred
+units a day, then each unit takes ten days to get through,
+whether or not anyone intended that. Little's law is the
+reason that cutting the amount of work in progress directly
+shortens how long each item takes, a cornerstone of lean
+manufacturing and modern software practice: less in the system
+means less time in the system, for the same throughput.
+
+UTILIZATION AND THE HOCKEY STICK
+
+To see why waiting explodes near full capacity, define
+utilization as the fraction of time the server is busy, the
+arrival rate divided by the service capacity. Call it rho, a
+number between zero and one. For the simplest standard model,
+a single server with random arrivals and random service times,
+the average number of items in the system works out to rho
+divided by one minus rho:
+
+=====
+    L = rho / (1 - rho)
+
+    rho = 0.50  ->  L = 1.0
+    rho = 0.80  ->  L = 4.0
+    rho = 0.90  ->  L = 9.0
+    rho = 0.95  ->  L = 19.0
+    rho = 0.99  ->  L = 99.0
+=====
+
+Look at what happens as rho climbs toward one. At fifty
+percent utilization there is about one item in the system. At
+ninety percent there are nine. At ninety-nine percent there
+are ninety-nine. As utilization approaches one hundred
+percent, the number waiting, and therefore the waiting time,
+shoots toward infinity. The denominator, one minus rho, is
+shrinking toward zero, and dividing by a tiny number makes the
+result enormous. This is the hockey stick, and it is the
+central practical fact of queueing theory.
+
+The lesson is that the last few percent of utilization are
+ruinously expensive in waiting time. Running a system at full
+tilt does not give you a little more throughput for a little
+more delay; it gives you the same throughput for
+catastrophically more delay. This is why responsive systems
+are deliberately run with headroom, why emergency services
+cannot be staffed to a hundred percent of average demand, and
+why a road carrying almost its maximum flow is one small
+disturbance away from a jam. Efficiency measured only as high
+utilization is a trap.
+
+VARIABILITY IS THE ENEMY
+
+The other deep lesson is that variability, not just the
+average load, drives waiting. If arrivals came like clockwork
+and every service took exactly the same time, you could load a
+system close to full with little waiting, because everything
+would mesh perfectly. Real systems wait because arrivals bunch
+up and service times vary, so that even when there is enough
+capacity on average, temporary surges overwhelm it and queues
+build. The more random the arrivals and the more variable the
+service times, the longer the queues for the same average
+load.
+
+This gives three levers to improve any waiting system, beyond
+simply adding capacity. You can reduce the variability of
+arrivals, for example by appointments or reservations that
+smooth the flow. You can reduce the variability of service, by
+standardizing how long each job takes. Or you can pool
+resources, since one shared queue feeding several servers
+handles surges far better than separate queues each feeding
+one server, which is exactly why banks and airports switched
+to single snaking lines. Reducing variability can cut waiting
+as effectively as buying more capacity, and often far more
+cheaply.
+
+VARIABILITY MADE PRECISE, AND THE PSYCHOLOGY OF LINES
+
+The claim that variability drives waiting can be made precise.
+A widely used approximation, Kingman's formula, says the
+average wait in a busy queue is the product of three factors:
+a utilization term that explodes as the server approaches full
+load, a variability term that grows with the randomness of
+arrivals and service times, and the average service time
+itself. The shape of this is the practical heart of queueing:
+waiting is not set by load alone, but by load multiplied by
+variability. It means that at high utilization, even a modest
+reduction in variability produces a large drop in waiting,
+because the two troublesome factors multiply rather than add.
+Smoothing the flow is often the cheapest lever you have.
+
+How you order the queue matters too, not just how long it is.
+Serving the shortest jobs first dramatically reduces the
+average wait, because a long job stuck at the front makes
+everyone behind it wait for its entire duration, whereas
+clearing many short jobs quickly lets most customers leave
+sooner. This is why express checkout lanes exist and why
+operating systems schedule short tasks ahead of long ones. The
+catch is fairness: pure shortest-job-first can leave a big job
+waiting forever if short ones keep arriving, a starvation
+problem that real schedulers must guard against. The ordering
+of a queue is a policy choice with real consequences, separate
+from its length.
+
+Finally, waiting is as much psychological as mathematical, and
+the two interact. Research into the experience of queues finds
+that occupied time feels shorter than unoccupied time, that
+uncertain waits feel longer than known ones, and that
+unexplained or unfair waits feel longest of all. This is why
+theme parks post estimated wait times and wind queues past
+things to look at, why elevators have mirrors, and why a
+visible single line that is plainly first-come-first-served
+feels better than several lanes where the next person over
+keeps beating you. None of this shortens the actual wait that
+Little's law and Kingman's formula dictate, but managing the
+perception is a real tool, because a queue is ultimately
+endured by people, and their sense of the wait is part of the
+system's output.
+
+People are not patient items in a buffer, and their behavior
+changes the queue itself. Some balk, refusing to join a line
+that looks too long; some renege, abandoning a line after
+waiting too long; some jockey between lines hoping to move
+faster. Abandonment in particular transforms a system: a call
+center where frustrated callers hang up has a shorter queue
+than the raw arithmetic predicts, but only because it is
+losing the very customers it exists to serve. A model that
+ignores this human impatience overestimates how many people
+the system actually helps, and designing for the experience,
+visible progress, accurate estimates, the option to be called
+back, is often how you keep people in the queue long enough to
+serve them.
+
+Underneath the staffing decision lies a clean economic
+trade-off that queueing theory makes explicit. Every extra
+server costs money and sits idle much of the time; every unit
+of waiting costs something too, in lost customers, wasted
+time, or worse. The optimal capacity is the point where the
+marginal cost of one more server equals the marginal cost of
+the waiting it would eliminate. Because waiting time explodes
+near full utilization, that optimum almost always leaves the
+servers with visible slack, which looks wasteful to a manager
+counting idle minutes but is in fact the mathematically
+correct amount of spare capacity. Queueing theory thus turns
+an argument about whether idleness is acceptable into a
+calculation about what it is worth, and the answer is almost
+always that some idleness is not just acceptable but optimal.
+
+It is worth sitting with how thoroughly this overturns the
+factory-floor instinct that idle capacity is waste to be
+stamped out. In any system where demand arrives at random, the
+slack is not fat to be trimmed but the shock absorber that
+keeps the whole thing responsive, and cutting it to push
+utilization higher is precisely how a smooth operation is
+turned into a congested one. The counterintuitive lesson,
+earned from a century of mathematics, is that a little visible
+idleness is often the signature of a well-run system rather
+than a poorly run one.
+
+WHAT PEOPLE GET WRONG
+
+The first and biggest error is assuming waiting grows in
+proportion to load. People expect that a system ninety percent
+full will have modestly longer waits than one eighty percent
+full, when in fact the waits can more than double. The hockey
+stick is the least intuitive and most important feature of
+queueing, and ignoring it leads directly to systems that
+collapse under a load that looked perfectly safe on a
+spreadsheet.
+
+A second error is treating high utilization as the goal. Idle
+servers look wasteful, so managers push utilization up to seem
+efficient, not realizing they are climbing the steep part of
+the curve where waiting explodes. In a system that must stay
+responsive, some idleness is not waste; it is the capacity
+that absorbs surges, and eliminating it is how you create the
+very delays you were trying to avoid.
+
+A third error is ignoring variability and fixating only on
+averages. A system can have ample average capacity and still
+produce terrible waits if its arrivals are bursty or its
+service times erratic. Two systems with identical average load
+can behave completely differently depending on their
+variability, so an analysis that looks only at averages misses
+half the story. The average tells you whether a system is
+stable; the variability tells you how much it will suffer.
+
+A fourth error is forgetting that pooling helps. Separate
+lines for separate servers, each with its own random lulls and
+surges, waste capacity because one server sits idle while
+another is swamped. A single shared queue lets any free server
+take the next waiting item, smoothing the load and cutting
+waits with no extra capacity at all. The intuition that
+dividing a crowd into several lines is fairer or faster is
+usually wrong.
+
+WHERE IT CONNECTS
+
+Queueing theory connects to the design of computer systems and
+networks, where it governs how servers, routers, and disks
+behave under load, and where the same hockey stick dictates
+that you must leave headroom or watch latency explode. The
+study of backpressure, rate limiting, and capacity planning in
+software is applied queueing theory, and the CAP-style
+trade-offs of distributed systems play out on top of these
+waiting dynamics.
+
+It connects to power laws and variability, because bursty,
+heavy-tailed arrival patterns, common in real traffic, make
+queues far worse than the gentle randomness of the textbook
+models, linking the fat tails of one subject to the explosive
+waits of this one. It connects to control theory and feedback,
+since a loaded system with delay is prone to the same
+instabilities, and admission control is a feedback loop
+keeping utilization off the cliff. And it connects to everyday
+life and operations, from the checkout line to the hospital to
+the traffic jam, offering a precise explanation for why
+waiting feels so unpredictable: it is because, near capacity,
+small changes in load produce enormous changes in delay,
+exactly as the mathematics insists.

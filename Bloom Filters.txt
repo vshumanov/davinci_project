@@ -1,0 +1,310 @@
+BLOOM FILTERS
+
+WHAT IT IS
+
+A Bloom filter is a small, clever data structure that answers
+one question: have I seen this item before? It answers with
+one of two verdicts: definitely no, or probably yes. It never
+says a confident yes, and that is the whole trick. In exchange
+for tolerating a small rate of false alarms, where it says
+probably yes about something it has never actually seen, a
+Bloom filter uses a tiny fraction of the memory that an exact
+record would require. It is a structure that trades a little
+certainty for an enormous saving in space, and for the right
+problems that trade is a spectacular bargain.
+
+It was invented by Burton Howard Bloom in 1970, in a paper
+titled Space/Time Trade-offs in Hash Coding with Allowable
+Errors, and the title says it all: Bloom asked what you could
+save if you allowed a controlled amount of error. The
+structure he described holds no copies of the items
+themselves, only a pattern of bits that the items leave
+behind, like footprints. You can ask the footprints whether an
+item might have passed, but you cannot read back the items,
+because they were never stored. This is why it is so small and
+also why it can only ever say probably.
+
+The key asymmetry is worth stating plainly. A Bloom filter can
+produce false positives, claiming an item is present when it
+is not, but it never produces false negatives: if it says an
+item is definitely not present, that is always true. So a no
+is certain and a yes is a strong maybe. This one-sided
+reliability is exactly what makes it useful, because in many
+systems a cheap, certain no is enormously valuable even if the
+yes needs checking.
+
+WHY IT MATTERS
+
+Bloom filters matter because many systems constantly ask have
+I seen this before about huge streams of items, and answering
+exactly would cost far too much memory. A web browser checking
+whether a URL is on a list of known malicious sites, a
+database avoiding an expensive disk lookup for a key that is
+not there, a network router deciding whether a packet belongs
+to a tracked flow, a large storage system skipping files that
+cannot contain what you seek: all face billions of these
+questions, and storing the full set to answer them exactly
+would be ruinous. A Bloom filter answers almost as well in a
+sliver of the space.
+
+The payoff comes from how it is used. Because a definite no is
+certain, a Bloom filter is perfect as a fast front gate in
+front of an expensive check. You ask the filter first; if it
+says definitely no, you skip the costly operation entirely,
+with no risk of being wrong. If it says probably yes, you do
+the expensive exact check to confirm, paying the real cost
+only for the rare false alarm plus the genuine hits. In a
+world where most queries are for things that are absent, this
+saves the overwhelming majority of the expensive work. The
+filter earns its keep by cheaply eliminating the common case.
+
+It matters, too, as a beautiful illustration of a deep
+engineering principle: that accepting a small, controlled,
+well-understood error can buy a massive improvement in
+efficiency. Insisting on perfect accuracy is sometimes
+enormously expensive for a benefit you do not need, and the
+Bloom filter shows how to give up exactly as much certainty as
+you can afford and no more, turning the acceptable-error trade
+into a precise, tunable design choice.
+
+HOW IT WORKS
+
+The structure is just an array of bits, all starting at zero,
+together with a handful of hash functions. A hash function
+takes an item and scrambles it into a number, which you treat
+as a position in the bit array; a good hash spreads different
+items to effectively random, independent positions. The filter
+uses several different hash functions, say three, so each item
+maps to several positions at once.
+
+To add an item, you run it through each of the hash functions
+to get several positions, and you set the bit at every one of
+those positions to one.
+
+=====
+    // add item x, using k hash functions
+    for i in 1..k:
+        pos = hash_i(x) mod m    // m = array size
+        bits[pos] = 1
+=====
+
+To test whether an item is present, you run it through the
+same hash functions to find the same positions, and you check
+whether all of those bits are set. If any one of them is still
+zero, the item was definitely never added, because adding it
+would have set that bit, so you can confidently say no. If all
+of them are set, you say probably yes.
+
+=====
+    // test item x
+    for i in 1..k:
+        pos = hash_i(x) mod m
+        if bits[pos] == 0:
+            return "definitely not present"
+    return "probably present"
+=====
+
+The reason a yes is only probable is now visible. All of the
+item's bits might have been set to one not by that item, but
+by several other items that happened, between them, to cover
+exactly those positions. In that case the filter says probably
+yes about an item it never saw, a false positive. But a no
+remains certain, because if the item had truly been added,
+every one of its bits would be set, so a single zero is proof
+of absence. The whole behavior falls straight out of this
+bit-setting mechanism.
+
+FALSE POSITIVES AND TUNING
+
+The false-positive rate is not a mystery; it is a knob you set
+by choosing the array size and the number of hash functions
+relative to how many items you expect. The intuition is
+simple. As you add items, more and more bits get set to one,
+and the fatter the array fills with ones, the more likely it
+is that some unrelated item finds all its bits already set by
+chance. An almost-empty array gives almost no false positives;
+an array where most bits are ones gives many. So for a given
+number of items, a bigger array means fewer false positives,
+at the cost of more memory.
+
+The number of hash functions has a sweet spot. Too few, and
+each item sets too few bits, so collisions among the sparse
+footprints are easy. Too many, and each item sets so many bits
+that the array fills up fast and everything starts to look
+present. For any target false-positive rate and expected item
+count, there is a mathematically optimal array size and number
+of hash functions, and the formulas are well known, which is
+why Bloom filters can be engineered to hit a precise error
+budget. A typical design might accept a one percent
+false-positive rate and achieve it using only around ten bits
+per item, a tiny fraction of what storing the items themselves
+would need. That ratio, a handful of bits per item for a
+one-in-a-hundred error, is the headline bargain.
+
+VARIANTS AND LIMITS
+
+The basic Bloom filter has two notable limits. First, you
+cannot remove an item. Clearing an item's bits would risk
+clearing bits that other items also depend on, producing false
+negatives and breaking the structure's one guarantee. The
+standard fix is the counting Bloom filter, which replaces each
+single bit with a small counter that is incremented on add and
+decremented on remove, allowing deletion at the cost of more
+space. Second, a basic Bloom filter has a fixed capacity: fill
+it past its design size and the false-positive rate climbs
+until the answers become useless, so you must size it for the
+expected load or use scalable variants that grow.
+
+There is also a neat practical economy. You might think many
+independent hash functions are needed, but it turns out two
+good hash functions can be combined to simulate as many as you
+need without meaningfully raising the error rate, so real
+implementations are lean. And because the filter stores only
+anonymous bits and never the items, it offers a mild privacy
+property: you cannot read the original items back out of a
+Bloom filter, only test guesses against it. These refinements
+keep the structure small, fast, and flexible enough for the
+demanding systems that rely on it.
+
+SIZING ONE, AND WHERE THEY LIVE
+
+Concrete numbers show how good the bargain is. Suppose you
+want to track one million items and accept a one percent
+false-positive rate. The optimal Bloom filter needs roughly
+ten bits per item and about seven hash functions, which comes
+to a little over one megabyte of memory. Storing the one
+million items themselves, if each were a web address of a few
+dozen bytes, would take tens of megabytes, so the filter does
+the job in a small fraction of the space. Want the error ten
+times smaller, one in a thousand? You add only about five more
+bits per item. The memory grows gently as you demand more
+accuracy, which is why Bloom filters scale so gracefully to
+enormous sets.
+
+Because of this, Bloom filters quietly run inside systems you
+use daily. Web browsers have used them to check each visited
+address against a huge list of known-dangerous sites: the
+filter, small enough to ship to every user, says definitely
+safe for almost every page instantly, and only the rare
+probably-dangerous hit triggers a real lookup. Large databases
+such as those behind many web services keep a Bloom filter per
+chunk of stored data so they can skip reading from disk
+entirely when the filter says a key is definitely absent,
+turning a slow disk seek into a fast in-memory no. Lightweight
+cryptocurrency clients have used them to ask the network for
+just the transactions that might concern them without
+downloading everything, and content networks use them to avoid
+caching items seen only once. In each case the pattern is
+identical: a tiny filter cheaply handles the overwhelming
+common case of absence, reserving the expensive machinery for
+genuine hits.
+
+The family has grown to cover the basic version's weaknesses.
+The counting Bloom filter, mentioned earlier, swaps bits for
+small counters to allow deletion. More recent designs, such as
+the cuckoo filter, store compact fingerprints in a way that
+supports deletion and often uses even less space for low error
+rates, while keeping the same core promise of fast approximate
+membership. These refinements extend the reach of the idea,
+but none of them abandons its founding trade: give up a sliver
+of certainty, and buy a vast saving in space and time.
+
+Two further properties make Bloom filters especially suited to
+large, distributed systems. Because a filter is just a bit
+array, two filters built over the same size and hash functions
+can be merged into a filter for the union of their sets by a
+simple bitwise OR, setting a bit in the result wherever either
+input had it set. This means separate machines can each build
+a filter over their own data and cheaply combine them into one
+filter describing everything, which is invaluable when the
+full set is scattered across many servers. The filters are
+also tiny enough to ship around the network, so a server can
+send a compact summary of what it holds rather than the whole
+contents, letting others avoid pointless requests for data
+that is definitely absent.
+
+The structure's limits have spawned refinements for when the
+basic version does not fit. When you cannot predict how many
+items you will add, a scalable Bloom filter chains together a
+series of filters, adding a new, larger one whenever the
+current fills, so the error rate stays bounded as the set
+grows without end. When you need to remove items, the counting
+variant allows it. And the mild privacy property, that the
+stored bits cannot be reversed into the original items, has
+been pushed further into designs deliberately used to test
+membership without revealing the underlying data. Across all
+these variants the founding bargain is untouched: a
+controlled, well-understood error rate in exchange for an
+efficiency that exact structures cannot approach. That bargain
+is the real reason to learn the Bloom filter, beyond the
+mechanism itself. It is the cleanest demonstration of a
+mindset that separates mature engineering from naive
+engineering: the willingness to ask not for a perfect answer
+but for the cheapest answer that is good enough, and to make
+the imperfection precise, bounded, and chosen rather than
+accidental. Once you have truly absorbed that a
+one-in-a-hundred error can be worth a hundredfold saving in
+space, you begin to see openings for the same trade in
+problems that look nothing like set membership.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is treating a probably yes as a
+definite yes. A Bloom filter's positive answer must be
+confirmed by an exact check whenever correctness matters,
+because some fraction of positives are false. The structure is
+a filter, not an oracle; it is designed to be the cheap first
+stage before an authoritative check, and using its yes as
+final defeats its purpose and invites errors.
+
+A second misconception is forgetting that the error is
+one-sided and worrying about false negatives. There are none:
+a no is always correct. This is the property that makes the
+filter safe as a front gate, and misunderstanding it leads
+people either to distrust the certain no or to wrongly fear
+missing real items. The guarantee is precisely that you will
+never miss a real item; you will only occasionally be sent to
+double-check a phantom.
+
+A third error is ignoring capacity and overfilling the filter.
+Because the false-positive rate rises as the array fills, a
+Bloom filter sized for a million items and then loaded with
+ten million will quietly degrade until almost everything looks
+present and the filter is worthless. The error rate is a
+promise that holds only at or below the designed load, and
+respecting that load is essential.
+
+A fourth error is reaching for a Bloom filter when you
+actually need to store, retrieve, count, or delete the items
+themselves. A Bloom filter cannot list its contents, cannot
+tell you which item caused a hit, and in its basic form cannot
+delete. It answers exactly one narrow question, membership,
+approximately, and for anything richer you need a different
+structure. Using it outside that narrow lane leads to
+frustration.
+
+WHERE IT CONNECTS
+
+Bloom filters connect directly to hash tables, since both are
+built from hash functions mapping items to array positions,
+but they sit at opposite ends of a trade-off: a hash table
+stores the items and answers exactly at higher memory cost,
+while a Bloom filter stores only footprints and answers
+approximately at tiny cost. Understanding both reveals the
+spectrum from exact to approximate membership.
+
+They connect to the birthday paradox and the mathematics of
+collisions, because the false positives are collisions in the
+bit array, and the same probabilistic reasoning about how
+quickly randomly placed marks start to overlap governs how the
+error rate grows as the filter fills. They connect to the
+broad family of probabilistic data structures that trade a
+controlled error for dramatic efficiency, a family that also
+estimates counts and cardinalities in tiny space, all sharing
+the Bloom filter's founding idea. And they connect to a
+principle that reaches far beyond data structures: that in
+systems overwhelmed by cheap-to-ask, expensive-to-answer
+questions, a fast approximate filter that reliably handles the
+easy, common case, leaving only the rare hard case for the
+expensive machinery, is one of the most powerful patterns in
+all of engineering.

@@ -1,0 +1,315 @@
+HOW BATTERIES STORE ENERGY
+
+WHAT IT IS
+
+A battery stores energy as chemistry and releases it as
+electricity on demand. Inside, it holds substances that very
+much want to react with each other, and it keeps them apart in
+a way that forces the only path between them to run through
+your circuit. When you close that circuit, the reaction
+proceeds, but the electrons it releases are made to take the
+long way round, through your phone or your flashlight, doing
+useful work on the way, before completing the reaction. A
+battery is, at heart, a controlled chemical reaction with the
+electrons rerouted through you.
+
+Every battery has the same three essential parts. There is the
+negative electrode, the anode, made of a material that readily
+gives up electrons. There is the positive electrode, the
+cathode, made of a material that readily accepts them. And
+between them is the electrolyte, a substance that lets charged
+atoms, ions, move through it but blocks electrons. The
+electrolyte is the clever part. By allowing ions through while
+stopping electrons, it forces the electrons to travel through
+the external wire instead, which is exactly the current you
+use. Separate the two electrodes with something that passes
+ions but not electrons, and the only way for the reaction to
+finish is through your device.
+
+The reaction itself is a transfer of electrons from one
+material to another, which chemists call oxidation and
+reduction, or redox. Oxidation is losing electrons, happening
+at the anode; reduction is gaining them, happening at the
+cathode. The battery's voltage, its electrical push, comes
+from how badly the anode material wants to shed electrons and
+the cathode wants to take them. A bigger difference in that
+appetite means a higher voltage. This is why the choice of
+materials, not the size of the battery, sets its voltage: a
+single cell of a given chemistry always produces about the
+same voltage, whether it is tiny or huge.
+
+WHY IT MATTERS
+
+Batteries are the technology that cut energy loose from the
+wire. Before portable stored power, electricity had to be used
+where and when it was generated, tethered to the grid.
+Batteries let you carry energy in your pocket, which is the
+hidden premise of nearly every portable device: phones,
+laptops, watches, hearing aids, power tools, medical implants,
+and electric cars all exist because energy can be stored
+chemically and released cleanly. The entire mobile world rests
+on the humble idea of keeping two eager chemicals apart until
+you need them.
+
+They matter more than ever because the shift to renewable
+energy is, in large part, a battery problem. The sun and wind
+produce power at nature's schedule, not ours, so storing that
+energy for when it is actually needed is the central challenge
+of a clean grid. Grid-scale batteries smooth the gap between
+when power is generated and when it is used. The same
+chemistry that runs your phone, scaled up enormously, is one
+of the keys to decarbonizing electricity, which is why battery
+research is among the most consequential engineering of the
+century.
+
+They matter, finally, as a window into electrochemistry, the
+science at the border of chemistry and electricity that also
+governs corrosion, electroplating, fuel cells, and the
+signaling of your own nerves. The 2019 Nobel Prize in
+Chemistry went to John Goodenough, Stanley Whittingham, and
+Akira Yoshino for the lithium-ion battery, a recognition that
+this was not mere engineering but a deep achievement that
+reshaped the world. Understanding how a battery works is
+understanding a fundamental way that matter and energy trade
+places.
+
+THE CORE MECHANISM
+
+Follow the electrons through a discharging battery. At the
+anode, the material undergoes oxidation, giving up electrons
+and releasing positive ions into the electrolyte. The freed
+electrons cannot cross the electrolyte, so they pile up at the
+anode terminal, which becomes the negative end. When you
+connect a circuit, those electrons rush through the wire
+toward the cathode, and that rush is the current that powers
+your device. Meanwhile, inside the battery, the positive ions
+drift through the electrolyte from anode to cathode, keeping
+the charge balanced. At the cathode, the arriving electrons
+and the arriving ions meet and the material undergoes
+reduction, completing the reaction. Electrons through the
+outside, ions through the inside, both flowing because the
+chemistry pulls them.
+
+The energy you get out was stored in the chemical bonds. The
+products of the reaction sit at a lower energy than the
+starting materials, and that difference in energy is what
+pushes the electrons through your circuit. When the reactive
+materials are used up, the reaction cannot proceed, no more
+electrons flow, and the battery is flat. It has not lost its
+stuff; it has rearranged its chemistry into the low-energy,
+used-up state, and there is simply no appetite left to drive a
+current.
+
+A rechargeable battery is one whose reaction can be run
+backward. By forcing current into the battery from an external
+source, a charger, you push the electrons and ions back the
+way they came, driving the reaction uphill and restoring the
+original high-energy materials. Not all chemistries can do
+this cleanly; in a disposable battery the reaction or the
+physical structure cannot be reversed without damage, so once
+spent it is done. The genius of a good rechargeable chemistry
+is that the materials can be built up and torn down thousands
+of times without falling apart, which is a demanding
+requirement and the reason good rechargeable batteries are
+hard to make.
+
+Lithium-ion batteries, the ones in most modern electronics,
+work by a particularly elegant version of this called
+intercalation. Lithium ions are small and shuttle back and
+forth between two host structures, sliding into spaces in the
+cathode during discharge and back into the anode, usually
+graphite, during charging, like guests checking in and out of
+a layered hotel without demolishing the building. Because the
+ions just move in and out of stable structures rather than
+forming and breaking a messy reaction, the process can repeat
+many hundreds of times. This shuttling of lithium is why they
+are called lithium-ion, and it is the trick that made
+lightweight, long-lived rechargeable batteries possible.
+
+A TOUR OF REAL BATTERIES
+
+The story begins with Alessandro Volta, who around 1800
+stacked discs of two different metals separated by
+brine-soaked cloth and produced the first steady electric
+current, the voltaic pile. Before him, electricity was a brief
+spark; Volta made it flow. His insight, that two dissimilar
+metals in a conducting liquid generate a current, is the seed
+of every battery since, and his name survives in the volt.
+
+The lead-acid battery, invented in the mid-1800s, still starts
+nearly every gasoline car. It uses lead and lead oxide plates
+in sulfuric acid, and its great virtues are that it is cheap,
+reliable, and can deliver a huge burst of current to crank an
+engine. Its vices are that it is heavy and has modest energy
+for its weight, which is fine for a car that carries it anyway
+but useless for a phone. The alkaline cell, the familiar
+disposable AA, uses zinc and manganese dioxide and is cheap,
+stable, and long-lasting on the shelf, but not practically
+rechargeable, which is why it ends up in the bin.
+
+The lithium-ion cell, commercialized around 1990 after the
+work that would later win the Nobel, changed everything by
+packing far more energy into far less weight than anything
+before, while surviving hundreds of recharge cycles. That
+combination, light, dense, and rechargeable, is precisely what
+a pocket computer or an electric car needs, and it is why
+lithium-ion displaced the older chemistries from almost every
+portable role. The trade is that lithium is reactive and the
+cells are less forgiving of abuse, which is the dark side of
+their power.
+
+WHY THEY DIE, SWELL, AND BURN
+
+Batteries age because the repeated building and tearing down
+of their materials is never perfectly clean. Each charge and
+discharge leaves tiny irreversible changes: unwanted side
+reactions consume a little of the active material, protective
+films thicken, and the electrode structures slowly crack and
+lose contact. Over hundreds of cycles these small losses add
+up, and the battery holds less and less charge until it is no
+longer useful. This is why an old phone battery drains so
+fast: not because it leaks, but because the chemistry has
+partly worn out and less of it can still take part.
+
+Swelling comes from gas. When a cell is overcharged,
+overheated, or simply old, side reactions produce gas inside
+the sealed pouch, and with nowhere to go it bloats the
+battery. A swollen battery is a warning sign that the internal
+chemistry has gone wrong and the cell should be retired
+carefully, because it is now both damaged and under pressure.
+
+Fire is the most dangerous failure, and it comes from a
+vicious circle called thermal runaway. If a lithium cell gets
+too hot, from a short circuit, physical damage, a
+manufacturing flaw, or overcharging, a reaction begins that
+releases heat, and that heat speeds up the reaction, which
+releases more heat, and so on, faster and faster, until the
+cell vents flammable gas and can ignite. Because lithium cells
+pack so much energy so densely and contain flammable
+electrolyte, once runaway starts it is hard to stop, and the
+fire can reignite. This is why damaged lithium batteries are
+treated as hazards, why they are regulated on aircraft, and
+why good cells include separators and control electronics
+specifically to prevent the runaway from ever starting. The
+very density of energy that makes lithium batteries wonderful
+is what makes their failures violent.
+
+ENERGY DENSITY, CHARGE RATES, AND PACKS
+
+A sobering number explains both why batteries are so useful
+and why they are not yet the answer to everything: their
+energy density. A kilogram of gasoline holds roughly forty to
+fifty times as much energy as a kilogram of the best
+lithium-ion battery. This gap is why a petrol car can be
+refueled in minutes and driven for hundreds of miles on a tank
+that weighs little, while an electric car carries a battery
+pack weighing hundreds of kilograms and takes far longer to
+charge. Batteries have improved steadily, but they are
+climbing toward limits set by chemistry, and the stubbornness
+of this comparison is the central engineering fact behind the
+pace of electrification. It is also why batteries dominate
+where their cleanliness, quiet, and precise control matter
+most, and struggle where sheer energy per kilogram is king,
+such as long-haul aviation.
+
+How fast a battery can be charged or discharged is described
+by its rate, often given relative to its capacity. Draw too
+much current and the cell heats up and ages faster; charge too
+fast, especially when cold, and you risk plating metallic
+lithium on the electrode, which permanently degrades the cell
+and can create the internal short that triggers a fire. This
+is why fast charging slows down as the battery fills and why
+chargers taper the current near the top, and why the last
+stretch from eighty to a hundred percent takes
+disproportionately long. The cell is being coaxed, not forced,
+because forcing it shortens its life.
+
+Few devices run on a single cell. Because one lithium cell
+produces only a few volts, cells are wired in series to add
+their voltages up to what a motor or laptop needs, and in
+parallel to add their capacities for longer runtime. A laptop
+or an electric car therefore contains a pack of many cells,
+overseen by a battery management system, a small computer that
+monitors each cell's voltage and temperature, balances them so
+none is overcharged or overdrained, and cuts the circuit if
+anything goes dangerously wrong. Much of what makes a modern
+battery safe and long-lived is not the chemistry alone but
+this electronic guardian watching every cell, because in a
+large pack the weakest cell sets the fate of the whole.
+
+The end of a battery's life raises its own set of questions.
+The materials in a lithium cell, including lithium, cobalt,
+and nickel, are valuable and in some cases scarce or mined
+under troubling conditions, so a spent pack is not merely
+waste but a concentrated ore worth recovering. Recycling can
+reclaim much of the metal, and packs retired from electric
+cars, still holding most of their capacity, often get a second
+life storing energy for buildings and the grid before they are
+finally broken down. As batteries multiply across the world,
+this back end, recovering and reusing their materials rather
+than discarding them, is becoming as important as the
+chemistry that made them, and it closes the loop on a
+technology whose front end already reshaped modern life.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is that a battery stores electricity,
+like a tank holding charge. It does not store electrons
+waiting to flow; it stores chemical potential, and it
+manufactures the current on the spot by running a reaction. A
+charged battery and a dead one contain the same number of
+electrons; what differs is the chemical arrangement and thus
+the appetite to drive them around a circuit. Thinking of a
+battery as a bucket of electricity leads to confusion about
+almost everything it does.
+
+A second misconception is the lingering memory-effect advice,
+that you should fully drain a battery before recharging. That
+applied to certain older chemistries and is actively bad for
+lithium-ion, which prefers to live in the middle of its range
+and is stressed by being run fully empty or kept fully full.
+Modern lithium cells last longest with frequent partial
+charges and a cool temperature, the opposite of the old rule.
+
+A third error is underestimating heat. Temperature is the
+great enemy of battery life and safety. Heat accelerates the
+wear reactions, so a battery kept hot ages far faster, and
+extreme heat is what triggers the dangerous runaway. Leaving a
+device or an electric car battery baking in the sun is quietly
+shortening its life, and charging a very cold lithium battery
+can damage it too. Much of caring for batteries is simply
+managing their temperature.
+
+A fourth misconception is that voltage tells you how much
+energy is left. Voltage sags only modestly as many batteries
+discharge, so it is a poor fuel gauge; what matters is
+capacity, how much charge the cell can still deliver, which is
+why devices estimate remaining energy with more than a simple
+voltage reading. Confusing voltage with charge leads people to
+misjudge both how full a battery is and why two batteries of
+the same voltage can hold wildly different amounts of energy.
+
+WHERE IT CONNECTS
+
+Batteries connect directly to electricity and circuits, since
+a battery is just a source of voltage driving current around a
+loop, and understanding one illuminates the other. The same
+ideas of voltage as a push and current as a flow describe both
+the battery's internal chemistry and the external device it
+powers.
+
+They connect to the chemistry of oxidation and reduction,
+which governs not only batteries but rusting, tarnishing,
+electroplating, and the slow corrosion that eats metal
+structures, all of which are the same electron-transfer
+process in different dress. They connect to the challenge of
+renewable energy and the grid, where storing power to match
+supply with demand is the defining problem, and to the physics
+of energy itself, since a battery is one more example of
+energy changing form, from chemical to electrical to light,
+heat, or motion, obeying the same conservation laws that run
+every engine and every living cell. And they connect, through
+thermal runaway, to the study of self-reinforcing feedback
+loops, where a process that feeds on its own output can
+accelerate out of control, a pattern that appears in systems
+far beyond chemistry.

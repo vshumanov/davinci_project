@@ -1,0 +1,306 @@
+SIGNAL DETECTION THEORY
+
+WHAT IT IS
+
+Signal detection theory is a framework for understanding any
+decision made under uncertainty, where you must decide whether
+something is present or absent based on evidence that is noisy
+and ambiguous. A radar operator staring at a flickering screen
+must decide whether a blip is an aircraft or just
+interference. A doctor reading a scan must decide whether a
+shadow is a tumor or harmless tissue. A juror must decide
+whether the evidence means guilt. In every such case the true
+state of the world is hidden, the evidence is imperfect, and
+the decider must draw a line and commit. Signal detection
+theory is the mathematics of drawing that line well.
+
+Its central move is to separate two things that everyday
+thinking tangles together: how good you are at telling signal
+from noise, and how willing you are to say yes. These are
+genuinely different. A radar operator with excellent eyesight
+and a clear screen has high ability to discriminate real
+aircraft from clutter. But that same operator might be
+cautious, calling out a target only when certain, or
+trigger-happy, calling out anything that might be a target.
+Ability and willingness are independent dials, and confusing
+them leads to deep errors in judging performance. Signal
+detection theory pulls them apart and measures each on its
+own.
+
+The theory grew out of exactly this radar problem during the
+Second World War, when operators watching for enemy aircraft
+had to extract faint signals from noise, and it was formalized
+in the 1950s. From those military roots it spread into
+psychology, medicine, machine learning, and any field that
+must distinguish a real pattern from a false one. Wherever a
+yes-or-no judgment is made from uncertain evidence, this
+framework applies, which is almost everywhere.
+
+WHY IT MATTERS
+
+It matters because it corrects a mistake we make constantly:
+judging a detector by a single number, like its accuracy or
+its hit rate, without accounting for the trade-off hidden
+inside. A test that catches every disease sounds wonderful
+until you learn it does so by calling almost everyone sick,
+drowning the real cases in false alarms. A security screen
+that never misses a weapon may be stopping thousands of
+innocent travelers for each real threat. You cannot judge such
+a system by its hits alone; you must look at its false alarms
+too, and signal detection theory is the tool that holds both
+in view at once.
+
+It matters because it reveals that where you set your decision
+threshold is a choice with consequences, not a fact of nature,
+and that the right threshold depends on the costs of the two
+kinds of error. Missing a real cancer is a catastrophe; a
+false alarm means an anxious patient and a follow-up test.
+Those costs are wildly unequal, so a cancer screen should lean
+toward catching everything and tolerating false alarms. In
+other settings the balance tips the other way. Recognizing
+that the threshold is a lever you set according to the stakes,
+rather than a correctness you either have or lack, is one of
+the most useful ideas a decision-maker can hold.
+
+It matters, finally, because it gives precise language to a
+pervasive confusion between two different kinds of being
+wrong. Nearly every important decision risks two opposite
+errors, and reducing one usually increases the other. Signal
+detection theory names them, relates them, and shows that
+managing the balance, not eliminating error, is the real task.
+That reframing improves thinking far beyond radar and
+medicine.
+
+HITS, MISSES, AND FALSE ALARMS
+
+Lay out the possibilities in a square. The world is in one of
+two states, signal present or signal absent, and you make one
+of two responses, yes or no. That gives four outcomes. When
+the signal is present and you say yes, that is a hit. When the
+signal is present and you say no, that is a miss, also called
+a false negative. When the signal is absent and you say yes,
+that is a false alarm, also called a false positive. When the
+signal is absent and you say no, that is a correct rejection.
+Every decision under uncertainty lands in one of these four
+boxes, and the whole theory is about the rates at which you
+land in each.
+
+The crucial insight is that the two kinds of error, misses and
+false alarms, trade off against each other through your
+threshold. If you become more willing to say yes, lowering
+your threshold for calling a signal, you will catch more real
+signals, raising your hit rate, but you will also mistake more
+noise for signal, raising your false-alarm rate. If you become
+more cautious, raising your threshold, you cut false alarms
+but also miss more real signals. You cannot reduce both errors
+at once by moving the threshold; pushing one down pushes the
+other up. This seesaw is the heart of the matter, and it is
+why no single threshold is correct for all purposes.
+
+SENSITIVITY VERSUS CRITERION
+
+Now the key separation. Imagine that the evidence you receive
+forms two overlapping bell curves: one for the cases where the
+signal is truly absent, producing some background level of
+evidence from noise alone, and one for the cases where the
+signal is present, producing on average more evidence, but
+with spread, so the two curves overlap. The overlap is the
+problem: in the overlapping region, a given level of evidence
+could have come from either noise or signal, and you cannot be
+sure which.
+
+Sensitivity, written d-prime, is how far apart the two curves
+are. A large separation means signal clearly produces more
+evidence than noise, little overlap, and easy discrimination;
+a small separation means heavy overlap and a hard task.
+Sensitivity reflects the genuine quality of your detector, the
+sharpness of your eyes, the clarity of your scan, the
+resolving power of your instrument. Improving sensitivity, by
+better equipment, training, or evidence, is the only way to
+reduce both kinds of error together, because it shrinks the
+overlap itself.
+
+The criterion is where, along the evidence axis, you place
+your cutoff for saying yes. Everything above the line you call
+signal; everything below, noise. Moving the criterion does not
+change the curves or their overlap at all; it only slides the
+division between the four outcomes, trading misses for false
+alarms and back. This is the decisive distinction the theory
+makes. Sensitivity is your ability and is fixed by the quality
+of your detector; the criterion is your policy and is yours to
+set according to the costs. A detector can have high
+sensitivity but a badly placed criterion, performing poorly
+not because it cannot discriminate but because it is drawing
+the line in the wrong place.
+
+THE ROC CURVE AND SETTING THE THRESHOLD
+
+If you sweep the criterion from very strict to very lax and
+plot the hit rate against the false-alarm rate at each
+setting, you trace a curve called the ROC curve, for receiver
+operating characteristic, a name inherited from its radar
+origins. Each point on the curve is one possible threshold. A
+detector with no discrimination, guessing, produces a diagonal
+line, where every gain in hits costs an equal rise in false
+alarms. A good detector bows up toward the top-left corner,
+where you get many hits for few false alarms, and the more it
+bows, the higher its sensitivity. The area under this curve is
+a single measure of how good the detector is across all
+possible thresholds, independent of which threshold you happen
+to choose.
+
+The ROC curve makes the design task vivid. Your sensitivity
+determines which curve you are on, the shape of what is
+achievable; your criterion determines where on that curve you
+sit. To do better overall, you must get onto a higher curve by
+improving the detector. To tune for a particular use, you
+slide along your curve to the point where the balance of hits
+and false alarms best fits the costs at stake. Setting the
+threshold is then an explicit decision: weigh the cost of a
+miss against the cost of a false alarm, consider how common
+the signal actually is, and place the criterion accordingly. A
+rare, dangerous signal with cheap false alarms calls for a lax
+threshold; a common, harmless signal with costly false alarms
+calls for a strict one.
+
+A SCREENING EXAMPLE, AND TIRED OPERATORS
+
+Numbers make the stakes vivid. Imagine a disease that afflicts
+one person in a hundred, and a screening test that is
+genuinely good: it catches ninety percent of real cases and
+raises a false alarm on only ten percent of healthy people.
+Screen ten thousand people. About a hundred truly have the
+disease, and the test catches ninety of them. But about nine
+thousand nine hundred are healthy, and ten percent of those,
+nearly a thousand, get a false alarm. So out of roughly a
+thousand ninety positive results, only ninety are real: fewer
+than one positive in ten is a true case, even though the test
+is ninety percent accurate by both measures. This is not a
+flaw in the test; it is the base rate at work. When the signal
+is rare, false alarms swamp the true hits, which is why a
+positive on a screen for a rare condition is a reason to
+investigate, not to panic, and why mass screening is such a
+delicate business.
+
+Setting the threshold is a value judgment dressed as a
+technical one, and shifting it trades the two errors
+deliberately. Tell a radiologist that a missed tumor is a
+catastrophe and a false alarm merely means another scan, and
+they will adopt a liberal criterion, calling anything
+suspicious, which catches nearly every real case at the cost
+of many false alarms and follow-up tests. Tell a bomb-disposal
+team that a false alarm is cheap and a miss is fatal, and they
+too will lean liberal. Reverse the costs, where false alarms
+are expensive or harmful, and the wise criterion turns
+conservative. The detector's sensitivity has not changed at
+all; only the policy has, and the policy should follow the
+costs and the base rate, not a vague wish to be accurate.
+
+The radar origins of the field also expose a human wrinkle:
+sensitivity itself can erode with time and fatigue. Wartime
+studies found that operators watching a screen for long, dull
+stretches detected fewer real targets as their shift wore on,
+a decline called the vigilance decrement. In signal-detection
+terms, their effective sensitivity fell, so more real signals
+slipped into the overlap and were missed, regardless of where
+their criterion sat. The practical remedy was not exhortation
+but design: shorter watches, regular rotation, rest, and
+alerts to sustain attention. The lesson generalizes to every
+monitoring job, from lifeguards to security screeners to
+quality inspectors: a detector that is a tired human degrades
+in a predictable way, and the fix is to engineer the task
+around that fact rather than to demand that people simply try
+harder.
+
+The framework has found a vast new home in machine learning,
+where every classifier that decides present or absent, spam or
+not, fraud or legitimate, sick or healthy, faces exactly the
+hits-versus-false-alarms trade-off, and is evaluated with
+exactly these tools. Practitioners speak of precision and
+recall, which are the same four outcomes rearranged, and they
+tune a decision threshold to balance the two errors according
+to the costs, just as a radar operator sets a criterion. They
+plot ROC curves and report the area beneath them to summarize
+a model's discrimination independent of any single threshold,
+the very measure born from wartime radar. When a spam filter
+lets through a little junk to avoid burying a real message in
+the spam folder, or a fraud system tolerates some false
+declines to catch more theft, it is making a signal-detection
+decision, placing its criterion where the costs dictate. The
+theory that began with operators squinting at blips now
+silently governs the automated judgments that filter and sort
+much of modern life.
+
+What endures across all these settings, from the radar screen
+to the medical scan to the spam filter, is the discipline of
+keeping two questions apart: how good is my evidence, and how
+should I act on it. The first is a matter of sensitivity,
+improved by better instruments, more data, and sharper
+training, and it is the only thing that reduces both kinds of
+error at once. The second is a matter of criterion, set
+deliberately according to what each kind of mistake will cost
+and how common the signal truly is. Confusing the two is the
+root of most bad detection, and holding them firmly apart is
+the lasting gift the theory offers to anyone who must decide
+under uncertainty.
+
+WHAT PEOPLE GET WRONG
+
+The first and most common error is judging a detector by one
+number, usually its hit rate or its accuracy, ignoring the
+false alarms that number conceals. A test that flags everyone
+has a perfect hit rate and is useless. You must always ask
+about both errors together, because either one alone can be
+trivially optimized at the other's expense.
+
+A second error is confusing a bad criterion with poor
+sensitivity, blaming the detector's ability when the real
+problem is where the line is drawn. An operator who misses
+targets might have fine eyes but too strict a threshold; the
+fix is to adjust the criterion, not to replace the operator.
+Conversely, moving the threshold can never fix a genuine lack
+of sensitivity; it only shuffles which errors you make.
+Knowing which dial to turn depends entirely on telling these
+two apart.
+
+A third error is forgetting that the right threshold depends
+on how common the signal is, not just on the costs. When a
+signal is very rare, even a good detector produces far more
+false alarms than hits, because there are so many more
+opportunities to false-alarm than to hit, a fact that links
+directly to base-rate reasoning. Ignoring the base rate leads
+to badly placed thresholds and to the shock of discovering
+that a highly accurate test for a rare condition still flags
+mostly healthy people.
+
+A fourth error is treating the existence of errors as a
+failure rather than a permanent feature. As long as the two
+evidence distributions overlap, some errors are unavoidable at
+every threshold, and the goal is not zero error but the best
+balance of the two kinds given the stakes. Demanding no misses
+and no false alarms at once, when the curves overlap, is
+demanding the impossible.
+
+WHERE IT CONNECTS
+
+Signal detection theory connects tightly to base rates and
+Bayesian reasoning, since interpreting a yes correctly
+requires knowing how common the signal is, and the same
+rare-signal mathematics that makes a medical test's positive
+result less alarming than it seems governs where a sensible
+threshold sits. The two frameworks together explain why
+accurate detectors still produce floods of false positives for
+rare events.
+
+It connects to situational awareness and the OODA loop, where
+perceiving a real threat amid noise is exactly a detection
+problem, and where an operator's criterion, their readiness to
+call something a threat, shapes both vigilance and false
+alarms. It connects to machine learning, where every
+classifier faces the same hit versus false-alarm trade-off and
+is routinely evaluated with ROC curves and the area beneath
+them. And it connects to the broad art of deciding well under
+uncertainty, offering a durable lesson for any judgment call:
+separate how good your evidence is from how you choose to act
+on it, improve the first where you can, and set the second
+deliberately according to what each kind of mistake will cost.

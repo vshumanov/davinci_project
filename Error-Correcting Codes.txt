@@ -1,0 +1,298 @@
+ERROR-CORRECTING CODES
+
+WHAT IT IS
+
+An error-correcting code is a way of adding carefully
+structured redundancy to a message so that, even if part of it
+is damaged in transit or storage, the receiver can reconstruct
+the original exactly, without asking for it to be sent again.
+The damage might be a cosmic ray flipping a bit in memory, a
+scratch on a disc, static on a radio link, or a smudge on a
+printed label. The code does not prevent the damage. It
+arranges the information so cleverly that the damage can be
+detected and, within limits, repaired from what survives.
+
+The idea sounds almost too good to be true: you receive a
+garbled message and recover the true one with certainty, using
+nothing but the message itself. The trick is that you do not
+send the bare message. You send extra bits, computed from the
+message by a fixed rule, so that only certain patterns of bits
+are ever legal. When errors knock the received pattern into
+something illegal, the receiver can often tell not just that
+an error happened but which bits are wrong, because the
+nearest legal pattern is almost always the one that was sent.
+Error correction is the art of spreading a message out so that
+errors have nowhere to hide.
+
+This is distinct from, and deeper than, simple error
+detection. Detection tells you that something went wrong so
+you can ask for a resend. Correction repairs the damage on the
+spot, which is essential whenever asking again is impossible
+or absurdly expensive: a space probe hours away by light, a
+disc you already scratched, a packet whose sender has moved
+on. The whole field exists to push the limit of how much
+damage you can silently absorb.
+
+WHY IT MATTERS
+
+Error-correcting codes are one of the great invisible
+technologies holding up modern life. Every hard drive,
+solid-state drive, and memory stick uses them, because the
+physical media are too dense and too imperfect to store raw
+bits reliably. Your phone and Wi-Fi lean on them to pull clean
+data out of a noisy radio channel. Compact discs, DVDs, and
+Blu-rays use them so that a fingerprint or a small scratch
+does not ruin the music or film. QR codes use them so that a
+torn or dirty label still scans. Satellite and deep-space
+links depend on them utterly, because a probe at the edge of
+the solar system is sending a whisper that must be
+reconstructed from the faintest trace.
+
+They matter because they change the economics of reliability.
+Without them, the only way to make storage and communication
+more reliable would be to make the hardware better and the
+signals stronger, both of which are expensive and both of
+which hit physical walls. Codes let you buy reliability with
+mathematics instead, trading a modest amount of extra data for
+an enormous reduction in errors. A deep-space mission cannot
+build a bigger antenna once it has launched, but it can carry
+a better code, and that code is often what makes the mission
+possible at all.
+
+They also matter as one of the clearest demonstrations that
+information is a thing with its own laws, separate from the
+physical medium. The same coding ideas protect bits whether
+those bits live on a spinning disk, ride a laser beam, or sit
+as charge in a memory cell. Claude Shannon proved in 1948 that
+there is a precise, calculable ceiling on how fast you can
+send information reliably over a noisy channel, and that,
+astonishingly, reliable communication right up to that ceiling
+is possible if you code cleverly enough. Error-correcting
+codes are the practical pursuit of Shannon's promise.
+
+THE CORE IDEA: STRUCTURED REDUNDANCY
+
+Start with the crudest possible code: repetition. To send one
+bit reliably, send it three times. If the receiver gets 000 it
+reads zero; if it gets 111 it reads one. If a single bit
+flips, say 010, the receiver takes a majority vote and still
+reads zero, correcting the error. This works, but it is
+wasteful: you tripled the data to fix one error. The history
+of coding is the search for ways to get the same protection
+far more cheaply.
+
+The next idea is the parity bit. Take a block of bits and add
+one extra bit that is set so the total number of ones is even.
+If a single bit flips anywhere in the block, the count of ones
+becomes odd, and the receiver knows something is wrong. A
+single parity bit, costing almost nothing, detects any single
+error. But it cannot correct, because it cannot tell which bit
+flipped, and it misses two simultaneous flips, which restore
+the evenness. Parity is cheap detection, not correction.
+
+The leap to correction comes from a geometric idea: Hamming
+distance, named for Richard Hamming, who worked it out at Bell
+Labs around 1950, reportedly out of frustration at a computer
+that would halt on a weekend when it detected an error it
+could not fix. The Hamming distance between two bit patterns
+is simply the number of positions in which they differ. The
+key move is to choose your set of legal codewords so that any
+two of them are far apart in this distance. If every legal
+codeword differs from every other in at least three positions,
+then a single bit flip produces a pattern that is distance one
+from the true codeword but at least distance two from every
+other, so the receiver can confidently snap it back to the
+nearest legal codeword and recover the original.
+
+This is the heart of all error correction. Spread the legal
+messages far apart in the space of all possible bit patterns,
+leaving wide empty buffers between them. Errors nudge a
+codeword a little way into the buffer, and as long as it has
+not been nudged past the halfway point to a neighbor, the
+nearest legal codeword is the one that was sent. The minimum
+distance between codewords sets the code's power: a minimum
+distance of three corrects one error, five corrects two, and
+so on. Correction is just nearest-neighbor rounding in a
+cleverly arranged space.
+
+HOW A HAMMING CODE FINDS THE ERROR
+
+Hamming's famous code packs four data bits and three parity
+bits into a seven-bit codeword, and it can locate and fix any
+single-bit error. The elegance is in how the parity bits are
+arranged. Each parity bit checks a specific, overlapping
+subset of positions, so that when an error occurs, the pattern
+of which parity checks fail spells out, in binary, the exact
+position of the bad bit.
+
+Think of the seven positions numbered 1 through 7. Parity bit
+one checks every position whose number has the lowest binary
+digit set: 1, 3, 5, 7. Parity bit two checks positions with
+the next binary digit set: 2, 3, 6, 7. Parity bit three checks
+4, 5, 6, 7. Each parity bit is set so its group has even
+parity. Now suppose position 5 is corrupted. Positions 5
+appears in the groups for parity bit one and parity bit three,
+but not two. So checks one and three fail and check two
+passes. Read the failures as binary, with check three as the
+high digit: 101, which is five. The failing checks have
+literally pointed at the broken bit.
+
+=====
+    // check the three parity groups,
+    // build the error position in binary
+    s1 = p1 ^ b3 ^ b5 ^ b7;   // group 1,3,5,7
+    s2 = p2 ^ b3 ^ b6 ^ b7;   // group 2,3,6,7
+    s3 = p4 ^ b5 ^ b6 ^ b7;   // group 4,5,6,7
+
+    pos = s1 + 2*s2 + 4*s3;   // 0 means no error
+
+    if (pos != 0)
+        flip_bit(pos);        // repair in place
+=====
+
+That little computation is the whole decoder. The combination
+of failed checks, called the syndrome, is read as a number,
+and that number is either zero, meaning no detectable error,
+or the position of the single bit to flip. One extra bit of
+overhead beyond Hamming's scheme even lets it detect, though
+not correct, a double error. From this seed grow the powerful
+modern codes, like the Reed-Solomon codes invented by Irving
+Reed and Gustave Solomon in 1960, which operate on whole
+chunks of bits rather than single bits and so shrug off the
+long bursts of damage that a scratch or a fade produces.
+Reed-Solomon codes guard CDs, QR codes, and the Voyager
+probes, the last using a scheme that let the spacecraft keep
+reporting from beyond the planets.
+
+DETECTION, CORRECTION, AND THE LIMIT
+
+There is an unavoidable hierarchy. A given amount of
+redundancy can either detect more errors or correct fewer, and
+you choose where to sit on that trade. The same code that
+detects two errors might correct only one, because correcting
+requires enough separation to decide which way to round, while
+merely noticing that you have left the legal set requires
+less. Systems that can ask for a resend, like much of the
+internet, often lean toward cheap detection and retransmit
+when they catch a problem. Systems that cannot ask again lean
+toward expensive correction.
+
+Shannon's theorem sets the outer wall. For any channel with a
+given level of noise, there is a maximum rate, the channel
+capacity, at which information can be sent with arbitrarily
+small error. Below capacity, good codes can drive the error
+rate as near to zero as you like. Above it, no code, however
+clever, can keep errors down. For decades, real codes fell
+well short of this theoretical limit, and closing the gap was
+one of the central quests of the field, finally approached by
+modern codes that come within a hair of Shannon's wall. The
+remarkable thing is that the wall exists at all, and that it
+can be reached: noise does not force errors, it only sets a
+price, and a good code pays that price and no more.
+
+CHECKSUMS AND THE MODERN CODES
+
+Below full error correction sits a humbler, ubiquitous tool:
+the checksum. A checksum is a small value computed from a
+block of data by a fixed rule and sent alongside it, so the
+receiver can recompute it and see whether the two match. The
+cyclic redundancy check, or CRC, used in network packets and
+on disks, is a carefully designed checksum tuned to catch the
+kinds of damage real channels inflict, including bursts of
+consecutive errors. A checksum only detects damage and then
+asks for a resend; it cannot repair anything. But it is
+extremely cheap and it catches the overwhelming majority of
+errors, which is why some form of it guards almost every
+packet that crosses the internet, with heavier correction
+reserved for the links where resending is impossible.
+
+For decades the powerful codes used in practice fell well
+short of Shannon's theoretical limit, and closing that gap was
+one of the field's central quests. The breakthrough came in
+the 1990s with turbo codes, and with the rediscovery of
+low-density parity-check codes, first proposed by Robert
+Gallager in the early 1960s but long dismissed as too
+demanding to compute. These codes are built from large, partly
+randomized structures and decoded by iteration, the decoder
+passing tentative probabilities back and forth among the bits
+and refining them until they settle into a consistent answer.
+They come within a fraction of a decibel of Shannon's wall,
+and they now carry mobile data, digital television, and
+deep-space communication, finally delivering the near-perfect
+reliability Shannon had proven was possible half a century
+earlier.
+
+The way codes are layered in a real device shows the trade in
+action. A compact disc first scatters each stretch of audio
+across the surface by interleaving, so that a physical
+scratch, which ruins one continuous region, actually corrupts
+many small, separated pieces rather than a single large one.
+Then a Reed-Solomon code, which is strong precisely against
+scattered symbol errors, repairs them. The scratch that would
+have silenced a second of music becomes, after the pieces are
+gathered back together and decoded, a handful of repaired
+symbols you never hear. Interleaving to break up burst damage,
+followed by a symbol code to fix the scatter, is a pattern
+reused across storage and communication, and it illustrates
+the governing rule of the whole field: you match the code to
+the shape of the errors the channel actually makes.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is that error correction means errors
+are prevented. It does not. Errors still happen at the
+physical level exactly as often as before. What changes is
+that the damage is caught and undone before it reaches you, so
+the system behaves as if the channel were clean even though it
+is not. The reliability is reconstructed, not inherent.
+
+The second is confusing error-correcting codes with
+encryption. They are nearly opposite in purpose. Encryption
+hides a message from anyone without the key; a code to correct
+errors makes a message more robust, and it offers no secrecy
+at all, since the encoding rule is public and anyone can
+decode it. The two are often used together, encrypting first
+for privacy and then coding for reliability, but they solve
+different problems and must not be mistaken for each other.
+
+The third is thinking more redundancy is always better.
+Redundancy costs bandwidth, storage, and energy, and past the
+point matched to the channel's actual noise it is pure waste.
+A link that is nearly clean needs almost no protection; a link
+that is nearly hopeless cannot be saved by any amount. Good
+engineering matches the strength of the code to the real noise
+of the channel, no more and no less.
+
+A fourth, subtle error is forgetting that codes assume a model
+of how errors occur. A code built to fix scattered single-bit
+flips can be defeated by a long burst of consecutive errors,
+and vice versa, which is why real systems interleave and layer
+codes to match the messy, bursty reality of physical media.
+When the error pattern violates the code's assumptions, the
+guarantees evaporate.
+
+WHERE IT CONNECTS
+
+Error-correcting codes are the natural partner of information
+theory. Shannon's work defined both how much a channel can
+carry and how much a source can be compressed, and coding
+theory is the engineering that reaches those limits.
+Compression squeezes out the redundancy that is naturally in a
+message; error correction then adds back a different,
+deliberate, structured redundancy to survive the channel. The
+two are mirror images, one removing waste and the other adding
+armor, and real systems do them in sequence.
+
+They connect to radio and all wireless communication, which
+cannot function without them, because every real channel is
+noisy and the alternative, endless retransmission, would
+collapse under its own weight. They connect to storage and to
+the deep reliability of computing, where codes silently repair
+the constant low-level corruption of dense memory and disks.
+And they connect to a broad principle that recurs far beyond
+engineering: that the way to survive inevitable damage is not
+to demand a perfect world but to build structured redundancy,
+slack arranged so that the loss of any one part still leaves
+enough to reconstruct the whole. Bodies, ecosystems, and
+robust organizations all embody some version of the same idea
+that error-correcting codes make exact.

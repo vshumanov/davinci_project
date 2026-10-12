@@ -1,0 +1,294 @@
+OPTICS AND LENSES
+
+WHAT IT IS
+
+Optics is the study of light and how it behaves, and the
+practical heart of it is the lens, a shaped piece of
+transparent material that bends light in a controlled way to
+form images. Almost every optical instrument ever built, the
+eye, the eyeglass, the camera, the microscope, the telescope,
+the projector, does one job: it takes light coming from a
+scene and redirects it so that the rays which left a single
+point of the scene are brought back together at a single point
+on a screen, a film, or a retina. When that happens for every
+point in the scene, you get an image, a faithful map of light
+that lets a flat surface capture the world in front of it.
+
+The surprising thing is that all of this is built from one
+simple physical fact: light changes direction when it passes
+from one transparent material into another, such as from air
+into glass or water. This bending is called refraction, and it
+happens because light travels at different speeds in different
+materials. A lens is nothing more than a cleverly curved slab
+of glass whose shape makes refraction steer incoming rays to a
+useful meeting point. Grind the curve correctly and you can
+gather the scattered light from a distant star or magnify the
+veins of an insect's wing, all through the same humble effect
+of light slowing down and turning as it enters glass.
+
+So optics, for all its instruments, rests on two ideas working
+together. Light bends predictably when it crosses between
+materials, and a surface curved in the right way uses that
+bending to converge rays to a focus. Everything else, every
+camera and telescope and pair of glasses, is an application of
+those two ideas.
+
+WHY IT MATTERS
+
+Lenses extended human senses further than almost any other
+invention. The microscope revealed a hidden world of cells and
+microbes, founding biology and medicine as we know them and
+making germ theory possible. The telescope turned the night
+sky from decoration into a place, revealing moons, phases, and
+galaxies, and overturning our picture of the cosmos and our
+position in it. Spectacles gave aging and short-sighted people
+back the ability to read and work, a quiet revolution in human
+productivity. The camera gave us a way to record light itself,
+transforming art, memory, science, and communication. Each of
+these rests on understanding how to bend light.
+
+Optics matters, too, because light is one of our primary
+channels of information, and nearly every technology that
+captures, stores, or transmits images runs on lenses and the
+physics of refraction. The lens in your phone, the fiber
+carrying internet light across oceans, the scanner at the
+checkout, the sensor guiding a self-driving car, all are
+optics. Understanding how a lens forms an image demystifies a
+huge swath of the built world, and reveals that devices which
+seem utterly different are the same idea at different scales
+and settings.
+
+It matters, finally, because it connects directly to your own
+vision. Your eye is a lens, and the most common human sensory
+defects, near-sightedness and far-sightedness, are simply the
+eye's lens focusing the image slightly in front of or behind
+the retina instead of on it. Glasses and contact lenses fix
+this by adding exactly the bend needed to move the focus onto
+the retina. To understand lenses is to understand your own
+eyes and why they sometimes need help.
+
+REFRACTION: WHY LIGHT BENDS
+
+Light travels fastest in empty space and slower in transparent
+materials like glass or water, because it interacts with the
+atoms as it passes. When a beam of light crosses at an angle
+from a fast material into a slow one, it bends toward the
+perpendicular of the surface, and when it crosses back from
+slow to fast, it bends away. The classic image is a marching
+band walking from firm ground into mud at an angle: the rows
+reach the mud one end first, that end slows while the other
+keeps its pace, and the whole line pivots. Light pivots for
+the same reason, because one part of the wavefront slows
+before the rest.
+
+The amount a material slows light is captured by a single
+number, its refractive index, and the precise relationship
+between the angles going in and coming out is called Snell's
+law. The higher the index, the more the material slows light
+and the more it bends it. This is why a diamond, with a very
+high index, sparkles so dramatically, bending and trapping
+light far more than ordinary glass. It is also why a straw in
+a glass of water looks broken at the surface: the light from
+the underwater part bends as it leaves the water, so the straw
+appears displaced.
+
+A striking consequence appears when light tries to leave a
+slow material for a fast one at a steep angle: beyond a
+certain angle it cannot escape at all and is completely
+reflected back inside. This total internal reflection is what
+traps light inside an optical fiber, letting a glass thread no
+thicker than a hair guide a beam of light for many kilometers
+by bouncing it along the inside walls, the basis of modern
+fiber-optic communication. The same effect makes the underside
+of a water surface act like a mirror when seen from below.
+
+LENSES AND FOCAL POINTS
+
+A convex lens, thicker in the middle than at the edges, is the
+workhorse. Because of its curve, rays striking near the edge
+are bent more steeply than rays near the center, and the shape
+is arranged so that all parallel rays coming in are bent to
+cross at a single point behind the lens, called the focal
+point. The distance from the lens to that point is the focal
+length, the single most important number describing a lens. A
+fat, strongly curved lens bends light hard and has a short
+focal length; a flat, gently curved lens bends light gently
+and has a long one.
+
+When the object is far away, its rays arrive nearly parallel
+and the lens forms a small, sharp image right at the focal
+point, which is how a camera photographs a distant scene. As
+the object moves closer, the image forms a little farther back
+and grows larger, which is why focusing a camera means moving
+the lens slightly in and out to place the sharp image exactly
+on the sensor. A concave lens, thinner in the middle, does the
+opposite: it spreads parallel rays apart as if they came from
+a point in front, and is used to correct near-sightedness and
+in combination with other lenses.
+
+Magnification comes from these same rules. Hold a convex lens
+close to small print and, with the object nearer than the
+focal point, your eye sees an enlarged image, a simple
+magnifying glass. Combine two lenses and the magnification
+multiplies: a microscope uses one lens to form an enlarged
+image of a tiny object and a second lens to magnify that image
+again, while a telescope uses a large lens or mirror to gather
+and focus the faint light of distant objects and a small
+eyepiece to magnify the result. The whole zoo of instruments
+is combinations of converging and diverging lenses arranged to
+put the focus where you want it and to magnify by the amount
+you need.
+
+THE SAME IDEA EVERYWHERE
+
+The eye is a living camera. Its cornea and lens refract
+incoming light to focus an image on the retina at the back,
+where light-sensing cells convert it to nerve signals. To look
+at near and far objects, muscles squeeze the eye's flexible
+lens to change its focal length, a process called
+accommodation. When the eye is too long or the lens too
+strong, distant images focus in front of the retina and appear
+blurry, which is near-sightedness, corrected by a concave
+lens. When the eye is too short, near images focus behind the
+retina, which is far-sightedness, corrected by a convex lens.
+A camera does exactly the same job with a glass lens and a
+sensor instead of a cornea and a retina, focusing by moving
+the lens rather than squeezing it. Recognizing that the eye,
+the camera, the microscope, and the telescope are one idea,
+bending light to a focus, at different scales is the reward of
+understanding optics.
+
+MIRRORS, COLOR, AND LIMITS
+
+Lenses bend light by refraction, but you can also steer light
+by reflection, and a curved mirror focuses just as a lens
+does. A mirror shaped like a parabola takes parallel rays,
+from a distant star or a far-off signal, and reflects them all
+to a single focal point, which is why large telescopes,
+satellite dishes, and solar concentrators use mirrors rather
+than lenses: a mirror can be made huge and supported from
+behind, while a giant lens would sag under its own weight and
+absorb the light passing through it. Run the same shape in
+reverse, with a source at the focus, and the parabola throws
+the light out in a tight parallel beam, which is exactly how a
+flashlight, a car headlight, and a searchlight work.
+Reflection and refraction are the two ways to redirect light,
+and most real instruments use whichever is more practical, or
+both together.
+
+Color enters because the amount a material bends light depends
+slightly on the light's color, with violet bending more than
+red. Pass white light through a prism and it fans out into the
+spectrum, because each color takes a slightly different path.
+The same splitting, called dispersion, paints the rainbow,
+where countless raindrops each act as a tiny prism and mirror,
+bending sunlight, reflecting it off the back of the drop, and
+spreading it into the familiar arc. In instruments this effect
+is usually a nuisance, the chromatic aberration that fringes a
+cheap lens with color, and much of the art of good lens design
+is canceling it by combining glasses that disperse light
+differently.
+
+There is also a hard ceiling on what any lens or mirror can
+resolve, set by the wave nature of light itself. Because light
+is a wave, it spreads a little as it passes through any
+opening, an effect called diffraction, and this blurs the
+finest detail no matter how perfect the optics. The larger the
+aperture and the shorter the wavelength, the finer the detail
+you can resolve, which is the deep reason that serious
+telescopes are built ever larger and that microscopes using
+ordinary light cannot see things much smaller than the
+wavelength of that light. This diffraction limit is why you
+cannot simply magnify forever, and why pushing past it demands
+shorter wavelengths or entirely different tricks. It also
+explains, in passing, the language of eyeglasses: a lens is
+rated in diopters, which is simply one divided by its focal
+length in meters, so a stronger correcting lens has a shorter
+focal length and a higher diopter number.
+
+The living lens ages in ways that optics explains precisely.
+In youth the eye's lens is flexible, and the muscles around it
+can squeeze it to shorten its focal length and bring near
+objects into focus. With age the lens stiffens, accommodation
+weakens, and the near point, the closest distance you can
+focus, retreats beyond arm's length, which is why almost
+everyone needs reading glasses in later life, a condition
+called presbyopia. The lens can also cloud with age into a
+cataract, scattering light and dimming vision, now routinely
+cured by replacing the natural lens with an artificial one.
+And laser eye surgery corrects near- and far-sightedness not
+with added glass but by reshaping the cornea itself, grinding
+the eye's own front surface to the curve that places the focus
+back on the retina. Every one of these interventions is the
+same optics of focal length and focus, applied to the
+instrument we were born with. It is a quietly humbling thought
+that the eye, for all its sophistication, obeys the same plain
+rules as a hand lens, and that its failings are not mysterious
+but geometric, a focus fallen slightly in front of or behind
+where it should land. The remedies, whether a piece of glass
+held before the eye or a surgeon reshaping the cornea, all do
+the one thing: move the focus back onto the retina.
+Understanding optics turns the eye from a marvel beyond
+comprehension into a lens you can reason about.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is that a lens magnifies by making
+light bigger or by some special property of glass. A lens
+magnifies only by bending rays so that they enter your eye as
+though they came from a larger or closer object; the trick is
+entirely in the redirection of light, not in any enlargement
+of the light itself. Nothing is added; the rays are merely
+steered.
+
+A second error is thinking the image formed by a simple lens
+is right-side up. A single convex lens forming a real image on
+a screen actually flips it upside down and left-to-right,
+because rays from the top of the object cross to the bottom
+behind the lens. The image on your retina is upside down too,
+and your brain quietly turns it the right way. Cameras and
+projectors deal with this inversion in their design, but the
+raw optical image is flipped.
+
+A third misconception is that higher magnification always
+means a better view. Magnification without enough gathered
+light and enough resolving detail just gives a bigger, dimmer,
+blurrier image. In telescopes, the diameter of the main lens
+or mirror, which sets how much light is collected and how fine
+the detail can be, matters far more than raw magnification,
+which is why serious telescopes are described by their
+aperture, not their power. Empty magnification enlarges
+nothing worth seeing.
+
+A fourth error is forgetting that simple lenses have inherent
+flaws. A single lens cannot focus all colors to the same
+point, because the refractive index varies slightly with
+color, so different colors bend by different amounts and edges
+show colored fringes, an effect called chromatic aberration.
+Real high-quality lenses are assemblies of several elements of
+different glasses designed to cancel these errors, which is
+why a good camera lens contains many pieces of glass rather
+than one.
+
+WHERE IT CONNECTS
+
+Optics connects to the nature of light itself, and through it
+to radio and the whole electromagnetic spectrum, since visible
+light is just one narrow band of the same waves that carry
+radio and X-rays, all obeying the same physics of propagation
+and, with the right materials, refraction. The lens that
+focuses light has analogs that focus other parts of the
+spectrum, from radio dishes to X-ray mirrors.
+
+It connects to biology and medicine through the eye and the
+microscope, which together opened the living world to
+inspection and underpin the understanding of cells, microbes,
+and disease. It connects to astronomy and our picture of the
+universe, since every advance in telescope optics has expanded
+the cosmos we can see. And it connects to modern information
+technology through fiber optics and camera sensors, where
+total internal reflection guides the light that carries the
+internet and lenses focus the images that fill it, so that the
+ancient craft of shaping glass to bend light turns out to sit
+at the foundation of both how we see the world and how we now
+record and transmit it.

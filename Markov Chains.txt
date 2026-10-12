@@ -1,0 +1,310 @@
+MARKOV CHAINS
+
+WHAT IT IS
+
+A Markov chain is a model of a system that moves between
+states at random, where the next state depends only on the
+current one and not on the whole history of how it got there.
+This is the defining property, and it has a name:
+memorylessness. The system does not remember its past.
+Wherever it is now contains everything that matters for
+predicting where it goes next. The weather tomorrow modeled as
+depending only on the weather today, a board game piece whose
+next square depends only on its current square and a die roll,
+a web surfer whose next click depends only on the page they
+are on: all are Markov chains.
+
+The pieces are simple. There is a set of states the system can
+be in. There are transition probabilities, the chances of
+moving from each state to each other state in one step. That
+is the entire description. To run the chain you start
+somewhere and repeatedly roll the weighted dice that the
+transition probabilities define, hopping from state to state.
+The memoryless assumption is what makes the whole thing
+tractable, because you never have to track history; you only
+ever need to know the present state and the fixed table of
+transition probabilities.
+
+The idea comes from the Russian mathematician Andrey Markov,
+who introduced it around 1906 and, in a famous demonstration,
+applied it to a literary text, analyzing the sequence of
+vowels and consonants in a Russian poem to show that his
+methods worked even when successive events were dependent, not
+independent. That was the point he was making: probability
+theory had mostly assumed independent events, like separate
+coin flips, and Markov showed how to handle chains of events
+where each one is linked to the one before, which describes
+far more of the real world.
+
+WHY IT MATTERS
+
+Markov chains matter because an enormous range of real
+processes have, at least approximately, the memoryless
+structure, and for those processes the model is both simple
+and powerful. They describe queues, the spread of disease, the
+behavior of molecules, the fluctuation of stock prices, the
+wear of machinery, the sequence of words in text, and the
+movement of populations. Whenever a system shuffles among a
+set of conditions with roughly fixed step-to-step
+probabilities, a Markov chain captures its behavior and lets
+you compute things that would otherwise be hopeless.
+
+They matter because they power technologies you use
+constantly. The original Google search ranking, PageRank,
+models a random web surfer clicking links as a Markov chain
+and ranks pages by how often that surfer lands on them. The
+predictive text and autocomplete that finish your sentences
+grew from Markov models of which word tends to follow which.
+Speech recognition, gene sequence analysis, and countless
+simulations rest on Markov foundations. The modern methods
+that sample from fiendishly complicated probability
+distributions, essential to statistics and physics, are built
+on cleverly designed Markov chains that wander through
+possibilities and settle into the right proportions.
+
+They matter, finally, because they teach a profound and
+liberating simplification: that you often do not need the full
+history to predict the future, only the present state, if you
+choose your states well. This is both a practical tool and a
+way of thinking. Framing a messy, history-dependent situation
+as movement among a well-chosen set of states, with fixed
+transition odds, can turn an intractable mess into something
+you can calculate, and the art lies in choosing states that
+make the memoryless assumption true enough to be useful.
+
+THE MEMORYLESS PROPERTY
+
+The heart of the matter deserves care, because it is subtle
+and easy to get wrong. Memorylessness does not mean the future
+is independent of the past. It means the present state
+summarizes everything about the past that is relevant to the
+future. If you know the current state exactly, then knowing
+additionally how you arrived tells you nothing more about
+where you will go. All the influence of history is already
+baked into where you are now.
+
+This is less restrictive than it first sounds, because you get
+to define what counts as a state. If the next outcome seems to
+depend on the last two steps, you can make the state the pair
+of last two steps, and the process becomes memoryless again at
+that level. A weather model where tomorrow depends on today
+and yesterday is not memoryless in terms of single days, but
+it is a Markov chain if each state is a pair of consecutive
+days. By folding enough history into the definition of the
+state, a great many processes can be made Markov, which is why
+the framework is so widely applicable. The skill is packing
+just enough into the state to capture the real dependence
+without making the state space hopelessly large.
+
+STATES, TRANSITIONS, AND THE STATIONARY DISTRIBUTION
+
+Picture a tiny weather chain with two states, Sunny and Rainy,
+and these rules: a sunny day is followed by another sunny day
+with probability nine in ten and by rain one in ten; a rainy
+day is followed by sun half the time and rain half the time.
+That table of four numbers is the whole model.
+
+=====
+    from \ to    Sunny   Rainy
+    Sunny         0.9     0.1
+    Rainy         0.5     0.5
+=====
+
+Now ask a natural question: over the long run, what fraction
+of days are sunny? You could simulate the chain for thousands
+of steps and count, but Markov theory gives the answer
+directly. As the chain runs for a long time, under mild
+conditions it forgets where it started and settles into a
+stable mix of states called the stationary distribution, the
+proportions that no longer change from step to step. For this
+weather chain, the long-run fraction of sunny days works out
+to about five in six. Start sunny or start rainy; run it long
+enough and you converge to the same steady climate.
+
+The stationary distribution is often the real prize. It
+answers questions like what fraction of time a machine spends
+broken, what share of web traffic lands on each page, or what
+proportion of a population ends up in each category, all
+without tracing any individual path. It is found by solving
+for the distribution that maps to itself under one step of the
+chain: feed it in, and the same proportions come out. This
+self-consistency, the distribution that is unchanged by the
+chain's own dynamics, is exactly what makes it stationary, and
+it is the mathematical sibling of equilibrium in physics and
+of the steady state in engineering.
+
+PAGERANK AS A RANDOM WALK
+
+The clearest grand example is PageRank, the algorithm that
+launched Google. Imagine a surfer who starts on some web page
+and, at each step, clicks a random link on the current page,
+moving to wherever it leads. This is a Markov chain whose
+states are web pages and whose transitions are the links. Its
+stationary distribution says how often, in the long run, the
+random surfer lands on each page, and a page the surfer visits
+often is, by this measure, important. PageRank ranks pages by
+exactly this stationary probability.
+
+There is one wrinkle that reveals a general lesson. A pure
+link-following surfer can get stuck: a page with no outgoing
+links traps them, and clusters of pages that only link among
+themselves hoard the surfer. The fix is to let the surfer,
+with some small probability at each step, ignore the links and
+jump to a completely random page, as if getting bored and
+typing a new address. This teleportation keeps the chain
+connected and well behaved, guaranteeing that a single stable
+stationary distribution exists and can be found. The trick of
+adding a little random restart to keep a chain healthy is a
+widely reused idea, and it shows how a small structural
+adjustment can rescue the mathematical guarantees a Markov
+chain needs.
+
+HIDDEN CHAINS AND SAMPLING
+
+Two powerful extensions turn the basic chain into some of the
+most useful machinery in science and technology. The first is
+the hidden Markov model. In many situations the states
+themselves are hidden from you, and all you observe are noisy
+outputs that each state tends to produce. In speech, the
+hidden states might be the sounds a speaker intends, while the
+observations are the messy acoustic signal; in biology, the
+hidden states might be regions of a gene, while the
+observations are the letters of the DNA. A hidden Markov model
+lets you infer the most likely hidden sequence from the
+visible outputs, and an elegant procedure called the Viterbi
+algorithm finds that best path efficiently. This single idea
+underpinned decades of speech recognition and remains central
+to analyzing sequences of every kind.
+
+The second extension runs the logic backward. Normally you
+have a chain and want its stationary distribution; Markov
+chain Monte Carlo flips this, starting with a distribution you
+wish you could sample from but cannot, often a fiendishly
+complicated one from statistics or physics, and cleverly
+designing a chain whose stationary distribution is exactly
+that target. You then simply let the chain wander, and after
+it settles, the states it visits are samples from the
+distribution you wanted. This trick made it possible to do
+Bayesian statistics and to simulate physical systems that were
+previously intractable, and it is one of the most
+consequential computational methods of the last century, all
+resting on the humble fact that a well-built chain forgets
+where it started and converges to a known mix.
+
+Both extensions depend on a quantity the basic story glosses
+over: the mixing time, how long the chain must run before it
+has genuinely forgotten its starting point and reached its
+stationary distribution. A chain can have a perfectly
+well-defined long-run behavior yet take an enormous number of
+steps to get there, and in sampling methods this is the whole
+practical difficulty, because samples taken before the chain
+has mixed are biased by where you began. Judging when a chain
+has truly settled is subtle and sometimes impossible to
+guarantee, which is why mixing time, invisible in the tidy
+theory, dominates the messy practice.
+
+Not every chain wanders forever; some have states you can
+enter but never leave, called absorbing states, and these
+model processes that end. The classic example is the gambler's
+ruin: a gambler bets repeatedly until they either hit a target
+or go broke, and broke and target are both absorbing, states
+the chain stops at. For such chains the interesting questions
+are not long-run proportions but which absorbing state you end
+in and how long you take to get there. The mathematics answers
+both, giving, for instance, the probability a gambler is
+ruined before reaching their goal and the expected number of
+bets until the game ends. The same structure models how long a
+machine runs before failure, how a disease progresses to
+recovery or death, and how a random process reaches any final,
+sticky condition.
+
+A last idea explains why the stationary distribution is so
+often reachable and so often unique. A chain that can
+eventually get from any state to any other, and that does not
+march through its states in a rigid repeating cycle, is called
+ergodic, and ergodic chains are guaranteed to converge to a
+single stationary distribution regardless of where they start.
+Many well-behaved chains also satisfy a stronger, tidier
+condition called detailed balance, in which the flow from each
+state to each other is matched by an equal flow back, so the
+whole system is in a kind of microscopic equilibrium. Detailed
+balance is the property that physicists exploit when they
+design chains to sample from a target distribution, because a
+chain built to satisfy it is guaranteed to settle into exactly
+the distribution they want. These conditions are the fine
+print that separates the chains whose beautiful long-run
+behavior can be trusted from those where it cannot be. They
+are easy to overlook precisely because the headline result,
+convergence to a single stationary distribution, is so clean
+and so convenient, but a chain that quietly violates them will
+mislead anyone who assumes the tidy theory simply applies.
+Checking that a chain can reach everywhere from anywhere, and
+that it does not march through its states in a rigid cycle, is
+the small act of diligence that keeps the powerful machinery
+honest.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is that memorylessness means history
+does not matter or that the process is purely random noise.
+History matters enormously; it is simply all summarized in the
+current state. A Markov chain can have rich, structured,
+highly predictable behavior. Memoryless is a statement about
+where the relevant information lives, in the present rather
+than spread across the past, not a claim that the past had no
+effect.
+
+A second error is forcing the Markov assumption onto processes
+that genuinely depend on long, detailed history in ways no
+reasonable state can capture. If the next outcome truly
+depends on a long and specific sequence of past events, a
+simple Markov model will fit poorly, and no modest enlargement
+of the state will save it. The framework is powerful but not
+universal, and part of using it well is recognizing when the
+memoryless assumption is a reasonable approximation and when
+it is a distortion.
+
+A third error is assuming every chain settles into a unique
+stationary distribution. Chains that are disconnected, that
+split into regions the system cannot move between, or that
+cycle rigidly through states in lockstep may have several
+stationary distributions or none that the chain actually
+converges to. The convergence that makes the stationary
+distribution so useful requires conditions, essentially that
+the chain can eventually get from anywhere to anywhere and
+does not march in a fixed cycle, and ignoring those conditions
+leads to confident but wrong conclusions.
+
+A fourth, subtle error is confusing the stationary
+distribution with a prediction of the next step. The
+stationary distribution describes long-run proportions, where
+the system spends its time over many steps, not where it will
+be tomorrow. In the short run the chain can be far from its
+stationary mix, and how long it takes to settle, the mixing
+time, is a separate and often difficult question that the
+stationary distribution alone does not answer.
+
+WHERE IT CONNECTS
+
+Markov chains connect to information theory, since a source
+that emits symbols with probabilities depending on the
+previous symbol is a Markov source, and its entropy, the true
+information rate, is computed from the chain's transition
+structure. The redundancy that compression exploits and the
+predictability that language models capture both live in these
+transition probabilities.
+
+They connect to queueing theory, whose standard models are
+Markov chains over the number of items in the system, with
+arrivals and departures as transitions, so that the
+waiting-line results flow from Markov analysis. They connect
+to game theory and decision-making through Markov decision
+processes, which add choices and rewards to the states and
+transitions and form the backbone of reinforcement learning,
+the method behind much of modern artificial intelligence. And
+they connect to the broad scientific habit of modeling change
+as movement among states with fixed odds, a stance that turns
+up in physics, chemistry, biology, and economics, and that
+reflects a deep and repeated discovery: that many complicated
+histories can be captured by a well-chosen present and a
+simple rule for what comes next.

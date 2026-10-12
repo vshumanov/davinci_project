@@ -1,0 +1,320 @@
+CONTROL THEORY AND FEEDBACK
+
+WHAT IT IS
+
+Control theory is the study of how to make a system behave the
+way you want by watching what it does and continuously
+correcting it. The central device is the feedback loop:
+measure the thing you care about, compare it to the target,
+and use the difference to drive an action that pushes the
+thing back toward the target. A thermostat is the classic
+example. It measures room temperature, compares it to the
+setting you chose, and switches the heat on when the room is
+too cold and off when it is warm enough. That small loop,
+measure, compare, correct, repeat, is the seed from which the
+entire field grows.
+
+The key distinction is between open-loop and closed-loop
+control. Open-loop control acts without checking the result: a
+toaster runs its heating element for a fixed time whether or
+not the bread is actually done. Closed-loop control measures
+the result and feeds it back to adjust the action, which is
+what makes it robust. The toaster cannot tell that today's
+bread is frozen; a closed-loop toaster that watched the
+browning and stopped when the color was right could. Feedback
+is what lets a system cope with surprises, disturbances, and
+its own imperfections, without anyone having to predict them
+in advance.
+
+The quantity the loop acts on is the error, the gap between
+where you are and where you want to be. Almost everything in
+control theory is about how to turn that error into a
+correcting action, and about what happens to the system as it
+chases the error down. Do it well and the system glides
+smoothly to the target and holds there. Do it badly and the
+same loop that was supposed to stabilize the system can shake
+it to pieces.
+
+WHY IT MATTERS
+
+Feedback control is one of those ideas that, once you see it,
+you cannot stop seeing. It runs your home heating and your
+car's cruise control. It holds aircraft steady, keeps rockets
+pointed the right way, regulates the voltage in the power
+grid, and governs the temperature, pressure, and flow in every
+chemical plant and refinery. It is how a hard drive positions
+its head, how a camera autofocuses, and how a drone hovers in
+a gust of wind. The modern built world is a dense mesh of
+feedback loops silently correcting themselves thousands of
+times a second.
+
+It matters beyond machines, too, because living systems are
+built from feedback. Your body holds its temperature, blood
+sugar, and blood pressure within narrow bands by exactly this
+logic of measure and correct, a process biologists call
+homeostasis. Ecosystems, economies, and social systems are
+full of feedback loops, some stabilizing and some
+destabilizing, and the language of control theory, gain, lag,
+damping, stability, gives you a precise way to talk about why
+some systems settle and others spiral. Learning the mechanism
+once gives you a lens that reaches from engineering into
+biology, economics, and your own habits.
+
+It also matters because it contains a genuinely
+counterintuitive warning. Naive intuition says that if a
+system is not correcting fast enough, you should make it
+correct harder. Control theory shows that cranking up the
+strength of the correction is exactly how a stable system is
+turned into an oscillating or exploding one. The same feedback
+that creates stability creates instability when it is too
+strong or too slow. This is one of the most important and most
+frequently ignored lessons the field has to teach.
+
+THE FEEDBACK LOOP
+
+Picture the loop as a circle of four parts. There is the
+process you are trying to control, sometimes called the plant:
+the room, the car, the rocket. There is a sensor that measures
+the output you care about: the thermometer, the speedometer.
+There is a comparator that subtracts the measurement from the
+setpoint, the target value, to produce the error. And there is
+a controller that turns the error into a command for an
+actuator, the device that actually acts on the process: the
+furnace, the throttle, the rocket's steering. The command
+changes the process, the sensor measures the new output, and
+the loop goes round again.
+
+The reason this arrangement is so powerful is that it does not
+require you to understand or predict the disturbances. A
+cruise control system does not need to know that a hill is
+coming, that the wind has shifted, or that the car is heavier
+today with passengers aboard. It simply notices that the speed
+has dropped below the target and feeds in more throttle until
+the error closes. Any disturbance, foreseen or not, shows up
+as an error, and the loop responds to the error. Feedback
+converts the impossible problem of predicting everything into
+the manageable problem of measuring one thing and reacting to
+it.
+
+The simplest controller is on-off, like a basic thermostat:
+full power when the error is in one direction, nothing when it
+is in the other. This works but tends to overshoot and hunt,
+swinging a little above and below the target forever, because
+it has only two blunt settings. Most real systems need a
+controller that responds in proportion to the error and in a
+more graded way, which is where the three classic terms come
+in.
+
+P, I, AND D
+
+The workhorse of practical control is the PID controller,
+which builds its correction from three ingredients: the
+Proportional, Integral, and Derivative terms. Each looks at
+the error in a different way, and their sum is the command
+sent to the actuator.
+
+The proportional term responds to the error right now. The
+bigger the gap between where you are and where you want to be,
+the harder it pushes. A room ten degrees too cold gets much
+more heat than a room one degree too cold. Proportional action
+alone is fast and intuitive, but it has a flaw: it often
+cannot fully close the gap, settling with a small permanent
+error, because as the error shrinks so does the push, until
+the push is just barely too weak to finish the job.
+
+The integral term responds to the accumulated error over time.
+It adds up how far off you have been and for how long, and
+keeps pushing harder the longer an error persists. This is
+what wipes out the small permanent gap that proportional
+action leaves behind: even a tiny error, if it refuses to go
+away, piles up in the integral until the controller leans in
+hard enough to eliminate it. The cost is that integral action
+is slow and can overshoot, because the accumulated push takes
+time to build and time to unwind.
+
+The derivative term responds to how fast the error is
+changing. If the error is closing rapidly, the derivative term
+eases off early, anticipating that you are about to arrive and
+braking before you overshoot. It is the foresight in the loop,
+damping the tendency to swing past the target. The cost is
+that derivative action amplifies noise, because a jittery
+measurement looks like a rapidly changing error, so it must be
+used with care.
+
+In code the whole thing is startlingly small. On each tick of
+a timer the controller does roughly this:
+
+=====
+    // run once per time step dt
+    error = setpoint - measured;
+    integral = integral + error * dt;
+    derivative = (error - last_error) / dt;
+
+    command = Kp * error
+            + Ki * integral
+            + Kd * derivative;
+
+    last_error = error;
+    send(command);
+=====
+
+The three constants Kp, Ki, and Kd are the gains, the knobs
+you tune to set how strongly each term contributes. Tuning
+them is the real art of applied control. Too little gain and
+the system responds sluggishly and never quite reaches the
+target. Too much and it overshoots and oscillates. The
+derivative gain can calm the oscillation but will amplify any
+noise in the measurement. Whole careers are spent choosing
+these three numbers well for systems where getting them wrong
+means a crashed drone or a ruined batch of product.
+
+WHY SYSTEMS OSCILLATE
+
+The most important behavior to understand is oscillation,
+because it is where feedback turns from friend to enemy.
+Oscillation comes from the interaction of two things: gain,
+how hard the loop pushes for a given error, and lag, the delay
+between acting and seeing the result. When there is a delay in
+the loop, your correction is always based on old information.
+You push to fix an error that may already be closing, so you
+push too far, overshoot to the other side, then correct that
+overshoot based on equally stale information, and overshoot
+again. If each swing is bigger than the last, the system is
+unstable and tears itself apart. If each swing is smaller, it
+is stable and settles down.
+
+A shower with a slow, long pipe is the perfect everyday
+example. You feel the water is too cold, so you turn it
+hotter, but the change takes several seconds to reach you, so
+you keep turning. By the time the hot water arrives it is
+scalding, so you yank it cold, and the cycle repeats. The lag
+between your action and the feedback is what makes you
+oscillate between freezing and burning. The fix is not to
+react harder but to react gentler and to wait for the result,
+in effect lowering the gain and respecting the lag.
+
+James Clerk Maxwell was the first to analyze this
+mathematically, in his 1868 paper On Governors, prompted by
+the flyball governor that James Watt had used to regulate
+steam engines. The governor used spinning weights that flew
+outward as the engine sped up, closing the steam valve, a
+beautiful mechanical feedback loop. But some governors,
+instead of holding a steady speed, would hunt, surging and
+dropping rhythmically. Maxwell showed that whether a governor
+settled or oscillated depended on the equations of the loop,
+specifically on whether certain mathematical roots had the
+right sign, and in doing so he founded control theory as a
+formal subject. The lesson he extracted is the one the field
+keeps relearning: stability is a property of the whole loop,
+not of any single part, and more corrective force is as likely
+to cause instability as to cure it.
+
+FEEDFORWARD AND A FAMOUS COLLAPSE
+
+Feedback is reactive by nature: it waits for an error to
+appear before it corrects. Its complement, feedforward, acts
+in anticipation, using a model of the disturbances you expect
+to correct before the error even forms. A cruise control that
+downshifts the instant it senses the road tilting upward,
+rather than waiting for the speed to sag, is adding
+feedforward. Real controllers often blend the two: feedforward
+handles the predictable disturbances fast, and feedback mops
+up whatever the model failed to foresee. The division of labor
+is a piece of practical wisdom that reaches well beyond
+engineering: predict and prepare for what you can, and keep a
+correcting loop for what you cannot.
+
+The danger of the wrong kind of feedback is written into one
+of engineering's most famous disasters, the collapse of the
+Tacoma Narrows Bridge in 1940. Wind set the slender deck
+twisting, and instead of damping the motion the structure's
+own response reinforced it, each oscillation pumping energy
+into the next. That is positive feedback, and it grew the
+swings until the bridge tore itself apart on a moderately
+windy day. It is a vivid warning that a system's reaction to a
+disturbance can amplify rather than oppose it, and that
+stability can never simply be assumed. The same runaway shape,
+a process feeding on its own output, appears in the squeal of
+a microphone near its speaker, in bank runs, and in the
+thermal runaway that sets a damaged battery alight.
+
+A further subtlety is that adding more sensors and faster,
+harder correction does not always help, because every
+measurement and every actuation carries its own lag and its
+own noise, and aggressive control feeds those back into the
+loop too. Engineers speak of a loop's phase margin, roughly
+how much extra delay it can absorb before corrections arrive
+so late that they reinforce the swings instead of canceling
+them. A well-tuned controller is not the one that reacts
+hardest but the one that reacts just enough, fast enough, to
+stay comfortably inside that margin. This is why tuning is an
+art of restraint, and why bolting a more powerful actuator
+onto an already shaky system usually makes it shake harder
+rather than settle sooner.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is that stronger correction is always
+better. As the shower and the governor show, increasing the
+gain past a point makes the system oscillate and then diverge.
+Stability often requires restraint, acting less aggressively
+and tolerating a slower approach to the target, precisely the
+opposite of the brute-force instinct.
+
+The second is ignoring delay. People reason as if their
+actions take effect instantly and the feedback arrives at
+once. Real loops have lag everywhere: in sensors, in the
+process, in the actuator, in the human in the loop. Delay is
+the hidden cause of most oscillation, and a control strategy
+that would be perfectly stable with instant feedback can
+become violently unstable once you add a lag the designer
+forgot about.
+
+The third is confusing the two kinds of feedback. Negative
+feedback, the stabilizing kind discussed here, pushes the
+system back toward the target and is what control theory
+mostly exploits. Positive feedback pushes in the same
+direction as the deviation, amplifying it, and leads to
+runaway: the screech of a microphone held too close to its own
+speaker, a bank run, a population explosion. Both are called
+feedback, but one seeks equilibrium and the other flees it,
+and mistaking which one you are dealing with leads to badly
+wrong predictions.
+
+A fourth error is forgetting that a controller can only be as
+good as its sensor. If the measurement is wrong, biased,
+noisy, or delayed, the loop will faithfully drive the system
+to satisfy the wrong number. A thermostat with a sensor
+sitting in a sunbeam will keep the rest of the house cold
+while insisting the room is warm. Garbage measurement in,
+confident wrong behavior out.
+
+WHERE IT CONNECTS
+
+Control theory connects to cybernetics, the broader study of
+control and communication in animals and machines, which
+generalized the feedback idea into a framework for
+understanding goal-seeking behavior of any kind, from a guided
+missile to an organism to a company steering toward a target.
+Cybernetics took the engineer's loop and asked what it means
+for a system to have a purpose, and the answer was essentially
+the feedback loop pursuing a setpoint.
+
+It connects to the OODA loop and to troubleshooting, both of
+which are feedback loops wearing different clothes: act,
+observe the result, correct, repeat, with the same
+vulnerability to lag and overcorrection. A person who
+overreacts to the last data point and keeps reversing course
+is oscillating exactly as an over-gained controller does, and
+the remedy, smaller corrections and patience for the result to
+arrive, is the same.
+
+It connects to biology through homeostasis, to economics
+through the stabilizing and destabilizing loops that govern
+prices and employment, and to the design of any
+self-regulating system, including your own habits and
+routines, which succeed or fail largely on whether their
+feedback is timely and proportionate. Once you carry the ideas
+of gain, lag, and stability in your head, you start to see why
+some systems calmly hold their course while others, built from
+the very same impulse to correct, shake themselves apart.

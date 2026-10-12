@@ -1,0 +1,323 @@
+IDEMPOTENCY
+
+WHAT IT IS
+
+An operation is idempotent if doing it many times has the same
+effect as doing it once. Pressing a floor button in an
+elevator is idempotent: push it five times and the elevator
+still goes to that one floor. Setting a thermostat to twenty
+degrees is idempotent: set it five times and the result is the
+same as setting it once. Adding one to a counter is not
+idempotent: do it five times and you have added five. The word
+comes from mathematics, but in computing it has become one of
+the most important practical ideas for building systems that
+survive failure, because it is the property that makes an
+operation safe to repeat.
+
+The reason repetition matters so much is that in any system
+spread across a network, you often cannot tell whether an
+operation you requested actually happened. You send a request
+to charge a credit card, and then the connection drops before
+the reply comes back. Did the charge go through? You genuinely
+do not know. Your only options are to assume it failed and
+retry, risking a double charge, or to assume it succeeded and
+do nothing, risking a charge that never happened. Idempotency
+dissolves this dilemma: if the charge operation is idempotent,
+you can simply retry it, and whether or not the first attempt
+succeeded, the final result is exactly one charge. Safe retry
+is the whole point.
+
+So idempotency is not an obscure mathematical curiosity but
+the foundation of reliability in the face of uncertainty. It
+lets a system say: I am not sure if that worked, so I will do
+it again, confident that redoing it cannot cause harm. In a
+world where messages get lost, duplicated, and delayed, the
+ability to repeat an action without fear is what separates
+robust systems from fragile ones.
+
+WHY IT MATTERS
+
+It matters because networks are fundamentally unreliable, and
+that unreliability cannot be engineered away, only coped with.
+Messages are lost, responses vanish, timeouts fire while the
+work is still proceeding, and the same request sometimes
+arrives twice. In such a world, the only way to guarantee that
+an action happens despite failures is to be willing to retry
+it, and the only way retrying is safe is if the action is
+idempotent. Without idempotency, retrying risks doing the
+thing twice; without retrying, you cannot guarantee it happens
+at all. Idempotency is what makes the two goals, reliability
+and correctness, compatible.
+
+It matters acutely wherever duplicate actions cause real harm.
+Charging a customer twice, shipping two orders, sending an
+email five times, transferring money repeatedly: these are the
+failures that erode trust and cost money, and they arise
+precisely from retries in an unreliable network. Designing the
+critical operations to be idempotent is the standard defense,
+and payment systems, messaging platforms, and order-processing
+pipelines all depend on it. The difference between a system
+that double-charges under load and one that does not is
+usually idempotency.
+
+It matters, finally, as a design discipline that clarifies
+thinking. Asking whether each operation is idempotent, and
+reshaping it so that it is, forces you to confront what
+happens when things go wrong, which is exactly the thinking
+most systems skimp on. An operation designed to be safely
+repeatable is an operation whose failure modes you have
+actually considered, and that consideration pays off every
+time the network misbehaves, which is constantly.
+
+EXACTLY ONCE IS A MIRAGE
+
+The deepest lesson around idempotency is that true
+exactly-once delivery over an unreliable network is
+essentially impossible to guarantee at the messaging level.
+When you send a message and do not get an acknowledgment, you
+cannot distinguish between three cases: the message was lost
+on the way, the message arrived but the work is still
+happening, or the work completed but the acknowledgment was
+lost on the way back. These look identical to the sender, and
+no amount of cleverness in the protocol removes the ambiguity,
+a fact closely related to the classic two generals problem, in
+which two parties can never become perfectly certain they
+agree by exchanging messages that might be lost.
+
+Given this, systems must choose between two honest delivery
+guarantees. At-most-once delivery sends without retrying, so a
+message is never duplicated but may be lost. At-least-once
+delivery retries until acknowledged, so a message is never
+lost but may be duplicated. There is no third option at the
+raw messaging layer; you cannot have both never-lost and
+never-duplicated. Real systems almost always choose
+at-least-once, accepting possible duplicates, because losing
+messages is usually worse than repeating them.
+
+And here is where idempotency earns its central place. If
+delivery is at-least-once, duplicates will happen, so the
+receiver must be built to tolerate them. The practical way to
+achieve the effect everyone actually wants, exactly-once
+processing, is to combine at-least-once delivery, which
+guarantees the action is not lost, with idempotent handling,
+which guarantees that duplicates have no extra effect.
+Exactly-once is not delivered by the network; it is
+manufactured at the destination by making the operation
+idempotent. That synthesis is the quiet engine behind every
+reliable distributed system.
+
+HOW TO MAKE AN OPERATION IDEMPOTENT
+
+Some operations are naturally idempotent. Setting a value to a
+specific state, deleting a particular record, or assigning an
+attribute are all idempotent, because repeating them lands on
+the same final state. The trouble is with operations that
+change state relative to what is there, like add, increment,
+append, or create, since repeating those compounds their
+effect. The engineering task is to turn these relative
+operations into safely repeatable ones.
+
+The standard technique is the idempotency key. The client
+attaches a unique identifier to the request, generated once
+for that intended action, and sends the same identifier on
+every retry of it. The server remembers which identifiers it
+has already processed. When a request arrives, the server
+checks the key: if it has seen it before, it does not perform
+the work again but simply returns the result it recorded the
+first time; if the key is new, it does the work, records the
+outcome against the key, and returns it. In this way, no
+matter how many times the client retries, the operation
+executes exactly once, and every retry gets the same answer.
+
+=====
+    // server side, keyed by idempotency id
+    if seen(key):
+        return stored_result(key)
+
+    result = do_the_work()      // the real action
+    store(key, result)          // remember it
+    return result
+=====
+
+The subtlety is that recording the key and doing the work must
+happen together, as a single atomic step, or a crash between
+them reopens the duplicate. Done correctly, the idempotency
+key converts any operation, even a naturally dangerous one
+like charging a card, into one that is safe to retry forever.
+The client generates a fresh key per payment, retries freely
+on any uncertainty, and the server guarantees one charge. This
+single pattern underlies the retry safety of modern payment
+and ordering systems.
+
+HTTP AND REAL SYSTEMS
+
+The design of the web encodes idempotency directly. In the
+HTTP protocol, certain methods are defined to be idempotent
+and others not. GET, which only reads, is idempotent and safe.
+PUT, which sets a resource to a given state, and DELETE, which
+removes it, are idempotent: repeating them lands on the same
+result. POST, which typically creates a new thing or submits
+an action, is not idempotent, because repeating it tends to
+create duplicates. This is why a browser warns you before
+resubmitting a form, a POST, if you refresh after submitting:
+the protocol knows that repeating it may do the thing twice.
+
+Good interfaces lean on this. They use idempotent methods
+where possible, so that network clients and proxies can safely
+retry, and they add idempotency keys to the operations that
+are inherently unsafe to repeat, like creating a payment. The
+whole machinery of reliable web services, with their retries,
+load balancers, and duplicate requests, rests on getting these
+distinctions right, and a service that ignores idempotency
+will, under real-world load and failure, eventually do
+something twice that it should have done once.
+
+IDEMPOTENCY BEYOND APIS
+
+The same principle quietly organizes the way modern
+infrastructure is managed. Older system administration was a
+sequence of imperative commands, do this, then do that, which
+broke badly when run twice or interrupted halfway. Modern
+tools are declarative instead: you describe the desired end
+state, every server should have this package installed and
+this file present, and the tool compares reality to that
+description and makes only the changes needed to match it.
+Running such a description once or ten times lands on the same
+result, because applying it when everything already matches
+does nothing. This idempotent, declarative style is what makes
+configuration tools and container orchestration reliable,
+since the system can safely re-apply the desired state after
+any failure, interruption, or drift and simply converge.
+
+The idea deepens into the pattern of the reconciler, the
+engine behind systems that keep large clusters running. A
+reconciler runs in a loop, continuously comparing the desired
+state to the actual state and nudging the actual toward the
+desired, and because each step only moves toward the target
+rather than blindly repeating actions, the loop is idempotent
+and self-healing: whatever goes wrong, the next pass just
+measures the gap again and closes it. This is feedback control
+applied to infrastructure, and idempotency is precisely what
+keeps the control loop from doing damage as it fires over and
+over.
+
+Messaging and data systems lean on the same tools. A durable
+message queue typically guarantees at-least-once delivery and
+tracks how far each consumer has read, so a consumer that
+crashes and restarts may reprocess some messages, which is
+harmless only if its processing is idempotent. The common ways
+to achieve that are the idempotency key again, recording which
+message identifiers have already been handled, or designing
+the operation so that reprocessing simply overwrites to the
+same final state. A related trick at the data layer is the
+conditional update, where you attach the version of the record
+you believe you are changing and the write succeeds only if
+that version still holds, so a duplicated or stale retry is
+rejected rather than applied twice. All of these are the
+single idea of safe repetition, reappearing wherever
+unreliable delivery meets the need for correct results.
+
+Money is where the stakes make the idea unmissable. A bank
+transfer or a payment must happen exactly once no matter how
+many times a flaky network causes the request to be retried,
+so financial systems lean hard on idempotency keys and on
+ledgers that record each transaction under a unique
+identifier, refusing to post the same identifier twice. The
+underlying accounting discipline of double-entry bookkeeping
+helps too, because it makes every movement of money a
+balanced, checkable record rather than a bare instruction, so
+duplicates and inconsistencies stand out. When you see a
+payment provider asking for an idempotency key on every charge
+request, you are watching this entire body of theory protect
+your bank balance from the ordinary chaos of the network.
+
+A subtlety worth holding onto is that idempotency is about the
+final state, not about order or interaction. Making one
+operation safe to repeat does not by itself make a whole set
+of operations safe to interleave, because two different
+idempotent operations can still interfere if they run in
+overlapping, unpredictable orders. Setting a value to A is
+idempotent, and setting it to B is idempotent, but retries of
+both, arriving in different orders at different replicas, can
+leave the system in disagreement about whether the value is A
+or B. Robust systems therefore combine idempotency with ways
+of settling order, such as versions, timestamps, or the
+conditional updates described earlier, so that not only is
+each action safe to repeat, but the system as a whole
+converges on one agreed result. Idempotency is a cornerstone
+of reliability, but it is one stone in a larger wall.
+
+Still, it is a foundational stone, and the habit of mind it
+instills reaches well beyond software. Asking of any action
+whether it is safe to repeat, and reshaping it so that it is,
+forces you to confront what happens when things go wrong
+partway through, which is exactly the thinking most plans
+quietly skip. An operation you can retry without fear is an
+operation whose failure you have already thought through, and
+in an uncertain world where messages are lost and steps are
+interrupted, that confidence is worth a great deal. The
+pursuit of idempotency is, in the end, the discipline of
+designing for the retry you know you will eventually need.
+
+WHAT PEOPLE GET WRONG
+
+The first misconception is believing the network can deliver
+exactly once, so that you need not worry about duplicates. It
+cannot, at the messaging level, and systems built on that
+false assumption break under failure. The correct stance is to
+expect duplicates and design to absorb them, because
+at-least-once with idempotent handling is the only honest
+route to exactly-once effects.
+
+A second error is confusing idempotency with safety or with
+having no effect. An idempotent operation can change the
+world; it just reaches the same final state no matter how many
+times it is applied. Deleting a record is idempotent but not
+without effect. Conversely, an operation can be harmless yet
+not idempotent. The property is specifically about repetition
+landing on the same result, nothing more.
+
+A third error is implementing idempotency keys without
+atomicity, so that a crash between doing the work and
+recording the key leaves the system able to repeat the work
+after all. The guarantee holds only if the check, the work,
+and the recording are effectively one indivisible step;
+otherwise the duplicate protection has a gap that failures
+will eventually find. Idempotency done halfway is a false
+sense of security.
+
+A fourth error is forgetting that idempotency often has a time
+and scope boundary. A server cannot remember every key
+forever, so keys usually expire, and a retry arriving after
+the record is forgotten will be treated as new and may
+duplicate the action. Designing the retention window to
+outlast any realistic retry is part of doing it correctly, and
+ignoring this reintroduces exactly the duplicates you tried to
+prevent.
+
+WHERE IT CONNECTS
+
+Idempotency connects directly to the two generals problem and
+the CAP theorem, all three being facets of the same hard
+truth: that coordinating reliably across an unreliable network
+has fundamental limits, and that systems must choose which
+guarantees to relax. Idempotency is the practical tool that
+lets you relax delivery to at-least-once, the cheap and
+achievable guarantee, while still getting correct results, and
+so it is how distributed systems make peace with the
+impossibility of perfect agreement.
+
+It connects to error-correcting codes and to the general theme
+of building reliability on top of unreliable foundations,
+where the strategy is always to expect failure and structure
+the system so that failure is absorbed rather than
+catastrophic. It connects to control systems and retries,
+since a retry loop is a feedback loop seeking confirmation,
+and idempotency is what keeps that loop from causing harm as
+it fires repeatedly. And it connects to a broad principle of
+robust design that reaches well beyond computing: that the
+actions you can safely repeat are the actions you can perform
+with confidence under uncertainty, and that arranging your
+operations so that doing them twice is as good as doing them
+once is one of the surest ways to build something that keeps
+working when the world refuses to behave.

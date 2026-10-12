@@ -1,0 +1,305 @@
+THE OODA LOOP
+
+WHAT IT IS
+
+The OODA loop is a model of how any thinking agent survives in
+a contest against another thinking agent. The letters stand
+for Observe, Orient, Decide, Act, the four stages a person or
+organization cycles through continuously while competing. You
+take in what is happening, you make sense of it, you choose a
+response, and you do it, and then you watch the result and go
+round again. The claim at the center of the idea is simple and
+sharp: in a conflict between two adversaries, the one who can
+run this cycle faster and more accurately, again and again,
+will win, even if the slower side is stronger on paper.
+
+The loop was developed by John Boyd, an American fighter pilot
+and military theorist who lived from 1927 to 1997. Boyd came
+to it from two directions. As a pilot and instructor he had a
+standing bet that he could beat any challenger in simulated
+air combat within forty seconds, and he almost never lost,
+which forced him to ask precisely what he was doing that his
+opponents were not. As a theorist he spent decades building a
+sweeping account of conflict, delivered in a marathon briefing
+called Patterns of Conflict, first given in 1976 and revised
+for years afterward. The OODA loop is the compressed, portable
+core of that much larger body of work. Boyd never wrote it up
+as a book, which is part of why the loop circulates in
+simplified, often distorted forms.
+
+WHY IT MATTERS
+
+The loop matters because it reframes what winning is. Most
+people, asked how to prevail in a fight, a negotiation, a
+market, or a crisis, reach instinctively for strength: more
+force, more resources, a better plan. Boyd's insight was that
+in a live contest against an adversary who is also thinking
+and adapting, the decisive variable is usually not strength
+but tempo, the speed and quality of adaptation. A smaller,
+weaker, poorer side that observes and reorients faster can
+keep the stronger side permanently reacting to a situation
+that has already changed, until the stronger side's actions
+are answers to questions that no longer exist.
+
+It matters, too, because it applies far beyond the cockpit.
+Boyd's framework was adopted into United States Marine Corps
+doctrine as the basis of maneuver warfare, the idea of
+defeating an enemy by shattering their ability to make
+coherent decisions rather than by grinding down their forces.
+But the same structure describes a startup outmaneuvering a
+corporate giant, a trial lawyer controlling the pace of a
+cross-examination, an emergency room team working a crashing
+patient, or a single person staying calm and oriented in a
+dangerous encounter while everyone else freezes. Anywhere two
+or more adaptive parties compete under uncertainty and time
+pressure, the loop is in play.
+
+Finally, it matters because it is honest about uncertainty.
+The loop does not assume you can know everything, plan
+perfectly, and then execute. It assumes the opposite: that
+your picture of the world is always partial and decaying, that
+the situation is changing while you think, and that the right
+response is not a perfect plan but a fast, continuous cycle of
+noticing and adjusting. In a world that rarely holds still
+long enough to be solved, that is a more useful stance than
+the fantasy of the flawless plan.
+
+THE FOUR STAGES
+
+Observe is taking in raw information: what you can see, hear,
+and sense, the reports coming in, the opponent's movements,
+the state of your own side, the unfolding circumstances.
+Observation is never complete and never neutral. You cannot
+see everything, there is always a lag between an event and
+your noticing it, and some of what reaches you is wrong, late,
+or deliberately false. A central lesson of the loop is that
+the quality of your observation sets a ceiling on everything
+after it, so cultivating wide, fast, honest input is
+foundational.
+
+Orient is making sense of what you have observed, and it is
+the stage Boyd considered by far the most important.
+Orientation is where raw observations become a meaningful
+picture, filtered through your prior experience, your
+training, your cultural background, your mental models, and
+your current expectations. Two people can observe the
+identical scene and orient to it completely differently, one
+seeing a threat where the other sees an opportunity, because
+orientation is shaped by everything they each bring to the
+moment. Boyd argued that orientation is not a step you pass
+through once but the thing that silently governs how you
+observe, what options you even consider, and how you act. Get
+orientation wrong and every later stage is wrong with it.
+
+Decide is choosing among the options your orientation has made
+visible. In Boyd's framing a decision is essentially a
+hypothesis: given how I understand the situation, this action
+should produce that result. It is a bet placed under
+uncertainty, not a proof. Because the situation keeps moving,
+a decision held too long goes stale, which is why the loop
+treats decisions as provisional and expects to revise them on
+the next pass rather than defend them to the end.
+
+Act is carrying out the decision, which changes the world and,
+crucially, changes what you and your opponent will observe
+next. Action is also a test: it reveals whether your
+hypothesis was right by producing a result you can observe.
+The loop then closes, because that result feeds straight back
+into the next round of observation, and the cycle begins
+again. The OODA loop is therefore not a straight line from
+input to output but a circle, run over and over, each pass
+updating the one before.
+
+ORIENTATION IS THE HINGE
+
+The popular version of the loop treats all four stages as
+equal links in a chain, and reduces Boyd's idea to the slogan
+that you should be fast. This badly misses his point. Boyd
+drew orientation as the big hub in the middle, with arrows
+running from it to every other stage, because he believed
+orientation controls the whole loop. It determines what you
+bother to observe, what your options look like, and how you
+interpret the feedback from your actions. A side that orients
+well to a confusing situation will out-decide a side that
+merely acts quickly on a mistaken picture.
+
+This is why raw speed is not the real lesson. A loop run at
+high speed on a wrong orientation just produces fast,
+confident errors. What Boyd actually prized was the
+combination: orienting correctly and rapidly, so that your
+fast actions are also right actions, and reorienting faster
+than the enemy when the situation shifts. Speed matters
+because it compounds a good orientation and because it denies
+the enemy the stable picture they need, but speed without
+sound orientation is simply a quicker way to lose.
+
+The deepest move in the whole theory follows from this. If
+orientation governs everything, then the way to defeat an
+adversary is to attack their orientation directly, to feed
+them a situation they cannot make sense of. Present them with
+ambiguous, rapidly changing, contradictory signals, and their
+internal picture of reality comes apart. They observe, but
+cannot orient; they decide, but on a fantasy; they act, but
+always one beat behind a reality that keeps moving. Boyd
+described the goal as generating mismatches faster than the
+enemy can resolve them, until their cohesion collapses from
+the inside. You do not have to destroy a thinking enemy if you
+can make them unable to think.
+
+GETTING INSIDE THE LOOP
+
+Boyd talked about getting inside the opponent's OODA loop, a
+phrase worth unpacking because it is the practical payoff of
+the whole model. If you can complete your own cycle of
+observe, orient, decide, and act in less time than your
+opponent needs for theirs, then by the time they act on their
+picture of the situation, you have already moved and the
+picture is obsolete. Their action lands on empty air. Each
+time this happens, their confidence and coherence erode a
+little more, and they begin to react to you rather than pursue
+their own plan. Keep it up and they spiral into confusion,
+hesitation, and eventually paralysis or panic. This is what
+Boyd meant by folding the enemy back inside himself.
+
+For an individual, getting inside the loop usually means three
+things working together. First, train and prepare so
+thoroughly that your observation and orientation are fast and
+your actions are near automatic, because practiced patterns
+free up precious time and attention under pressure. Second,
+keep your picture of the situation current by seeking
+disconfirming information, not just the information that
+flatters your existing plan, so your orientation tracks
+reality instead of drifting from it. Third, act before you
+feel fully ready, because a timely good-enough action that you
+can correct on the next pass usually beats a perfect action
+that arrives too late. The loop forgives an imperfect
+decision, because you will revisit it almost immediately; it
+does not forgive paralysis.
+
+For an organization, the same logic becomes a lesson about
+decentralization. A team whose every decision must travel up
+to headquarters and back has a long, slow loop, no matter how
+clever headquarters is. A team whose members share a clear
+common intent and are trusted to observe, orient, decide, and
+act on their own authority has many fast loops running in
+parallel. This is the doctrinal heart of maneuver warfare:
+push decision-making down to the people closest to the action,
+bind them with a shared understanding of the goal rather than
+detailed instructions, and you out-tempo a rigid, centralized
+opponent whose orders are always a step behind the front.
+
+TEMPO IN THE REAL WORLD
+
+The example that convinced Boyd lived in the skies over Korea.
+American F-86 Sabre pilots were beating Soviet-built MiG-15s
+by a lopsided margin, even though the MiG could climb higher
+and turn tighter on paper. Boyd's explanation was not raw
+performance but agility of a particular kind. The Sabre gave
+its pilot a bubble canopy with a far better view, feeding
+observation, and hydraulic controls that let him snap from one
+maneuver into the next faster than the MiG pilot could follow,
+even if any single maneuver was slightly worse. By changing
+state quickly, what Boyd called fast transients, the Sabre
+pilot kept presenting the enemy with a new situation before
+the old one had been resolved. He was operating inside the
+other pilot's loop, and the MiG pilot, always responding to a
+reality that had already changed, unraveled.
+
+The same logic drives competition far from any cockpit. A
+small company that ships, measures, and adjusts every week can
+out-learn a giant that plans once a year, even with a fraction
+of the resources, because it completes many more loops in the
+same span and its picture of the market stays fresh while the
+giant's goes stale. Startups call this iteration speed; Boyd
+would call it getting inside the incumbent's loop. The general
+lesson is that in any contest under uncertainty, the rate at
+which you learn and adapt is often a more durable edge than
+any fixed strength, because a strength is a snapshot while
+tempo compounds, pass after pass.
+
+A caution rides with this, and it is the same one that haunts
+the whole model. Tempo is a means, not an end, and speed that
+outruns your own orientation is merely fast error. The Sabre
+pilots won because their quick transitions were guided by
+better observation and judgment, not instead of them. An
+organization that mistakes frantic motion for tempo,
+reorganizing constantly, lurching at every signal, churning
+decisions for their own sake, generates activity without
+advantage and wears itself out. Real tempo is the speed of
+completing good loops, observation through action and back to
+observation, not the speed of thrashing.
+
+WHAT PEOPLE GET WRONG
+
+The most common error is to treat the loop as a four-box
+flowchart and to think its only message is go faster. Boyd's
+own diagram is not a simple circle of four equal steps; it is
+dominated by orientation, which feeds and shapes all the
+others. Reducing the loop to a speed contest throws away its
+real content, which is about the quality of understanding, not
+just the pace of action.
+
+A second error is imagining the stages happen strictly one at
+a time in a tidy sequence. In reality they overlap and run
+continuously. You are observing while you act, reorienting
+while you decide, and experienced operators often seem to skip
+straight from a well-trained orientation to action, because
+their preparation has made the intermediate steps nearly
+instant. The loop is a way of describing a continuous, braided
+process, not a set of discrete gates you pass through in
+order.
+
+A third error is applying the loop where there is no adaptive
+adversary. The OODA loop is a model of conflict against
+another thinking, reacting agent. For a problem with a fixed,
+indifferent structure, such as a math problem or a mechanical
+failure, careful analysis usually beats frantic cycling, and
+the loop's emphasis on tempo can actively mislead. The loop
+earns its keep precisely when the other side is also observing
+and adapting to you.
+
+A fourth, subtle error is forgetting that your own orientation
+can be attacked. People love the idea of getting inside
+someone else's loop and rarely ask whether they are the one
+being folded back on themselves. A flood of alarming,
+contradictory, fast-moving information, whether from an enemy,
+a market, or a manipulative headline, is an attack on your
+orientation, designed to make you observe and react without
+ever forming a true picture. The defense is to slow down
+internally even as events speed up, to protect a stable,
+honest orientation, and to refuse to act on a picture you have
+not actually formed.
+
+WHERE IT CONNECTS
+
+The loop connects directly to situational awareness, which is
+essentially the quality of the observe and orient stages:
+perceiving the elements in your environment, understanding
+what they mean, and projecting what they will do next. A
+person with strong situational awareness has a fast, accurate
+orientation to draw on, which is the fuel the rest of the loop
+runs on. The two ideas are two views of the same underlying
+skill.
+
+It connects to feedback and control, because the OODA loop is
+a feedback loop in the engineering sense: act, observe the
+result, correct, repeat. The same mathematics that governs
+whether a thermostat settles smoothly or oscillates wildly has
+an analog here, in whether your cycle of action and correction
+converges on the situation or chases it in ever-widening
+swings. A loop with too much lag, acting on stale
+observations, overshoots and destabilizes, exactly as a
+control system does.
+
+It connects to deception and intelligence tradecraft, because
+attacking an adversary's orientation is precisely what
+disinformation and military deception aim to do: not merely to
+hide the truth but to build a false, confident picture in the
+opponent's mind that makes their own decisions serve your
+ends. And it connects to the everyday discipline of thinking
+well under pressure, because the loop is, in the end, a
+reminder that your model of the world is always provisional,
+always decaying, and always worth checking against the next
+thing you observe. The person who holds their picture loosely
+and updates it fast tends to beat the person who clings to a
+plan while the world moves on.

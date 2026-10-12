@@ -1,0 +1,349 @@
+RADIO AND THE ELECTROMAGNETIC SPECTRUM
+
+WHAT IT IS
+
+Radio is the trick of sending information without a wire, by
+shaking electricity so fast that the disturbance tears loose
+from the antenna and flies off on its own. That flying
+disturbance is a radio wave, and a radio wave is nothing more
+exotic than light. It is the same stuff as the glow from a
+lamp or the warmth from a fire, only vibrating far more
+slowly. The whole family, from radio up through microwaves,
+infrared, visible light, ultraviolet, X-rays, and gamma rays,
+is one single thing called the electromagnetic spectrum. They
+differ only in how fast they wiggle.
+
+An electromagnetic wave is a self-sustaining ripple in two
+fields that fill all of space: the electric field and the
+magnetic field. The deep fact, worked out by James Clerk
+Maxwell in the 1860s, is that these two fields feed each
+other. A changing electric field creates a magnetic field, and
+a changing magnetic field creates an electric field. Once you
+get them going in step, each one keeps regenerating the other,
+and the pattern rolls forward through empty space at a single
+fixed speed: the speed of light, about 300,000 kilometers per
+second. Light does not need a medium to travel through. It
+carries its own medium with it, woven out of the two fields.
+
+Maxwell predicted these waves on paper before anyone had made
+one. In 1887 Heinrich Hertz built a spark gap in his
+laboratory and detected the invisible waves jumping across the
+room to a loop of wire a few meters away, confirming Maxwell
+was right. Asked what use it was, Hertz is said to have
+answered that it was of no use at all, just an experiment to
+prove the great Maxwell right. Within a decade Guglielmo
+Marconi had turned that useless curiosity into a business, and
+in 1901 claimed to have received the letter S, three dots in
+Morse, sent across the Atlantic from Cornwall to Newfoundland.
+The jump from Hertz's bench to a global nervous system took
+about fifteen years, which is worth remembering whenever a new
+physics result looks like it does nothing.
+
+The early history also teaches the first hard lesson of the
+spectrum, that it is shared whether you like it or not. In the
+sinking of the Titanic in 1912, nearby ships missed or garbled
+distress calls amid a chaos of amateur and commercial signals
+stepping on each other, and the disaster spurred the first
+serious international radio regulation: assigned frequencies,
+licensed operators, and a protected distress channel. Spectrum
+law was born from a collision of invisible waves, and the
+basic principle has not changed since. Because every
+transmitter broadcasts into the same commons, the only way to
+keep order is to agree, in advance and by force of law, who
+may use which frequency, where, and how loudly.
+
+WHY IT MATTERS
+
+Almost every wireless thing you touch is radio wearing a
+costume. Broadcast radio and television, mobile phones, Wi-Fi,
+Bluetooth, GPS, garage remotes, baby monitors, car key fobs,
+radar, satellite links, and the signals that let a Mars rover
+talk to Earth are all the same physics: shake electrons,
+launch a wave, catch it somewhere else, read the shaking back
+out. Understanding radio once means you understand the hidden
+layer underneath nearly all modern communication at the same
+time.
+
+It also matters because the spectrum is a finite, shared, and
+fiercely contested resource. You cannot make more of it, you
+can only divide up what exists, and two strong signals on the
+same frequency in the same place will clobber each other. This
+is why governments auction slices of spectrum for billions,
+why your Wi-Fi slows down in a crowded apartment block, and
+why the military and emergency services guard their
+frequencies so jealously. The spectrum is real estate that
+nobody can see, and the law treats it exactly like land.
+
+For anyone interested in self-reliance or communications
+security, radio is foundational. It is the one communication
+method that needs no infrastructure: no towers, no cables, no
+company, no permission. A transmitter, a battery, and a wire
+antenna can reach across a continent when every other network
+is down. That independence is also its weakness, which is the
+theme that runs through the whole subject: a radio wave goes
+everywhere, so anyone with a receiver can hear it. Privacy on
+the radio is never a property of the wave. It has to be added
+on top.
+
+THE CORE MECHANISM
+
+Start with a single wave. It has two numbers that matter. The
+first is frequency: how many times per second the fields swing
+back and forth, measured in hertz. One kilohertz is a thousand
+swings per second, one megahertz is a million, one gigahertz
+is a billion. The second is wavelength: the physical distance
+the wave covers in one full swing. These two are locked
+together by the speed of light. Multiply frequency by
+wavelength and you always get the speed of light. So a high
+frequency means a short wavelength, and a low frequency means
+a long one. A handy rule: wavelength in meters is about 300
+divided by the frequency in megahertz. An FM station at 100
+megahertz has a wavelength of about three meters. A phone at
+2,400 megahertz has a wavelength of about 12 centimeters.
+
+A plain, steady wave at one frequency carries no information.
+It is a pure tone, the same forever, saying nothing. This bare
+wave is called the carrier. To send a message you have to
+disturb the carrier in a pattern that matches your
+information. That deliberate disturbing is called modulation,
+and it is the heart of radio.
+
+There are two classic ways to modulate. In amplitude
+modulation, AM, you make the carrier stronger and weaker in
+time with the signal. The frequency stays fixed, but the
+height of the wave, its amplitude, traces out the shape of the
+sound. In frequency modulation, FM, you leave the strength
+alone and nudge the frequency itself slightly up and down
+around the carrier in time with the signal. AM is simpler and
+travels farther but picks up noise, because most electrical
+noise shows up as changes in amplitude, and the receiver
+cannot tell your amplitude changes from the lightning's. FM
+ignores amplitude entirely, so it shrugs off that noise and
+sounds cleaner, at the cost of needing more spectrum and
+shorter range. That single trade is why distant stations on a
+car radio are usually AM and the clear local music station is
+FM.
+
+Modern digital radio modulates in subtler ways, but the idea
+is identical: encode your information as a deliberate pattern
+of change imposed on a clean carrier. Phones and Wi-Fi shift
+the carrier between a set of defined states, each state
+standing for a cluster of bits, thousands or millions of times
+per second. A scheme that uses four distinct phases of the
+wave can send two bits per state; one that uses sixty-four
+combinations of amplitude and phase sends six bits per state.
+The receiver watches the carrier, reads off which state it is
+in at each instant, and reassembles the bits. The physics
+underneath is still Maxwell's two fields; only the alphabet
+has changed.
+
+It helps to follow one concrete message through. Suppose you
+want to broadcast a voice. A microphone turns the pressure
+waves of your speech into a wobbling electrical signal, a few
+thousand hertz wide, far too sluggish to radiate from any
+reasonable antenna on its own. So you take a fast carrier, say
+one megahertz, and in an AM transmitter you use the voice
+signal to control the carrier's strength moment by moment. The
+result is a one megahertz wave whose envelope, the outline
+traced by its peaks, is a copy of your voice. That wave
+radiates easily. At the far end the receiver tunes to one
+megahertz, throws away the fast carrier, and keeps only the
+envelope, which is your voice again. The carrier was never the
+message; it was the vehicle the message rode on.
+
+This introduces the single most important budget in all of
+radio: bandwidth. A signal that changes quickly, or carries a
+lot of detail, needs a range of frequencies around the
+carrier, not just the carrier alone, and the faster the
+information the wider that range. A voice needs only a few
+kilohertz; a music station needs more; a television picture or
+a fast data link needs megahertz. Bandwidth is the width of
+the lane your signal occupies on the spectrum highway, and
+because the highway is shared, your lane is both precious and
+regulated. This is why an AM voice station and a
+high-definition video stream are such different citizens of
+the spectrum: they are not louder or quieter, they are narrow
+or wide.
+
+Now the antenna. An antenna is the organ that converts between
+electricity trapped in a wire and waves free in space. When
+you drive an alternating current up and down a conductor, the
+accelerating electrons fling out an electromagnetic wave. Run
+the process backward and an incoming wave pushes the electrons
+in a nearby conductor into a faint matching current, which the
+receiver amplifies and decodes. Transmitting and receiving are
+the same event seen from two ends.
+
+An antenna by itself hears everything at once: every station,
+every frequency, all piled together as one messy current. The
+receiver's next job is to pick out the one wave you want and
+ignore the thousands you do not. It does this with resonance,
+the same effect that lets a wine glass ring at one pitch. A
+simple circuit of a coil and a capacitor has a natural
+frequency at which it responds strongly and rejects everything
+else, and turning the tuning knob on an old radio physically
+changes that circuit so its resonant frequency slides across
+the band. When it lands on a station's carrier, that signal
+rings loudly in the circuit while its neighbors stay faint,
+and the receiver can then strip off the carrier and recover
+the message. Tuning is not searching through the air; the
+whole band is always present at the antenna. Tuning is
+choosing which part of it to listen to.
+
+Antennas work best when their size matches the wave. The
+electrons need room to slosh from end to end in step with the
+wave's swing, so the most common antenna, the half-wave
+dipole, is built to be half a wavelength long. In practice it
+is cut about five percent shorter than the exact half
+wavelength, because the wave travels a touch slower along a
+real wire than through open space. This is why antennas for
+different services are such different sizes. An AM broadcast
+antenna at a wavelength of hundreds of meters has to be a tall
+mast. An FM whip is about a meter. A 2.4 gigahertz Wi-Fi
+antenna is a stub a few centimeters long, which is why it can
+hide inside a laptop lid. If you ever wondered why old car
+radios needed a long aerial and your phone needs none, the
+answer is simply the wavelength it listens to.
+
+THE SPECTRUM AS A MAP
+
+The reason we carve the spectrum into named bands is that
+frequency decides behavior. The same transmitter power does
+completely different things at different frequencies, because
+the wavelength governs how the wave interacts with the ground,
+the air, buildings, and the ionosphere.
+
+Very low and low frequencies, with wavelengths of kilometers,
+hug the curve of the Earth and even penetrate seawater a short
+distance, which is why navies use them to reach submarines.
+They carry almost no data, because the slow wiggle leaves
+little room to encode anything, but they are reliable and
+global.
+
+Medium frequencies, the AM broadcast band, travel along the
+ground by day and bounce off the ionosphere by night. This is
+the reason a local AM station you can barely get at noon comes
+booming in after dark from a city hundreds of miles away. The
+sun changes the upper atmosphere, and the atmosphere changes
+the radio.
+
+High frequencies, the shortwave band, are the long-distance
+workhorse of radio without infrastructure. They reflect off
+the ionosphere like a stone skipping on water, bouncing
+between sky and ground to leap across oceans with modest
+power. This is the band of international broadcasters, ham
+operators chatting across the planet, and anyone who needs to
+reach far with a wire and a battery. The catch is that the
+ionosphere is moody. Which frequencies work depends on the
+time of day, the season, and the eleven-year cycle of
+sunspots.
+
+Very high and ultra high frequencies, where FM radio,
+television, Wi-Fi, and phones live, mostly travel in straight
+lines and do not bend far around the horizon or bounce off the
+sky. Their range is roughly line of sight, which is why FM and
+TV need tall towers and why your phone relies on a dense grid
+of cell sites rather than one giant transmitter. In exchange
+for short range you get enormous capacity, because the fast
+wiggle has room to carry huge amounts of data.
+
+Higher still, in the microwave and millimeter bands, you get
+radar, satellite links, and the fastest mobile data, with
+antennas that can be small dishes focusing the energy into a
+tight beam. The very highest bands carry the most data but are
+stopped by rain, leaves, and even air, so they reach only
+short distances. The pattern across the whole spectrum is a
+single trade, repeated at every scale: lower frequency means
+longer reach and less data, higher frequency means shorter
+reach and more data. Everything else is detail.
+
+WHAT PEOPLE GET WRONG
+
+The first mistake is imagining radio waves as something that
+flies through the air the way sound does, needing air to carry
+it. Radio is not sound and does not need air. It is light, and
+it crosses the vacuum of space perfectly well. Sound is a
+pressure wave in matter, moving about a million times slower;
+radio is a wave in the electromagnetic field itself. A radio
+converts between the two: it catches a light-speed
+electromagnetic wave and uses it to drive a speaker that makes
+slow pressure waves your ears can hear. Confusing the two is
+the root of most muddled thinking about radio.
+
+The second mistake is thinking a stronger transmitter is
+always the answer to a weak signal. Beyond a point, raising
+power helps little, because what limits most links is not your
+signal's strength but the noise and the obstacles. Doubling
+power might extend range by a small fraction, while a better
+antenna, a clearer line of sight, a lower frequency, or a
+slower data rate can transform the link. Radio engineering is
+mostly about the ratio of signal to noise, not the raw size of
+the signal.
+
+The third mistake is assuming a radio signal is private
+because it is invisible and technical. The opposite is true. A
+radio wave sprays out in all directions and anyone within
+reach who tunes to your frequency can receive it, with no
+trace left on your end. Early wireless operators learned this
+the hard way in wartime. If you want a radio message to stay
+secret, you must encrypt the content before it is transmitted,
+because the transmission itself is a public broadcast.
+Invisibility is not secrecy.
+
+A fourth, subtler error is believing that frequencies are just
+labels we could rearrange at will. They are not arbitrary. The
+physics of a given frequency, how it bends, penetrates, and
+reflects, is fixed by nature. You cannot decide that a 100
+megahertz signal should reach submarines or that a Wi-Fi band
+should bounce off the ionosphere. The map of the spectrum
+reflects real physical behavior, which is why the useful low
+bands are so crowded and valuable.
+
+WHERE IT CONNECTS
+
+Radio is the physical layer under a great deal of what you
+already know. The information you impress on a carrier is
+measured and limited by the ideas in information theory: a
+channel of a given bandwidth and a given signal-to-noise ratio
+can carry only so many bits per second, no matter how clever
+your modulation, a hard ceiling named for Claude Shannon. That
+is why higher frequencies, with more bandwidth to spare, can
+carry more data.
+
+Because every real radio channel is noisy, the bits you send
+across it need protection, which is the job of
+error-correcting codes: extra structure added to the message
+so the receiver can detect and repair the damage the channel
+inflicts, rather than asking for everything to be sent again.
+Deep-space probes, digital television, and your phone all lean
+on these codes to pull a clean message out of a faint,
+battered signal. Radio and error correction are two halves of
+one problem.
+
+Radio is also the backbone of communication when everything
+else fails, which ties it directly to self-reliance. An
+amateur operator with a modest transmitter, a wire strung
+between two trees, and a car battery can bounce a shortwave
+signal off the ionosphere and hold a conversation with someone
+on the far side of the planet, no network, no company, no
+permission beyond a license. In disasters, when cell towers
+are dead and the internet is gone, it is often ham radio that
+carries the first word out. Learning radio is learning the one
+communication channel that no infrastructure owns, which is
+exactly why it is prized by those who plan for the day the
+infrastructure is not there.
+
+Radio connects to navigation through GPS, which is simply a
+set of faint radio signals from satellites carrying extremely
+precise timestamps, from which a receiver works out its
+distance to each satellite and therefore its position. It
+connects to security and tradecraft because a transmitter
+reveals its own location to anyone who can take bearings on
+it, making radio silence and short, infrequent transmissions
+survival skills in hostile environments. And it connects back
+to the oldest human questions about light itself, because once
+you understand that radio and visible light are the same
+phenomenon at different frequencies, you understand that your
+eyes are simply antennas tuned to one narrow, bright octave of
+a spectrum that stretches, invisible, in both directions
+without end.
